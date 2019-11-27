@@ -22,9 +22,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
        
         <div class="card">
             <div class="card-header">
-                <h4 class="card-title">List of Broadcast
+                <h4 class="card-title">List of Car
                 <a class="heading-elements-toggle"><i class="icon-ellipsis font-medium-3"></i></a>
-                <a href="<?php echo base_url();?>broadcast/add_broadcast/" class="btn btn-black" style="float:right">Add broadcast</a>
+                <a href="<?php echo base_url();?>car/Caradd" class="btn btn-black" style="float:right">Add Car</a>
                 </h4>
             </div>
             <div class="card-body collapse in">
@@ -32,10 +32,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <table id="example" class="table">
                         <thead class="thead-inverse">
                             <tr>
-                                <th>Sr. No</th>
-                                <th>Broadcast Title</th>                              
-                                <th>Broadcast Image</th>
-                                <th>Broadcast Status</th>
+                                <th>Sr No</th>
+                                <th>Name</th>                              
+                                <th>Number of Seats</th>
+                                <th>Air Condition</th>
+                                <th>Car Number</th>
+								<th>IsActive</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -47,18 +49,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 {
                             ?>
                             <tr>
-                            
                                     <td><?php echo $i; ?></td>
-                                    <td><?php echo $row->broadcast_title; ?></td>
-                                   
-                                    <td><?php  if($row->broadcast_image){ ?>
-                                         <input type="hidden" name="broadcastimage" id="broadcastimage" value="<?php echo $row->broadcast_image;?>">
-                                          <img id="blahlogo" src="<?php echo base_url()?>upload/broadcastimage/<?php echo $row->broadcast_image;?>" class="img-thumbnail border-0" style="display: block;  width: 50px; height: 50px;">
-                                        <?php }else { echo "N/A" ?>
-                                          
-                                        <?php } ?>
-                                         </td>
-                                  
+                                    <td><?php echo $row->CarName; ?></td>
+                                    <td><?php echo $row->NumberOfSeat; ?></td>
+                                    <td><?php echo $row->AirCondition; ?></td>
+                                    <td><?php echo $row->CarNumber; ?></td>
                                     <td>
                                         <?php if($row->IsActive=="Active")
                                             {
@@ -72,8 +67,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                         ?>
                                     </td>
                                     <td>
-                                        <?php echo anchor('broadcast/edit_broadcast/'.$row->broadcast_id,'<i class="ficon icon-pencil2"></i>'); ?>
-                                        <a href="javascript:void(0)"  onclick="deletedata('<?php echo $row->broadcast_id; ?>','<?php  echo $row->broadcast_image; ?>')" ><i class="ficon icon-bin"></i></a>    
+                                        <?php echo anchor('Car/Editcar/'.$row->CarId,'<i class="ficon icon-pencil2"></i>'); ?>
+                                        <a onclick="deletedata('<?php echo $row->CarId; ?>')" ><i class="ficon icon-bin"></i></a>    
                                     </td>  
                                 </tr>      
                                 <?php
@@ -116,9 +111,6 @@ $this->load->view('common/footer');
 ?>
 
 <script>
-    $(document).ready(function() {
-    $('#example').DataTable();
-} );
 $(function() { 
     setTimeout(function() {
   $('#successMessage').fadeOut('fast');
@@ -126,20 +118,18 @@ $(function() {
    
 });
 
-function deletedata(id,image){  
+function deletedata(CarId){  
     $('#myModal').modal('show');
-   //alert(image);
+  // alert(id);
         $('#yes_btn').click(function(){
-           
-                url="<?php echo base_url();?>broadcast/broadcast_delete/";
-               // alert(url);
+                url="<?php echo base_url();?>Car/car_delete/";
                 $.ajax({
                 url: url,
                 type: "post",
-                data: {id:id,broadcastimage:image} ,
+                data: {CarId:CarId} ,
                 success: function (response) {   
                     console.log(response);  
-                   // return false; 
+                    return false;        
                 //document.location.href = url+'project/projectlist';                  
 
             },

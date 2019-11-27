@@ -55,22 +55,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 									</script>
 								</div>
 
-								<div class="form-group">
-									<label>Testimonial Image</label>
-									<p><span class="btn btn-black btn-file">
-									<input type="hidden" name="pre_testimonial" value="<?php echo $TestimonialImage; ?>">
-									Upload Testimonial image<input type="file" name="TestimonialImage" id="TestimonialImage" onchange="readURLimg(this);">
-									</span></p>									
-									<span id="logoerrorimg"></span>
-								</div>
-								<div class="preview">									
-									<?php if($TestimonialImage){ ?>
-									<img id="blahimg" src="<?php echo base_url()?>upload/testimonialimages/<?php echo $TestimonialImage; ?>" class="img-thumbnail border-0" style="display: block;  width: 100px; height: 100px;">
-									<?php } else { ?>
-									<img id="blahimg" src="" class="img-thumbnail border-0" style="display: none;  width: 100px; height: 100px;">
-									<?php } ?>
-								</div>
-
 												
 								<?php  if($IsActive!=''){ ?>                                
 								<div class="form-group">
@@ -137,103 +121,30 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 $(document).ready(function()
 {
-	$.validator.addMethod('dimention', function(value, element, param) {
-    if(element.files.length == 0){
-        return true;
-    }
-    console.log(value);
-
-    var width = $(element).data('imageWidth');
-     console.log(width);
-
-
-    var height = $(element).data('imageHeight');
-     
-    if(width == param[0] && height == param[1]){
-        return true;
-    }else{
-        return false;
-    }
-},'Please upload an image with 110 x 110 pixels dimension');
-	$.validator.addMethod('filesize', function (value, element, param) {
-	return this.optional(element) || (element.files[0].size <= param)
-	} ,'File size must be equal to or less then 2MB');
-	$("#form_valid").validate(
-	{
-		ignore: []  ,
-		rules:
-		{
-			TestimonialImage:
-			{
-				required:function(){
-					testimonial_image='<?php echo $TestimonialImage; ?>';
-                   if(testimonial_image){
-                    	return false;
-                   }else{
-               			return true;
-                   }
-
-				},
-				extension: "JPG|jpeg|png|bmp",
-				//filesize: 2097152,  
-				//dimention:[110,110]
-			},
-			project_id:
-			{
-				required: true,
-			},
-			spectitle:
-			{
-				required: true,
-			},
-			specdesc:
-			{
-				required: true,
-			},
-			IsActive:
-			{
-				required: true,
-			},
-		},
-		 errorPlacement: function (error, element) {
-            console.log('dd', element.attr("name"))
-            if (element.attr("name") == "TestimonialImage") {
-                error.appendTo("#logoerrorimg");
-            } else{
-                  error.insertAfter(element)
-            }
-        }
-    
+       $('#form_valid').validate({
+			rules: {
+				FirstName:{              
+					required: true,                
+				}, 
+				LastName:{              
+					required: true,                
+				},  
 							
-	});
+			 }, 
+    });
 });
-
 
  //CKEDITOR.replace('editor1');
 
- function readURLimg(input) {
-    if(input.files && input.files[0]) {
-        var reader = new FileReader();
-        reader.onload = function (e) {
-            $('#blahimg').css('display', 'block');
-            $('#blahimg').attr('src', e.target.result);
-        };
-     reader.readAsDataURL(input.files[0]);
-    }
-}
+ function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $('#blah').css('display', 'block');
+                    $('#blah').attr('src', e.target.result);
+                };
+             reader.readAsDataURL(input.files[0]);
+            }
+        }		                
 
-$('#TestimonialImage').change(function() {
-    $('#TestimonialImage').removeData('imageWidth');
-    $('#TestimonialImage').removeData('imageHeight');
-    var file = this.files[0];
-    var tmpImg = new Image();
-    tmpImg.src=window.URL.createObjectURL( file ); 
-    tmpImg.onload = function() {
-        width = tmpImg.naturalWidth,
-        height = tmpImg.naturalHeight;
-        $('#TestimonialImage').data('imageWidth', width);
-        $('#TestimonialImage').data('imageHeight', height);
-    }
-});
-    
 </script>

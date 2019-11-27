@@ -35,7 +35,7 @@
 
           <li class="nav-item <?php echo($activeTab == "aboutusadd"||$activeTab =="aboutuslist") ? "open" : ""; ?>">
             <a class="<?php echo ($activeTab == "aboutusadd" || $activeTab == "aboutuslist") ? "active" : ""; ?>">
-              <i class="icon-tasks"></i><span data-i18n="nav.dash.main" class="menu-title">About Us</span>
+              <i class="icon-info-circle"></i><span data-i18n="nav.dash.main" class="menu-title">About Us</span>
             </a>
             <ul class="menu-content">
               <li>
@@ -48,9 +48,23 @@
             </ul>
           </li> 
 
+          <li class="nav-item <?php echo($activeTab == "caradd"||$activeTab =="carlist") ? "open" : ""; ?>">
+            <a class="<?php echo ($activeTab == "caradd" || $activeTab == "carlist") ? "active" : ""; ?>">
+              <i class="icon-car"></i><span data-i18n="nav.dash.main" class="menu-title">Car</span>
+            </a>
+            <ul class="menu-content">
+              <li>
+                  <a href="<?php echo base_url(); ?>car/caradd" data-i18n="nav.dash.main" class="menu-item <?php echo ($activeTab == "caradd") ? "active" : ""; ?>"><i class="icon-plus"></i>Add Car</a>
+              </li>
+              <li>
+                <a href="<?php echo base_url(); ?>car/carlist" data-i18n="nav.dash.main" class="menu-item <?php echo ($activeTab == "carlist") ? "active" : ""; ?>"><i class="icon-file-text2"></i>List of Car</a>
+              </li>
+            </ul>
+          </li> 
+
           <li class="nav-item <?php echo($activeTab == "contactadd"||$activeTab =="contactlist") ? "open" : ""; ?>">
             <a class="<?php echo ($activeTab == "contactadd" || $activeTab == "contactlist") ? "active" : ""; ?>">
-              <i class="icon-tasks"></i><span data-i18n="nav.dash.main" class="menu-title">Contact Us</span>
+              <i class="icon-address-book"></i><span data-i18n="nav.dash.main" class="menu-title">Contact Us</span>
             </a>
             <ul class="menu-content">
               <!-- <li>
@@ -78,12 +92,12 @@
 
           <li class="nav-item <?php echo $activeTab =="sitesettinglist" ? "open" : ""; ?>">
             <a class="<?php echo  $activeTab == "sitesettinglist" ? "active" : ""; ?>">
-              <i class="icon-tasks"></i><span data-i18n="nav.dash.main" class="menu-title">Site Setting</span>
+              <i class="icon-cog"></i><span data-i18n="nav.dash.main" class="menu-title">Site Setting</span>
             </a>
             <ul class="menu-content">
              
               <li>
-                <a href="<?php echo base_url(); ?>Home/Sitesetting" data-i18n="nav.dash.main" class="menu-item <?php echo ($activeTab == "sitesettinglist") ? "active" : ""; ?>"><i class="icon-file-text2"></i>List of Sitesetting </a>
+                <a href="<?php echo base_url(); ?>home/Sitesetting" data-i18n="nav.dash.main" class="menu-item <?php echo ($activeTab == "sitesettinglist") ? "active" : ""; ?>"><i class="icon-file-text2"></i>List of Sitesetting </a>
               </li>
             </ul>
           </li> 

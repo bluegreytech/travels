@@ -3,6 +3,31 @@
 class Login_model extends CI_Model
  {
    
+    function get_sitedata()
+    {
+      $this->db->select("*");
+      $this->db->from("tblsitesetting");
+      $this->db->where("SettingId",1);
+      $query=$this->db->get();
+      return $query->row_array();
+    }
+
+    function sitesetting_update()
+    {
+        $SettingId=$this->input->post('SettingId');
+        $data = array(
+          'FullName' =>trim($this->input->post('FullName')),			
+          'SiteName' => trim($this->input->post('SiteName')),	
+          'SiteEmail' => $this->input->post('SiteEmail'),	
+          'SiteContactNumber' => trim($this->input->post('SiteContactNumber')),	
+          'OfficeAddress' => $this->input->post('OfficeAddress'),			
+          'OfficeTime' => $this->input->post('OfficeTime'),
+          ); 
+        //print_r($data);die;
+        $this->db->where("SettingId",$SettingId);
+        $res=$this->db->update('tblsitesetting',$data);		
+        return $res;
+	}
 
     function updatePassword()
     {

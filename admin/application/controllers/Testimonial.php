@@ -33,6 +33,7 @@ class Testimonial extends CI_Controller {
 		$data['FirstName']=$this->input->post('FirstName');
 		$data['LastName']=$this->input->post('LastName');
 		$data['TetimonialDescription']=$this->input->post('TetimonialDescription');
+		$data['TestimonialImage']=$this->input->post('TestimonialImage');
 		$data['IsActive']=$this->input->post('IsActive');
 
 		if($_POST)
@@ -67,7 +68,8 @@ class Testimonial extends CI_Controller {
 			$data['TestimonialId']=$result['TestimonialId'];
 			$data['FirstName']=$result['FirstName'];
 			$data['LastName']=$result['LastName'];	
-			$data['TetimonialDescription']=$result['TetimonialDescription'];		
+			$data['TetimonialDescription']=$result['TetimonialDescription'];
+			$data['TestimonialImage']=$result['TestimonialImage'];		
 			$data['IsActive']=$result['IsActive'];	
 			//echo "<pre>";print_r($data);die;	
 			$data['activeTab']="testimonialadd";	

@@ -12,91 +12,72 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <section id="basic-form-layouts">
 	<div class="row match-height">
 		<div class="col-md-12">
+				<?php if(($this->session->flashdata('success'))){ ?>
+					<div class="alert alert-success" id="successMessage">
+					<strong> <?php echo $this->session->flashdata('success'); ?></strong> 
+					</div>
+				<?php } ?>
 			<div class="card">
 				<div class="card-header">
 					<h4 class="card-title" id="basic-layout-form">
-					<?php if($TestimonialId==1)
+					<?php if($SettingId==1)
 					{
-						echo	"Edit Testimonial";
+						echo	"Edit Site Setting";
 					}
-					else{
-					echo	"Add Testimonial";
+					else
+					{
+						echo	"Add Site Setting";
 					}
 					?>
 					<a class="heading-elements-toggle"><i class="icon-ellipsis font-medium-3"></i></a>
-					<a href="<?php echo base_url();?>Testimonial/Testimoniallist" class="btn btn-black" style="float:right">Back to Teastimonial List</a>
+					<a href="<?php echo base_url();?>home/dashboard" class="btn btn-black" style="float:right">
+					Back to Dashboard</a>
 				</div>
 				</h4>
 				<div class="card-body collapse in">
 					<div class="card-block">
 				
 						<form class="form" method="post" enctype="multipart/form-data" id="form_valid"
-						 action="<?php echo base_url();?>Testimonial/Testimonialadd">
+						 action="<?php echo base_url();?>home/SitesettingAdd">
 					
 							<div class="form-body">
 								<h4 class="form-section"><i class="icon-clipboard4"></i> Requirements</h4>
 							
 								<div class="form-group">
-								<input type="hidden" value="<?php echo $TestimonialId; ?>" name="TestimonialId">
-									<label>First Name</label>
-									<input type="text" class="form-control" placeholder="First Title" name="FirstName" value="<?php echo $FirstName;?>" minlength="3" maxlength="100">
+								<input type="hidden" value="<?php echo $SettingId; ?>" name="SettingId">
+									<label>Owner Name</label>
+									<input type="text" class="form-control" placeholder="Full Name" name="FullName" value="<?php echo $FullName;?>" minlength="3" maxlength="100">
 								</div>
 
 								<div class="form-group">
-									<label>Last Name</label>
-									<input type="text" class="form-control" placeholder="Last Title" name="LastName" value="<?php echo $LastName;?>" minlength="3" maxlength="100">
+									<label>Site Name</label>
+									<input type="text" class="form-control" placeholder="Site Name" name="SiteName" value="<?php echo $SiteName;?>" minlength="3" maxlength="100">
+								</div>
+
+								<div class="form-group">
+									<label>Site Email</label>
+									<input type="email" class="form-control" placeholder="Site Email" name="SiteEmail" value="<?php echo $SiteEmail;?>" minlength="3" maxlength="100">
+								</div>
+
+								<div class="form-group">
+									<label>Site Contact Number</label>
+									<input type="text" class="form-control" placeholder="Site Contact Number" name="SiteContactNumber" value="<?php echo $SiteContactNumber;?>" minlength="10" maxlength="10">
+								</div>
+
+								<div class="form-group">
+									<label>Office Address</label>
+									<input type="text" class="form-control" placeholder="Office Address" name="OfficeAddress" value="<?php echo $OfficeAddress;?>" minlength="3" maxlength="300">
 								</div>
 								
 								<div class="form-group">
-									<label>Testimonial Short Description</label>
-									<textarea id="editor1" rows="5" class="form-control" name="TetimonialDescription" id="Notificationdescription"><?php echo $TetimonialDescription; ?></textarea>
-									<script>
-										CKEDITOR.replace('editor1');
-									</script>
+									<label>Office Time</label>
+									<input type="text" class="form-control" placeholder="Office Time" name="OfficeTime" value="<?php echo $OfficeTime;?>" minlength="3" maxlength="100">
 								</div>
-
-												
-								<?php  if($IsActive!=''){ ?>                                
-								<div class="form-group">
-									<label>Status</label>
-									<div class="input-group">
-										<label class="display-inline-block custom-control custom-radio ml-1">
-											
-											<input type="radio" name="IsActive" value="Active"
-												<?php if($IsActive=="Active") { echo "checked"; } ?>
-												 class="custom-control-input">																					<span class="custom-control-indicator"></span>																	<span class="custom-control-description ml-0">Active</span>
-													</label>
-													<label class="display-inline-block custom-control custom-radio"><input type="radio" name="IsActive" value="Inactive"  <?php if($IsActive=="Inactive") { echo "checked"; } ?> class="custom-control-input">
-													<span class="custom-control-indicator"></span>
-													<span class="custom-control-description ml-0">Inactive</span>
-													</label>
-														</div>
-								</div>
-								<?php } else { ?>
-									<div class="form-group">
-									<label>Status</label>
-									<div class="input-group">
-										<label class="display-inline-block custom-control custom-radio ml-1">                           
-										<input type="radio" name="IsActive" value="Active" checked="" 
-											class="custom-control-input">
-											<span class="custom-control-indicator"></span>
-											<span class="custom-control-description ml-0">Active</span>
-										</label>
-										<label class="display-inline-block custom-control custom-radio">
-											<input type="radio" name="IsActive" value="Inactive"
-												class="custom-control-input">
-												<span class="custom-control-indicator"></span>
-												<span class="custom-control-description ml-0">Inactive</span>
-										</label>
-									</div>
-								</div>
-								<?php } ?>
-
-
-							<div class="form-actions">
-									 <button class="btn btn-black " type="submit"><i class="icon-ok"></i> <?php echo ($TestimonialId!='')?'Update':'Submit' ?></button>
 							
-									<input type="button" name="cancel" class="btn btn-default" value="Cancel" onClick="location.href='<?php echo base_url(); ?>Testimonial/Testimoniallist'">
+							    <div class="form-actions">
+									 <button class="btn btn-black " type="submit"><i class="icon-ok"></i> <?php echo ($SettingId!='')?'Update':'Submit' ?></button>
+							
+									<!-- <input type="button" name="cancel" class="btn btn-default" value="Cancel" onClick="location.href='<?php //echo base_url(); ?>Testimonial/Testimoniallist'"> -->
 								
 							</div>
 						</form>
@@ -118,18 +99,35 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
 
 <script>
+$(function() { 
+    setTimeout(function() {
+  $('#successMessage').fadeOut('fast');
+}, 10000);
+   
+});
 
 $(document).ready(function()
 {
        $('#form_valid').validate({
 			rules: {
-				FirstName:{              
+				FullName:{              
 					required: true,                
 				}, 
-				LastName:{              
+				SiteName:{              
 					required: true,                
-				},  
-							
+				}, 
+				SiteEmail:{              
+					required: true,                
+				}, 
+				SiteContactNumber:{              
+					required: true,                
+				}, 
+				OfficeAddress:{              
+					required: true,                
+				},
+				OfficeTime:{              
+					required: true,                
+				},			
 			 }, 
     });
 });

@@ -10,21 +10,57 @@ class Home extends CI_Controller {
 		$this->load->model('user_model');
       
 	}
+
+	public function SitesettingAdd()
+	{      
+		if(!check_admin_authentication()){ 
+			redirect(base_url());
+		}   
+			
+		$data=array();	
+		//$data['redirect_page']='aboutlist';
+		$data['SettingId']=$this->input->post('SettingId');
+		$data['FullName']=$this->input->post('FullName');
+		$data['SiteName']=$this->input->post('SiteName');
+		$data['SiteEmail']=$this->input->post('SiteEmail');
+		$data['SiteContactNumber']=$this->input->post('SiteContactNumber');
+		$data['OfficeAddress']=$this->input->post('OfficeAddress');
+		$data['OfficeTime']=$this->input->post('OfficeTime');
+		if($_POST)
+		{	
+				if($this->input->post("SettingId")!="")
+				{
+					$this->Login_model->sitesetting_update();
+					$this->session->set_flashdata('success', 'Your data has been Updated Succesfully!');
+					redirect('home/Sitesetting');
+				}
+				else
+				{ 
+					
+				
+				}
+		}	
+			
+			$data['activeTab']="sitesetting";	
+			$this->load->view('common/sitesetting',$data);
+				
+	}
 	
 	public function Sitesetting()
 	{
 		if(!check_admin_authentication()){ 
 			redirect(base_url());
 		}
-
 		$data=array();
-		$result=$this->Login_model->getdata($AboutusId);	
+		$result=$this->Login_model->get_sitedata();	
 		//$data['redirect_page']='aboutlist';
-		$data['AboutusId']=$result['AboutusId'];
-		$data['AboutTitle']=$result['AboutTitle'];	
-		$data['AboutDescription']=$result['AboutDescription'];		
-		$data['AboutImage']=$result['AboutImage'];
-		$data['IsActive']=$result['IsActive'];
+		$data['SettingId']=$result['SettingId'];
+		$data['FullName']=$result['FullName'];	
+		$data['SiteName']=$result['SiteName'];		
+		$data['SiteEmail']=$result['SiteEmail'];
+		$data['SiteContactNumber']=$result['SiteContactNumber'];
+		$data['OfficeAddress']=$result['OfficeAddress'];
+		$data['OfficeTime']=$result['OfficeTime'];
 		$data['activeTab']="Editabout";	
 		//echo "<pre>";print_r($data);die;	
 		$data['activeTab']="sitesetting";	

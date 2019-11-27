@@ -134,7 +134,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
 
 <script>
-
+	
 $(document).ready(function()
 {
 	$.validator.addMethod('dimention', function(value, element, param) {
@@ -178,19 +178,11 @@ $(document).ready(function()
 				//filesize: 2097152,  
 				//dimention:[110,110]
 			},
-			project_id:
+			FirstName:
 			{
 				required: true,
 			},
-			spectitle:
-			{
-				required: true,
-			},
-			specdesc:
-			{
-				required: true,
-			},
-			IsActive:
+			LastName:
 			{
 				required: true,
 			},

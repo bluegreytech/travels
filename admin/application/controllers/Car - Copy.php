@@ -35,9 +35,7 @@ class Car extends CI_Controller {
 		$data['CarType']=$this->input->post('CarType');
 		$data['AirCondition']=$this->input->post('AirCondition');
 		$data['CarNumber']=$this->input->post('CarNumber');
-		$data['CarImage']=$this->input->post('CarImage');
 		$data['IsActive']=$this->input->post('IsActive');
-		$data["car_image"] = $this->input->post('CarImage');
 
 		if($_POST)
 		{	
@@ -73,8 +71,7 @@ class Car extends CI_Controller {
 			$data['NumberOfSeat']=$result['NumberOfSeat'];	
 			$data['CarType']=$result['CarType'];
 			$data['AirCondition']=$result['AirCondition'];
-			$data['CarNumber']=$result['CarNumber'];
-			$data['CarImage']=$result['CarImage'];		
+			$data['CarNumber']=$result['CarNumber'];	
 			$data['IsActive']=$result['IsActive'];	
 			//echo "<pre>";print_r($data);die;	
 			$data['activeTab']="caradd";	

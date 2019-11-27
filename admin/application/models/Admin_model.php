@@ -198,8 +198,7 @@ class Admin_model extends CI_Model
 			'IsActive' => $this->input->post('IsActive'),			
 			'CreatedOn'=>date('Y-m-d')		
 			);
-			//echo "<pre>";print_r($data);die;	
-                    
+			//echo "<pre>";print_r($data);die;	       
 	        $this->db->where("AdminId",$id);
 			$this->db->update('tbladmin',$data);
             

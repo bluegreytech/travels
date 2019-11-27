@@ -44,7 +44,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 								<div class="form-group">
 									<label>Number of Seat</label>
-									<input type="text" class="form-control" placeholder="Number of Seat" name="NumberOfSeat" value="<?php echo $NumberOfSeat;?>" minlength="1" maxlength="2">
+									<input type="text" class="form-control" placeholder="Number of Seat" id="NumberOfSeat" name="NumberOfSeat" value="<?php echo $NumberOfSeat;?>" minlength="1" maxlength="2">
 								</div>
 
 								<div class="form-group">
@@ -84,6 +84,24 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								<div class="form-group">
 									<label>Car Number</label>
 									<input type="text" class="form-control" placeholder="Car Number" name="CarNumber" value="<?php echo $CarNumber;?>" minlength="3" maxlength="100">
+								</div>
+
+								<div class="form-group  uploadfrm">
+									<label>Car Image</label>
+									<p><span class="btn btn-black btn-file">
+										<input type="hidden" name="pre_car_image" value="<?php echo $CarImage;?>">
+									Upload car image <input type="file" name="CarImage" id="carimage" onchange="readURL(this);">
+									</span></p>									
+									<span id="profileerror"></span>
+								</div>
+									<div class="preview">
+									
+									<?php if($CarImage){ ?>
+										<img id="blah" src="<?php echo base_url()?>upload/carimages/<?php echo $CarImage;?>" class="img-thumbnail border-0" style="display: block;  width: 100px; height: 100px;">
+
+									<?php } else{?>
+									<img id="blah" src="" class="img-thumbnail border-0" style="display: none;  width: 100px; height: 100px;">
+									<?php } ?>
 								</div>
 											
 								<?php  if($IsActive!=''){ ?>                                
@@ -151,6 +169,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 $(document).ready(function()
 {
+	$("#NumberOfSeat").on("input", function(evt) {
+		var self = $(this);
+		self.val(self.val().replace(/[^\d].+/, ""));
+		if ((evt.which < 48 || evt.which > 57)) 
+		{
+			evt.preventDefault();
+		}});
+	$.validator.addMethod('filesize', function (value, element, param) {
+       
+	   return this.optional(element) || (element.files[0].size <= param)
+   } ,'File size must be equal to or less then 2MB'); 
        $('#form_valid').validate({
 			rules: {
 				CarName:{              
@@ -167,9 +196,23 @@ $(document).ready(function()
 				}, 
 				CarNumber:{              
 					required: true,                
+				},
+				CarImage:{              
+					required: true, 
+					extension: "JPG|jpeg|png|bmp",
+					filesize: 2097152,                  
 				},   
 							
-			 }, 
+			 },
+
+			  errorPlacement: function (error, element) {
+            console.log('dd', element.attr("name"))
+            if (element.attr("name") == "CarImage") {
+                error.appendTo("#profileerror");
+            } else{
+                  error.insertAfter(element)
+            }
+        }  
     });
 });
 
@@ -184,6 +227,6 @@ $(document).ready(function()
                 };
              reader.readAsDataURL(input.files[0]);
             }
-        }		                
+        }	                
 
 </script>

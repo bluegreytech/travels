@@ -61,7 +61,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 								<div class="form-group">
 									<label>Site Contact Number</label>
-									<input type="text" class="form-control" placeholder="Site Contact Number" name="SiteContactNumber" value="<?php echo $SiteContactNumber;?>" minlength="10" maxlength="10">
+									<input type="text" class="form-control" placeholder="Site Contact Number" name="SiteContactNumber" id="SiteContactNumber" value="<?php echo $SiteContactNumber;?>" minlength="10" maxlength="10">
 								</div>
 
 								<div class="form-group">
@@ -99,6 +99,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
 
 <script>
+	$("#SiteContactNumber").on("input", function(evt) {
+		var self = $(this);
+		self.val(self.val().replace(/[^\d].+/, ""));
+		if ((evt.which < 48 || evt.which > 57)) 
+		{
+			evt.preventDefault();
+		}});
+
+
 $(function() { 
     setTimeout(function() {
   $('#successMessage').fadeOut('fast');

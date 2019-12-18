@@ -37,10 +37,18 @@
 				        <div class="tab-pane active" id="one-way">
 				        	<form action="#" method="post">
 				        		<div class="row fr-it">
-			        				<div class="col-md-3">
+			        				<div class="col-md-4">
 			        					<div class="location-group">
 											<div class="input-group">
-												<input type="text" class="form-control" placeholder="Enter airport, city or postcode...">
+												<input type="text" class="form-control" placeholder="Enter Pickuup Location">
+												<span class="input-group-addon"><i class="ion-android-locate"></i></span>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-4">
+			        					<div class="location-group">
+											<div class="input-group">
+												<input type="text" class="form-control" placeholder="Enter Drop Location">
 												<span class="input-group-addon"><i class="ion-android-locate"></i></span>
 											</div>
 										</div>
@@ -57,18 +65,12 @@
 											<span class="input-group-addon"><i class="ion-ios-alarm-outline"></i></span>
 										</div>
 									</div>
-									<div class="col-md-3">
-										<div class="input-group date-group">
-											<input type="text" class="datedroper form-control" placeholder="Drop off date">
-											<span class="input-group-addon"><i class="ion-calendar"></i></span>
-										</div>
-									</div>
-									<div class="col-md-2">
+									<!-- <div class="col-md-2">
 										<div class="input-group time-group">
 											<input type="text" class="timedroper form-control" placeholder="08:00 am">
 											<span class="input-group-addon"><i class="ion-ios-alarm-outline"></i></span>
 										</div>
-									</div>
+									</div> -->
 								</div>  				
 								<div class="row m0">
 									<div class="col-xs-12">
@@ -83,24 +85,26 @@
 				        			<div class="col-md-3">
 			        					<div class="location-group">
 											<div class="input-group">
-												<input type="text" class="form-control" placeholder="Enter airport, city or postcode...">
+												<input type="text" class="form-control" placeholder="Enter Pickuup Location">
+												<span class="input-group-addon"><i class="ion-android-locate"></i></span>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-3">
+			        					<div class="location-group">
+											<div class="input-group">
+												<input type="text" class="form-control" placeholder="Enter Drop Location">
 												<span class="input-group-addon"><i class="ion-android-locate"></i></span>
 											</div>
 										</div>
 									</div>
 				        			<div class="col-md-2">
 										<div class="input-group date-group">
-											<input type="text" class="datedroper form-control" placeholder="Pick up date">
+											<input type="text" class="datedroper form-control" placeholder="Pickup date">
 											<span class="input-group-addon"><i class="ion-calendar"></i></span>
 										</div>
 									</div>
 									<div class="col-md-2">
-										<div class="input-group time-group">
-											<input type="text" class="timedroper form-control" placeholder="08:00 am">
-											<span class="input-group-addon"><i class="ion-ios-alarm-outline"></i></span>
-										</div>
-									</div>
-									<div class="col-md-3">
 										<div class="input-group date-group">
 											<input type="text" class="datedroper form-control" placeholder="Drop off date">
 											<span class="input-group-addon"><i class="ion-calendar"></i></span>
@@ -127,17 +131,17 @@
 				        <div class="tab-pane" id="local">
 				        	<form>
 				        		<div class="row fr-it">
-				        			<div class="col-md-3">
+				        			<div class="col-md-4">
 			        					<div class="location-group">
 											<div class="input-group">
-												<input type="text" class="form-control" placeholder="Enter airport, city or postcode...">
+												<input type="text" class="form-control" placeholder="Enter Pickuup Location">
 												<span class="input-group-addon"><i class="ion-android-locate"></i></span>
 											</div>
 										</div>
 									</div>
-				        			<div class="col-md-2">
+				        			<div class="col-md-4">
 										<div class="input-group date-group">
-											<input type="text" class="datedroper form-control" placeholder="Pick up date">
+											<input type="text" class="datedroper form-control" placeholder="Pickup date">
 											<span class="input-group-addon"><i class="ion-calendar"></i></span>
 										</div>
 									</div>
@@ -147,15 +151,9 @@
 											<span class="input-group-addon"><i class="ion-ios-alarm-outline"></i></span>
 										</div>
 									</div>
-									<div class="col-md-3">
-										<div class="input-group date-group">
-											<input type="text" class="datedroper form-control" placeholder="Drop off date">
-											<span class="input-group-addon"><i class="ion-calendar"></i></span>
-										</div>
-									</div>
 									<div class="col-md-2">
 										<div class="input-group time-group">
-											<input type="text" class="timedroper form-control" placeholder="08:00 am">
+											<input type="text" class="timedroper form-control" placeholder="Duration">
 											<span class="input-group-addon"><i class="ion-ios-alarm-outline"></i></span>
 										</div>
 									</div>

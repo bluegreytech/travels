@@ -819,7 +819,7 @@ a, .btn, button {
     .fleet .media-left {
       padding-right: 0 !important; }
     .fleet .this-body {
-      padding: 30px !important; } }
+      padding: 10px !important; } }
 
 /*Fleet 2*/
 .fleet2 {
@@ -979,12 +979,19 @@ a, .btn, button {
 
 /*--------------------------------------------------------------------------------------------------------------*/
 .fleet-list.fleet {
-  box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 2px 11px 0px rgba(198, 31, 72, 0.26);
+  border: solid 3px #c61f48;
   background: #fff; }
   .fleet-list.fleet + .fleet {
     margin-top: 30px; }
   .fleet-list.fleet .media-left {
-    padding-right: 40px; }
+    background: #f1f1f1;
+    height: auto;
+    padding: 30px 0;
+     }
+     .fleet-list.fleet .media-left img{
+      width: 100%;
+     }
     .fleet-list.fleet .media-left a {
       width: 470px;
       display: block;
@@ -1021,8 +1028,7 @@ a, .btn, button {
       background: #2b2e4a;
       color: #fff; }
   .fleet-list.fleet .this-body {
-    padding-right: 60px;
-    padding-top: 30px;
+    padding: 20px 0;
     vertical-align: middle; }
   .fleet-list.fleet .summary {
     padding: 22px 40px 28px 0;
@@ -1031,12 +1037,16 @@ a, .btn, button {
     line-height: 24px; }
     @media (max-width: 767px) {
       .fleet-list.fleet .summary {
-        padding: 15px; } }
+        padding: 0; } }
   .fleet-list.fleet .specification {
     padding-top: 15px;
     border-top: 1px solid;
     border-top-color: rgba(30, 32, 54, 0.05);
     margin: 0; }
+    .row.specification.eminities{
+      background: #f1f1f1;
+      padding: 6px;
+    }
     @media (max-width: 767px) {
       .fleet-list.fleet .specification .nav {
         display: flex;
@@ -3978,8 +3988,9 @@ input[name="engine-type"] {
       white-space: nowrap;
       width: 140px;
       display: block;
-      color: rgba(43, 46, 74, 0.3);
-      font-size: 12px;
+      color:#333;
+      font-weight:600;
+      font-size: 14px;
       font-family: "Open Sans", sans-serif;
       text-transform: uppercase; }
   .order-data .media .media-body {
@@ -3991,23 +4002,25 @@ input[name="engine-type"] {
 .other-infos-car {
   margin-top: 8px; }
   .other-infos-car li {
-    color: rgba(43, 46, 74, 0.3);
+    color: #333;
     border-top: 1px solid;
     border-top-color: rgba(43, 46, 74, 0.05);
-    font-size: 12px;
+    font-size: 14px;
     font-family: "Open Sans", sans-serif;
     text-transform: uppercase;
-    line-height: 45px; }
+    line-height: 45px;
+    font-weight:600; }
     .other-infos-car li span {
       font-family: "Open Sans", sans-serif;
       font-weight: 800;
       color: #2b2e4a;
       float: right;
       font-size: 14px; }
-    .other-infos-car li:last-child {
-      font-size: 14px;
-      color: rgba(43, 46, 74, 0.75); }
-
+     .other-infos-car li span i{
+        font-size: 12px;
+        font-weight: 600;
+        margin-right: 4px;
+     }
 .contact-back {
   color: rgba(43, 46, 74, 0.3);
   line-height: 2;
@@ -4029,9 +4042,8 @@ input[name="engine-type"] {
 input[name="payment-method"] + label {
   color: rgba(43, 46, 74, 0.3);
   font-family: "Open Sans", sans-serif;
-  font-weight: normal;
   text-transform: uppercase;
-  font-size: 12px;
+  font-size: 14px;
   display: block;
   margin: 0;
   line-height: 30px; }
@@ -4499,4 +4511,67 @@ input[name="payment-method"]:checked + label {
 }
 .about-features .feature p{
   color: #fff;
+}
+h5.this-label{
+  font-weight: 600;
+}
+h5.this-label span {
+  color: red;
+}
+.media-body{
+  width: 100%!important;
+}
+[type="radio"]:checked,
+[type="radio"]:not(:checked) {
+    position: absolute;
+    left: -9999px;
+}
+[type="radio"]:checked + label,
+[type="radio"]:not(:checked) + label
+{
+    position: relative;
+    padding-left: 28px;
+    cursor: pointer;
+    line-height: 20px;
+    display: inline-block;
+    color: #666;
+}
+[type="radio"]:checked + label:before,
+[type="radio"]:not(:checked) + label:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 18px;
+    height: 18px;
+    border: 2px solid #c61f48;
+    border-radius: 100%;
+    background: #fff;
+}
+[type="radio"]:checked + label:after,
+[type="radio"]:not(:checked) + label:after {
+    content: '';
+    width: 8px;
+    height: 8px;
+    background: #c61f48;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    border-radius: 100%;
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+}
+[type="radio"]:not(:checked) + label:after {
+    opacity: 0;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+}
+[type="radio"]:checked + label:after {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+}
+.radio-inline, .checkbox-inline{
+    padding: 0;
+    margin: 4px!important;
 }

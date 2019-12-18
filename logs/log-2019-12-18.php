@@ -792,3 +792,5 @@ ERROR - 2019-12-18 11:13:46 --> 404 Page Not Found: Assets/vendors
 ERROR - 2019-12-18 11:37:53 --> 404 Page Not Found: Assets/vendors
 ERROR - 2019-12-18 11:37:54 --> 404 Page Not Found: Assets/js
 ERROR - 2019-12-18 11:37:55 --> 404 Page Not Found: Assets/vendors
+ERROR - 2019-12-18 14:31:30 --> 404 Page Not Found: Images/save-water.png
+ERROR - 2019-12-18 14:31:30 --> 404 Page Not Found: Images/car-trash.png

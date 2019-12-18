@@ -38,10 +38,10 @@
               <i class="icon-info-circle"></i><span data-i18n="nav.dash.main" class="menu-title">About Us</span>
             </a>
             <ul class="menu-content">
-              <li>
-                <a href="<?php echo base_url(); ?>About/Aboutadd" data-i18n="nav.dash.main" class="menu-item <?php echo ($activeTab == "aboutusadd") ? "active" : ""; ?>"><i class="icon-plus"></i> Add About</a>
-              </li>
-              <li>
+              <!-- <li>
+                <a href="<?php //echo base_url(); ?>About/Aboutadd" data-i18n="nav.dash.main" class="menu-item <?php //echo ($activeTab == "aboutusadd") ? "active" : ""; ?>"><i class="icon-plus"></i> Add About</a>
+              </li> -->
+
               <li>
                 <a href="<?php echo base_url(); ?>About/Aboutlist" data-i18n="nav.dash.main" class="menu-item <?php echo ($activeTab == "aboutuslist") ? "active" : ""; ?>"><i class="icon-file-text2"></i>List of About </a>
               </li>

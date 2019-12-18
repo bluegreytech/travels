@@ -34,7 +34,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <tr>
                                 <th>Sr No</th>
                                 <th>Name</th>                              
-                                <th>Description</th>
+                                <!-- <th>Description</th> -->
+                                <th>Image</th>
 								<th>IsActive</th>
                                 <th>Action</th>
                             </tr>
@@ -49,7 +50,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <tr>
                                     <td><?php echo $i; ?></td>
                                     <td><?php echo $row->FirstName.' '.$row->LastName; ?></td>
-                                    <td><?php echo $row->TetimonialDescription; ?></td>
+                                    <td>
+                                        <?php
+                                        if($row->TestimonialImage=='' && $row->TestimonialImage==null)
+                                        {
+                                            echo "N/A";
+                                        }
+                                        else
+                                        {
+                                            ?>
+                                            <img src="<?php echo base_url();?>upload/testimonialimages/<?php echo $row->TestimonialImage;?>" height='70px' width='100px'>
+                                            <?php
+                                        }
+                                        ?>  
+                                    </td>
+                                    <!-- <td><?php //echo $row->TetimonialDescription; ?></td> -->
                                     <td>
                                         <?php if($row->IsActive=="Active")
                                             {

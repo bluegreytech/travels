@@ -45,10 +45,29 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 								<div class="form-group">
 									<label>About Short Description</label>
-									<textarea id="editor1" rows="5" class="form-control" name="TetimonialDescription" id="AboutDescription"><?php echo $AboutDescription; ?></textarea>
+									<textarea id="editor1" rows="5" class="form-control" name="AboutDescription" id="AboutDescription">
+									<?php echo $AboutDescription; ?></textarea>
 									<script>
 										CKEDITOR.replace('editor1');
 									</script>
+								</div>
+
+								<div class="form-group  uploadfrm">
+									<label>About Image</label>
+									<p><span class="btn btn-black btn-file">
+										<input type="hidden" name="pre_about_image" value="<?php echo $AboutImage;?>">
+									Upload about image <input type="file" name="about_image" id="about_image" onchange="readURL(this);">
+									</span></p>									
+									<span id="profileerror"></span>
+								</div>
+									<div class="preview">
+									
+									<?php if($AboutImage){ ?>
+										<img id="blah" src="<?php echo base_url()?>upload/aboutimage/<?php echo $AboutImage;?>" class="img-thumbnail border-0" style="display: block;  width: 100px; height: 100px;">
+
+									<?php } else{?>
+									<img id="blah" src="" class="img-thumbnail border-0" style="display: none;  width: 100px; height: 100px;">
+									<?php } ?>
 								</div>
 								
 								<?php  if($IsActive!=''){ ?>                                
@@ -56,7 +75,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 									<label>Status</label>
 									<div class="input-group">
 										<label class="display-inline-block custom-control custom-radio ml-1">
-											<?php echo $IsActive; ?>
+											<?php// echo $IsActive; ?>
 											<input type="radio" name="IsActive" value="Active"
 												<?php if($IsActive=="Active") { echo "checked"; } ?>
 												 class="custom-control-input">																					<span class="custom-control-indicator"></span>																	<span class="custom-control-description ml-0">Active</span>
@@ -120,15 +139,28 @@ $(document).ready(function()
 			rules: {
 				AboutTitle:{              
 					required: true,                
-				},  
+				}, 
+				AboutImage:{
+					extension: "JPG|jpeg|png|bmp",
+					filesize: 2097152,   
+				}, 
 							
-			 }, 
+			 },
+
+			 errorPlacement: function (error, element) {
+            console.log('dd', element.attr("name"))
+            if (element.attr("name") == "about_image") {
+                error.appendTo("#profileerror");
+            } else{
+                  error.insertAfter(element)
+            }
+        } 
     });
 });
 
- //CKEDITOR.replace('editor1');
+ 
 
- function readURL(input) {
+function readURL(input) {
             if (input.files && input.files[0]) {
                 var reader = new FileReader();
                 reader.onload = function (e) {
@@ -137,6 +169,6 @@ $(document).ready(function()
                 };
              reader.readAsDataURL(input.files[0]);
             }
-        }		                
+        }	                
 
 </script>

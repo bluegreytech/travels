@@ -42,7 +42,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								</div>
 							<!-- 	<div class="form-group">
 									<label>Profile Image</label>
-									<input type='hidden' value="<?php echo $ProfileImage; ?>" name="pre_profile_image">								
+									<input type='hidden' value="<?php //echo $ProfileImage; ?>" name="pre_profile_image">								
 									<input type="file" class="form-control"  placeholder="Mobile No." name="profile_image" >
 								</div> -->
 								<div class="form-group  uploadfrm">

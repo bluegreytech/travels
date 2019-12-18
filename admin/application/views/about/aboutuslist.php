@@ -24,7 +24,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="card-header">
                 <h4 class="card-title">List of Aboutus
                 <a class="heading-elements-toggle"><i class="icon-ellipsis font-medium-3"></i></a>
-                <a href="<?php echo base_url();?>About/Aboutadd" class="btn btn-black" style="float:right">Add About Us</a>
+                <!-- <a href="<?php// echo base_url();?>About/Aboutadd" class="btn btn-black" style="float:right">Add About Us</a> -->
                 </h4>
             </div>
             <div class="card-body collapse in">
@@ -34,7 +34,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <tr>
                                 <th>Sr No</th>
                                 <th>About Title </th>                              
-                                <th>About Description </th>
+                                <!-- <th>About Description </th> -->
+                                <th>About Image </th>
 								<th>Status</th>
                                 <th>Action</th>
                             </tr>
@@ -45,12 +46,27 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 if($result){                             
                                 foreach($result as $row)
                                 {
-                            ?>
+                        ?>
                             <tr>
                             
                                     <td><?php echo $i; ?></td>
                                     <td><?php echo $row->AboutTitle; ?></td>
-                                    <td><?php echo $row->AboutDescription;?></td>
+                                    <td>
+                                        <?php
+                                        if($row->AboutImage=='' && $row->AboutImage==null)
+                                        {
+                                            echo "N/A";
+                                        }
+                                        else
+                                        {
+                                            ?>
+                                            <img src="<?php echo base_url();?>upload/aboutimage/<?php echo $row->AboutImage;?>">
+                                            <?php
+                                        }
+                                        ?>  
+                                    </td>
+                                   
+                                    <!-- <td><?php //echo $row->AboutDescription;?></td> -->
                                     <td>
                                         <?php if($row->IsActive=="Active")
                                             {
@@ -65,7 +81,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     </td>
                                     <td>
                                         <?php echo anchor('About/Editabout/'.$row->AboutusId,'<i class="ficon icon-pencil2"></i>'); ?>
-                                        <a onclick="deletedata('<?php echo $row->AboutusId; ?>')" ><i class="ficon icon-bin"></i></a>    
+                                        <!-- <a onclick="deletedata('<?php// echo $row->AboutusId; ?>')" ><i class="ficon icon-bin"></i></a>     -->
                                     </td>  
                                 </tr>      
                                 <?php

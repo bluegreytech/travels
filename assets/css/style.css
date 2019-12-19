@@ -4578,3 +4578,13 @@ h5.this-label span {
     padding: 0;
     margin: 4px!important;
 }
+.car-type label{
+    padding: 2px 8px;
+}
+.car-type label:before {
+    content: '\f192';
+    font-family: FontAwesome;
+    color: #c61f48;
+    margin-right: 8px;
+    font-size: 16px;
+}

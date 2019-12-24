@@ -939,3 +939,17 @@ ERROR - 2019-12-24 15:51:23 --> 404 Page Not Found: Assets/js
 ERROR - 2019-12-24 15:51:23 --> 404 Page Not Found: Assets/vendors
 ERROR - 2019-12-24 15:56:38 --> 404 Page Not Found: Assets/images
 ERROR - 2019-12-24 15:56:39 --> 404 Page Not Found: Assets/images
+ERROR - 2019-12-24 15:57:05 --> 404 Page Not Found: Assets/images
+ERROR - 2019-12-24 15:57:07 --> 404 Page Not Found: Assets/js
+ERROR - 2019-12-24 15:57:07 --> 404 Page Not Found: Assets/vendors
+ERROR - 2019-12-24 15:57:07 --> 404 Page Not Found: Assets/vendors
+ERROR - 2019-12-24 15:58:26 --> 404 Page Not Found: Assets/images
+ERROR - 2019-12-24 15:58:29 --> 404 Page Not Found: Assets/images
+ERROR - 2019-12-24 15:58:34 --> 404 Page Not Found: Assets/js
+ERROR - 2019-12-24 15:58:34 --> 404 Page Not Found: Assets/vendors
+ERROR - 2019-12-24 15:58:34 --> 404 Page Not Found: Assets/vendors
+ERROR - 2019-12-24 15:58:55 --> 404 Page Not Found: Assets/vendors
+ERROR - 2019-12-24 15:58:55 --> 404 Page Not Found: Assets/images
+ERROR - 2019-12-24 15:58:57 --> 404 Page Not Found: Assets/js
+ERROR - 2019-12-24 15:58:57 --> 404 Page Not Found: Assets/vendors
+ERROR - 2019-12-24 15:59:32 --> 404 Page Not Found: Assets/images

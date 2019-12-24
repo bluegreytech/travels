@@ -12,7 +12,7 @@
   			</ol>
   		</div>
   	</section> 	
-  	<section class="wrapper-about">
+  	<section class="missin-benefits">
 		<div class="container">
 			<div class="media fleet fleet-list">
 				<div class="row">

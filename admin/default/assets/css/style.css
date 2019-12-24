@@ -926,10 +926,7 @@ a:hover {
 .header-navbar.navbar-semi-dark {
      border-bottom: solid 3px #2b2a29;
 }
-.card-block{
-  border-bottom: solid 4px;
-    box-shadow: 0px 0px 7px #0000001c;
-}
+
 .media-body span{
   font-size: 20px;
   font-weight: 600;

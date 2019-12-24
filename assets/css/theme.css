@@ -47,7 +47,8 @@
   color: #2b2e4a; }
 .section-title p {
   color: rgba(43, 46, 74, 0.75);
-  line-height: 24px!important; }
+  line-height: 24px!important;
+  text-align: justify; }
   .section-title p a {
     color: #1ccc8b; }
 .section-title.white .this-main {

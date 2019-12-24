@@ -65,7 +65,7 @@ a, .btn, button {
 
 /*Section Title*/
 .section-title {
-  margin: 0 auto 40px;
+  margin: 0 auto 20px;
   max-width: 770px; }
   .section-title h6, .section-title h2 {
     margin: 0; }
@@ -3350,8 +3350,7 @@ input[name="engine-type"] {
   .sectionImg img {
     max-width: 100%; }
 
-.introduction .section-title {
-  padding-right: 30px; }
+
 
 .about-promo + .plyr__play-large {
   width: 48px;
@@ -3364,7 +3363,7 @@ input[name="engine-type"] {
     display: inline-block; }
 
 .wrapper-about {
-  padding:60px 0; }
+  padding-top: 60px; }
 
 .introduction2 {
   counter-reset: my-badass-counter; }
@@ -3479,7 +3478,8 @@ input[name="engine-type"] {
     font-family: "Open Sans", sans-serif;
     line-height: 24px;
     color: rgba(34, 36, 59, 0.75);
-    margin-bottom: 20px; }
+    margin-bottom: 20px;
+    text-align: justify; }
 
 
   .mission-nav li {

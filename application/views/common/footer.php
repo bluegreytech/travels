@@ -3,13 +3,13 @@
 				<div class="container">
 					<div class="row ft">
 						<!--Widget-->
-						<div class="col-sm-12 col-md-3 widget footer-widget widget-about">
+						<div class="col-sm-12 col-md-4 widget footer-widget widget-about">
 							<h4 class="widget-title">About Us</h4>
-							<p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis.</p>
-							<p>At vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum.</p>
+							<p>YD Cabs by Yashdeep Travels is a travelling solutions providing networking company where we provide cab services to the customers and help them reach their destination in time with comfort that you aspire for, along with the affordable pricing forte..</p>
+							<a href="<?php echo base_url();?>about">Read More <i class="fa fa-angle-double-right"></i></a>
 						</div>
 						<!--Widget-->
-						<div class="col-sm-12 col-md-3 widget footer-widget widget-links">
+						<div class="col-sm-12 col-md-5 widget footer-widget widget-links">
 							<h4 class="widget-title">Usefull link</h4>
 							<ul class="nav foot-nav style2">
 								<li><i class="fa fa-angle-double-right"></i><a href="<?php echo base_url();?>about">About Us</a></li>
@@ -19,17 +19,6 @@
 								<li><i class="fa fa-angle-double-right"></i><a href="<?php echo base_url();?>home/login">Login</a></li>
 							</ul>
 						</div>
-						<!--Widget-->
-						<div class="col-sm-12 col-md-3 widget footer-widget widget-contact-info">
-							<h4 class="widget-title">Products</h4>
-							<ul class="nav foot-nav style2">
-								<li><i class="fa fa-angle-double-right"></i><a href="#">FAQs</a></li>
-								<li><i class="fa fa-angle-double-right"></i><a href="<?php echo base_url();?>contact">Contact</a></li>
-								<li><i class="fa fa-angle-double-right"></i><a href="<?php echo base_url();?>about">About</a></li>
-								<li><i class="fa fa-angle-double-right"></i><a href="#">Membership</a></li>
-							</ul>
-						</div>
-						<!--Widget-->
 						<div class="col-sm-12 col-md-3 widget footer-widget widget-contact-info">
 							<h4 class="widget-title">CONTACT INFO</h4>
 							<ul class="nav foot-nav">

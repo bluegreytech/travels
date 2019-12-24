@@ -319,7 +319,7 @@ Bootstrap Enhance */
 .dropdown .dropdown-menu {
   display: block;
   min-width: 160px;
-  background-color:#333e7a;
+  background-color:#2b2a29;
   opacity: 0.3;
   transform-origin: top;
   animation-fill-mode: forwards;
@@ -337,7 +337,7 @@ Bootstrap Enhance */
     color:#fff!important;
      }
     .dropdown .dropdown-menu .dropdown-item:hover{
-      background: linear-gradient(to right, #EF7F1A,#FF7500);
+      background:#c61f48;
     }
 
 .dropdown i {

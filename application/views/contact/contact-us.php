@@ -7,7 +7,7 @@
 		<div class="container">
 			<h2 class="h1 page-title">contact us</h2>
 			<ol class="breadcrumb">
-				<li><a href="index.html">home</a></li>
+				<li><a href="<?php echo base_url();?>">home</a></li>
 				<li class="active">contact</li>
 			</ol>
 		</div>
@@ -65,7 +65,7 @@
 								</div>
 							</div>
 							<div class="col-md-12">
-								<input type="submit" value="SEND MESSENGE" class="btn btn-primary">
+								<input type="submit" value="SEND MESSAGE" class="btn btn-primary">
 							</div>
 						</form>
 					</div>

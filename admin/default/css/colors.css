@@ -113,7 +113,7 @@ input:focus ~ .bg-white {
     background-color: transparent; }
 
 .btn-black {
-  background: linear-gradient(to right, #EF7F1A,#FF7500);
+  background: #c71f48;
   color: #FFFFFF; }
   .btn-black:hover {
     color: #FFF !important; }
@@ -5215,7 +5215,7 @@ input:focus ~ .bg-pink {
   background: rgba(236, 64, 122, 0.8); }
 
 .pink {
-  color: #ef7f1a !important; }
+  color: #c71f48 !important }
 
 .bg-pink {
   background-color: #E91E63 !important; }

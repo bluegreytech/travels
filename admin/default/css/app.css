@@ -7,7 +7,8 @@ html {
   html body {
     height: 100%;
     background-color: #F3F3F3;
-    direction: ltr; }
+    direction: ltr;
+    font-family: 'verdana'; }
     html body.fixed-navbar {
       padding-top: 4rem; }
     html body .content {
@@ -284,7 +285,7 @@ footer.footer-dark {
       background-color: #f2f2f2; }
   .main-menu.menu-dark {
     color: #fff;
-    background:#2d3764; }
+    background:#2b2a29; }
     .main-menu.menu-dark .main-menu-header {
       padding: 20px; }
       .main-menu.menu-dark .main-menu-header .menu-search {
@@ -294,7 +295,7 @@ footer.footer-dark {
         .main-menu.menu-dark .main-menu-header .menu-search:focus {
           border-color: #020304; }
     .main-menu.menu-dark .navigation {
-      background: #2d3764; }
+      background: #2b2a29; }
       .main-menu.menu-dark .navigation .navigation-header {
         color: #dcdcdc;
         padding: 24px 20px 8px 20px; }
@@ -318,18 +319,18 @@ footer.footer-dark {
           background: #162029; }
         .main-menu.menu-dark .navigation > li.open > a {
           color: #fff;
-          background: linear-gradient(to right, #EF7F1A,#FF7500); }
+          background: #c71f48; }
         .main-menu.menu-dark .navigation > li:not(.open) > ul {
           display: none; }
         .main-menu.menu-dark .navigation > li.hover > a, .main-menu.menu-dark .navigation > li:hover > a, .main-menu.menu-dark .navigation > li.active > a {
           color: #fff;
-          background: linear-gradient(to right, #EF7F1A,#FF7500);}
+          background:#c71f48;}
           .main-menu.menu-dark .navigation > li.hover > a.mm-next, .main-menu.menu-dark .navigation > li:hover > a.mm-next, .main-menu.menu-dark .navigation > li.active > a.mm-next {
             background-color: inherit; }
         .main-menu.menu-dark .navigation > li.active > a {
           background-color: #162029; }
         .main-menu.menu-dark .navigation > li .active {
-          background: linear-gradient(to right, #EF7F1A,#FF7500); }
+          background:#c71f48; }
           .main-menu.menu-dark .navigation > li .active > a {
             color: #FFFFFF;
             background: #121b22; }
@@ -2133,7 +2134,7 @@ div#example_paginate{
 }
 
 a#example_previous,a#example_next{
-   background: linear-gradient(to right, #EF7F1A,#FF7500);
+   background: #c61f48;
     padding: 6px;
     color: #fff!important;
 }

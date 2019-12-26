@@ -75,7 +75,7 @@
 			        				<div class="col-md-4">
 			        					<div class="location-group">
 											<div class="input-group">
-												<input type="text" class="form-control" placeholder="Enter Pickuup Location">
+												<input type="text" class="form-control" placeholder="Enter Pickup Location">
 												<span class="input-group-addon"><i class="ion-android-locate"></i></span>
 											</div>
 										</div>
@@ -120,7 +120,7 @@
 				        			<div class="col-md-3">
 			        					<div class="location-group">
 											<div class="input-group">
-												<input type="text" class="form-control" placeholder="Enter Pickuup Location">
+												<input type="text" class="form-control" placeholder="Enter Pickup Location">
 												<span class="input-group-addon"><i class="ion-android-locate"></i></span>
 											</div>
 										</div>
@@ -141,7 +141,7 @@
 									</div>
 									<div class="col-md-2">
 										<div class="input-group date-group">
-											<input type="text" class="datedroper form-control" placeholder="Drop off date">
+											<input type="text" class="datedroper form-control" placeholder="Drop date">
 											<span class="input-group-addon"><i class="ion-calendar"></i></span>
 										</div>
 									</div>
@@ -169,7 +169,7 @@
 				        			<div class="col-md-4">
 			        					<div class="location-group">
 											<div class="input-group">
-												<input type="text" class="form-control" placeholder="Enter Pickuup Location">
+												<input type="text" class="form-control" placeholder="Enter Pickup Location">
 												<span class="input-group-addon"><i class="ion-android-locate"></i></span>
 											</div>
 										</div>

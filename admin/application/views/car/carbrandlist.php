@@ -24,7 +24,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="card-header">
                 <h4 class="card-title">List of Car
                 <a class="heading-elements-toggle"><i class="icon-ellipsis font-medium-3"></i></a>
-                <a href="<?php echo base_url();?>car/Caradd" class="btn btn-black" style="float:right">Add Car</a>
+                <a href="<?php echo base_url();?>car/carbrandadd" class="btn btn-black" style="float:right">Add Car Brand</a>
                 </h4>
             </div>
             <div class="card-body collapse in">
@@ -33,12 +33,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <thead class="thead-inverse">
                             <tr>
                                 <th>Sr No</th>
-                                <th>Brand</th> 
-                                <th>Name</th>                              
-                                <th>Number of Seats</th>
-                                <th>Air Condition</th>
-                                <th>Car Number</th>
-								<th>IsActive</th>
+                                <th>Brand Name</th>                              
+								<th>Status</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -52,10 +48,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <tr>
                                     <td><?php echo $i; ?></td>
                                     <td><?php echo $row->BrandName; ?></td>
-                                    <td><?php echo $row->CarName; ?></td>
-                                    <td><?php echo $row->NumberOfSeat; ?></td>
-                                    <td><?php echo $row->AirCondition; ?></td>
-                                    <td><?php echo $row->CarNumber; ?></td>
                                     <td>
                                         <?php if($row->IsActive=="Active")
                                             {
@@ -69,8 +61,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                         ?>
                                     </td>
                                     <td>
-                                        <?php echo anchor('Car/Editcar/'.$row->CarId,'<i class="ficon icon-pencil2"></i>'); ?>
-                                        <a onclick="deletedata('<?php echo $row->CarId; ?>')" ><i class="ficon icon-bin"></i></a>    
+                                        <?php echo anchor('car/editcarbrand/'.$row->CarBrandId,'<i class="ficon icon-pencil2"></i>'); ?>
+                                        <a onclick="deletedata('<?php echo $row->CarBrandId; ?>')" ><i class="ficon icon-bin"></i></a>    
                                     </td>  
                                 </tr>      
                                 <?php
@@ -120,15 +112,15 @@ $(function() {
    
 });
 
-function deletedata(CarId){  
+function deletedata(CarBrandId){  
     $('#myModal').modal('show');
   // alert(id);
         $('#yes_btn').click(function(){
-                url="<?php echo base_url();?>Car/car_delete/";
+                url="<?php echo base_url();?>car/carbrand_delete/";
                 $.ajax({
                 url: url,
                 type: "post",
-                data: {CarId:CarId} ,
+                data: {CarBrandId:CarBrandId} ,
                 success: function (response) {   
                     console.log(response);  
                     return false;        

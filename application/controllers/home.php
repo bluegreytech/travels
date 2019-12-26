@@ -19,19 +19,24 @@ class home extends CI_Controller
 
 	public function index()
 	{    
+		$data['testimonial']=$this->Login_model->gettestimoniallist();
 		$data['about']=$this->About_model->getabout(); 	
 		$data['result']=$this->Contact_model->getsitedetail();  	
 		$this->load->view('home/index',$data);			
 	}
 
 	public function booking()
-	{      	
-		$this->load->view('booking/booking');			
+	{  
+		$data['about']=$this->About_model->getabout(); 	
+		$data['result']=$this->Contact_model->getsitedetail();     	
+		$this->load->view('booking/booking',$data);			
 	}
 	
-	// public function loginprocess()
-	// {      	
-	// 	$this->load->view('common/login-process');			
-	// }
+	public function loginprocess()
+	{     
+		$data['about']=$this->About_model->getabout(); 	  
+		$data['result']=$this->Contact_model->getsitedetail();  	
+		$this->load->view('common/login-process',$data);			
+	}
 	
 }

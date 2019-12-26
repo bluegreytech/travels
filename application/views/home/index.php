@@ -449,22 +449,26 @@
 				</div>
 
 				<div class="row">
+					
 					<div class="testimonial-carousel">
+						<?php
+	                        if($testimonial){                             
+	                        foreach($testimonial as $testimorow)
+	                        {
+	                    ?>
 						<div class="item testimonial">
 							<div class="inner row m0">
-								<p>My journey with Yashdeep Travels has been an impeccable journey. They were very amiable when it comes to the way they treat their customers.</p>
-								<h5 class="client">abc</h5>
-								<a href="#" class="client-img"><img src="<?php echo base_url();?>assets/images/testimonial/1.jpg" alt="" class="img-circle"></a>
+								<p><?php echo $testimorow->TetimonialDescription;?></p>
+								<h5 class="client"><?php echo $testimorow->FirstName.' '.$testimorow->LastName;?></h5>
+								<a class="client-img"><img src="<?php echo base_url();?>admin/upload\testimonialimages/<?php echo $testimorow->TestimonialImage;?>" alt="" class="img-circle" height="80" width="80"></a>
 							</div>
 						</div>
-						<div class="item testimonial">
-							<div class="inner row m0">
-								<p>Yashdeep  Travels  have  a  very  commendable  knowledge  about time-management</p>
-								<h5 class="client">xyz</h5>
-								<a href="#" class="client-img"><img src="<?php echo base_url();?>assets/images/testimonial/2.jpg" alt="" class="img-circle"></a>
-							</div>
-						</div>
-					</div>   				
+							<?php
+							}
+						}
+						?>  	
+					</div> 
+
 				</div>
 
 			</div>

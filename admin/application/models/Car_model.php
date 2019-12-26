@@ -74,6 +74,7 @@ class Car_model extends CI_Model
 		   }
 
             $data = array(
+            	'CarBrandId'=>trim($this->input->post('CarBrandId')),
 				'CarName'=>trim($this->input->post('CarName')),
 				'CarRate'=>trim($this->input->post('CarRate')),
 				'DriveAllowance'=>trim($this->input->post('DriveAllowance')),
@@ -96,33 +97,37 @@ class Car_model extends CI_Model
 	}
 
 	function getcarlist(){
-		$this->db->select('*');
-		$this->db->from('tblcartype');
-		$this->db->where('IsDelete','0');
-		$this->db->order_by('CarId','desc');
+		// $this->db->select('*');
+		$this->db->select('car.*,brand.BrandName');
+		$this->db->from("tblcartype as car");
+		$this->db->join('tblcarbrand as brand','car.CarBrandId = brand.CarBrandId', 'LEFT');
+		$this->db->where('car.IsDelete','0');
+		$this->db->order_by('car.CarId','desc');
 		$query=$this->db->get();
 		$res = $query->result();
 		return $res;
 
 	}
 
-	function list_city(){
+	function list_city()
+	{
+		$where= array('IsActive' =>'Active','IsDelete' =>'0');
 		$this->db->select('*');
 		$this->db->from('tblcity');
-		$this->db->where('IsDelete','0');
-		//$this->db->order_by('CityName','ACE');
+		$this->db->where($where);
+		$this->db->order_by('CityName','ACE');
 		$query=$this->db->get();
 		$res = $query->result();
 		return $res;
-
 	}
 	
 
 	function getdata($CarId){
-		$this->db->select("car.*,city.CityName as CityStart,cityend.CityName as CityEnd");
+		$this->db->select("car.*,city.CityName as CityStart,cityend.CityName as CityEnd,brand.BrandName");
 		$this->db->from("tblcartype as car");
 		$this->db->join('tblcity as city','car.StartPointCityId = city.CityId', 'LEFT');
 		$this->db->join('tblcity as cityend','car.EndPointCityId = cityend.CityId', 'LEFT');
+		$this->db->join('tblcarbrand as brand','car.CarBrandId = brand.CarBrandId', 'LEFT');
 		$this->db->where("car.IsDelete",'0');
 		$this->db->where("CarId",$CarId);
 	    $this->db->order_by('CarId','desc');
@@ -205,6 +210,7 @@ class Car_model extends CI_Model
 
 		   $CarId=$this->input->post('CarId');
             $data = array(
+            'CarBrandId'=>trim($this->input->post('CarBrandId')),
 			'CarName'=>trim($this->input->post('CarName')),
 			'CarRate'=>trim($this->input->post('CarRate')),
 			'DriveAllowance'=>trim($this->input->post('DriveAllowance')),
@@ -227,5 +233,56 @@ class Car_model extends CI_Model
 			return $res;
 	}
 
+
+
+	function carbrand_insert()
+	{	
+
+        $data = array(
+			'BrandName'=>trim($this->input->post('BrandName')),
+			'IsActive' =>$this->input->post('IsActive'),			
+			'CreatedOn'=>date('Y-m-d')		
+		);
+	    //echo "<pre>";print_r($data);die;	         
+        $res=$this->db->insert('tblcarbrand',$data);	
+		return $res;
+	}
+
+	function getcarbrandlist()
+	{
+		$this->db->select('*');
+		$this->db->from('tblcarbrand');
+		$this->db->where('IsDelete','0');
+		$this->db->order_by('CarBrandId','desc');
+		$query=$this->db->get();
+		$res = $query->result();
+		return $res;
+
+	}
+
+	function getbarbranddata($CarBrandId)
+	{
+		$this->db->select("*");
+		$this->db->from("tblcarbrand");
+		$this->db->where("CarBrandId",$CarBrandId);
+	    $this->db->order_by('CarBrandId','desc');
+		$query=$this->db->get();
+		return $query->row_array();
+	}
+
+
+	function carbrand_update()
+	{
+	   	$CarBrandId=$this->input->post('CarBrandId');
+        $data = array(
+		'BrandName'=>trim($this->input->post('BrandName')),
+		'IsActive' =>$this->input->post('IsActive'),					
+		'UpdatedOn'=>date('Y-m-d')		
+		); 
+		//print_r($data);die;
+		$this->db->where("CarBrandId",$CarBrandId);
+		$res=$this->db->update('tblcarbrand',$data);		
+		return $res;
+	}
 	
 }

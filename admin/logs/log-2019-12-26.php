@@ -509,3 +509,61 @@ ERROR - 2019-12-26 12:34:52 --> Severity: Notice --> Undefined variable: CarBran
 ERROR - 2019-12-26 12:34:52 --> Severity: Notice --> Undefined variable: EndPointCityId C:\xampp\htdocs\travels\admin\application\views\car\caradd.php 141
 ERROR - 2019-12-26 12:34:53 --> Severity: Notice --> Undefined variable: CarBrandId C:\xampp\htdocs\travels\admin\application\views\car\caradd.php 43
 ERROR - 2019-12-26 12:34:53 --> Severity: Notice --> Undefined variable: EndPointCityId C:\xampp\htdocs\travels\admin\application\views\car\caradd.php 141
+ERROR - 2019-12-26 12:35:40 --> 404 Page Not Found: Default/images
+ERROR - 2019-12-26 12:35:40 --> 404 Page Not Found: Default/images
+ERROR - 2019-12-26 12:41:16 --> Severity: Notice --> Undefined variable: CarImage C:\xampp\htdocs\travels\admin\application\views\car\carbrandadd.php 48
+ERROR - 2019-12-26 12:41:16 --> Severity: Notice --> Undefined variable: CarImage C:\xampp\htdocs\travels\admin\application\views\car\carbrandadd.php 55
+ERROR - 2019-12-26 12:47:18 --> Severity: Notice --> Undefined variable: BrandCarImage C:\xampp\htdocs\travels\admin\application\views\car\carbrandadd.php 48
+ERROR - 2019-12-26 12:47:18 --> Severity: Notice --> Undefined variable: BrandCarImage C:\xampp\htdocs\travels\admin\application\views\car\carbrandadd.php 55
+ERROR - 2019-12-26 12:48:31 --> 404 Page Not Found: Default/images
+ERROR - 2019-12-26 12:48:31 --> 404 Page Not Found: Default/images
+ERROR - 2019-12-26 12:52:37 --> 404 Page Not Found: Default/images
+ERROR - 2019-12-26 12:52:37 --> 404 Page Not Found: Default/images
+ERROR - 2019-12-26 12:52:48 --> 404 Page Not Found: Default/images
+ERROR - 2019-12-26 12:52:48 --> 404 Page Not Found: Default/images
+ERROR - 2019-12-26 12:53:03 --> 404 Page Not Found: Default/images
+ERROR - 2019-12-26 12:53:03 --> 404 Page Not Found: Default/images
+ERROR - 2019-12-26 12:55:18 --> 404 Page Not Found: Default/images
+ERROR - 2019-12-26 12:55:18 --> 404 Page Not Found: Default/images
+ERROR - 2019-12-26 12:55:42 --> 404 Page Not Found: Default/images
+ERROR - 2019-12-26 12:55:42 --> 404 Page Not Found: Default/images
+ERROR - 2019-12-26 12:55:48 --> 404 Page Not Found: Default/images
+ERROR - 2019-12-26 12:55:48 --> 404 Page Not Found: Default/images
+ERROR - 2019-12-26 12:55:57 --> 404 Page Not Found: Default/images
+ERROR - 2019-12-26 12:55:57 --> 404 Page Not Found: Default/images
+ERROR - 2019-12-26 12:56:08 --> 404 Page Not Found: Default/images
+ERROR - 2019-12-26 12:56:08 --> 404 Page Not Found: Default/images
+ERROR - 2019-12-26 12:57:43 --> 404 Page Not Found: Upload/testimonialimages
+ERROR - 2019-12-26 12:57:43 --> 404 Page Not Found: Upload/testimonialimages
+ERROR - 2019-12-26 12:57:43 --> 404 Page Not Found: Upload/testimonialimages
+ERROR - 2019-12-26 12:57:43 --> 404 Page Not Found: Default/images
+ERROR - 2019-12-26 12:57:43 --> 404 Page Not Found: Default/images
+ERROR - 2019-12-26 12:58:18 --> 404 Page Not Found: Default/images
+ERROR - 2019-12-26 12:58:18 --> 404 Page Not Found: Default/images
+ERROR - 2019-12-26 12:58:34 --> 404 Page Not Found: Default/images
+ERROR - 2019-12-26 12:58:34 --> 404 Page Not Found: Default/images
+ERROR - 2019-12-26 12:58:43 --> 404 Page Not Found: Default/images
+ERROR - 2019-12-26 12:58:43 --> 404 Page Not Found: Default/images
+ERROR - 2019-12-26 13:12:52 --> 404 Page Not Found: Assets/upload
+ERROR - 2019-12-26 13:12:52 --> 404 Page Not Found: Assets/upload
+ERROR - 2019-12-26 13:12:52 --> 404 Page Not Found: Assets/upload
+ERROR - 2019-12-26 13:20:27 --> 404 Page Not Found: Upload/carimages
+ERROR - 2019-12-26 13:20:27 --> 404 Page Not Found: Upload/carimages
+ERROR - 2019-12-26 13:20:27 --> 404 Page Not Found: Upload/carimages
+ERROR - 2019-12-26 13:20:31 --> 404 Page Not Found: Upload/carimages
+ERROR - 2019-12-26 13:20:31 --> 404 Page Not Found: Upload/carimages
+ERROR - 2019-12-26 13:20:31 --> 404 Page Not Found: Upload/carimages
+ERROR - 2019-12-26 13:20:32 --> 404 Page Not Found: Default/images
+ERROR - 2019-12-26 13:20:32 --> 404 Page Not Found: Default/images
+ERROR - 2019-12-26 13:20:34 --> 404 Page Not Found: Upload/carimages
+ERROR - 2019-12-26 13:20:44 --> 404 Page Not Found: Upload/carimages
+ERROR - 2019-12-26 13:20:44 --> 404 Page Not Found: Upload/carimages
+ERROR - 2019-12-26 13:20:45 --> 404 Page Not Found: Default/images
+ERROR - 2019-12-26 13:20:45 --> 404 Page Not Found: Default/images
+ERROR - 2019-12-26 13:20:48 --> 404 Page Not Found: Upload/carimages
+ERROR - 2019-12-26 13:20:55 --> 404 Page Not Found: Upload/carimages
+ERROR - 2019-12-26 13:20:55 --> 404 Page Not Found: Default/images
+ERROR - 2019-12-26 13:20:55 --> 404 Page Not Found: Default/images
+ERROR - 2019-12-26 13:20:58 --> 404 Page Not Found: Upload/carimages
+ERROR - 2019-12-26 13:21:05 --> 404 Page Not Found: Default/images
+ERROR - 2019-12-26 13:21:05 --> 404 Page Not Found: Default/images

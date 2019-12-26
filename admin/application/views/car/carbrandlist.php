@@ -33,13 +33,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <thead class="thead-inverse">
                             <tr>
                                 <th>Sr No</th>
-                                <th>Brand Name</th>                              
+                                <th>Brand Name</th> 
+                                <th>Brand Image</th>                              
 								<th>Status</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
 						<tbody>
-                        <?php
+                            <?php
                                 $i=1;
                                 if($result){                             
                                 foreach($result as $row)
@@ -48,6 +49,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <tr>
                                     <td><?php echo $i; ?></td>
                                     <td><?php echo $row->BrandName; ?></td>
+                                     <td>
+                                        <?php
+                                        if($row->BrandCarImage=='' && $row->BrandCarImage==null)
+                                        {
+                                            echo "N/A";
+                                        }
+                                        else
+                                        {
+                                            ?>
+                                            <img src="<?php echo base_url();?>upload/carimages/<?php echo $row->BrandCarImage;?>" height='70px' width='150px'>
+                                            <?php
+                                        }
+                                        ?>  
+                                    </td>
                                     <td>
                                         <?php if($row->IsActive=="Active")
                                             {

@@ -147,6 +147,7 @@ class Car extends CI_Controller {
 		$data=array();	
 		$data['CarBrandId']=$this->input->post('CarBrandId');
 		$data['BrandName']=$this->input->post('BrandName');
+		$data['BrandCarImage']=$this->input->post('BrandCarImage');
 		$data['IsActive']=$this->input->post('IsActive');
 	
 		if($_POST)
@@ -194,7 +195,8 @@ class Car extends CI_Controller {
 			$result=$this->Car_model->getbarbranddata($CarBrandId);
 			//echo "<pre>";print_r($result);die;		
 			$data['CarBrandId']=$result['CarBrandId'];
-			$data['BrandName']=$result['BrandName'];	
+			$data['BrandName']=$result['BrandName'];
+			$data['BrandCarImage']=$result['BrandCarImage'];	
 			$data['IsActive']=$result['IsActive'];
 			//echo "<pre>";print_r($data);die;	
 			$data['activeTab']="carbrandadd";	

@@ -237,9 +237,78 @@ class Car_model extends CI_Model
 
 	function carbrand_insert()
 	{	
+		$brand_car_image='';
+		if(isset($_FILES['BrandCarImage']) &&  $_FILES['BrandCarImage']['name']!='')
+		{
+			$this->load->library('upload');
+			$rand=rand(0,100000); 
+			 
+		   $_FILES['userfile']['name']     =   $_FILES['BrandCarImage']['name'];
+		   $_FILES['userfile']['type']     =   $_FILES['BrandCarImage']['type'];
+		   $_FILES['userfile']['tmp_name'] =   $_FILES['BrandCarImage']['tmp_name'];
+		   $_FILES['userfile']['error']    =   $_FILES['BrandCarImage']['error'];
+		   $_FILES['userfile']['size']     =   $_FILES['BrandCarImage']['size'];
+  
+		   $config['file_name'] = $rand.'Car';			
+		   $config['upload_path'] = base_path().'upload/car_orig/';		
+		   $config['allowed_types'] = 'jpg|jpeg|gif|png|bmp';  
+
+			$this->upload->initialize($config);
+
+			 if (!$this->upload->do_upload())
+			 {
+			   $error =  $this->upload->display_errors();
+			   echo "<pre>";print_r($error);
+			 } 
+				$picture = $this->upload->data();	   
+			 $this->load->library('image_lib');		   
+			 $this->image_lib->clear();
+			 $gd_var='gd2';
+
+			 $this->image_lib->initialize(array(
+			   'image_library' => $gd_var,
+			   'source_image' => base_path().'upload/car_orig/'.$picture['file_name'],
+			   'new_image' => base_path().'upload/carimages/'.$picture['file_name'],
+			   'maintain_ratio' => FALSE,
+			   'quality' => '100%',
+			   'width' => 512,
+			   'height' => 189
+			));
+		   
+		   
+		   if(!$this->image_lib->resize())
+		   {
+			   $error = $this->image_lib->display_errors();
+		   }
+		   
+		   $brand_car_image=$picture['file_name'];
+	   
+		   
+	   
+		   if($this->input->post('pre_brand_car_image')!='')
+			   {
+				   if(file_exists(base_path().'upload/carimages/'.$this->input->post('pre_brand_car_image')))
+				   {
+					   $link=base_path().'upload/carimages/'.$this->input->post('pre_brand_car_image');
+					   unlink($link);
+				   }
+				   
+				   if(file_exists(base_path().'upload/car_orig/'.$this->input->post('pre_brand_car_image')))
+				   {
+					   $link2=base_path().'upload/car_orig/'.$this->input->post('pre_brand_car_image');
+					   unlink($link2);
+				   }
+			   }
+		   } else {
+			   if($this->input->post('pre_brand_car_image')!='')
+			   {
+				   $brand_car_image=$this->input->post('pre_brand_car_image');
+			   }
+		   }
 
         $data = array(
 			'BrandName'=>trim($this->input->post('BrandName')),
+			'BrandCarImage'=>$brand_car_image,
 			'IsActive' =>$this->input->post('IsActive'),			
 			'CreatedOn'=>date('Y-m-d')		
 		);
@@ -257,7 +326,6 @@ class Car_model extends CI_Model
 		$query=$this->db->get();
 		$res = $query->result();
 		return $res;
-
 	}
 
 	function getbarbranddata($CarBrandId)
@@ -273,9 +341,80 @@ class Car_model extends CI_Model
 
 	function carbrand_update()
 	{
+
+		$brand_car_image='';
+		if(isset($_FILES['BrandCarImage']) &&  $_FILES['BrandCarImage']['name']!='')
+		{
+			$this->load->library('upload');
+			$rand=rand(0,100000); 
+			 
+		   $_FILES['userfile']['name']     =   $_FILES['BrandCarImage']['name'];
+		   $_FILES['userfile']['type']     =   $_FILES['BrandCarImage']['type'];
+		   $_FILES['userfile']['tmp_name'] =   $_FILES['BrandCarImage']['tmp_name'];
+		   $_FILES['userfile']['error']    =   $_FILES['BrandCarImage']['error'];
+		   $_FILES['userfile']['size']     =   $_FILES['BrandCarImage']['size'];
+  
+		   $config['file_name'] = $rand.'Car';			
+		   $config['upload_path'] = base_path().'upload/car_orig/';		
+		   $config['allowed_types'] = 'jpg|jpeg|gif|png|bmp';  
+
+			$this->upload->initialize($config);
+
+			 if (!$this->upload->do_upload())
+			 {
+			   $error =  $this->upload->display_errors();
+			   echo "<pre>";print_r($error);
+			 } 
+				$picture = $this->upload->data();	   
+			 $this->load->library('image_lib');		   
+			 $this->image_lib->clear();
+			 $gd_var='gd2';
+
+			 $this->image_lib->initialize(array(
+			   'image_library' => $gd_var,
+			   'source_image' => base_path().'upload/car_orig/'.$picture['file_name'],
+			   'new_image' => base_path().'upload/carimages/'.$picture['file_name'],
+			   'maintain_ratio' => FALSE,
+			   'quality' => '100%',
+			   'width' => 512,
+			   'height' => 189
+			));
+		   
+		   
+		   if(!$this->image_lib->resize())
+		   {
+			   $error = $this->image_lib->display_errors();
+		   }
+		   
+		   $brand_car_image=$picture['file_name'];
+	   
+		   
+	   
+		   if($this->input->post('pre_brand_car_image')!='')
+			   {
+				   if(file_exists(base_path().'upload/carimages/'.$this->input->post('pre_brand_car_image')))
+				   {
+					   $link=base_path().'upload/carimages/'.$this->input->post('pre_brand_car_image');
+					   unlink($link);
+				   }
+				   
+				   if(file_exists(base_path().'upload/car_orig/'.$this->input->post('pre_brand_car_image')))
+				   {
+					   $link2=base_path().'upload/car_orig/'.$this->input->post('pre_brand_car_image');
+					   unlink($link2);
+				   }
+			   }
+		   } else {
+			   if($this->input->post('pre_brand_car_image')!='')
+			   {
+				   $brand_car_image=$this->input->post('pre_brand_car_image');
+			   }
+		   }
+
 	   	$CarBrandId=$this->input->post('CarBrandId');
         $data = array(
 		'BrandName'=>trim($this->input->post('BrandName')),
+		'BrandCarImage'=>$brand_car_image,	
 		'IsActive' =>$this->input->post('IsActive'),					
 		'UpdatedOn'=>date('Y-m-d')		
 		); 

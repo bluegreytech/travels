@@ -42,6 +42,24 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 									<input type="text" class="form-control" placeholder="Car Brand Name" name="BrandName" value="<?php echo $BrandName;?>" minlength="3" maxlength="100">
 								</div>
 
+								<div class="form-group  uploadfrm">
+									<label>Brand Car Image</label>
+									<p><span class="btn btn-black btn-file">
+										<input type="hidden" name="pre_brand_car_image" value="<?php echo $BrandCarImage;?>">
+									Upload brand car image <input type="file" name="BrandCarImage" id="carimage" onchange="readURL(this);">
+									</span></p>									
+									<span id="profileerror"></span>
+								</div>
+									<div class="preview">
+									
+									<?php if($BrandCarImage){ ?>
+										<img id="blah" src="<?php echo base_url()?>upload/carimages/<?php echo $BrandCarImage;?>" class="img-thumbnail border-0" style="display: block;  width: 100px; height: 100px;">
+
+									<?php } else{?>
+									<img id="blah" src="" class="img-thumbnail border-0" style="display: none;  width: 100px; height: 100px;">
+									<?php } ?>
+								</div>
+
 											
 								<?php  if($IsActive!=''){ ?>                                
 								<div class="form-group">
@@ -128,7 +146,7 @@ $(document).ready(function()
 
 			  errorPlacement: function (error, element) {
             console.log('dd', element.attr("name"))
-            if (element.attr("name") == "CarImage") {
+            if (element.attr("name") == "BrandCarImage") {
                 error.appendTo("#profileerror");
             } else{
                   error.insertAfter(element)

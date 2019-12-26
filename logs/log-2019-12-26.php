@@ -73,3 +73,9 @@ ERROR - 2019-12-26 10:19:22 --> Severity: Notice --> Trying to get property 'Oth
 ERROR - 2019-12-26 10:19:22 --> Severity: Notice --> Undefined variable: result C:\xampp\htdocs\travels\application\views\common\footer.php 47
 ERROR - 2019-12-26 10:19:22 --> Severity: Notice --> Trying to get property 'SiteEmail' of non-object C:\xampp\htdocs\travels\application\views\common\footer.php 47
 ERROR - 2019-12-26 11:51:28 --> 404 Page Not Found: Assets/images
+ERROR - 2019-12-26 13:13:00 --> 404 Page Not Found: Assets/js
+ERROR - 2019-12-26 13:13:00 --> 404 Page Not Found: Assets/vendors
+ERROR - 2019-12-26 13:13:00 --> 404 Page Not Found: Assets/vendors
+ERROR - 2019-12-26 13:13:42 --> 404 Page Not Found: Assets/vendors
+ERROR - 2019-12-26 13:13:42 --> 404 Page Not Found: Assets/js
+ERROR - 2019-12-26 13:13:42 --> 404 Page Not Found: Assets/vendors

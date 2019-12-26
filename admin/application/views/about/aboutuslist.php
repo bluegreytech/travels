@@ -60,7 +60,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                         else
                                         {
                                             ?>
-                                            <img src="<?php echo base_url();?>upload/aboutimage/<?php echo $row->AboutImage;?>">
+                                            <img src="<?php echo base_url();?>upload/aboutimage/<?php echo $row->AboutImage;?>" width="100" height="100">
                                             <?php
                                         }
                                         ?>  

@@ -6,6 +6,7 @@ class contact extends CI_Controller
 	{
       	parent::__construct();
 		$this->load->model('Contact_model');
+		$this->load->model('About_model');
 	}
 
 	public function index()
@@ -16,6 +17,7 @@ class contact extends CI_Controller
 			$this->session->set_flashdata('success', 'Your message has been send Succesfully!');
 			redirect('contact');		
 		}
+		$data['about']=$this->About_model->getabout(); 	
 		$data['result']=$this->Contact_model->getsitedetail();
 		//print_r($data['result']);die;		
 		$this->load->view('contact/contact-us',$data);			

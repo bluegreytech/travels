@@ -5,7 +5,12 @@
 						<!--Widget-->
 						<div class="col-sm-12 col-md-4 widget footer-widget widget-about">
 							<h4 class="widget-title">About Us</h4>
-							<p>YD Cabs by Yashdeep Travels is a travelling solutions providing networking company where we provide cab services to the customers and help them reach their destination in time with comfort that you aspire for, along with the affordable pricing forte..</p>
+							<p>
+								<?php
+									$rr=$about[0]->AboutDescription;
+                             		echo $str = substr($rr, 0, 220) . '...';		
+								?>
+							</p>
 							<a href="<?php echo base_url();?>about">Read More <i class="fa fa-angle-double-right"></i></a>
 						</div>
 						<!--Widget-->
@@ -22,10 +27,26 @@
 						<div class="col-sm-12 col-md-3 widget footer-widget widget-contact-info">
 							<h4 class="widget-title">CONTACT INFO</h4>
 							<ul class="nav foot-nav">
-								<li><i class="ion-location"></i>101 Radhey Flats, 13/14 Sumant Park, opp. Shrenik, Par Park, Akota, Vadodara-20.</li>
-								<li><i class="ion-ios-telephone"></i><a href="tel:+91 90990 42156">+91 90990 42156</a></li>
-								<li><i class="ion-ios-telephone"></i><a href="tel:+91 98258 72134">+91 98258 72134</a></li>
-								<li><i class="ion-email-unread"></i><a href="mailto:bookmycabs@ydcabs.com">bookmycabs@ydcabs.com</a></li>
+								<li><i class="ion-location"></i> 
+									<?php
+										echo $result[0]->OfficeAddress;
+									?>
+								</li>
+								<li><i class="ion-ios-telephone"></i><a href="tel:+91 90990 42156"> 
+									<?php
+										echo $result[0]->SiteContactNumber;
+									?>	
+								</a></li>
+								<li><i class="ion-ios-telephone"></i><a href="tel:+91 98258 72134">
+									<?php
+										echo $result[0]->OtherContactNumber;
+									?>
+								</a></li>
+								<li><i class="ion-email-unread"></i><a href="mailto:bookmycabs@ydcabs.com">
+								 	<?php
+										echo $result[0]->SiteEmail;
+									?>	
+								</a></li>
 							</ul>
 						</div>
 					</div>

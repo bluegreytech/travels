@@ -37,18 +37,63 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								<h4 class="form-section"><i class="icon-clipboard4"></i> Requirements</h4>
 							
 								<div class="form-group">
-								<input type="hidden" value="<?php echo $AboutusId; ?>" name="AboutusId">
-									<label>Project Title</label>
-									<input type="text" class="form-control" placeholder="Project Title" name="AboutTitle" value="<?php echo $AboutTitle;?>" minlength="3" maxlength="100">
+									<input type="hidden" value="<?php echo $AboutusId; ?>" name="AboutusId">
+									<label>About Title</label>
+									<input type="text" class="form-control" placeholder="About Title" name="AboutTitle" value="<?php echo $AboutTitle;?>" minlength="3" maxlength="100">
 								</div>
 							
 
 								<div class="form-group">
-									<label>About Short Description</label>
-									<textarea id="editor1" rows="5" class="form-control" name="AboutDescription" id="AboutDescription">
+									<label>About Description</label>
+									<textarea id="editor1" rows="5" class="form-control" name="AboutDescription">
 									<?php echo $AboutDescription; ?></textarea>
 									<script>
 										CKEDITOR.replace('editor1');
+									</script>
+								</div>
+
+								<div class="form-group">
+									<label>About Second Title</label>
+									<input type="text" class="form-control" placeholder="About Second Title" name="SecondTitle" value="<?php echo $SecondTitle;?>" minlength="3" maxlength="100">
+								</div>
+							
+
+								<div class="form-group">
+									<label>About Second Description</label>
+									<textarea id="editor2" rows="5" class="form-control" name="SecondDescription">
+									<?php echo $SecondDescription; ?></textarea>
+									<script>
+										CKEDITOR.replace('editor2');
+									</script>
+								</div>
+
+								<div class="form-group">
+									<label>About Third Title</label>
+									<input type="text" class="form-control" placeholder="About Third Title" name="ThirdTitle" value="<?php echo $ThirdTitle;?>" minlength="3" maxlength="100">
+								</div>
+							
+
+								<div class="form-group">
+									<label>About Third Description</label>
+									<textarea id="editor3" rows="5" class="form-control" name="ThirdDescription">
+									<?php echo $ThirdDescription; ?></textarea>
+									<script>
+										CKEDITOR.replace('editor3');
+									</script>
+								</div>
+
+								<div class="form-group">
+									<label>About Fourth Title</label>
+									<input type="text" class="form-control" placeholder="About Fourth Title" name="FourthTitle" value="<?php echo $FourthTitle;?>" minlength="3" maxlength="100">
+								</div>
+							
+
+								<div class="form-group">
+									<label>About Fourth Description</label>
+									<textarea id="editor4" rows="5" class="form-control" name="FourthDescription">
+									<?php echo $FourthDescription; ?></textarea>
+									<script>
+										CKEDITOR.replace('editor4');
 									</script>
 								</div>
 
@@ -138,6 +183,15 @@ $(document).ready(function()
        $('#form_valid').validate({
 			rules: {
 				AboutTitle:{              
+					required: true,                
+				}, 
+				SecondTitle:{              
+					required: true,                
+				}, 
+				ThirdTitle:{              
+					required: true,                
+				}, 
+				FourthTitle:{              
 					required: true,                
 				}, 
 				AboutImage:{

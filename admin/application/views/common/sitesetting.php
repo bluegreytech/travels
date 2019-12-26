@@ -45,13 +45,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							
 								<div class="form-group">
 								<input type="hidden" value="<?php echo $SettingId; ?>" name="SettingId">
-									<label>Owner Name</label>
-									<input type="text" class="form-control" placeholder="Full Name" name="FullName" value="<?php echo $FullName;?>" minlength="3" maxlength="100">
+									<label>Site Name</label>
+									<input type="text" class="form-control" placeholder="Site Name" name="FullName" value="<?php echo $FullName;?>" minlength="3" maxlength="100">
 								</div>
 
 								<div class="form-group">
-									<label>Site Name</label>
-									<input type="text" class="form-control" placeholder="Site Name" name="SiteName" value="<?php echo $SiteName;?>" minlength="3" maxlength="100">
+									<label>Site Domain Name</label>
+									<input type="text" class="form-control" placeholder="Site Domain Name" name="SiteName" value="<?php echo $SiteName;?>" minlength="3" maxlength="100">
 								</div>
 
 								<div class="form-group">
@@ -62,6 +62,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								<div class="form-group">
 									<label>Site Contact Number</label>
 									<input type="text" class="form-control" placeholder="Site Contact Number" name="SiteContactNumber" id="SiteContactNumber" value="<?php echo $SiteContactNumber;?>" minlength="10" maxlength="10">
+								</div>
+
+								<div class="form-group">
+									<label>Other Contact Number</label>
+									<input type="text" class="form-control" placeholder="Other Contact Number" name="OtherContactNumber" id="OtherContactNumber" value="<?php echo $OtherContactNumber;?>" minlength="10" maxlength="10">
 								</div>
 
 								<div class="form-group">
@@ -99,14 +104,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
 
 <script>
-	$("#SiteContactNumber").on("input", function(evt) {
+$("#SiteContactNumber").on("input", function(evt) {
+	var self = $(this);
+	self.val(self.val().replace(/[^\d].+/, ""));
+	if ((evt.which < 48 || evt.which > 57)) 
+	{
+		evt.preventDefault();
+	}});
+
+$("#OtherContactNumber").on("input", function(evt) {
 		var self = $(this);
 		self.val(self.val().replace(/[^\d].+/, ""));
 		if ((evt.which < 48 || evt.which > 57)) 
 		{
 			evt.preventDefault();
 		}});
-
 
 $(function() { 
     setTimeout(function() {

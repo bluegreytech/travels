@@ -24,6 +24,7 @@ class Home extends CI_Controller {
 		$data['SiteName']=$this->input->post('SiteName');
 		$data['SiteEmail']=$this->input->post('SiteEmail');
 		$data['SiteContactNumber']=$this->input->post('SiteContactNumber');
+		$data['OtherContactNumber']=$this->input->post('OtherContactNumber');
 		$data['OfficeAddress']=$this->input->post('OfficeAddress');
 		$data['OfficeTime']=$this->input->post('OfficeTime');
 		if($_POST)
@@ -59,6 +60,7 @@ class Home extends CI_Controller {
 		$data['SiteName']=$result['SiteName'];		
 		$data['SiteEmail']=$result['SiteEmail'];
 		$data['SiteContactNumber']=$result['SiteContactNumber'];
+		$data['OtherContactNumber']=$result['OtherContactNumber'];
 		$data['OfficeAddress']=$result['OfficeAddress'];
 		$data['OfficeTime']=$result['OfficeTime'];
 		$data['activeTab']="Editabout";	

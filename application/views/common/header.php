@@ -39,7 +39,12 @@
 	<section class="row top-bar">
 		<h2 class="hd-sec">Heading</h2>
 		<div class="container">
-			<div class="welcome-texts"><span class="welcome-text">Welcome to</span><span>Yashdeep Travels!</span></div>
+			<div class="welcome-texts"><span class="welcome-text">Welcome to
+				</span><span> 
+					<?php
+						echo $result[0]->FullName;
+					?>	
+				</span></div>
 			<ul class="social-lists-wSearch nav nav-pills">
 				<li><a href="#"><i class="ion-social-facebook"></i></a></li>
 				<li><a href="#"><i class="ion-social-twitter"></i></a></li>
@@ -62,7 +67,11 @@
 							<div class="media info-media">
 								<div class="media-left"><i><img src="<?php echo base_url();?>assets/images/locate.png"></i></div>
 								<div class="media-body">
-									<h5 class="this-top">101 Radhey Flats, 13/14 Sumant Park, opp. Shrenik, Par Park, Akota, Vadodara-20.</h5>
+									<h5 class="this-top">
+									<?php
+										echo $result[0]->OfficeAddress;
+									?>									
+								</h5>
 								</div>
 							</div>
 						</div>
@@ -70,8 +79,16 @@
 							<div class="media info-media flashit">
 								<div class="media-left"><i><img src="<?php echo base_url();?>assets/images/call.png"></i></div>
 								<div class="media-body">
-									<h5 class="this-top call">+91 90990 42156</h5>
-									<h5 class="this-bottom">bookmycabs@ydcabs.com</h5>
+									<h5 class="this-top call">
+									<?php
+										echo $result[0]->SiteContactNumber;
+									?>	
+									</h5>
+									<h5 class="this-bottom">
+									<?php
+										echo $result[0]->SiteEmail;
+									?>
+									</h5>
 								</div>
 							</div>
 						</div>

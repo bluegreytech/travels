@@ -6,7 +6,13 @@ class About_model extends CI_Model
 	{	
             $data = array(
 			'AboutTitle'=>trim($this->input->post('AboutTitle')),			
-			'AboutDescription'=>trim($this->input->post('AboutDescription')),		
+			'AboutDescription'=>trim($this->input->post('AboutDescription')),
+			'SecondTitle'=>trim($this->input->post('SecondTitle')),			
+			'SecondDescription'=>trim($this->input->post('SecondDescription')),
+			'ThirdTitle'=>trim($this->input->post('ThirdTitle')),			
+			'ThirdDescription'=>trim($this->input->post('ThirdDescription')),
+			'FourthTitle'=>trim($this->input->post('FourthTitle')),			
+			'FourthDescription'=>trim($this->input->post('FourthDescription')),		
 			'IsActive' =>$this->input->post('IsActive'),			
 			'CreatedOn'=>date('Y-m-d')		
 			);
@@ -40,8 +46,6 @@ class About_model extends CI_Model
 
 	function about_update(){
 		  $AboutusId=$this->input->post('AboutusId');
-
-
 		  $about_image='';
 		  //$image_settings=image_setting();
 		  if(isset($_FILES['about_image']) &&  $_FILES['about_image']['name']!='')
@@ -113,6 +117,12 @@ class About_model extends CI_Model
 			'AboutusId' =>trim($this->input->post('AboutusId')),	
 			'AboutTitle' =>trim($this->input->post('AboutTitle')),			
 			'AboutDescription' => trim($this->input->post('AboutDescription')),	
+			'SecondTitle' =>trim($this->input->post('SecondTitle')),			
+			'SecondDescription' => trim($this->input->post('SecondDescription')),	
+			'ThirdTitle' =>trim($this->input->post('ThirdTitle')),			
+			'ThirdDescription' => trim($this->input->post('ThirdDescription')),	
+			'FourthTitle' =>trim($this->input->post('FourthTitle')),			
+			'FourthDescription' => trim($this->input->post('FourthDescription')),	
 			'AboutImage'=>$about_image,
 			'IsActive' => $this->input->post('IsActive'),			
 			'CreatedOn'=>date('Y-m-d')		

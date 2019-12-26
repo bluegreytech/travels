@@ -43,103 +43,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								</div>
 
 								<div class="form-group">
-									<label>Car Rate </label>
-									<input type="text" class="form-control" placeholder="Car Rate" name="CarRate" value="<?php echo $CarRate;?>" minlength="3" maxlength="100">
-								</div>
-
-								<div class="form-group">
-									<label>Drive Allowance  </label>
-									<input type="text" class="form-control" placeholder="Drive Allowance" name="DriveAllowance" value="<?php echo $DriveAllowance;?>" minlength="3" maxlength="100">
-								</div>
-
-								<div class="form-group">
-									<label>Extra KMS</label>
-									<input type="text" class="form-control" placeholder="Extra KMS" name="ExtraKMS" value="<?php echo $ExtraKMS;?>" minlength="3" maxlength="100">
-								</div>
-
-
-								<div class="form-group">
 									<label>Number of Seat</label>
 									<input type="text" class="form-control" placeholder="Number of Seat" id="NumberOfSeat" name="NumberOfSeat" value="<?php echo $NumberOfSeat;?>" minlength="1" maxlength="2">
 								</div>
 
 								<div class="form-group">
-									<label>Number of Baggage</label>
-									<input type="text" class="form-control" placeholder="Number of Baggage" id="NoOfBaggage" name="NoOfBaggage" value="<?php echo $NoOfBaggage;?>" minlength="1" maxlength="2">
+									<label>Car Type</label>
+									<input type="text" class="form-control" placeholder="Car Type" name="CarType" 
+									value="<?php echo $CarType;?>" minlength="3" maxlength="100">
 								</div>
 
-								<div class="form-group">
-									<label>Start Point City</label>
-									<select name="StartPointCityId" class="form-control" required>
-									<?php
-									if($StartPointCityId=='')
-									{
-										?>
-										<option desabled value="">Please select start point city</option>
-										<?php
-									}
-									else
-									{
-										?>
-										<option value="<?php echo $StartPointCityId;?>"><?php echo $CityStart;?></option>
-										<?php
-									}
-									?>
-								
-										<?php
-										if($cityData)
-										{
-											foreach($cityData as $cData)
-											{
-										?>
-								
-											<option value="<?php echo $cData->CityId; ?>"><?php echo $cData->CityName;?></option>
-										<?php
-										}}
-										?>
-									</select>
-								</div>
-
-
-								<div class="form-group">
-									<label>End Point City</label>
-									<select name="EndPointCityId" class="form-control" required>
-									<?php
-									if($EndPointCityId=='')
-									{
-										?>
-										<option desabled value="">Please select end point city</option>
-										<?php
-									}
-									else
-									{
-										?>
-										<option value="<?php echo $EndPointCityId;?>"><?php echo $CityEnd;?></option>
-										<?php
-									}
-									?>
-									
-									
-										<?php
-										if($cityData)
-										{
-											foreach($cityData as $cData)
-											{
-										?>
-											<!-- <option value="<?php// echo $cData->companytypeid; ?>" <?php //if($companytypeid==$cData->companytypeid){echo "selected" ;}?>><?php //echo $cData->CityName;?></option> -->
-											<option value="<?php echo $cData->CityId; ?>"><?php echo $cData->CityName;?></option>
-										<?php
-										}}
-										?>
-									</select>
-									</select>
-								</div>
-
-								<div class="form-group">
-									<label>State Tax</label>
-									<input type="text" class="form-control" placeholder="State Tax" id="StateTax" name="StateTax" value="<?php echo $StateTax;?>" minlength="1" maxlength="20">
-								</div>
-
+	
 								<div class="form-group">
 									<label>Ac/Nonac</label>
 									<select name="AirCondition" class="form-control">
@@ -189,15 +103,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 									<img id="blah" src="" class="img-thumbnail border-0" style="display: none;  width: 100px; height: 100px;">
 									<?php } ?>
 								</div>
-
-								<div class="form-group">
-									<label>Description</label>
-									<textarea id="editor1" rows="5" class="form-control" name="CarDescription" id="Notificationdescription"><?php echo $CarDescription; ?></textarea>
-									<script>
-										CKEDITOR.replace('editor1');
-									</script>
-								</div>
-
 											
 								<?php  if($IsActive!=''){ ?>                                
 								<div class="form-group">
@@ -279,31 +184,13 @@ $(document).ready(function()
 			rules: {
 				CarName:{              
 					required: true,                
-				},
-				CarRate:{              
-					required: true,                
-				},
-				DriveAllowance:{              
-					required: true,                
-				},
-				ExtraKMS:{              
-					required: true,                
-				},
+				}, 
 				NumberOfSeat:{              
 					required: true,                
-				},
-				NoOfBaggage:{              
+				}, 
+				CarType:{              
 					required: true,                
 				}, 
-				StartPointCityId:{              
-					required: true,                
-				}, 
-				EndPointCityId:{              
-					required: true,                
-				},
-				StateTax:{              
-					required: true,                
-				},
 				AirCondition:{              
 					required: true,                
 				}, 
@@ -311,14 +198,11 @@ $(document).ready(function()
 					required: true,                
 				},
 				CarImage:{              
-					//required: true, 
+					required: true, 
 					extension: "JPG|jpeg|png|bmp",
 					filesize: 2097152,                  
-				},
-				CarDescription:{              
-					required: true,                
 				},   
-						
+							
 			 },
 
 			  errorPlacement: function (error, element) {

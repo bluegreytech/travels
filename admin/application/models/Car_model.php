@@ -74,16 +74,23 @@ class Car_model extends CI_Model
 		   }
 
             $data = array(
-				'CarName'=>trim($this->input->post('CarName')),	
-				'NumberOfSeat'=>trim($this->input->post('NumberOfSeat')),			
-				'CarType'=>trim($this->input->post('CarType')),
+				'CarName'=>trim($this->input->post('CarName')),
+				'CarRate'=>trim($this->input->post('CarRate')),
+				'DriveAllowance'=>trim($this->input->post('DriveAllowance')),
+				'ExtraKMS'=>trim($this->input->post('ExtraKMS')),	
+				'NumberOfSeat'=>trim($this->input->post('NumberOfSeat')),
+				'NoOfBaggage'=>trim($this->input->post('NoOfBaggage')),
+				'StartPointCityId'=>trim($this->input->post('StartPointCityId')),
+				'EndPointCityId'=>trim($this->input->post('EndPointCityId')),	
+				'StateTax'=>trim($this->input->post('StateTax')),	
 				'AirCondition'=>trim($this->input->post('AirCondition')),	
 				'CarNumber'=>trim($this->input->post('CarNumber')),			
-				'CarImage'=>$car_image,		
+				'CarImage'=>$car_image,	
+				'CarDescription' =>$this->input->post('CarDescription'),	
 				'IsActive' =>$this->input->post('IsActive'),			
 				'CreatedOn'=>date('Y-m-d')		
 			);
-		    //echo "<pre>";print_r($data);die;	         
+		   // echo "<pre>";print_r($data);die;	         
             $res=$this->db->insert('tblcartype',$data);	
 			return $res;
 	}
@@ -98,12 +105,25 @@ class Car_model extends CI_Model
 		return $res;
 
 	}
+
+	function list_city(){
+		$this->db->select('*');
+		$this->db->from('tblcity');
+		$this->db->where('IsDelete','0');
+		//$this->db->order_by('CityName','ACE');
+		$query=$this->db->get();
+		$res = $query->result();
+		return $res;
+
+	}
 	
 
 	function getdata($CarId){
-		$this->db->select("*");
-		$this->db->from("tblcartype");
-		$this->db->where("IsDelete",'0');
+		$this->db->select("car.*,city.CityName as CityStart,cityend.CityName as CityEnd");
+		$this->db->from("tblcartype as car");
+		$this->db->join('tblcity as city','car.StartPointCityId = city.CityId', 'LEFT');
+		$this->db->join('tblcity as cityend','car.EndPointCityId = cityend.CityId', 'LEFT');
+		$this->db->where("car.IsDelete",'0');
 		$this->db->where("CarId",$CarId);
 	    $this->db->order_by('CarId','desc');
 		$query=$this->db->get();
@@ -185,13 +205,20 @@ class Car_model extends CI_Model
 
 		   $CarId=$this->input->post('CarId');
             $data = array(
-			'CarName' =>trim($this->input->post('CarName')),
-			'NumberOfSeat' =>trim($this->input->post('NumberOfSeat')),			
-			'CarType' => trim($this->input->post('CarType')),	
-			'AirCondition' =>trim($this->input->post('AirCondition')),			
-			'CarNumber' => trim($this->input->post('CarNumber')),
+			'CarName'=>trim($this->input->post('CarName')),
+			'CarRate'=>trim($this->input->post('CarRate')),
+			'DriveAllowance'=>trim($this->input->post('DriveAllowance')),
+			'ExtraKMS'=>trim($this->input->post('ExtraKMS')),	
+			'NumberOfSeat'=>trim($this->input->post('NumberOfSeat')),
+			'NoOfBaggage'=>trim($this->input->post('NoOfBaggage')),
+			'StartPointCityId'=>trim($this->input->post('StartPointCityId')),
+			'EndPointCityId'=>trim($this->input->post('EndPointCityId')),	
+			'StateTax'=>trim($this->input->post('StateTax')),	
+			'AirCondition'=>trim($this->input->post('AirCondition')),	
+			'CarNumber'=>trim($this->input->post('CarNumber')),			
 			'CarImage'=>$car_image,	
-			'IsActive' => $this->input->post('IsActive'),			
+			'CarDescription' =>$this->input->post('CarDescription'),	
+			'IsActive' =>$this->input->post('IsActive'),					
 			'UpdatedOn'=>date('Y-m-d')		
 			); 
 			//print_r($data);die;

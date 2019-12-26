@@ -31,10 +31,43 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<div class="card-block">
 				
 						<form class="form" method="post" enctype="multipart/form-data" id="form_valid"
-						 action="<?php echo base_url();?>car/Caradd">
+						 action="<?php echo base_url();?>car/caradd">
 					
 							<div class="form-body">
 								<h4 class="form-section"><i class="icon-clipboard4"></i> Requirements</h4>
+
+									<div class="form-group">
+									<label>Select Brand Car</label>
+									<select name="CarBrandId" class="form-control" required>
+									<?php
+									if($CarBrandId=='')
+									{
+										?>
+										<option desabled value="">Please select brand car</option>
+										<?php
+									}
+									else
+									{
+										?>
+										<option value="<?php echo $CarBrandId;?>"><?php echo $BrandName;?></option>
+										<?php
+									}
+									?>
+								
+										<?php
+										if($carbrand)
+										{
+											foreach($carbrand as $brand)
+											{
+										?>
+								
+											<option value="<?php echo $brand->CarBrandId; ?>"><?php echo $brand->BrandName;?></option>
+										<?php
+										}}
+										?>
+									</select>
+								</div>
+
 							
 								<div class="form-group">
 								<input type="hidden" value="<?php echo $CarId; ?>" name="CarId">
@@ -143,9 +176,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								<div class="form-group">
 									<label>Ac/Nonac</label>
 									<select name="AirCondition" class="form-control">
+										<?php
+											if($AirCondition=='')
+											{
+										?>
 											<option disabled>Select</option>
 											<option value="AC">AC</option>
 											<option value="Nonac">Nonac</option>
+										<?php
+										}
+										?>
+
 										<?php
 											if($AirCondition=='AC')
 											{
@@ -277,6 +318,9 @@ $(document).ready(function()
    } ,'File size must be equal to or less then 2MB'); 
        $('#form_valid').validate({
 			rules: {
+				CarBrandId:{              
+					required: true,                
+				},
 				CarName:{              
 					required: true,                
 				},

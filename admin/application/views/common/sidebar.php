@@ -48,6 +48,32 @@
             </ul>
           </li> 
 
+           <li class="nav-item <?php echo($activeTab == "cityadd"||$activeTab =="citylist") ? "open" : ""; ?>">
+          <a class="<?php echo ($activeTab == "cityadd" || $activeTab == "citylist") ? "active" : ""; ?>">
+            <i class="icon-car"></i><span data-i18n="nav.dash.main" class="menu-title">City</span>
+          </a>
+          <ul class="menu-content">
+            <li>
+                <a href="<?php echo base_url(); ?>city/cityadd" data-i18n="nav.dash.main" class="menu-item <?php echo ($activeTab == "cityadd") ? "active" : ""; ?>"><i class="icon-plus"></i>Add City</a>
+            </li>
+            <li>
+              <a href="<?php echo base_url(); ?>city" data-i18n="nav.dash.main" class="menu-item <?php echo ($activeTab == "citylist") ? "active" : ""; ?>"><i class="icon-file-text2"></i>List of City </a>
+            </li>
+          </ul>
+
+          <li class="nav-item <?php echo($activeTab == "carbrandadd"||$activeTab =="carbrandlist") ? "open" : ""; ?>">
+          <a class="<?php echo ($activeTab == "carbrandadd" || $activeTab == "carbrandlist") ? "active" : ""; ?>">
+            <i class="icon-car"></i><span data-i18n="nav.dash.main" class="menu-title">Car Brand</span>
+          </a>
+          <ul class="menu-content">
+            <li>
+                <a href="<?php echo base_url(); ?>car/carbrandadd" data-i18n="nav.dash.main" class="menu-item <?php echo ($activeTab == "carbrandadd") ? "active" : ""; ?>"><i class="icon-plus"></i>Add Car Brand</a>
+            </li>
+            <li>
+              <a href="<?php echo base_url(); ?>car/carbrandlist" data-i18n="nav.dash.main" class="menu-item <?php echo ($activeTab == "carbrandlist") ? "active" : ""; ?>"><i class="icon-file-text2"></i>List of Car Brand</a>
+            </li>
+          </ul>
+
           <li class="nav-item <?php echo($activeTab == "caradd"||$activeTab =="carlist") ? "open" : ""; ?>">
             <a class="<?php echo ($activeTab == "caradd" || $activeTab == "carlist") ? "active" : ""; ?>">
               <i class="icon-car"></i><span data-i18n="nav.dash.main" class="menu-title">Car</span>

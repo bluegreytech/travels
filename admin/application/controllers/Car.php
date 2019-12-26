@@ -17,11 +17,12 @@ class Car extends CI_Controller {
 		}else{	
 			$data['activeTab']="carlist";		
 			$data['result']=$this->Car_model->getcarlist();
+			//print_r($data['result']);die;
 			$this->load->view('car/carlist',$data);
 		}
 	}
 	
-	public function Caradd()
+	public function caradd()
 	{      
 		if(!check_admin_authentication()){ 
 			redirect(base_url());
@@ -35,8 +36,7 @@ class Car extends CI_Controller {
 		$data['DriveAllowance']=$this->input->post('DriveAllowance');
 		$data['ExtraKMS']=$this->input->post('ExtraKMS');
 		$data['NumberOfSeat']=$this->input->post('NumberOfSeat');
-		$data['NoOfBaggage']=$this->input->post('NoOfBaggage');
-		
+		$data['NoOfBaggage']=$this->input->post('NoOfBaggage');	
 		$data['StartPointCityId']=$this->input->post('StartPointCityId');
 		$data['StartPointCityId']=$this->input->post('StartPointCityId');
 		$data['StateTax']=$this->input->post('StateTax');
@@ -67,6 +67,7 @@ class Car extends CI_Controller {
 			
 			$data['activeTab']="caradd";
 			$data['cityData']=$this->Car_model->list_city();
+			$data['carbrand']=$this->Car_model->getcarbrandlist();
 			//print_r($data['cityData']);die;	
 			$this->load->view('car/caradd',$data);
 				
@@ -81,6 +82,9 @@ class Car extends CI_Controller {
 			//echo "<pre>";print_r($result);die;		
 			$data['CarId']=$result['CarId'];
 			$data['CarName']=$result['CarName'];
+			$data['CarBrandId']=$result['CarBrandId'];
+			$data['BrandName']=$result['BrandName'];
+			
 			$data['CarRate']=$result['CarRate'];
 			$data['DriveAllowance']=$result['DriveAllowance'];
 			$data['ExtraKMS']=$result['ExtraKMS'];
@@ -96,11 +100,12 @@ class Car extends CI_Controller {
 			$data['CarDescription']=$result['CarDescription'];		
 			$data['IsActive']=$result['IsActive'];
 
-			echo $data['CityStart']=$result['CityStart'];
-			echo $data['CityEnd']=$result['CityEnd'];
+			$data['CityStart']=$result['CityStart'];
+			$data['CityEnd']=$result['CityEnd'];
 			//echo "<pre>";print_r($data);die;	
 			$data['activeTab']="caradd";
-			$data['cityData']=$this->Car_model->list_city();	
+			$data['cityData']=$this->Car_model->list_city();
+			$data['carbrand']=$this->Car_model->getcarbrandlist();	
 			$this->load->view('car/caradd',$data);	
 		
 	}
@@ -131,6 +136,86 @@ class Car extends CI_Controller {
 			die;
 		
 	}
+
+
+	public function carbrandadd()
+	{      
+		if(!check_admin_authentication()){ 
+			redirect(base_url());
+		}   
+			
+		$data=array();	
+		$data['CarBrandId']=$this->input->post('CarBrandId');
+		$data['BrandName']=$this->input->post('BrandName');
+		$data['BrandCarImage']=$this->input->post('BrandCarImage');
+		$data['IsActive']=$this->input->post('IsActive');
+	
+		if($_POST)
+		{	
+				if($this->input->post("CarBrandId")!="")
+				{
+					$this->Car_model->carbrand_update();
+					$this->session->set_flashdata('success', 'Record has been Updated Succesfully!');
+					redirect('car/carbrandlist');
+					
+				}
+				else
+				{ 
+					$this->Car_model->carbrand_insert();
+					$this->session->set_flashdata('success', 'Record has been Inserted Succesfully!');
+					redirect('car/carbrandlist');
+				
+				}
+		}	
+			
+			$data['activeTab']="carbrandadd";
+			$data['cityData']=$this->Car_model->list_city();
+			//print_r($data['cityData']);die;	
+			$this->load->view('car/carbrandadd',$data);
+				
+	}
+
+
+	function carbrandlist()
+	{	
+		if(!check_admin_authentication()){ 
+			redirect(base_url());
+		}else{	
+			$data['activeTab']="carbrandlist";		
+			$data['result']=$this->Car_model->getcarbrandlist();
+			$this->load->view('car/carbrandlist',$data);
+		}
+	}
+
+	function editcarbrand($CarBrandId){
+		if(!check_admin_authentication()){ 
+			redirect(base_url());
+		}
+			$data=array();
+			$result=$this->Car_model->getbarbranddata($CarBrandId);
+			//echo "<pre>";print_r($result);die;		
+			$data['CarBrandId']=$result['CarBrandId'];
+			$data['BrandName']=$result['BrandName'];
+			$data['BrandCarImage']=$result['BrandCarImage'];	
+			$data['IsActive']=$result['IsActive'];
+			//echo "<pre>";print_r($data);die;	
+			$data['activeTab']="carbrandadd";	
+			$this->load->view('car/carbrandadd',$data);	
+		
+	}
+
+	function carbrand_delete(){
+		if(!check_admin_authentication()){ 
+			redirect(base_url());
+		}
+			$data= array('IsActive' =>'Inactive','IsDelete' =>'1');
+			$CarBrandId=$this->input->post('CarBrandId');
+			$this->db->where("CarBrandId",$CarBrandId);			
+			$res=$this->db->update('tblcarbrand',$data);
+			//echo $this->db->last_query();die;
+			echo json_encode($res);
+			die;
+		}
 
 	
 }

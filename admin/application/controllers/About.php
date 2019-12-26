@@ -32,6 +32,12 @@ class About extends CI_Controller {
 		$data['AboutusId']=$this->input->post('AboutusId');
 		$data['AboutTitle']=$this->input->post('AboutTitle');
 		$data['AboutDescription']=$this->input->post('AboutDescription');
+		$data['SecondTitle']=$this->input->post('SecondTitle');
+		$data['SecondDescription']=$this->input->post('SecondDescription');
+		$data['ThirdTitle']=$this->input->post('ThirdTitle');
+		$data['ThirdDescription']=$this->input->post('ThirdDescription');
+		$data['FourthTitle']=$this->input->post('FourthTitle');
+		$data['FourthDescription']=$this->input->post('FourthDescription');
 		$data['IsActive']=$this->input->post('IsActive');
 
 		if($_POST)
@@ -66,7 +72,13 @@ class About extends CI_Controller {
 			$data['redirect_page']='aboutlist';
 			$data['AboutusId']=$result['AboutusId'];
 			$data['AboutTitle']=$result['AboutTitle'];	
-			$data['AboutDescription']=$result['AboutDescription'];		
+			$data['AboutDescription']=$result['AboutDescription'];	
+			$data['SecondTitle']=$result['SecondTitle'];	
+			$data['SecondDescription']=$result['SecondDescription'];
+			$data['ThirdTitle']=$result['ThirdTitle'];	
+			$data['ThirdDescription']=$result['ThirdDescription'];
+			$data['FourthTitle']=$result['FourthTitle'];	
+			$data['FourthDescription']=$result['FourthDescription'];		
 	      	$data['AboutImage']=$result['AboutImage'];
 			$data['IsActive']=$result['IsActive'];
 			$data['activeTab']="Editabout";	

@@ -15,11 +15,21 @@ class Login_model extends CI_Model
     function sitesetting_update()
     {
         $SettingId=$this->input->post('SettingId');
+        if($this->input->post('OtherContactNumber')=='')
+        {
+            $OtherContactNumber='N/A';
+        }
+        else
+        {
+            $OtherContactNumber=$this->input->post('OtherContactNumber');
+        }
+
         $data = array(
           'FullName' =>trim($this->input->post('FullName')),			
           'SiteName' => trim($this->input->post('SiteName')),	
           'SiteEmail' => $this->input->post('SiteEmail'),	
           'SiteContactNumber' => trim($this->input->post('SiteContactNumber')),	
+          'OtherContactNumber' => $OtherContactNumber,
           'OfficeAddress' => $this->input->post('OfficeAddress'),			
           'OfficeTime' => $this->input->post('OfficeTime'),
           ); 

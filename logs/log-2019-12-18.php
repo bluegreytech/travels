@@ -737,3 +737,15 @@ ERROR - 2019-12-18 09:42:58 --> 404 Page Not Found: Images/car-trash.png
 ERROR - 2019-12-18 09:42:58 --> 404 Page Not Found: Images/save-water.png
 ERROR - 2019-12-18 10:10:39 --> 404 Page Not Found: Images/save-water.png
 ERROR - 2019-12-18 10:10:39 --> 404 Page Not Found: Images/car-trash.png
+ERROR - 2019-12-18 12:56:59 --> 404 Page Not Found: Images/save-water.png
+ERROR - 2019-12-18 12:56:59 --> 404 Page Not Found: Images/car-trash.png
+ERROR - 2019-12-18 13:26:18 --> 404 Page Not Found: Images/car-trash.png
+ERROR - 2019-12-18 13:26:18 --> 404 Page Not Found: Images/save-water.png
+ERROR - 2019-12-18 13:26:58 --> Severity: Notice --> Undefined variable: result C:\xampp\htdocs\travels\application\views\common\header.php 59
+ERROR - 2019-12-18 13:26:58 --> Severity: Notice --> Trying to get property 'OfficeAddress' of non-object C:\xampp\htdocs\travels\application\views\common\header.php 59
+ERROR - 2019-12-18 13:26:58 --> 404 Page Not Found: Images/car-trash.png
+ERROR - 2019-12-18 13:26:58 --> 404 Page Not Found: Images/save-water.png
+ERROR - 2019-12-18 13:28:24 --> Severity: Notice --> Undefined variable: result C:\xampp\htdocs\travels\application\views\common\header.php 59
+ERROR - 2019-12-18 13:28:24 --> Severity: Notice --> Trying to get property 'OfficeAddress' of non-object C:\xampp\htdocs\travels\application\views\common\header.php 59
+ERROR - 2019-12-18 13:28:24 --> 404 Page Not Found: Images/car-trash.png
+ERROR - 2019-12-18 13:28:24 --> 404 Page Not Found: Images/save-water.png

@@ -984,8 +984,8 @@ a, .btn, button {
     margin-top: 30px; }
   .fleet-list.fleet .media-left {
     background: #f1f1f1;
-    height: auto;
-    padding: 56px 0;
+    height: 324px;
+    vertical-align: middle;;
      }
      .fleet-list.fleet .media-left img{
       width: 100%;
@@ -4294,7 +4294,12 @@ input[name="payment-method"]:checked + label {
       margin-bottom: 0; }
       .find-quick.row .location-group, .find-quick.row .input-group {
         margin-bottom: 30px;
-       } }
+       } 
+
+       .fleet-list.fleet .media-left{
+        height: 200px!important;
+       }
+     }
 
 
   .find-quick-form img{
@@ -4614,4 +4619,8 @@ h5.this-label span {
    font-family: FontAwesome;
     color: #c61f48;
     margin-right: 2px;
+}
+.avial-title{
+  font-weight: 700;
+  color: #c61f48;
 }

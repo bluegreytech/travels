@@ -36,11 +36,13 @@
 								We  offer  affordable  air  conditioner  sedan  cab  to the  customers  which guarantees comfort, space, and a great experience. If you are planning to travel for a vacation with your family and friends without any fibre of doubt go for the new AC Sedan cab. Because when it comes to traveling with your near and dear ones you want no compromise.
 							</div>
 							<form action="<?php echo base_url();?>home/login">
+								<h4 class="avial-title">Available cars</h4>
 								<div class="row specification car-type">
 								    <label for="Honda Amaze">Honda Amaze</label>
 									<label for="Maruti Suzuki Dzire">Maruti Suzuki Dzire</label>
 									<label for="Hyundai Xcent">Hyundai Xcent</label>
 									<label for="Toyota Etios">Toyota Etios</label>
+								
 								</div>
 								<div class="row specification">
 									<input type="submit" value="Book a cab" class="btn btn-primary">
@@ -74,6 +76,7 @@
 
 							</div>
 							<form action="<?php echo base_url();?>home/login"> 
+								<h4 class="avial-title">Available cars</h4>
 								<div class="row specification car-type">
 								    <label for="Mahindra Marazzo">Mahindra Marazzo</label>
 									<label for="Toyota Innova">Toyota Innova</label>
@@ -111,7 +114,8 @@
 								Yashdeep  Travels  offer  luxury  cars  that  cater  your  needs  like  marriage events and premium leisure travels. The luxury cars include BMW, Audi, Jaguar, Land Rover, Sedan, SUV, and several other Vintage cars too.
 
 							</div>
-							<form action="<?php echo base_url();?>contact"> 
+							<form action="<?php echo base_url();?>contact">
+								<h4 class="avial-title">Available cars</h4>
 								<div class="row specification car-type">
 								    <label for="Mahindra Marazzo">BMW</label>
 									<label for="Audi">Audi</label>

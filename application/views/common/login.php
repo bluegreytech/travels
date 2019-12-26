@@ -7,7 +7,7 @@
   		<div class="container">
   			<h2 class="h1 page-title">Login</h2>
   			<ol class="breadcrumb">
-  				<li><a href="index.php">Home</a></li>
+  				<li><a href="<?php echo base_url();?>">Home</a></li>
   				<li class="active">Login</li>
   			</ol>
   		</div>

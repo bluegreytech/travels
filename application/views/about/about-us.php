@@ -7,7 +7,7 @@
   		<div class="container">
   			<h2 class="h1 page-title">About us</h2>
   			<ol class="breadcrumb">
-  				<li><a href="index.php">Home</a></li>
+  				<li><a href="<?php echo base_url();?>">Home</a></li>
   				<li class="active">About</li>
   			</ol>
   		</div>
@@ -15,83 +15,56 @@
   	<section class="wrapper-about">
 		<div class="container">
 			<div class="row">
-				<div class="col-md-5 col-sm-12 col-xs-12">
+				<div class="col-md-6 col-sm-12 col-xs-12">
 					<div class="media-left">
-						<span><img src="<?php echo base_url();?>assets/images/services/7.jpg" alt=""></span>
+						<span><img src="<?php echo base_url();?>assets/images/about/about-us.png" alt="" width="100%"></span>
 					</div>
 				</div>
-				<div class="col-md-7 col-sm-12 introduction">  			
+				<div class="col-md-6 col-sm-12 introduction">  			
 					<div class="row section-title m0">
 						<h6 class="this-top">Introduction</h6>
 						<h2 class="h1 this-main">Who We Are</h2>
-						<p>In viverra faucibus neque eu imperdiet. Aenean eget turpis a arcu egestas rhoncus vel nec risus. Vivamus varius tristique varius.</p>
-						<p>
-							Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+						<p>YD   Cabs   by Yashdeep   Travels   is   a   travelling   solutions   providing networking company where we provide cab services to the customers and help them reach their destination in time with comfort that you aspire for, along with the affordable pricing forte.</p>
+						<p>With the increased amount of rush going around, often people fall prey to weak  transport  facility  which  leads  to  delayed  commitments  ultimately inviting huge trip costs and unsatisfactory trip experience.
 						</p>
-						
+						<p>However,even  when  the  people  are  getting  a  cab  facility,  they  are charged with unacceptably high rates and. Yashdeep Travels is a place where you find easily accessible car rides at the most affordable price and the  modernized  technology  of  the  top  ended  vehicles  offering  Airbags, AC/Heater,  Stereo  Systems,  makes  the  entire  process  easier  for  the customers.  Our  efficient  team  has  toiled  around  the  clock  to  make  it  a customer-oriented  service,  where  we  as  well  encourage  feedback  from our  customers.  Our  customer’s  safety  is  one  of  the  core  values  we maintain.
+						</p>
 					</div>
 				</div>
 			</div>
 		</div>
   	</section>  	
-  	<section class="row some-features about-features">
+
+  	<section class="row missin-benefits nopadding">
   		<div class="container">
-  			<div class="row section-title text-center white">
-				<h6 class="this-top">The VALUE OF BRAND</h6>
-				<h2 class="h1 this-main">Some Features</h2>
-			</div>
-			<div class="col-md-4 feature">
-				<div class="media">
-					<div class="media-left"><span><img src="<?php echo base_url();?>assets/images/icons/features/1.png" alt=""></span></div>
-					<div class="media-body">
-						<h4 class="this-title">FREE FULL FUEL</h4>
-						<p>Never need to pay for Fuel. If you need extra fuel just fill up and keep the receipt, we will <strong>refund the amount.</strong></p>
-					</div>
-				</div>
-				<div class="media">
-					<div class="media-left"><span><img src="<?php echo base_url();?>assets/images/icons/features/2.png" alt=""></span></div>
-					<div class="media-body">
-						<h4 class="this-title">24/7 ROADSIDE ASSISTENCE</h4>
-						<p>You drive to adventures, we get it. We and our roadside assistance partners are <strong>available</strong> around the clock.</p>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-4 feature">
-				<div class="media">
-					<div class="media-left"><span><img src="<?php echo base_url();?>assets/images/icons/features/3.png" alt=""></span></div>
-					<div class="media-body">
-						<h4 class="this-title">TAX &amp; INSURANCE INCLUDED</h4>
-						<p>The hourly price includes Taxes &amp; Insurance. <strong>No hidden charges!</strong> Dosis amet consectua.</p>
-					</div>
-				</div>
-				<div class="media">
-					<div class="media-left"><span><img src="<?php echo base_url();?>assets/images/icons/features/4.png" alt=""></span></div>
-					<div class="media-body">
-						<h4 class="this-title">BEST RATED DRIVERS</h4>
-						<p>All our Drivers have commercial driving license which are specialized for highway driving.</p>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-4 feature">
-				<div class="media">
-					<div class="media-left"><span><img src="<?php echo base_url();?>assets/images/icons/features/5.png" alt=""></span></div>
-					<div class="media-body">
-						<h4 class="this-title">REFUNDABLE DEPOSIT</h4>
-						<p>We take a small refundable deposit of <strong>Rs5,000.</strong> It will take 5‐15 days before the refund reflects in your account.</p>
-					</div>
-				</div>
-				<div class="media">
-					<div class="media-left"><span><img src="<?php echo base_url();?>assets/images/icons/features/6.png" alt=""></span></div>
-					<div class="media-body">
-						<h4 class="this-title">DOORSTEP CAR DELIVERY</h4>
-						<p>Get your car <strong>delivered</strong> to your doorstep as well as picked up once you are done lorem dolor.</p>
-					</div>
-				</div>
-			</div>
-		</div>
-  	</section> 	
-  	
-   
+  			<div class="row mis-be ipad-width">
+  				<div class="col-md-6 col-sm-12 col-xs-12 mission-it">
+  					<h3 class="this-title">Our Mission</h3>
+  					<p class="this-para">It  is  our  continuous  endeavour to  incorporate  more  and  more  unique services that will fulfil every trajectory of the customer’s necessities. We are not only providing car services but also offer traveling solutions at the most affordable price.</p>
+  				</div>
+  				<div class="col-md-6 col-sm-12 col-xs-12 mission-it">
+  					<h3 class="this-title">Our Vision</h3>
+  					<p class="this-para">We strive each day to expand our company and make it accessible to a larger population. We target to capture the entire Gujarat market and also aspire to spread it over domestic borders.</p>
+  				</div>
+  			</div>
+  		</div>
+  	</section>
+
+    <section class="row missin-benefits">
+      <div class="container">
+        <div class="row mis-be ipad-width">
+          <div class="col-md-12 col-sm-12 col-xs-12 mission-it">
+            <h3 class="this-title">What do we offer?</h3>
+            <p class="this-para">With the increased amount of rush going around, often people fall prey to weak transport facility which leads to delayed meetings and hypertension. However,even  when  the  people  are  getting  a  cab  facility,  they  are charged with unacceptably high rates.</p>
+            <p class="this-para">Yashdeep Travels is a place where you find easily accessible car rides at the  most  affordable  price  equipped  with  modernized  technology  making the entire experience seamless for its clients.</p>
+            <p class="this-para">Our  efficient  team  has  toiled  around  the  clock  to  makeit  a  customer-oriented  service,  where  we  encourage  feedback  from  our  clients.  Our client’s safety is one of the core values we maintain.Yashdeep  Travel’s  mission  entirely  works  on  the  convenience  of  the clients.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  
+
 	  <?php 
 	 $this->load->view('common/footer');
 	 ?>

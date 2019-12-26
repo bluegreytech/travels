@@ -6,6 +6,8 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Yashdeep Travels</title>
+	<!-- Favicon -->
+	<link rel="shortcut icon" type="image/png" href="<?php echo base_url();?>assets/images/favicon.png">
 	<!--Fonts-->
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
@@ -27,6 +29,10 @@
 	<!--Theme Styles-->
 	<link rel="stylesheet" href="<?php echo base_url();?>assets/css/style.css">
 	<link rel="stylesheet" href="<?php echo base_url();?>assets/css/theme.css">
+	<!--slider-->
+	<link rel="stylesheet" href="<?php echo base_url();?>assets/css/slider.css">
+	<script src="<?php echo base_url();?>assets/js/jssor.slider-27.5.0.min.js"></script>
+	<script src="<?php echo base_url();?>assets/js/slider.js"></script>
 </head>
 <body>
 	<!--Top Bar-->
@@ -47,10 +53,10 @@
 	<section class="row info-bar">
 		<div class="container">
 			<div class="row">
-				<div class="col-sm-4 col-xs-8 logo-box">
-					<a href="index.php" class="logo"><img src="<?php echo base_url();?>assets/images/logo.png" alt=""></a>
+				<div class="col-sm-4 col-xs-10 logo-box">
+					<a href="<?php echo base_url();?>" class="logo"><img src="<?php echo base_url();?>assets/images/logo.png" alt=""></a>
 				</div>
-				<div class="col-sm-8 col-xs-4 info-box">
+				<div class="col-sm-8 col-xs-2 info-box">
 					<div class="header-informations hidden-xs">
 						<div class="col-md-7">
 							<div class="media info-media">
@@ -88,14 +94,15 @@
 				<ul class="nav navbar-nav">
 					<li class="active"><a href="<?php echo base_url();?>">Home</a></li>
 					<li><a href="<?php echo base_url();?>about">About</a></li>
-					<li><a href="<?php echo base_url();?>services">Services</a></li>
-					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Product <span class="caret"></span></a>
+					<!-- <li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Services <span class="caret"></span></a>
 						<ul class="dropdown-menu">
-							<li><a href="#">product 1</a></li>
-							<li><a href="#">product 2</a></li>
+							<li><a href="#">Sedan</a></li>
+							<li><a href="#">SUV</a></li>
+							<li><a href="#">Luxury</a></li>
 						</ul>
-					</li>
+					</li> -->
+					<li><a href="<?php echo base_url();?>services">Services</a></li>
 					<li><a href="<?php echo base_url();?>routes">Routes</a></li>
 					<li><a href="<?php echo base_url();?>contact">contact</a></li>
 					<li><a href="<?php echo base_url();?>home/login">Login</a></li>

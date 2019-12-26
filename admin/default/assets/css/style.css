@@ -878,7 +878,7 @@ height:400px;
 
 .custom-control-input:checked ~ .custom-control-indicator {
     color: #fff;
-    background-color: #ef7f1a !important;
+    background-color: #c61f48!important;
 }
 .custom-control-input:active ~ .custom-control-indicator {
     color: #fff;
@@ -894,17 +894,43 @@ form label {
 }
 
 .btnlogin{
-  background-color: #283f82;
+  background-color: #c61f48;
   color: #fff;
 }
 a {
-    color: #283f82;
+    color: #c61f48;
     text-decoration: none;
 }
 a:hover {
-    color: #283f82;
+    color: #c61f48;
     text-decoration: none;
 }
 .form-control:focus {
     border-color: #f88120;
+}
+.logo{
+  padding: 0!important;
+}
+.form-control{
+  border:none!important;
+  border-bottom: solid 2px #d4d4d4!important;
+  border-radius: 0!important;
+}
+.form-control:focus{
+  border:none!important;
+  border-bottom: solid 2px #c61f48!important;
+}
+.header-navbar.navbar-dark .navbar-header .navbar-nav .nav-link, .header-navbar.navbar-semi-dark .navbar-header .navbar-nav .nav-link {
+    color: #c61f48!important;
+}
+.header-navbar.navbar-semi-dark {
+     border-bottom: solid 3px #2b2a29;
+}
+
+.media-body span{
+  font-size: 20px;
+  font-weight: 600;
+}
+.is-active .icon-menu5:before{
+  content: "\f057";
 }

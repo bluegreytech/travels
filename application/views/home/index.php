@@ -4,31 +4,66 @@
 
 	<!--Home 1 Slide Banner-->
 	<section class="slide-banner row">
-		<img src="<?php echo base_url();?>assets/images/slidedemo2.jpg" alt="" class="this-bg hidden-xs">
-
-		<div class="this-texts container">
-			<h2 class="this-cursive">Hire Car <span>Professional</span></h2>
-			<h2 class="this-h1">Now available at <img src="<?php echo base_url();?>assets/images/availablity.png" alt=""></h2>
-			<h2 class="this-foot">Call us Now : +91 90990 42156</h2>
-			<!-- <a href="#" class="btn btn-primary">Let’s check it out</a> -->
-		</div>
+		<div id="jssor_1" style="position:relative;margin:0 auto;top:0px;left:0px;width:1349px;height:550px;overflow:hidden;visibility:hidden;">
+        
+        <div data-u="slides" style="cursor:default;position:relative;top:0px;left:0px;width:1349px;height:550px;overflow:hidden;">
+            <div>
+                <img data-u="image" src="<?php echo base_url();?>assets/images/slidedemo2.jpg" />
+                <div data-t="0" style="position:relative;top:250px;text-align:center;">
+                    <h2 class="this-h1">May it be Airport pickup and drop</h2>
+                </div>
+            </div>
+            <div>
+                <img data-u="image" src="<?php echo base_url();?>assets/images/wedding-car.jpg" />
+                <div data-t="0" style="position:relative;top:250px;text-align:center;">
+                    <h2 class="this-h1">May it be Wedding pickup and drop</h2>
+                </div>
+            </div>
+            <div>
+                <img data-u="image" src="<?php echo base_url();?>assets/images/beach-car.jpg" />
+                <div data-t="0" style="position:relative;top:250px;text-align:center;">
+                    <h2 class="this-h1">May it be Beach pickup and drop</h2>
+                </div>
+            </div>
+        </div>
+        <!-- Bullet Navigator -->
+        <div data-u="navigator" class="jssorb032" style="position:absolute;bottom:12px;right:12px;" data-autocenter="1" data-scale="0.5" data-scale-bottom="0.75">
+            <div data-u="prototype" class="i" style="width:16px;height:16px;">
+                <svg viewbox="0 0 16000 16000" style="position:absolute;top:0;left:0;width:100%;height:100%;">
+                    <circle class="b" cx="8000" cy="8000" r="5800"></circle>
+                </svg>
+            </div>
+        </div>
+        <!-- Arrow Navigator -->
+        <div data-u="arrowleft" class="jssora051" style="width:65px;height:65px;top:0px;left:25px;" data-autocenter="2" data-scale="0.75" data-scale-left="0.75">
+            <svg viewbox="0 0 16000 16000" style="position:absolute;top:0;left:0;width:100%;height:100%;">
+                <polyline class="a" points="11040,1920 4960,8000 11040,14080 "></polyline>
+            </svg>
+        </div>
+        <div data-u="arrowright" class="jssora051" style="width:65px;height:65px;top:0px;right:25px;" data-autocenter="2" data-scale="0.75" data-scale-right="0.75">
+            <svg viewbox="0 0 16000 16000" style="position:absolute;top:0;left:0;width:100%;height:100%;">
+                <polyline class="a" points="4960,1920 11040,8000 4960,14080 "></polyline>
+            </svg>
+        </div>
+	    </div>
+	    <script type="text/javascript">jssor_1_slider_init();</script>
 	</section>
 	<!--Find Quick-->
 	<section class="row find-quick">
 		<div class="container">
 			<div class="row find-quick-form text-center">
 				<h2 class="this-title">FIND a <img src="<?php echo base_url();?>assets/images/cabs-ride.gif" alt=""> <u>quickly</u>!</h2>
-				<p class="this-p">You just do one step behind, we will delivery car to your door!</p>
+				<p class="this-p">You just do one step behind, we will delivery cab to your door!</p>
 				<div class="col-xs-12" style="padding:0">
 			        <div id="tab" class="btn-group btn-group-justified custom-tab" data-toggle="buttons">
 				        <a href="#one-way" class="btn btn-default active" data-toggle="tab">
 				          <input type="radio" />One Way Trip
 				        </a>
 				        <a href="#round-way" class="btn btn-default" data-toggle="tab">
-				          <input type="radio" />Round Way Trip
+				          <input type="radio" />Round Trip
 				        </a>
 				        <a href="#local" class="btn btn-default" data-toggle="tab">
-				          <input type="radio" />Local Trip
+				          <input type="radio" />Local/ Rental Trip
 				        </a>
 			        </div>
                 </div>
@@ -37,10 +72,18 @@
 				        <div class="tab-pane active" id="one-way">
 				        	<form action="#" method="post">
 				        		<div class="row fr-it">
-			        				<div class="col-md-3">
+			        				<div class="col-md-4">
 			        					<div class="location-group">
 											<div class="input-group">
-												<input type="text" class="form-control" placeholder="Enter airport, city or postcode...">
+												<input type="text" class="form-control" placeholder="Enter Pickuup Location">
+												<span class="input-group-addon"><i class="ion-android-locate"></i></span>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-4">
+			        					<div class="location-group">
+											<div class="input-group">
+												<input type="text" class="form-control" placeholder="Enter Drop Location">
 												<span class="input-group-addon"><i class="ion-android-locate"></i></span>
 											</div>
 										</div>
@@ -57,18 +100,12 @@
 											<span class="input-group-addon"><i class="ion-ios-alarm-outline"></i></span>
 										</div>
 									</div>
-									<div class="col-md-3">
-										<div class="input-group date-group">
-											<input type="text" class="datedroper form-control" placeholder="Drop off date">
-											<span class="input-group-addon"><i class="ion-calendar"></i></span>
-										</div>
-									</div>
-									<div class="col-md-2">
+									<!-- <div class="col-md-2">
 										<div class="input-group time-group">
 											<input type="text" class="timedroper form-control" placeholder="08:00 am">
 											<span class="input-group-addon"><i class="ion-ios-alarm-outline"></i></span>
 										</div>
-									</div>
+									</div> -->
 								</div>  				
 								<div class="row m0">
 									<div class="col-xs-12">
@@ -83,24 +120,26 @@
 				        			<div class="col-md-3">
 			        					<div class="location-group">
 											<div class="input-group">
-												<input type="text" class="form-control" placeholder="Enter airport, city or postcode...">
+												<input type="text" class="form-control" placeholder="Enter Pickuup Location">
+												<span class="input-group-addon"><i class="ion-android-locate"></i></span>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-3">
+			        					<div class="location-group">
+											<div class="input-group">
+												<input type="text" class="form-control" placeholder="Enter Drop Location">
 												<span class="input-group-addon"><i class="ion-android-locate"></i></span>
 											</div>
 										</div>
 									</div>
 				        			<div class="col-md-2">
 										<div class="input-group date-group">
-											<input type="text" class="datedroper form-control" placeholder="Pick up date">
+											<input type="text" class="datedroper form-control" placeholder="Pickup date">
 											<span class="input-group-addon"><i class="ion-calendar"></i></span>
 										</div>
 									</div>
 									<div class="col-md-2">
-										<div class="input-group time-group">
-											<input type="text" class="timedroper form-control" placeholder="08:00 am">
-											<span class="input-group-addon"><i class="ion-ios-alarm-outline"></i></span>
-										</div>
-									</div>
-									<div class="col-md-3">
 										<div class="input-group date-group">
 											<input type="text" class="datedroper form-control" placeholder="Drop off date">
 											<span class="input-group-addon"><i class="ion-calendar"></i></span>
@@ -127,17 +166,17 @@
 				        <div class="tab-pane" id="local">
 				        	<form>
 				        		<div class="row fr-it">
-				        			<div class="col-md-3">
+				        			<div class="col-md-4">
 			        					<div class="location-group">
 											<div class="input-group">
-												<input type="text" class="form-control" placeholder="Enter airport, city or postcode...">
+												<input type="text" class="form-control" placeholder="Enter Pickuup Location">
 												<span class="input-group-addon"><i class="ion-android-locate"></i></span>
 											</div>
 										</div>
 									</div>
-				        			<div class="col-md-2">
+				        			<div class="col-md-4">
 										<div class="input-group date-group">
-											<input type="text" class="datedroper form-control" placeholder="Pick up date">
+											<input type="text" class="datedroper form-control" placeholder="Pickup date">
 											<span class="input-group-addon"><i class="ion-calendar"></i></span>
 										</div>
 									</div>
@@ -147,15 +186,9 @@
 											<span class="input-group-addon"><i class="ion-ios-alarm-outline"></i></span>
 										</div>
 									</div>
-									<div class="col-md-3">
-										<div class="input-group date-group">
-											<input type="text" class="datedroper form-control" placeholder="Drop off date">
-											<span class="input-group-addon"><i class="ion-calendar"></i></span>
-										</div>
-									</div>
 									<div class="col-md-2">
 										<div class="input-group time-group">
-											<input type="text" class="timedroper form-control" placeholder="08:00 am">
+											<input type="text" class="timedroper form-control" placeholder="Duration">
 											<span class="input-group-addon"><i class="ion-ios-alarm-outline"></i></span>
 										</div>
 									</div>
@@ -178,35 +211,53 @@
 	<!--Features-->
 	<section class="row features">
 		<div class="container">
+			<div class="row section-title text-center">
+				<h6 class="this-top">Fact About Us</h6>
+				<h2 class="h1 this-main">Why Choose Us</h2>
+			</div>
 			<div class="col-md-4 feature">
 				<div class="media">
 					<div class="media-left"><span><img src="<?php echo base_url();?>assets/images/icons/features/1.png" alt=""></span></div>
 					<div class="media-body">
-						<h4 class="this-title">FREE FULL FUEL</h4>
-						<p>Never need to pay for Fuel. If you need extra fuel just fill up and keep the receipt, we will <strong>refund the amount.</strong></p>
+						<h4 class="this-title">CONVENIENCE</h4>
+						<p>Yashdeep  Travels  has  effectually  proved  the  level  of  convenience  it provides to the customers with its quick and seamless service.</strong></p>
+					</div>
+				</div>
+				<div class="media">
+					<div class="media-left"><span><img src="<?php echo base_url();?>assets/images/icons/features/3.png" alt=""></span></div>
+					<div class="media-body">
+						<h4 class="this-title">COMFORT</h4>
+						<p>When you are traveling in Yashdeep Travels, you are traveling in utmost comfort.</p>
 					</div>
 				</div>
 				<div class="media">
 					<div class="media-left"><span><img src="<?php echo base_url();?>assets/images/icons/features/2.png" alt=""></span></div>
 					<div class="media-body">
-						<h4 class="this-title">24/7 ROADSIDE ASSISTENCE</h4>
-						<p>You drive to adventures, we get it. We and our roadside assistance partners are <strong>available</strong> around the clock.</p>
+						<h4 class="this-title">24*7 SERVICE</h4>
+						<p>Be it a day, be it a night, we are always at your service. We are your convenience in the wee hours.</p>
 					</div>
 				</div>
 			</div>
 			<div class="col-md-4 feature">
 				<div class="media">
-					<div class="media-left"><span><img src="<?php echo base_url();?>assets/images/icons/features/3.png" alt=""></span></div>
+					<div class="media-left"><span><img src="<?php echo base_url();?>assets/images/icons/features/7.png" alt=""></span></div>
 					<div class="media-body">
-						<h4 class="this-title">TAX &amp; INSURANCE INCLUDED</h4>
-						<p>The hourly price includes Taxes &amp; Insurance. <strong>No hidden charges!</strong> Dosis amet consectua.</p>
+						<h4 class="this-title">AFFORDABLE</h4>
+						<p>Customers  will  be  experiencing  a  pocket-friendly  service  from  us. Now you can leave behind the headache of expense and travel stress-free with us.</p>
 					</div>
 				</div>
 				<div class="media">
 					<div class="media-left"><span><img src="<?php echo base_url();?>assets/images/icons/features/4.png" alt=""></span></div>
 					<div class="media-body">
-						<h4 class="this-title">BEST RATED DRIVERS</h4>
-						<p>All our Drivers have commercial driving license which are specialized for highway driving.</p>
+						<h4 class="this-title">MODERNIZED</h4>
+						<p>Starting from booking to the payment our team has developed the entire structure with the help of modernized technology.</p>
+					</div>
+				</div>
+				<div class="media">
+					<div class="media-left"><span><img src="<?php echo base_url();?>assets/images/icons/features/8.png" alt=""></span></div>
+					<div class="media-body">
+						<h4 class="this-title">SAFE AND SECURE</h4>
+						<p>We guarantee a safe, secure and timely ride when you are under ourservice.</p>
 					</div>
 				</div>
 			</div>
@@ -214,15 +265,15 @@
 				<div class="media">
 					<div class="media-left"><span><img src="<?php echo base_url();?>assets/images/icons/features/5.png" alt=""></span></div>
 					<div class="media-body">
-						<h4 class="this-title">REFUNDABLE DEPOSIT</h4>
-						<p>We take a small refundable deposit of <strong>Rs5,000.</strong> It will take 5‐15 days before the refund reflects in your account.</p>
+						<h4 class="this-title">REFUND</h4>
+						<p>We book the requirement but on cancellation we refund entire advanced, if any <sup>*</sup>.</p>
 					</div>
 				</div>
 				<div class="media">
 					<div class="media-left"><span><img src="<?php echo base_url();?>assets/images/icons/features/6.png" alt=""></span></div>
 					<div class="media-body">
-						<h4 class="this-title">DOORSTEP CAR DELIVERY</h4>
-						<p>Get your car <strong>delivered</strong> to your doorstep as well as picked up once you are done lorem dolor.</p>
+						<h4 class="this-title">DOOR TO DOOR CAB SERVICES</h4>
+						<p>Get your cab <strong>delivered</strong> to your door as well as picked up once you are done lorem dolor.</p>
 					</div>
 				</div>
 			</div>
@@ -232,11 +283,11 @@
 	<section class="row fleets2">
 		<div class="container">
 			<div class="row section-title text-center white">
-				<h6 class="this-top">SO MANY CHOICE</h6>
-				<h2 class="h1 this-main">Car for Every Need!</h2>
+				<h6 class="this-top">SO MANY CHOICES</h6>
+				<h2 class="h1 this-main">Cab for Every Need!</h2>
 			</div>
 			<div class="row">
-				<div class="col-md-6 fleet fleet2">
+				<div class="col-md-4 fleet fleet2">
 					<div class="inner row">
 						<h2 class="rent text-center">Sedan</h2>
 						<!--<h4 class="vehicle-title text-center">Swift Honda</h4>-->
@@ -245,17 +296,15 @@
 							<img class="cab-hover" src="<?php echo base_url();?>assets/images/sedan-hover.png" alt="">
 						</div>
 						<div class="row specification">
-							<ul class="nav">
-								<li><span><img src="<?php echo base_url();?>assets/images/icons/fleet2/1.png" alt=""></span>Auto</li>
-								<li><span><img src="<?php echo base_url();?>assets/images/icons/fleet2/2.png" alt=""></span>06L/100km</li>
-								<li><span><img src="<?php echo base_url();?>assets/images/icons/fleet2/3.png" alt=""></span>02</li>
-								<li><span><img src="<?php echo base_url();?>assets/images/icons/fleet2/4.png" alt=""></span>2016</li>
+							<ul class="nav text-center">
+								<li><span><img src="<?php echo base_url();?>assets/images/icons/fleet2/1.png" alt=""></span>03 Seats</li>
+								<li><span><img src="<?php echo base_url();?>assets/images/icons/fleet2/2.png" alt=""></span>02 Luggage</li>
 							</ul>
 							<a href="#" class="details-page">Book Now</a>
 						</div>
 					</div>
 				</div>
-				<div class="col-md-6 fleet fleet2">
+				<div class="col-md-4 fleet fleet2">
 					<div class="inner row">
 						<h2 class="rent text-center">SUV</h2>
 						<!--<h4 class="vehicle-title text-center">Maruti Ciaz</h4>-->
@@ -264,13 +313,27 @@
 							<img class="cab-hover" src="<?php echo base_url();?>assets/images/suv-hover.png" alt="">
 						</div>
 						<div class="row specification">
-							<ul class="nav">
-								<li><span><img src="<?php echo base_url();?>assets/images/icons/fleet2/1.png" alt=""></span>Auto</li>
-								<li><span><img src="<?php echo base_url();?>assets/images/icons/fleet2/2.png" alt=""></span>06L/100km</li>
-								<li><span><img src="<?php echo base_url();?>assets/images/icons/fleet2/3.png" alt=""></span>02</li>
-								<li><span><img src="<?php echo base_url();?>assets/images/icons/fleet2/4.png" alt=""></span>2016</li>
+							<ul class="nav text-center">
+								<li><span><img src="<?php echo base_url();?>assets/images/icons/fleet2/1.png" alt=""></span>06 Seats</li>
+								<li><span><img src="<?php echo base_url();?>assets/images/icons/fleet2/2.png" alt=""></span>04 Luggage</li>
 							</ul>
 							<a href="#" class="details-page">Book Now</a>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 fleet fleet2">
+					<div class="inner row">
+						<h2 class="rent text-center">Luxury Segmentation</h2>
+						<!--<h4 class="vehicle-title text-center">Maruti Ciaz</h4>-->
+						<div class="vehicle-img text-center">
+							<img class="cab" src="<?php echo base_url();?>assets/images/luxury.png" alt="">
+							<img class="cab-hover" src="<?php echo base_url();?>assets/images/luxury-hover.png" alt="">
+						</div>
+						<div class="row specification">
+							<ul class="nav text-center">
+								<li style="width: 100%!important"><p style="margin: 2px 0!important">For Marriage events & premium leisure travels.</p></li>
+							</ul>
+							<a href="#" class="details-page">Get A Quote</a>
 						</div>
 					</div>
 				</div>
@@ -293,8 +356,16 @@
 					<div class="icon-box">
 						<img src="<?php echo base_url();?>assets/images/book-car.png" alt="">
 					</div>
-					<h4 class="this-title">Book Your Car</h4>
-					<p>The weather started getting rough the tiny ship was lost the min ting a maximum security stockade lost the minnow.</p>
+					<h4 class="this-title">Book a Your Cab</h4>
+					<p>Book a journey withus via <a href="#">ydcabs.com</a> or over a <br>call<a href="tel:+91 90990 42156"> +91 90990 42156</a>.</p>
+				</div>
+				<!--Offer-->
+				<div class="col-md-4 feature text-center">
+					<div class="icon-box">
+						<img src="<?php echo base_url();?>assets/images/ride.png" alt="">
+					</div>
+					<h4 class="this-title">Enjoy your ride</h4>
+					<p>Enjoy your ride with a best of our drivers without worries about your safety.</p>
 				</div>
 				<!--Offer-->
 				<div class="col-md-4 feature text-center">
@@ -302,17 +373,9 @@
 						<img src="<?php echo base_url();?>assets/images/pay.png" alt="">
 					</div>
 					<h4 class="this-title">Pay the Fare</h4>
-					<p>The weather started getting rough the tiny ship was lost the min ting a maximum security stockade lost the minnow.</p>
+					<p>Pay your ride fare as per the commitment without being charge for extra miles and time, if any <sup>*</sup>.</p>
 				</div>
-				<!--Offer-->
-				<div class="col-md-4 feature text-center">
-					<div class="icon-box">
-						<img src="<?php echo base_url();?>assets/images/ride.png" alt="">
-					</div>
-					<h4 class="this-title">Enjoy the ride</h4>
-					<p>The weather started getting rough the tiny ship was lost the min ting a maximum security stockade lost the minnow.</p>
-				</div>
-						
+				
 			</div>   			
 		</div>
 	</section>	
@@ -368,33 +431,20 @@
 		<div class="container">
 			<div class="row">
 			    <div class="col-md-6 text-center">
-			        <img src="images/save-water.png" class="img-fluid" alt="">
+			        <img src="<?php echo base_url();?>assets/images/save-water.png" class="img-fluid" alt="">
 			    </div>
 			    <div class="col-md-6 text-center">
-			        <img src="images/car-trash.png" class="img-resposnive" alt="">
+			        <img src="<?php echo base_url();?>assets/images/car-trash.png" class="img-resposnive" alt="">
 			    </div>
 			</div>
 		</div>
 	</section>
-		<!--Banner 3-->
-		<section class="row banner3">
-			<div class="container">
-				<div class="media inner">
-					<div class="media-body">
-						<h2 class="h1 this-title">Many reasons to choose <u>Yashdeep Travels</u></h2>
-						<p>Our fleet comprises quite the range of rides, whether you need a small hybrid for efficient bursts across town.</p>
-					</div>
-					<div class="media-right">
-						<a href="#" class="btn btn-primary dark">read more</a>
-					</div>
-				</div>
-			</div>
-		</section>
+		
 		<!--Testimonial-->
 		<section class="row testimonial-row">
 			<div class="container">   			
 				<div class="row section-title text-center">
-					<h6 class="this-top">SO MANY CHOICE</h6>
+					<h6 class="this-top">OUR VALUABLE CLIENT FEEDBACK</h6>
 					<h2 class="h1 this-main">Testimonials</h2>
 				</div>
 
@@ -402,43 +452,15 @@
 					<div class="testimonial-carousel">
 						<div class="item testimonial">
 							<div class="inner row m0">
-								<p>“PUKDG is my favorite booking car company ever! Cool drivers , amazing cars, top notch services! You won't believe it, but they actually didn't took any tip :) Reading more at link”</p>
-								<h5 class="client">Diego Furlan</h5>
+								<p>My journey with Yashdeep Travels has been an impeccable journey. They were very amiable when it comes to the way they treat their customers.</p>
+								<h5 class="client">abc</h5>
 								<a href="#" class="client-img"><img src="<?php echo base_url();?>assets/images/testimonial/1.jpg" alt="" class="img-circle"></a>
 							</div>
 						</div>
 						<div class="item testimonial">
 							<div class="inner row m0">
-								<p>“PUKDG is my favorite booking car company ever! Cool drivers , amazing cars, top notch services! You won't believe it, but they actually didn't took any tip :) Reading more at link”</p>
-								<h5 class="client">Diego Furlan</h5>
-								<a href="#" class="client-img"><img src="<?php echo base_url();?>assets/images/testimonial/2.jpg" alt="" class="img-circle"></a>
-							</div>
-						</div>
-						<div class="item testimonial">
-							<div class="inner row m0">
-								<p>“PUKDG is my favorite booking car company ever! Cool drivers , amazing cars, top notch services! You won't believe it, but they actually didn't took any tip :) Reading more at link”</p>
-								<h5 class="client">Diego Furla</h5>
-								<a href="#" class="client-img"><img src="<?php echo base_url();?>assets/images/testimonial/1.jpg" alt="" class="img-circle"></a>
-							</div>
-						</div>
-						<div class="item testimonial">
-							<div class="inner row m0">
-								<p>“PUKDG is my favorite booking car company ever! Cool drivers , amazing cars, top notch services! You won't believe it, but they actually didn't took any tip :) Reading more at link”</p>
-								<h5 class="client">Diego Furlan</h5>
-								<a href="#" class="client-img"><img src="<?php echo base_url();?>assets/images/testimonial/2.jpg" alt="" class="img-circle"></a>
-							</div>
-						</div>
-						<div class="item testimonial">
-							<div class="inner row m0">
-								<p>“PUKDG is my favorite booking car company ever! Cool drivers , amazing cars, top notch services! You won't believe it, but they actually didn't took any tip :) Reading more at link”</p>
-								<h5 class="client">Diego Furlan</h5>
-								<a href="#" class="client-img"><img src="<?php echo base_url();?>assets/images/testimonial/1.jpg" alt="" class="img-circle"></a>
-							</div>
-						</div>
-						<div class="item testimonial">
-							<div class="inner row m0">
-								<p>“PUKDG is my favorite booking car company ever! Cool drivers , amazing cars, top notch services! You won't believe it, but they actually didn't took any tip :) Reading more at link”</p>
-								<h5 class="client">Diego Furlan</h5>
+								<p>Yashdeep  Travels  have  a  very  commendable  knowledge  about time-management</p>
+								<h5 class="client">xyz</h5>
 								<a href="#" class="client-img"><img src="<?php echo base_url();?>assets/images/testimonial/2.jpg" alt="" class="img-circle"></a>
 							</div>
 						</div>
@@ -447,28 +469,7 @@
 
 			</div>
 		</section>
-		<section class="row banner2-prefolder">
-			<div class="container-fluid">
-				<div class="row inner">
-					<div class="col-md-6 this-left">
-						<div class="this-texts">
-							<h2 class="this-title">Weekend Offer</h2>
-							<h2 class="this-title2 h1">Get 20% Discount</h2>
-							<p>Book cab at your destination at discount prices.</p>
-							<a href="#" class="read-more">read more<i class="ion-arrow-right-b"></i></a>
-						</div>
-					</div>
-					<div class="col-md-6 this-right">
-						<div class="this-texts">
-							<h2 class="this-title">Online Booking</h2>
-							<h2 class="this-title2 h1">Get a Taxi</h2>
-							<p>We offer you a long distance taxi service to anywhere.</p>
-							<a href="#" class="read-more">read more<i class="ion-arrow-right-b"></i></a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
+		
 
 		<?php 
 	 $this->load->view('common/footer');

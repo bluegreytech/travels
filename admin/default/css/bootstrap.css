@@ -1388,7 +1388,7 @@ pre {
 
 .thead-inverse th {
   color: #fff;
-  background-color: #333e7a; }
+  background-color: #c71f48; }
 
 .thead-default th {
   color: #55595c;
@@ -1443,7 +1443,7 @@ pre {
 .form-control {
   display: block;
   width: 100%;
-  padding: 0.5rem 0.75rem;
+  padding: 10px;
   font-size: 1rem;
   line-height: 1.25;
   color: #55595c;

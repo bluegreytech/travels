@@ -442,11 +442,11 @@
 	<section class="row features enivronment">
 		<div class="container">
 			<div class="row">
-			    <div class="col-md-6 text-center">
+			    <!-- <div class="col-md-6 text-center">
 			        <img src="<?php echo base_url();?>assets/images/save-water.png" class="img-fluid" alt="">
-			    </div>
-			    <div class="col-md-6 text-center">
-			        <img src="<?php echo base_url();?>assets/images/car-trash.png" class="img-resposnive" alt="">
+			    </div> -->
+			    <div class="col-md-12 text-center">
+			        <img src="<?php echo base_url();?>assets/images/environment.png" width="100%" alt="">
 			    </div>
 			</div>
 		</div>

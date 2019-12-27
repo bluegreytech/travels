@@ -71,14 +71,14 @@
 			      	<div class="tab-content">
 				        <div class="tab-pane active" id="one-way">
 				        	<form class="form" method="post" enctype="multipart/form-data" 
-				        				action="<?php echo base_url();?>Services" id="form_valid_one">
+				        				action="<?php echo base_url();?>home">
 				        		<div class="row fr-it">
 			        				<div class="col-md-4">
 			        					<div class="location-group">
 											<div class="input-group">
 												<!-- <input type="text" class="form-control" placeholder="Enter Pickup Location">
 												<span class="input-group-addon"><i class="ion-android-locate"></i></span> -->
-												<select name="StartPointCity" class="form-control" required>
+												<select name="StartPointCityId" class="form-control" required>
 													<option desabled value="">Please select start point city</option>
 													<?php
 													if($cityData)
@@ -100,7 +100,7 @@
 											<div class="input-group">
 												<!-- <input type="text" class="form-control" placeholder="Enter Drop Location">
 												<span class="input-group-addon"><i class="ion-android-locate"></i></span> -->
-												<select name="EndPointCity" class="form-control" required>
+												<select name="StartPointCityId" class="form-control" required>
 													<option desabled value="">Please select start point city</option>
 													<?php
 													if($cityData)
@@ -119,13 +119,13 @@
 									</div>
 				        			<div class="col-md-2">
 										<div class="input-group date-group">
-											<input type="text" class="datedroper form-control" name="PickupDate" id="PickupDate" placeholder="Pick up date" required>
+											<input type="text" class="datedroper form-control" name="PickupDate" id="PickupDate" placeholder="Pick up date">
 											<span class="input-group-addon"><i class="ion-calendar"></i></span>
 										</div>
 									</div>
 									<div class="col-md-2">
 										<div class="input-group time-group">
-											<input type="text" class="timedroper form-control" name="PickupTime" placeholder="08:00 am" required>
+											<input type="text" class="timedroper form-control" name="PickupTime" placeholder="08:00 am">
 											<span class="input-group-addon"><i class="ion-ios-alarm-outline"></i></span>
 										</div>
 									</div>
@@ -138,16 +138,16 @@
 								</div>  				
 								<div class="row m0">
 									<div class="col-xs-12">
-										<button class="btn btn-primary" type="submit">Book a cab</button>
+										<!-- <button class="btn btn-primary" type="submit">Book a cab</button> -->
 										<!-- <button class="btn btn-primary" type="submit">Book a cab</button> -->
 										<!-- <button class="btn btn-primary" type="submit">Submit</button> -->
-										<!-- <input type="submit" value="Book11 Cab" class="btn btn-primary"> -->
+										<input type="submit" value="Book11 Cab" class="btn btn-primary">
 									</div>
 								</div>
 							</form>
 				        </div>
 				        <div class="tab-pane" id="round-way">
-				        	<form>
+				        	<!-- <form> -->
 				        		<div class="row fr-it">
 				        			<div class="col-md-3">
 			        					<div class="location-group">
@@ -183,16 +183,20 @@
 											<span class="input-group-addon"><i class="ion-ios-alarm-outline"></i></span>
 										</div>
 									</div>
-								</div>  					
+
+								</div>  				
+								
+								
 								<div class="row m0">
 									<div class="col-xs-12">
-										<input type="" value="Book a cab" class="btn btn-primary">
+										<!-- <input type="" value="Book a cab" class="btn btn-primary"> -->
 									</div>
 								</div>
-							</form>
+								
+							<!-- </form> -->
 				        </div>
 				        <div class="tab-pane" id="local">
-				        	<form>
+				        <!-- 	<form> -->
 				        		<div class="row fr-it">
 				        			<div class="col-md-4">
 			        					<div class="location-group">
@@ -221,19 +225,21 @@
 										</div>
 									</div>
 								</div>  				
+								
+								
 								<div class="row m0">
 									<div class="col-xs-12">
-										<input type="" value="Book a cab" class="btn btn-primary">
+										<!-- <input type="" value="Book a cab" class="btn btn-primary"> -->
 									</div>
-								</div>	
-							</form>
+								</div>
+								
+							<!-- </form> -->
 				        </div>
 				    </div>
 			    </div>
 			</div>
 		</div>
 	</section>
-<br><br> <br> <br> <br>
 	<!--Features-->
 	<section class="row features">
 		<div class="container">
@@ -305,7 +311,6 @@
 			</div>
 		</div>
 	</section>
-
 	<!--Fleet-->
 	<section class="row fleets2">
 		<div class="container">
@@ -361,7 +366,7 @@
 			</div>
 			
 			<div class="row">
-				
+				<!--Offer-->
 				<div class="col-md-4 feature text-center">
 					<div class="icon-box">
 						<img src="<?php echo base_url();?>assets/images/book-car.png" alt="">
@@ -369,7 +374,7 @@
 					<h4 class="this-title">Book a Your Cab</h4>
 					<p>Book a journey withus via <a href="#">ydcabs.com</a> or over a <br>call<a href="tel:+91 90990 42156"> +91 90990 42156</a>.</p>
 				</div>
-				
+				<!--Offer-->
 				<div class="col-md-4 feature text-center">
 					<div class="icon-box">
 						<img src="<?php echo base_url();?>assets/images/ride.png" alt="">
@@ -377,7 +382,7 @@
 					<h4 class="this-title">Enjoy your ride</h4>
 					<p>Enjoy your ride with a best of our drivers without worries about your safety.</p>
 				</div>
-				
+				<!--Offer-->
 				<div class="col-md-4 feature text-center">
 					<div class="icon-box">
 						<img src="<?php echo base_url();?>assets/images/pay.png" alt="">
@@ -389,12 +394,11 @@
 			</div>   			
 		</div>
 	</section>	
-
 	<!--Funfact-->
 	<section class="row funfacts">
 		<div class="container-fluid">
 			<div class="row inner">
-				
+				<!--Fact-->
 				<div class="col-md-3 col-xs-6 fact">
 					<div class="inner-fact">
 						<div class="this-icon"><i class="ionicons ion-model-s"></i></div>
@@ -404,7 +408,7 @@
 						</div>
 					</div>
 				</div>
-				
+				<!--Fact-->
 				<div class="col-md-3 col-xs-6 fact">
 					<div class="inner-fact">
 						<div class="this-icon"><i class="ionicons ion-ios-cog-outline"></i></div>
@@ -414,7 +418,7 @@
 						</div>
 					</div>
 				</div>
-				
+				<!--Fact-->
 				<div class="col-md-3 col-xs-6 fact">
 					<div class="inner-fact">
 						<div class="this-icon"><i class="ionicons ion-ios-people-outline"></i></div>
@@ -424,7 +428,7 @@
 						</div>
 					</div>
 				</div>
-				
+				<!--Fact-->
 				<div class="col-md-3 col-xs-6 fact">
 					<div class="inner-fact">
 						<div class="this-icon"><i class="ion-ios-speedometer-outline"></i></div>
@@ -437,7 +441,6 @@
 			</div>
 		</div>   	
 	</section>
-
 	<!--Banner 01-->
 	<section class="row features enivronment">
 		<div class="container">
@@ -493,33 +496,12 @@
 
 
 <script type="text/javascript">
-$(document).ready(function()
-{
-	$('#PickupDate').datetimepicker({
+$('#PickupDate').datetimepicker({
 	 defaultDate: new Date(),
   	 format: 'DD/MM/YYYY',
 	 ignoreReadonly: true,	
 	 maxDate: moment(),
-	});
 
-       $('#form_valid_one').validate({
-			rules: {
-				StartPointCity:{              
-					required: true,                
-				},
-				EndPointCity:{              
-					required: true,                
-				},
-				PickupDate:{              
-					required: true,                
-				},
-				PickupTime:{              
-					required: true,                
-				},		
-			 },
-    });
 });
-
-            
 
 </script>

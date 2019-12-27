@@ -308,6 +308,9 @@ class Car_model extends CI_Model
 
         $data = array(
 			'BrandName'=>trim($this->input->post('BrandName')),
+			'TotalSeat'=>trim($this->input->post('TotalSeat')),
+			'TotalBaggage'=>trim($this->input->post('TotalBaggage')),
+			'BrandCarDescription'=>trim($this->input->post('BrandCarDescription')),
 			'BrandCarImage'=>$brand_car_image,
 			'IsActive' =>$this->input->post('IsActive'),			
 			'CreatedOn'=>date('Y-m-d')		
@@ -414,6 +417,9 @@ class Car_model extends CI_Model
 	   	$CarBrandId=$this->input->post('CarBrandId');
         $data = array(
 		'BrandName'=>trim($this->input->post('BrandName')),
+		'TotalSeat'=>trim($this->input->post('TotalSeat')),
+		'TotalBaggage'=>trim($this->input->post('TotalBaggage')),
+		'BrandCarDescription'=>trim($this->input->post('BrandCarDescription')),
 		'BrandCarImage'=>$brand_car_image,	
 		'IsActive' =>$this->input->post('IsActive'),					
 		'UpdatedOn'=>date('Y-m-d')		

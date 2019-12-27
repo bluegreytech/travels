@@ -13,11 +13,28 @@ class Services extends CI_Controller
 	}
 
 	public function index()
-	{      
+	{   
+		$data['StartPointCity']=$this->input->post('StartPointCity');
+		$data['EndPointCity']=$this->input->post('EndPointCity');
+		$data['PickupDate']=$this->input->post('PickupDate');
+		$data['PickupTime']=$this->input->post('PickupTime');
+			$data['DropofDate']=$this->input->post('DropofDate');
+		if($_POST)
+		{	
+			//print_r($_POST);die;
+   			  $StartPointCity=$this->input->post('StartPointCity');
+			  $EndPointCity=$this->input->post('EndPointCity');
+			  $PickupDate=$this->input->post('PickupDate');
+			  $PickupTime=$this->input->post('PickupTime');
+			  $DropofDate=$this->input->post('DropofDate');
+
+		}
+
 		$data['about']=$this->About_model->getabout(); 	
 		$data['result']=$this->Contact_model->getsitedetail(); 
 		$data['services']=$this->Services_model->getcarbrandlist();	
-		//print_r($data['services']);die;
+		//echo $data['services'][0]->CarBrandId;die;
+		//echo "<pre>";print_r($data['services']);die;
 		$this->load->view('services/services',$data);			
 	}
 

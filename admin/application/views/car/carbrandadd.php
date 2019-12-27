@@ -42,6 +42,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 									<input type="text" class="form-control" placeholder="Car Brand Name" name="BrandName" value="<?php echo $BrandName;?>" minlength="3" maxlength="100">
 								</div>
 
+								<div class="form-group">
+									<label>Number of Seat</label>
+									<input type="text" class="form-control" placeholder="Number of Seat" id="TotalSeat" name="TotalSeat" value="<?php echo $TotalSeat;?>" minlength="1" maxlength="2">
+								</div>
+
+								<div class="form-group">
+									<label>Number of Baggage</label>
+									<input type="text" class="form-control" placeholder="Number of Baggage" name="TotalBaggage" id="TotalBaggage" value="<?php echo $TotalBaggage;?>" minlength="1" maxlength="2">
+								</div>
+
+								<div class="form-group">
+									<label>Description</label>
+									<textarea id="editor1" rows="5" class="form-control" name="BrandCarDescription">
+										<?php echo $BrandCarDescription; ?></textarea>
+									<script>
+										CKEDITOR.replace('editor1');
+									</script>
+								</div>
+
 								<div class="form-group  uploadfrm">
 									<label>Brand Car Image</label>
 									<p><span class="btn btn-black btn-file">
@@ -126,7 +145,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 $(document).ready(function()
 {
-	$("#NumberOfSeat").on("input", function(evt) {
+	$("#TotalSeat").on("input", function(evt) {
+		var self = $(this);
+		self.val(self.val().replace(/[^\d].+/, ""));
+		if ((evt.which < 48 || evt.which > 57)) 
+		{
+			evt.preventDefault();
+		}});
+	$("#TotalBaggage").on("input", function(evt) {
 		var self = $(this);
 		self.val(self.val().replace(/[^\d].+/, ""));
 		if ((evt.which < 48 || evt.which > 57)) 
@@ -139,9 +165,15 @@ $(document).ready(function()
    } ,'File size must be equal to or less then 2MB'); 
        $('#form_valid').validate({
 			rules: {
-				CarName:{              
+				BrandName:{              
 					required: true,                
-				},		
+				},
+				TotalSeat:{              
+					required: true,                
+				},	
+				TotalBaggage:{              
+					required: true,                
+				},			
 			 },
 
 			  errorPlacement: function (error, element) {

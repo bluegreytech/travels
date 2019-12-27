@@ -2,7 +2,7 @@
 
 class Services_model extends CI_Model
 {
-   function getcarbrandlist()
+  function getcarbrandlist()
   {
     $this->db->select('*');
     $this->db->from('tblcarbrand');
@@ -12,4 +12,17 @@ class Services_model extends CI_Model
     $res = $query->result();
     return $res;
   }
+
+  function getsubcar($CarBrandId)
+  {
+    $this->db->select('*');
+    $this->db->from("tblcartype");
+    $this->db->where('CarBrandId',$CarBrandId);
+    $this->db->order_by('CarId','desc');
+    $query=$this->db->get();
+    $res = $query->result();
+    return $res;
+  }
+
+
 }

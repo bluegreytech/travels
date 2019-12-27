@@ -278,7 +278,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
 							<div class="form-actions">
-									 <button class="btn btn-black " type="submit"><i class="icon-ok"></i> <?php echo ($CarId!='')?'Update':'Submit' ?></button>
+									 <button class="btn btn-black" type="submit"><i class="icon-ok"></i> <?php echo ($CarId!='')?'Update':'Submit' ?></button>
 							
 									<input type="button" name="cancel" class="btn btn-default" value="Cancel" onClick="location.href='<?php echo base_url(); ?>car/Carlist'">
 								

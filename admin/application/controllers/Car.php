@@ -147,6 +147,11 @@ class Car extends CI_Controller {
 		$data=array();	
 		$data['CarBrandId']=$this->input->post('CarBrandId');
 		$data['BrandName']=$this->input->post('BrandName');
+
+		$data['TotalSeat']=$this->input->post('TotalSeat');
+		$data['TotalBaggage']=$this->input->post('TotalBaggage');
+		$data['BrandCarDescription']=$this->input->post('BrandCarDescription');
+
 		$data['BrandCarImage']=$this->input->post('BrandCarImage');
 		$data['IsActive']=$this->input->post('IsActive');
 	
@@ -196,6 +201,9 @@ class Car extends CI_Controller {
 			//echo "<pre>";print_r($result);die;		
 			$data['CarBrandId']=$result['CarBrandId'];
 			$data['BrandName']=$result['BrandName'];
+			$data['TotalSeat']=$result['TotalSeat'];
+			$data['TotalBaggage']=$result['TotalBaggage'];
+			$data['BrandCarDescription']=$result['BrandCarDescription'];
 			$data['BrandCarImage']=$result['BrandCarImage'];	
 			$data['IsActive']=$result['IsActive'];
 			//echo "<pre>";print_r($data);die;	

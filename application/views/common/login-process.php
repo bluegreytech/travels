@@ -33,13 +33,22 @@
 			</div>
 			<div class="row finder-form">
 				<div class="col-md-6 col-md-offset-3 car-finder-form">
-					<form class="row inner" action="booking.php" method="get">
+					<form class="row inner" method="post" enctype="multipart/form-data" 
+				        				action="<?php echo base_url();?>home/booking" id="form_valid">
 						<div class="col-md-12">
 							<h3 class="form-title">Enter OTP Number</h3>
 						</div>
 						<div class="col-md-12">
 							<div class="input-group">
-								<input type="text" class="form-control" placeholder="Enter 6 Digit OTP">
+								<input type="hidden" name="CarBrandId" value="<?php echo $CarBrandId;?>">
+								<input type="hidden" name="BrandName" value="<?php echo $BrandName;?>">
+								<input type="hidden" name="StartPointCity" value="<?php echo $StartPointCity;?>">
+								<input type="hidden" name="EndPointCity" value="<?php echo $EndPointCity;?>">
+								<input type="hidden" name="PickupDate" value="<?php echo $PickupDate;?>">
+								<input type="hidden" name="DropofDate" value="<?php echo $DropofDate;?>">
+								<input type="hidden" name="PickupTime" value="<?php echo $PickupTime;?>">
+								<input type="hidden" name="ContactNumber" value="<?php echo $ContactNumber;?>">
+								<input type="text" class="form-control" name="OTPNumber" id="OTPNumber" placeholder="Enter 6 Digit OTP" minlength="6" maxlength="6" value="<?php echo $OTPNumber;?>">
 							</div>
 						</div>
 						<div class="col-md-12 text-center">
@@ -57,3 +66,26 @@
 <?php 
 	 $this->load->view('common/footer');
 ?>
+
+<script type="text/javascript">
+		$("#OTPNumber").on("input", function(evt) {
+		var self = $(this);
+		self.val(self.val().replace(/[^\d].+/, ""));
+		if ((evt.which < 48 || evt.which > 57)) 
+		{
+			evt.preventDefault();
+		}});
+
+		$(document).ready(function()
+		{
+
+	       $('#form_valid').validate({
+				rules: {
+					OTPNumber:{              
+						required: true,                
+					},
+						
+				 },
+		    });
+		});
+</script>

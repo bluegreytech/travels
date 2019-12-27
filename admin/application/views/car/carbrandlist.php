@@ -34,7 +34,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <tr>
                                 <th>Sr No</th>
                                 <th>Brand Name</th> 
-                                <th>Brand Image</th>                              
+                                <th>Brand Image</th>  
+                                <th> Seat</th>
+                                <th> Baggage</th>                            
 								<th>Status</th>
                                 <th>Action</th>
                             </tr>
@@ -63,6 +65,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                         }
                                         ?>  
                                     </td>
+                                    <td><?php echo $row->TotalSeat; ?></td>
+                                    <td><?php echo $row->TotalBaggage; ?></td>
                                     <td>
                                         <?php if($row->IsActive=="Active")
                                             {

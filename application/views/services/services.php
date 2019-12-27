@@ -20,7 +20,7 @@
                 foreach($services as $row)
                 {
                 	$CarBrandId=$row->CarBrandId;
-                	echo $BrandName=$row->BrandName;
+                	$BrandName=$row->BrandName;
                 	$subcar=$this->Services_model->getsubcar($CarBrandId);
                 
             ?>

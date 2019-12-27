@@ -78,6 +78,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 									<label>Office Time</label>
 									<input type="text" class="form-control" placeholder="Office Time" name="OfficeTime" value="<?php echo $OfficeTime;?>" minlength="3" maxlength="100">
 								</div>
+
+								<div class="form-group">
+									<label>Tax</label>
+									<input type="text" class="form-control" placeholder="Enter Tax" name="Tax" value="<?php echo $Tax;?>" minlength="1" maxlength="3">
+								</div>
 							
 							    <div class="form-actions">
 									 <button class="btn btn-black " type="submit"><i class="icon-ok"></i> <?php echo ($SettingId!='')?'Update':'Submit' ?></button>

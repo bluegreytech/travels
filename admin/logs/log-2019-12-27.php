@@ -37,3 +37,8 @@ ERROR - 2019-12-27 06:07:54 --> Severity: Notice --> Undefined variable: CarBran
 ERROR - 2019-12-27 06:07:54 --> Severity: Notice --> Undefined variable: EndPointCityId C:\xampp\htdocs\travels\admin\application\views\car\caradd.php 141
 ERROR - 2019-12-27 08:20:23 --> 404 Page Not Found: Default/images
 ERROR - 2019-12-27 08:20:23 --> 404 Page Not Found: Default/images
+ERROR - 2019-12-27 12:49:29 --> 404 Page Not Found: Default/images
+ERROR - 2019-12-27 12:49:29 --> 404 Page Not Found: Default/images
+ERROR - 2019-12-27 12:49:50 --> 404 Page Not Found: Default/images
+ERROR - 2019-12-27 12:49:50 --> 404 Page Not Found: Default/images
+ERROR - 2019-12-27 13:02:26 --> Severity: Notice --> Undefined variable: Tax C:\xampp\htdocs\travels\admin\application\views\common\sitesetting.php 84

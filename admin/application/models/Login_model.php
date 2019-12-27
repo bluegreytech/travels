@@ -32,6 +32,7 @@ class Login_model extends CI_Model
           'OtherContactNumber' => $OtherContactNumber,
           'OfficeAddress' => $this->input->post('OfficeAddress'),			
           'OfficeTime' => $this->input->post('OfficeTime'),
+          'Tax' => $this->input->post('Tax'),
           ); 
         //print_r($data);die;
         $this->db->where("SettingId",$SettingId);

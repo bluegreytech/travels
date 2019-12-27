@@ -49,7 +49,17 @@ class home extends CI_Controller
 		$this->load->view('home/index',$data);			
 	}
 
-
+	public function getcartype()
+	{
+		$data=array();
+		$result=$this->Login_model->get_cartype($this->input->post('carid'));	
+		//print_r($result);die;
+		$data['CarId']=$result['CarId'];
+		$data['CarName']=$result['CarName'];	
+		$data['CarRate']=$result['CarRate'];
+		$data['StateTax']=$result['StateTax'];
+		echo json_encode($data);
+	}
 
 	public function booking()
 	{  
@@ -74,7 +84,6 @@ class home extends CI_Controller
 			$ContactNumber=$this->input->post('ContactNumber');
 			$OTPNumber=$this->input->post('OTPNumber');
 			$DropofDate=$this->input->post('DropofDate');
-
 		}  
 		if($data['CarBrandId']=$this->input->post('CarBrandId')=='')
 		{

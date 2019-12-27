@@ -1,6 +1,32 @@
 <?php 
 	 $this->load->view('common/header');
 ?>
+
+	<script>
+
+	function m1()
+	{
+		var a=document.getElementById("CarRate").value;
+		var b=document.getElementById("StateTax").value;
+		var c=document.getElementById("txt3").value;
+
+		var z=a+b;		
+		var t=z*c/100;
+		var cgst=t/2;
+
+		document.getElementById("tax").value=cgst;
+		document.getElementById("cgsttax").value=cgst;
+
+		var h= +z;
+		document.getElementById("total").value=h;
+
+		var x=t+h;
+		document.getElementById("nettotal").value=x;
+
+	}
+
+	</script>
+
   	<!--Page Cover-->
   	<section class="row page-cover">
   		<div class="container">
@@ -48,7 +74,8 @@
 			      				</div>
 			      				<div class="form-group col-sm-6">
 			      					<h5 class="this-label">Select Car<span>*</span></h5>
-			      					 <select class="form-control" id="sel1" name="CarId">
+			      					 <select class="form-control" name="CarId" onChange="getcartype(this.value)" 
+			      					 id="carid">
 			      					 	<option desabled value="">Select Your car</option>
 										<?php
 										if($subcar)
@@ -107,15 +134,17 @@
 			      				<div class="row order-data">
 			      					<div class="media name-of-car">
 			      						<div class="media-left media-middle"><span>Name of car</span></div>
-			      						<div class="media-body">Indica Vista</div>
+			      						<div class="media-body"><input type="text" id="CarName" name="CarName" ></div>
 			      					</div>
 			      					<ul class="nav other-infos-car">
-			      						<li>Price (per day) <span><i class="fa fa-inr"></i>195.00</span></li>
-			      						<li>Tax (10%) <span>(free) $0.00</span></li>
-			      						<li>total cost <span><i class="fa fa-inr"></i>195.00</span></li>
+			      						<li>Price (per day) <span><i class="fa fa-inr"></i><input type="text" id="CarRate" name="CarRate"></span></li>
+			      						<li>Tax (<?php
+										echo $result[0]->Tax;
+									?>%) <span><input type="text" id="StateTax" name="StateTax"></span></li>
+			      						<li>total cost <span><i class="fa fa-inr"></i><input type="text" id="TotalAmount" name="CarName"></span></li>
 			      					</ul>
 			      				</div>
-			      				<button class="btn btn-primary btn-block">BOOK BY EMAIL!</button>							
+			      				<!-- <button class="btn btn-primary btn-block">BOOK BY EMAIL!</button>	 -->						
 			      			</div>
 			      			<div class="row m0 choose-payment-method">
 			      				<input type="radio" name="payment-method" id="payment-method01" class="sr-only" checked="">
@@ -136,6 +165,32 @@
 <?php 
 	$this->load->view('common/footer');
 ?>
+
+<script>
+	function getcartype(carid) {
+	//alert(carid);
+	url="<?php echo base_url();?>"
+	$.ajax({
+         url: url+'home/getcartype',
+         type: 'post',
+		 data:{carid:carid},
+         success:function(response){
+			var response = JSON.parse(response);
+               console.log(response);
+			//   console.log(response.FullName);
+            $('#CarId').val(response.CarId);
+			$('#CarName').val(response.CarName);
+			$('#CarRate').val(response.CarRate);
+			$('#StateTax').val(response.StateTax);
+         }
+      });	
+
+}
+
+
+
+</script>
+
 
 <script type="text/javascript">
 		$("#OTPNumber").on("input", function(evt) {

@@ -27,6 +27,7 @@ class Home extends CI_Controller {
 		$data['OtherContactNumber']=$this->input->post('OtherContactNumber');
 		$data['OfficeAddress']=$this->input->post('OfficeAddress');
 		$data['OfficeTime']=$this->input->post('OfficeTime');
+		$data['Tax']=$this->input->post('Tax');
 		if($_POST)
 		{	
 				if($this->input->post("SettingId")!="")
@@ -63,6 +64,7 @@ class Home extends CI_Controller {
 		$data['OtherContactNumber']=$result['OtherContactNumber'];
 		$data['OfficeAddress']=$result['OfficeAddress'];
 		$data['OfficeTime']=$result['OfficeTime'];
+		$data['Tax']=$result['Tax'];
 		$data['activeTab']="Editabout";	
 		//echo "<pre>";print_r($data);die;	
 		$data['activeTab']="sitesetting";	

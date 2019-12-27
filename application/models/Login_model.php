@@ -60,4 +60,15 @@ class Login_model extends CI_Model
     $res = $query->result();
     return $res;
   }
+
+  function get_cartype($carid)
+  {
+    $where = array('CarId' =>$carid, 'IsActive' =>'Active');
+    $this->db->select('*');
+    $this->db->from('tblcartype');
+    $this->db->where($where);
+    $query=$this->db->get();
+    return $query->row_array();
+  }
+
 }

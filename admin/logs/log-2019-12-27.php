@@ -42,3 +42,49 @@ ERROR - 2019-12-27 12:49:29 --> 404 Page Not Found: Default/images
 ERROR - 2019-12-27 12:49:50 --> 404 Page Not Found: Default/images
 ERROR - 2019-12-27 12:49:50 --> 404 Page Not Found: Default/images
 ERROR - 2019-12-27 13:02:26 --> Severity: Notice --> Undefined variable: Tax C:\xampp\htdocs\travels\admin\application\views\common\sitesetting.php 84
+ERROR - 2019-12-27 13:19:03 --> 404 Page Not Found: Default/images
+ERROR - 2019-12-27 13:19:03 --> 404 Page Not Found: Default/images
+ERROR - 2019-12-27 13:19:14 --> 404 Page Not Found: Default/images
+ERROR - 2019-12-27 13:19:14 --> 404 Page Not Found: Default/images
+ERROR - 2019-12-27 13:19:34 --> 404 Page Not Found: Default/images
+ERROR - 2019-12-27 13:19:34 --> 404 Page Not Found: Default/images
+ERROR - 2019-12-27 13:19:45 --> 404 Page Not Found: Default/images
+ERROR - 2019-12-27 13:19:45 --> 404 Page Not Found: Default/images
+ERROR - 2019-12-27 13:19:59 --> 404 Page Not Found: Default/images
+ERROR - 2019-12-27 13:19:59 --> 404 Page Not Found: Default/images
+ERROR - 2019-12-27 13:20:23 --> 404 Page Not Found: Default/images
+ERROR - 2019-12-27 13:20:23 --> 404 Page Not Found: Default/images
+ERROR - 2019-12-27 13:20:33 --> 404 Page Not Found: Default/images
+ERROR - 2019-12-27 13:20:33 --> 404 Page Not Found: Default/images
+ERROR - 2019-12-27 13:20:44 --> 404 Page Not Found: Default/images
+ERROR - 2019-12-27 13:20:44 --> 404 Page Not Found: Default/images
+ERROR - 2019-12-27 13:21:07 --> 404 Page Not Found: Default/images
+ERROR - 2019-12-27 13:21:07 --> 404 Page Not Found: Default/images
+ERROR - 2019-12-27 13:21:08 --> Severity: Notice --> Undefined variable: CarBrandId C:\xampp\htdocs\travels\admin\application\views\car\caradd.php 43
+ERROR - 2019-12-27 13:21:08 --> Severity: Notice --> Undefined variable: EndPointCityId C:\xampp\htdocs\travels\admin\application\views\car\caradd.php 141
+ERROR - 2019-12-27 13:23:06 --> Severity: Notice --> Undefined variable: CarBrandId C:\xampp\htdocs\travels\admin\application\views\car\caradd.php 43
+ERROR - 2019-12-27 13:23:06 --> Severity: Notice --> Undefined variable: EndPointCityId C:\xampp\htdocs\travels\admin\application\views\car\caradd.php 141
+ERROR - 2019-12-27 13:23:11 --> Severity: Notice --> Undefined variable: CarBrandId C:\xampp\htdocs\travels\admin\application\views\car\caradd.php 43
+ERROR - 2019-12-27 13:23:11 --> Severity: Notice --> Undefined variable: EndPointCityId C:\xampp\htdocs\travels\admin\application\views\car\caradd.php 141
+ERROR - 2019-12-27 13:23:21 --> Severity: Notice --> Undefined variable: CarBrandId C:\xampp\htdocs\travels\admin\application\views\car\caradd.php 43
+ERROR - 2019-12-27 13:23:21 --> Severity: Notice --> Undefined variable: EndPointCityId C:\xampp\htdocs\travels\admin\application\views\car\caradd.php 141
+ERROR - 2019-12-27 13:23:39 --> Severity: Notice --> Undefined variable: CarBrandId C:\xampp\htdocs\travels\admin\application\views\car\caradd.php 43
+ERROR - 2019-12-27 13:23:39 --> Severity: Notice --> Undefined variable: EndPointCityId C:\xampp\htdocs\travels\admin\application\views\car\caradd.php 141
+ERROR - 2019-12-27 13:24:29 --> Severity: Notice --> Undefined variable: CarBrandId C:\xampp\htdocs\travels\admin\application\views\car\caradd.php 43
+ERROR - 2019-12-27 13:24:29 --> Severity: Notice --> Undefined variable: EndPointCityId C:\xampp\htdocs\travels\admin\application\views\car\caradd.php 141
+ERROR - 2019-12-27 13:24:40 --> Severity: Notice --> Undefined variable: CarBrandId C:\xampp\htdocs\travels\admin\application\views\car\caradd.php 43
+ERROR - 2019-12-27 13:24:40 --> Severity: Notice --> Undefined variable: EndPointCityId C:\xampp\htdocs\travels\admin\application\views\car\caradd.php 141
+ERROR - 2019-12-27 13:24:45 --> Severity: Notice --> Undefined variable: CarBrandId C:\xampp\htdocs\travels\admin\application\views\car\caradd.php 43
+ERROR - 2019-12-27 13:24:45 --> Severity: Notice --> Undefined variable: EndPointCityId C:\xampp\htdocs\travels\admin\application\views\car\caradd.php 141
+ERROR - 2019-12-27 13:24:45 --> Severity: Notice --> Undefined variable: CarBrandId C:\xampp\htdocs\travels\admin\application\views\car\caradd.php 43
+ERROR - 2019-12-27 13:24:45 --> Severity: Notice --> Undefined variable: EndPointCityId C:\xampp\htdocs\travels\admin\application\views\car\caradd.php 141
+ERROR - 2019-12-27 13:24:45 --> Severity: Notice --> Undefined variable: CarBrandId C:\xampp\htdocs\travels\admin\application\views\car\caradd.php 43
+ERROR - 2019-12-27 13:24:45 --> Severity: Notice --> Undefined variable: EndPointCityId C:\xampp\htdocs\travels\admin\application\views\car\caradd.php 141
+ERROR - 2019-12-27 13:25:14 --> Severity: Notice --> Undefined variable: CarBrandId C:\xampp\htdocs\travels\admin\application\views\car\caradd.php 43
+ERROR - 2019-12-27 13:25:14 --> Severity: Notice --> Undefined variable: EndPointCityId C:\xampp\htdocs\travels\admin\application\views\car\caradd.php 141
+ERROR - 2019-12-27 13:25:17 --> Severity: Notice --> Undefined variable: CarBrandId C:\xampp\htdocs\travels\admin\application\views\car\caradd.php 43
+ERROR - 2019-12-27 13:25:17 --> Severity: Notice --> Undefined variable: EndPointCityId C:\xampp\htdocs\travels\admin\application\views\car\caradd.php 141
+ERROR - 2019-12-27 13:25:23 --> Severity: Notice --> Undefined variable: CarBrandId C:\xampp\htdocs\travels\admin\application\views\car\caradd.php 43
+ERROR - 2019-12-27 13:25:23 --> Severity: Notice --> Undefined variable: EndPointCityId C:\xampp\htdocs\travels\admin\application\views\car\caradd.php 141
+ERROR - 2019-12-27 13:25:31 --> Severity: Notice --> Undefined variable: CarBrandId C:\xampp\htdocs\travels\admin\application\views\car\caradd.php 43
+ERROR - 2019-12-27 13:25:31 --> Severity: Notice --> Undefined variable: EndPointCityId C:\xampp\htdocs\travels\admin\application\views\car\caradd.php 141

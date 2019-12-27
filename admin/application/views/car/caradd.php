@@ -77,17 +77,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 								<div class="form-group">
 									<label>Car Rate </label>
-									<input type="text" class="form-control" placeholder="Car Rate" name="CarRate" value="<?php echo $CarRate;?>" minlength="3" maxlength="100">
+									<input type="text" class="form-control" placeholder="Car Rate" id="CarRate" name="CarRate" value="<?php echo $CarRate;?>" minlength="3" maxlength="100">
 								</div>
 
 								<div class="form-group">
 									<label>Drive Allowance  </label>
-									<input type="text" class="form-control" placeholder="Drive Allowance" name="DriveAllowance" value="<?php echo $DriveAllowance;?>" minlength="3" maxlength="100">
+									<input type="text" class="form-control" placeholder="Drive Allowance" id="DriveAllowance" name="DriveAllowance" value="<?php echo $DriveAllowance;?>" minlength="3" maxlength="100">
 								</div>
 
 								<div class="form-group">
 									<label>Extra KMS</label>
-									<input type="text" class="form-control" placeholder="Extra KMS" name="ExtraKMS" value="<?php echo $ExtraKMS;?>" minlength="3" maxlength="100">
+									<input type="text" class="form-control" placeholder="Extra KMS" id="ExtraKMS" name="ExtraKMS" value="<?php echo $ExtraKMS;?>" minlength="3" maxlength="100">
 								</div>
 
 
@@ -302,16 +302,51 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
 
 <script>
-
-$(document).ready(function()
-{
-	$("#NumberOfSeat").on("input", function(evt) {
+$("#NumberOfSeat").on("input", function(evt) {
 		var self = $(this);
 		self.val(self.val().replace(/[^\d].+/, ""));
 		if ((evt.which < 48 || evt.which > 57)) 
 		{
 			evt.preventDefault();
 		}});
+
+$("#CarRate").on("input", function(evt) {
+		var self = $(this);
+		self.val(self.val().replace(/[^\d].+/, ""));
+		if ((evt.which < 48 || evt.which > 57)) 
+		{
+			evt.preventDefault();
+		}});
+
+$("#ExtraKMS").on("input", function(evt) {
+		var self = $(this);
+		self.val(self.val().replace(/[^\d].+/, ""));
+		if ((evt.which < 48 || evt.which > 57)) 
+		{
+			evt.preventDefault();
+		}});
+
+$("#DriveAllowance").on("input", function(evt) {
+		var self = $(this);
+		self.val(self.val().replace(/[^\d].+/, ""));
+		if ((evt.which < 48 || evt.which > 57)) 
+		{
+			evt.preventDefault();
+		}});
+
+$("#NoOfBaggage").on("input", function(evt) {
+		var self = $(this);
+		self.val(self.val().replace(/[^\d].+/, ""));
+		if ((evt.which < 48 || evt.which > 57)) 
+		{
+			evt.preventDefault();
+		}});
+
+
+$(document).ready(function()
+{
+	
+
 	$.validator.addMethod('filesize', function (value, element, param) {
        
 	   return this.optional(element) || (element.files[0].size <= param)

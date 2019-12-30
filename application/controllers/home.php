@@ -133,6 +133,18 @@ class home extends CI_Controller
 			$ContactNumber=$this->input->post('ContactNumber');
 			$DropofDate=$this->input->post('DropofDate');
 			$OTPNumber=$this->input->post('OTPNumber');
+
+			// $session= array(
+			// 	'StartPointCity'=> $StartPointCity,
+			// 	'EndPointCity'=> $EndPointCity,
+			// 	'PickupDate'=> $log->LastName,
+			// 	'PickupTime'=> $log->RoleId,
+			// 	'CarBrandId'=> $log->EmailAddress,
+			// 	'BrandName'=>$log->ProfileImage,
+			// 	'ContactNumber'=> $log->EmailAddress,
+				
+						
+			// );
 			$this->Login_model->login();
 			$this->session->set_flashdata('success', 'You have to send OTP on your contact number,Please submit!');
 			redirect('home/process');	

@@ -37,7 +37,7 @@
 								<input type="hidden" name="PickupDate" value="<?php echo $PickupDate;?>">
 								<input type="hidden" name="DropofDate" value="<?php echo $DropofDate;?>">
 								<input type="hidden" name="PickupTime" value="<?php echo $PickupTime;?>">
-								<div class="media-left"><img src="<?php echo base_url();?>admin/upload/carimages/<?php echo $row->BrandCarImage; ?>" alt="" height="200px" width="500px"></div>
+								<div class="media-left"><img src="<?php echo base_url();?>admin/upload/carimages/<?php echo $row->BrandCarImage; ?>" alt=""></div>
 								<div class="row specification eminities">
 									<ul class="nav text-center">
 										<li><span><img src="<?php echo base_url();?>assets/images/icons/fleet2/1.png" alt=""></span><?php  echo $row->TotalSeat;?> Seats</li>

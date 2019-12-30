@@ -55,3 +55,93 @@ ERROR - 2019-12-30 08:19:45 --> 404 Page Not Found: Assets/images
 ERROR - 2019-12-30 08:21:19 --> 404 Page Not Found: Assets/images
 ERROR - 2019-12-30 08:28:47 --> 404 Page Not Found: Assets/images
 ERROR - 2019-12-30 08:28:48 --> 404 Page Not Found: Assets/images
+ERROR - 2019-12-30 08:47:11 --> Severity: Warning --> mysqli::real_connect(): (HY000/2002): No connection could be made because the target machine actively refused it.
+ C:\xampp\htdocs\travels\system\database\drivers\mysqli\mysqli_driver.php 203
+ERROR - 2019-12-30 08:47:11 --> Unable to connect to the database
+ERROR - 2019-12-30 08:47:23 --> Query error: Table 'travelsdb.tblcarbrand' doesn't exist - Invalid query: SELECT *
+FROM `tblcarbrand`
+WHERE `IsDelete` = '0'
+ORDER BY `CarBrandId` DESC
+ERROR - 2019-12-30 08:47:27 --> Query error: Table 'travelsdb.tblcarbrand' doesn't exist - Invalid query: SELECT *
+FROM `tblcarbrand`
+WHERE `IsDelete` = '0'
+ORDER BY `CarBrandId` DESC
+ERROR - 2019-12-30 08:48:54 --> Query error: Table 'travelsdb.tbltestimonial' doesn't exist - Invalid query: SELECT *
+FROM `tbltestimonial`
+WHERE `IsDelete` = '0'
+AND `IsActive` = 'Active'
+ORDER BY `TestimonialId` DESC
+ERROR - 2019-12-30 08:48:59 --> 404 Page Not Found: Assets/images
+ERROR - 2019-12-30 08:49:55 --> 404 Page Not Found: Assets/js
+ERROR - 2019-12-30 08:49:55 --> 404 Page Not Found: Assets/vendors
+ERROR - 2019-12-30 08:49:55 --> 404 Page Not Found: Assets/vendors
+ERROR - 2019-12-30 08:50:54 --> 404 Page Not Found: Assets/images
+ERROR - 2019-12-30 08:51:44 --> 404 Page Not Found: Booking-confirmation/index
+ERROR - 2019-12-30 08:52:18 --> 404 Page Not Found: Home/nbooking
+ERROR - 2019-12-30 08:52:50 --> 404 Page Not Found: Assets/js
+ERROR - 2019-12-30 08:52:50 --> 404 Page Not Found: Assets/vendors
+ERROR - 2019-12-30 08:52:50 --> 404 Page Not Found: Assets/vendors
+ERROR - 2019-12-30 08:56:36 --> 404 Page Not Found: Assets/vendors
+ERROR - 2019-12-30 08:56:36 --> 404 Page Not Found: Assets/js
+ERROR - 2019-12-30 08:56:36 --> 404 Page Not Found: Assets/vendors
+ERROR - 2019-12-30 08:56:40 --> 404 Page Not Found: Assets/vendors
+ERROR - 2019-12-30 08:56:41 --> 404 Page Not Found: Assets/js
+ERROR - 2019-12-30 08:56:41 --> 404 Page Not Found: Assets/vendors
+ERROR - 2019-12-30 08:56:42 --> 404 Page Not Found: Assets/vendors
+ERROR - 2019-12-30 08:56:42 --> 404 Page Not Found: Assets/js
+ERROR - 2019-12-30 08:56:42 --> 404 Page Not Found: Assets/vendors
+ERROR - 2019-12-30 08:56:51 --> 404 Page Not Found: Assets/vendors
+ERROR - 2019-12-30 08:56:51 --> 404 Page Not Found: Assets/js
+ERROR - 2019-12-30 08:56:51 --> 404 Page Not Found: Assets/vendors
+ERROR - 2019-12-30 08:57:46 --> 404 Page Not Found: Assets/js
+ERROR - 2019-12-30 08:57:46 --> 404 Page Not Found: Assets/vendors
+ERROR - 2019-12-30 08:57:46 --> 404 Page Not Found: Assets/vendors
+ERROR - 2019-12-30 08:58:35 --> 404 Page Not Found: Assets/images
+ERROR - 2019-12-30 08:58:55 --> 404 Page Not Found: Assets/js
+ERROR - 2019-12-30 08:58:55 --> 404 Page Not Found: Assets/vendors
+ERROR - 2019-12-30 08:58:55 --> 404 Page Not Found: Assets/vendors
+ERROR - 2019-12-30 08:59:36 --> 404 Page Not Found: Assets/vendors
+ERROR - 2019-12-30 08:59:36 --> 404 Page Not Found: Assets/vendors
+ERROR - 2019-12-30 08:59:36 --> 404 Page Not Found: Assets/js
+ERROR - 2019-12-30 08:59:49 --> 404 Page Not Found: Assets/vendors
+ERROR - 2019-12-30 08:59:49 --> 404 Page Not Found: Assets/js
+ERROR - 2019-12-30 08:59:49 --> 404 Page Not Found: Assets/vendors
+ERROR - 2019-12-30 09:01:23 --> 404 Page Not Found: Assets/vendors
+ERROR - 2019-12-30 09:01:23 --> 404 Page Not Found: Assets/js
+ERROR - 2019-12-30 09:01:23 --> 404 Page Not Found: Assets/vendors
+ERROR - 2019-12-30 09:01:54 --> 404 Page Not Found: Assets/vendors
+ERROR - 2019-12-30 09:01:55 --> 404 Page Not Found: Assets/js
+ERROR - 2019-12-30 09:01:55 --> 404 Page Not Found: Assets/vendors
+ERROR - 2019-12-30 09:03:43 --> 404 Page Not Found: Assets/vendors
+ERROR - 2019-12-30 09:03:43 --> 404 Page Not Found: Assets/js
+ERROR - 2019-12-30 09:03:43 --> 404 Page Not Found: Assets/vendors
+ERROR - 2019-12-30 09:04:10 --> 404 Page Not Found: Assets/js
+ERROR - 2019-12-30 09:04:10 --> 404 Page Not Found: Assets/vendors
+ERROR - 2019-12-30 09:04:10 --> 404 Page Not Found: Assets/vendors
+ERROR - 2019-12-30 09:04:57 --> 404 Page Not Found: Assets/vendors
+ERROR - 2019-12-30 09:04:57 --> 404 Page Not Found: Assets/js
+ERROR - 2019-12-30 09:04:57 --> 404 Page Not Found: Assets/vendors
+ERROR - 2019-12-30 09:05:59 --> 404 Page Not Found: Assets/js
+ERROR - 2019-12-30 09:05:59 --> 404 Page Not Found: Assets/vendors
+ERROR - 2019-12-30 09:05:59 --> 404 Page Not Found: Assets/vendors
+ERROR - 2019-12-30 09:07:16 --> 404 Page Not Found: Assets/vendors
+ERROR - 2019-12-30 09:07:17 --> 404 Page Not Found: Assets/vendors
+ERROR - 2019-12-30 09:07:17 --> 404 Page Not Found: Assets/js
+ERROR - 2019-12-30 09:07:38 --> 404 Page Not Found: Assets/images
+ERROR - 2019-12-30 09:07:43 --> 404 Page Not Found: Assets/js
+ERROR - 2019-12-30 09:07:43 --> 404 Page Not Found: Assets/vendors
+ERROR - 2019-12-30 09:07:44 --> 404 Page Not Found: Assets/vendors
+ERROR - 2019-12-30 09:08:54 --> 404 Page Not Found: Assets/vendors
+ERROR - 2019-12-30 09:08:54 --> 404 Page Not Found: Assets/js
+ERROR - 2019-12-30 09:08:54 --> 404 Page Not Found: Assets/vendors
+ERROR - 2019-12-30 09:08:57 --> 404 Page Not Found: Assets/vendors
+ERROR - 2019-12-30 09:08:57 --> 404 Page Not Found: Assets/images
+ERROR - 2019-12-30 09:08:57 --> 404 Page Not Found: Assets/js
+ERROR - 2019-12-30 09:08:57 --> 404 Page Not Found: Assets/vendors
+ERROR - 2019-12-30 09:09:21 --> 404 Page Not Found: Assets/js
+ERROR - 2019-12-30 09:09:21 --> 404 Page Not Found: Assets/vendors
+ERROR - 2019-12-30 09:09:21 --> 404 Page Not Found: Assets/vendors
+ERROR - 2019-12-30 09:12:51 --> 404 Page Not Found: Assets/images
+ERROR - 2019-12-30 09:12:52 --> 404 Page Not Found: Assets/images
+ERROR - 2019-12-30 09:12:56 --> 404 Page Not Found: Assets/images
+ERROR - 2019-12-30 09:13:05 --> 404 Page Not Found: Assets/images

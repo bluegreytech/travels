@@ -135,18 +135,18 @@
 			      				<div class="row order-data">
 			      					<div class="media name-of-car">
 			      						<div class="media-left media-middle"><span>Name of car</span></div>
-			      						<div class="media-body"><input type="text" id="CarName" name="CarName" ></div>
+			      						<div class="media-body"><input type="text" id="CarName" name="CarName" disabled></div>
 			      					</div>
 			      					<ul class="nav other-infos-car">
 			      						<li>Price (per day) <span><i class="fa fa-inr"></i>
-			      							<input type="text" id="CarRate" name="CarRate" onChange="m1()"></span></li>
+			      							<input type="text" id="CarRate" name="CarRate" onChange="m1()" disabled></span></li>
 			      						<li>Tax (<?php
 										echo $Taxes=$result[0]->Tax;
 									?>%) <span>
-											<input type="hidden" id="Tax" name="Tax" onChange="m1()" value="<?php echo $Taxes?>">
-											<input type="text" id="TaxAmount" name="TaxAmount" onChange="m1()"></span></li>
+											<input type="hidden" id="Tax" name="Tax" onChange="m1()" value="<?php echo $Taxes?>" disabled>
+											<input type="text" id="TaxAmount" name="TaxAmount" onChange="m1()" disabled></span></li>
 			      						<li>total cost <span><i class="fa fa-inr"></i>
-			      							<input type="text" id="FinalAmount" name="FinalAmount" onChange="m1()"></span></li>
+			      							<input type="text" id="FinalAmount" name="FinalAmount" onChange="m1()" disabled> </span></li>
 			      					</ul>
 			      				</div>
 			      				<!-- <button class="btn btn-primary btn-block">BOOK BY EMAIL!</button>	 -->						

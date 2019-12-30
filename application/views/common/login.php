@@ -37,12 +37,12 @@
 						<div class="col-md-12">
 							<h3 class="form-title">Login</h3>
 						</div>
-						<div class="col-md-3">
+						<div class="col-md-2 col-xs-4">
 							<div class="input-group">
 								<input type="text" class="form-control" value="+91" readonly="">
 							</div>
 						</div>
-						<div class="col-md-9">
+						<div class="col-md-10 col-xs-8">
 							<div class="input-group">
 								<input type="text" name="CarBrandId" value="<?php echo $CarBrandId;?>">
 								<input type="text" name="BrandName" value="<?php echo $BrandName; ?>">

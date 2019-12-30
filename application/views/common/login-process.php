@@ -19,15 +19,15 @@
 				<div class="col-md-3 col-sm-6 banner-vans fold-banner">
 					<div class="row inner">
 						<img src="<?php echo base_url();?>assets/images/fold3/1.jpg" alt="" class="img-responsive">
-						<h2 class="top-text">At Winter</h2>
-						<h5 class="bottom-text">From $59.69/day</h5>
+						<h2 class="top-text">Book Now</h2>
+						<h5 class="bottom-text">From Anywhere</h5>
 					</div>
 				</div>
 				<div class="col-md-3 col-md-offset-6 col-sm-6 banner-limo  fold-banner">					
 					<div class="row inner">
 						<img src="<?php echo base_url();?>assets/images/fold3/2.jpg" alt="" class="img-responsive">
-						<h2 class="top-text">Big Sale</h2>
-						<h5 class="bottom-text">Sale 50%, 30%, 20%</h5>
+						<h2 class="top-text">Want a Cab?</h2>
+						<h5 class="bottom-text">Contact Us</h5>
 					</div>
 				</div>
 			</div>

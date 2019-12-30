@@ -92,6 +92,7 @@
 													}}
 													?>
 												</select>
+												<span class="input-group-addon"><i class="ion-android-locate"></i></span>
 											</div>
 										</div>
 									</div>
@@ -113,7 +114,7 @@
 													}}
 													?>
 												</select>
-
+												<span class="input-group-addon"><i class="ion-android-locate"></i></span>
 											</div>
 										</div>
 									</div>

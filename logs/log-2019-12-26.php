@@ -109,3 +109,5 @@ ERROR - 2019-12-26 14:46:16 --> Query error: Table 'travelsdb.tblcarbrand' doesn
 FROM `tblcarbrand`
 WHERE `IsDelete` = '0'
 ORDER BY `CarBrandId` DESC
+ERROR - 2019-12-26 14:54:26 --> Severity: Notice --> Undefined property: stdClass::$OtherContactNumber C:\xampp\htdocs\travels\application\views\common\footer.php 42
+ERROR - 2019-12-26 14:54:26 --> 404 Page Not Found: Assets/images

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 30, 2019 at 05:12 AM
+-- Generation Time: Dec 30, 2019 at 11:13 AM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.8
 
@@ -4225,6 +4225,44 @@ INSERT INTO `tbltestimonial` (`TestimonialId`, `FirstName`, `LastName`, `Tetimon
 (2, 'Mit', 'Patel', '<p>AAAA YD Cabs by Yashdeep Travels is a travelling solutions providing networking company where we provide cab services to the customers and help them reach their destination in time with comfort that you aspire for, along with the affordable pricing forte.</p>', '69322Testimonial.jpg', 'Active', '0', '2019-12-26 05:00:00', '2019-11-21 11:38:23'),
 (3, 'trytrytr', 'rttrjurjutr', '<p>AAAA YD Cabs by Yashdeep Travels is a travelling solutions providing networking company where we provide cab services to the customers and help them reach their destination in time with comfort that you aspire for, along with the affordable pricing forte.</p>', '36452Testimonial.jpg', 'Active', '0', '2019-12-26 05:00:00', '2019-11-27 09:02:19');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbluser`
+--
+
+CREATE TABLE `tbluser` (
+  `UserId` int(11) NOT NULL,
+  `FirstName` varchar(50) DEFAULT NULL,
+  `LastName` varchar(50) DEFAULT NULL,
+  `EmailAddress` varchar(50) DEFAULT NULL,
+  `ContactNumber` varchar(13) DEFAULT NULL,
+  `BrandName` varchar(50) DEFAULT NULL,
+  `CarId` int(11) DEFAULT NULL,
+  `PickupDate` date DEFAULT NULL,
+  `DropofDate` date DEFAULT NULL,
+  `PickupTime` varchar(30) DEFAULT NULL,
+  `StartPointCity` varchar(50) DEFAULT NULL,
+  `EndPointCity` varchar(50) DEFAULT NULL,
+  `CarRate` int(11) DEFAULT NULL,
+  `TaxAmount` int(11) DEFAULT NULL,
+  `FinalAmount` int(11) DEFAULT NULL,
+  `IsActive` enum('Active','Inactive') NOT NULL DEFAULT 'Active',
+  `OTPNumber` varchar(10) DEFAULT NULL,
+  `Status` enum('Pending','Verify') NOT NULL DEFAULT 'Pending',
+  `IsDelete` enum('0','1') NOT NULL DEFAULT '0',
+  `CreatedOn` timestamp NOT NULL DEFAULT current_timestamp(),
+  `UpdatedOn` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tbluser`
+--
+
+INSERT INTO `tbluser` (`UserId`, `FirstName`, `LastName`, `EmailAddress`, `ContactNumber`, `BrandName`, `CarId`, `PickupDate`, `DropofDate`, `PickupTime`, `StartPointCity`, `EndPointCity`, `CarRate`, `TaxAmount`, `FinalAmount`, `IsActive`, `OTPNumber`, `Status`, `IsDelete`, `CreatedOn`, `UpdatedOn`) VALUES
+(1, 'Mit', 'Patel', 'mitnp16@gmail.com', '8200308821', 'Luxury Segmentation', 6, '1970-01-01', '1970-01-01', '4:45 am', 'Ahemdabad', 'Vadodra', 3000, 450, 2550, 'Active', '28012', 'Verify', '0', '2019-12-30 05:00:00', '2019-12-30 09:48:44'),
+(5, 'Binny', 'Rai', 'bluegreyindia@gmail.com', '9409521666', 'SUV', 5, '1970-01-01', '1970-01-01', '5:08 am', 'Ahemdabad', 'Vadodra', 2020, 303, 1717, 'Active', '81503', 'Verify', '0', '2019-12-30 05:00:00', '2019-12-30 05:00:00');
+
 --
 -- Indexes for dumped tables
 --
@@ -4309,6 +4347,12 @@ ALTER TABLE `tbltestimonial`
   ADD PRIMARY KEY (`TestimonialId`);
 
 --
+-- Indexes for table `tbluser`
+--
+ALTER TABLE `tbluser`
+  ADD PRIMARY KEY (`UserId`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -4389,6 +4433,12 @@ ALTER TABLE `tblstate`
 --
 ALTER TABLE `tbltestimonial`
   MODIFY `TestimonialId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `tbluser`
+--
+ALTER TABLE `tbluser`
+  MODIFY `UserId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

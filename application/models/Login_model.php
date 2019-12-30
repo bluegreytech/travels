@@ -84,20 +84,22 @@ class Login_model extends CI_Model
         return $res;         
   }
 
-  // function getuser()
-  // {
-  //   $this->db->select("*");
-  //   $this->db->from("tbluser");
-  //   $this->db->where("IsDelete",'0');
-  //   $this->db->where("CarId",$CarId);
-  //   $this->db->order_by('CarId','desc');
-  //   $query=$this->db->get();
-  //   return $query->row_array();
-  // }
-
-  function user_book_car()
+  function getuser()
   {
 
+    $ContactNumber=$this->input->post('ContactNumber');
+    $where=array("ContactNumber"=>$ContactNumber,"OTPNumber!="=>'');
+    $this->db->select("*");
+    $this->db->from("tbluser");
+    $this->db->where("ContactNumber",$ContactNumber);
+    $query=$this->db->get();
+    return $query->row_array();
+  }
+
+
+   function user_book_car()
+  {
+      $ContactNumber=$this->input->post('ContactNumber');
       $pdate=$this->input->post('PickupDate');
       $pidate = str_replace('/', '-', $pdate );
       $PickupDate = date("Y-m-d", strtotime($pidate));
@@ -120,13 +122,17 @@ class Login_model extends CI_Model
         'EndPointCity'=>trim($this->input->post('EndPointCity')), 
         'CarRate'=>trim($this->input->post('CarRate')), 
         'TaxAmount'=>trim($this->input->post('TaxAmount')),     
-        'FinalAmount' =>$this->input->post('FinalAmount'),       
-        'CreatedOn'=>date('Y-m-d')    
+        'FinalAmount' =>$this->input->post('FinalAmount'),
+        'Status' =>'Verify',    
+        'UpdatedOn'=>date('Y-m-d')    
       );
-        echo "<pre>";print_r($data);die;           
-        $res=$this->db->insert('tbluser',$data); 
+        //echo "<pre>";print_r($data);die; 
+        $this->db->where("ContactNumber",$ContactNumber);
+        $res=$this->db->update('tbluser',$data); 
         return $res;
+
   }
-  
+
+ 
 
 }

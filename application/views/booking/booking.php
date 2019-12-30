@@ -43,13 +43,27 @@
 			      		<div class="col-sm-8">
 			      			<div class="row">
 			      				<div class="form-group col-sm-6">
+			      					<?php
+								    if($this->session->userdata('StartPointCity')!='')
+								    {
+									 	$CarBrandId=$this->session->userdata('CarBrandId');
+										$BrandName=$this->session->userdata('BrandName');
+										$StartPointCity=$this->session->userdata('StartPointCity');
+										$EndPointCity=$this->session->userdata('EndPointCity');
+										$PickupDate=$this->session->userdata('PickupDate');
+										$DropofDate=$this->session->userdata('DropofDate');
+										$PickupTime=$this->session->userdata('PickupTime');
+										$ContactNumber=$this->session->userdata('ContactNumber');
+										$OTPNumber=$this->session->userdata('OTPNumber');
+									 }
+								 ?>
 			      				<input type="hidden" name="CarBrandId" value="<?php echo $CarBrandId;?>">
-								<!-- <input type="hidden" name="StartPointCity" value="<?php// echo $StartPointCity;?>">
-								<input type="hidden" name="EndPointCity" value="<?php //echo $EndPointCity;?>">
-								<input type="hidden" name="PickupDate" value="<?php //echo $PickupDate;?>"> -->
-								<!-- <input type="hidden" name="PickupTime" value="<?php //echo $PickupTime;?>"> -->
-								<!-- <input type="hidden" name="ContactNumber" value="<?php //echo $ContactNumber;?>">
-								<input type="hidden" name="OTPNumber" value="<?php //echo $OTPNumber;?>"> -->
+								<input type="hidden" name="StartPointCity" value="<?php echo $StartPointCity;?>">
+								<input type="hidden" name="EndPointCity" value="<?php echo $EndPointCity;?>">
+								<input type="hidden" name="PickupDate" value="<?php echo $PickupDate;?>">
+								<input type="hidden" name="PickupTime" value="<?php echo $PickupTime;?>">
+								<input type="hidden" name="ContactNumber" value="<?php echo $ContactNumber;?>">
+								<input type="hidden" name="OTPNumber" value="<?php echo $OTPNumber;?>">
 			      					<h5 class="this-label">First Name<span>*</span></h5>
 			      					<input type="text" class="form-control" name="FirstName" placeholder="Enter First Name" minlength="2" maxlength="25">
 			      				</div>
@@ -139,14 +153,14 @@
 			      					</div>
 			      					<ul class="nav other-infos-car">
 			      						<li>Price (per day) <span><i class="fa fa-inr"></i>
-			      							<input type="text" id="CarRate" name="CarRate" onChange="m1()" disabled></span></li>
+			      							<input type="text" id="CarRate" name="CarRate" onChange="m1()"></span></li>
 			      						<li>Tax (<?php
 										echo $Taxes=$result[0]->Tax;
 									?>%) <span>
-											<input type="hidden" id="Tax" name="Tax" onChange="m1()" value="<?php echo $Taxes?>" disabled>
-											<input type="text" id="TaxAmount" name="TaxAmount" onChange="m1()" disabled></span></li>
+											<input type="hidden" id="Tax" name="Tax" onChange="m1()" value="<?php echo $Taxes?>">
+											<input type="text" id="TaxAmount" name="TaxAmount" onChange="m1()"></span></li>
 			      						<li>total cost <span><i class="fa fa-inr"></i>
-			      							<input type="text" id="FinalAmount" name="FinalAmount" onChange="m1()" disabled> </span></li>
+			      							<input type="text" id="FinalAmount" name="FinalAmount" onChange="m1()"> </span></li>
 			      					</ul>
 			      				</div>
 			      				<!-- <button class="btn btn-primary btn-block">BOOK BY EMAIL!</button>	 -->						

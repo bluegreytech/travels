@@ -145,3 +145,20 @@ ERROR - 2019-12-30 09:12:51 --> 404 Page Not Found: Assets/images
 ERROR - 2019-12-30 09:12:52 --> 404 Page Not Found: Assets/images
 ERROR - 2019-12-30 09:12:56 --> 404 Page Not Found: Assets/images
 ERROR - 2019-12-30 09:13:05 --> 404 Page Not Found: Assets/images
+ERROR - 2019-12-30 09:40:45 --> 404 Page Not Found: Assets/images
+ERROR - 2019-12-30 09:46:58 --> 404 Page Not Found: Assets/images
+ERROR - 2019-12-30 09:47:00 --> 404 Page Not Found: Assets/images
+ERROR - 2019-12-30 09:47:10 --> 404 Page Not Found: Assets/images
+ERROR - 2019-12-30 09:51:45 --> 404 Page Not Found: Assets/js
+ERROR - 2019-12-30 09:51:45 --> 404 Page Not Found: Assets/vendors
+ERROR - 2019-12-30 09:51:45 --> 404 Page Not Found: Assets/vendors
+ERROR - 2019-12-30 09:53:19 --> 404 Page Not Found: Assets/images
+ERROR - 2019-12-30 09:53:21 --> 404 Page Not Found: Assets/images
+ERROR - 2019-12-30 09:56:40 --> 404 Page Not Found: Assets/images
+ERROR - 2019-12-30 10:00:37 --> 404 Page Not Found: Assets/images
+ERROR - 2019-12-30 10:34:46 --> Severity: Notice --> Undefined variable: CarBrandId C:\xampp\htdocs\travels\application\controllers\home.php 225
+ERROR - 2019-12-30 11:01:50 --> 404 Page Not Found: Assets/images
+ERROR - 2019-12-30 11:03:55 --> 404 Page Not Found: Assets/images
+ERROR - 2019-12-30 11:03:56 --> 404 Page Not Found: Assets/images
+ERROR - 2019-12-30 11:08:09 --> 404 Page Not Found: Assets/images
+ERROR - 2019-12-30 11:08:11 --> 404 Page Not Found: Assets/images

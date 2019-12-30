@@ -39,16 +39,46 @@
 							<h3 class="form-title">Enter OTP Number</h3>
 						</div>
 						<div class="col-md-12">
+							<?php if(($this->session->flashdata('wrong'))){ ?>
+							<div class="alert alert-danger" id="wrongMessage">
+							<strong> <?php echo $this->session->flashdata('wrong'); ?></strong> 
+							</div>
+							<?php } ?>
+							<?php if(($this->session->flashdata('success'))){ ?>
+									<div class="alert alert-success" id="successMessage">
+									<strong> <?php echo $this->session->flashdata('success'); ?></strong> 
+									</div>
+							<?php } ?>
+							<?php if(($this->session->flashdata('warning'))){ ?>
+							<div class="alert alert-warning" id="warningMessage">
+							<strong> <?php echo $this->session->flashdata('warning'); ?></strong> 
+							</div>
+							<?php } ?>
 							<div class="input-group">
-								<input type="text" name="CarBrandId" value="<?php echo $CarBrandId;?>">
-								<input type="text" name="BrandName" value="<?php echo $BrandName;?>">
-								<input type="text" name="StartPointCity" value="<?php echo $StartPointCity;?>">
-								<input type="text" name="EndPointCity" value="<?php echo $EndPointCity;?>">
-								<input type="text" name="PickupDate" value="<?php echo $PickupDate;?>">
-								<input type="text" name="DropofDate" value="<?php echo $DropofDate;?>">
-								<input type="text" name="PickupTime" value="<?php echo $PickupTime;?>">
-								<input type="text" name="ContactNumber" value="<?php echo $ContactNumber;?>">
-								<input type="text" name="OTPNumber" value="<?php echo $OTPNumber;?>">
+								<?php
+								    if($this->session->userdata('StartPointCity')!='')
+								    {
+									 	$CarBrandId=$this->session->userdata('CarBrandId');
+										$BrandName=$this->session->userdata('BrandName');
+										$StartPointCity=$this->session->userdata('StartPointCity');
+										$EndPointCity=$this->session->userdata('EndPointCity');
+										$PickupDate=$this->session->userdata('PickupDate');
+										$DropofDate=$this->session->userdata('DropofDate');
+										$PickupTime=$this->session->userdata('PickupTime');
+										$ContactNumber=$this->session->userdata('ContactNumber');
+										$OTPNumber=$this->session->userdata('OTPNumber');
+									 }
+								 ?>
+
+								<input type="hidden" name="CarBrandId" value="<?php echo $this->session->userdata('CarBrandId');?>">
+								<input type="hidden" name="BrandName" value="<?php echo $this->session->userdata('BrandName');?>">
+								<input type="hidden" name="StartPointCity" value="<?php echo $this->session->userdata('StartPointCity');?>">
+								<input type="hidden" name="EndPointCity" value="<?php echo $this->session->userdata('EndPointCity');?>">
+								<input type="hidden" name="PickupDate" value="<?php echo $this->session->userdata('PickupDate');?>">
+								<input type="hidden" name="DropofDate" value="<?php echo $this->session->userdata('DropofDate');?>">
+								<input type="hidden" name="PickupTime" value="<?php echo $this->session->userdata('PickupTime');?>">
+								<input type="hidden" name="ContactNumber" value="<?php echo $this->session->userdata('ContactNumber');?>">
+								<input type="hidden" name="OTPNumber" value="<?php echo $this->session->userdata('OTPNumber');?>">
 								<input type="text" class="form-control" name="OTPNumber" id="OTPNumber" placeholder="Enter 6 Digit OTP" minlength="5" maxlength="6" value="<?php echo $OTPNumber;?>">
 							</div>
 						</div>
@@ -69,6 +99,14 @@
 ?>
 
 <script type="text/javascript">
+
+		$(function() { 
+	    setTimeout(function() {
+		  $('#wrongMessage').fadeOut('fast');
+		}, 10000);
+		   
+		});
+
 		$("#OTPNumber").on("input", function(evt) {
 		var self = $(this);
 		self.val(self.val().replace(/[^\d].+/, ""));

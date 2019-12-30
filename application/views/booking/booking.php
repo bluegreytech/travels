@@ -7,21 +7,13 @@
 	function m1()
 	{
 		var a=document.getElementById("CarRate").value;
-		var b=document.getElementById("StateTax").value;
-		var c=document.getElementById("txt3").value;
+		var b=document.getElementById("Tax").value;
 
-		var z=a+b;		
-		var t=z*c/100;
-		var cgst=t/2;
+		var t=a*b/100;
+		document.getElementById("TaxAmount").value=t;
 
-		document.getElementById("tax").value=cgst;
-		document.getElementById("cgsttax").value=cgst;
-
-		var h= +z;
-		document.getElementById("total").value=h;
-
-		var x=t+h;
-		document.getElementById("nettotal").value=x;
+		var f=a-t;
+		document.getElementById("FinalAmount").value=f;
 
 	}
 
@@ -40,9 +32,14 @@
   	<section class="wrapper-about">
 		<div class="container">
 			<div class="row">
+				<?php if(($this->session->flashdata('success'))){ ?>
+			        <div class="alert alert-success" id="successMessage">
+			        <strong> <?php echo $this->session->flashdata('success'); ?></strong> 
+			        </div>
+			    <?php } ?>
 				<div class="col-md-12">
 					<form class="contactForm contct-form" method="post" enctype="multipart/form-data" 
-				        				action="<?php echo base_url();?>home/booking" id="form_valid">
+				        				action="<?php echo base_url();?>home/book" id="form_valid">
 			      		<div class="col-sm-8">
 			      			<div class="row">
 			      				<div class="form-group col-sm-6">
@@ -122,6 +119,10 @@
 			      					<h5 class="this-label">Destination<span>*</span></h5>
 			      					<input type="text" class="form-control" name="EndPointCity" placeholder="Drop of location" value="<?php echo $EndPointCity;?>" readonly>
 			      				</div>
+			      				<div class="form-group col-sm-6">
+			      					<h5 class="this-label">Pickup Time<span>*</span></h5>
+			      					<input type="text" class="form-control" name="PickupTime" placeholder="Pickup time" value="<?php echo $PickupTime;?>" readonly>
+			      				</div>
 			      				<!-- <div class="form-group col-sm-12">
 			      					<h5 class="this-label">Extra Note</h5>
 			      					<textarea class="form-control"></textarea>
@@ -137,11 +138,15 @@
 			      						<div class="media-body"><input type="text" id="CarName" name="CarName" ></div>
 			      					</div>
 			      					<ul class="nav other-infos-car">
-			      						<li>Price (per day) <span><i class="fa fa-inr"></i><input type="text" id="CarRate" name="CarRate"></span></li>
+			      						<li>Price (per day) <span><i class="fa fa-inr"></i>
+			      							<input type="text" id="CarRate" name="CarRate" onChange="m1()"></span></li>
 			      						<li>Tax (<?php
-										echo $result[0]->Tax;
-									?>%) <span><input type="text" id="StateTax" name="StateTax"></span></li>
-			      						<li>total cost <span><i class="fa fa-inr"></i><input type="text" id="TotalAmount" name="CarName"></span></li>
+										echo $Taxes=$result[0]->Tax;
+									?>%) <span>
+											<input type="hidden" id="Tax" name="Tax" onChange="m1()" value="<?php echo $Taxes?>">
+											<input type="text" id="TaxAmount" name="TaxAmount" onChange="m1()"></span></li>
+			      						<li>total cost <span><i class="fa fa-inr"></i>
+			      							<input type="text" id="FinalAmount" name="FinalAmount" onChange="m1()"></span></li>
 			      					</ul>
 			      				</div>
 			      				<!-- <button class="btn btn-primary btn-block">BOOK BY EMAIL!</button>	 -->						
@@ -193,6 +198,13 @@
 
 
 <script type="text/javascript">
+		$(function() { 
+		    setTimeout(function() {
+		  $('#successMessage').fadeOut('fast');
+		}, 3000);
+		   
+		});
+	
 		$("#OTPNumber").on("input", function(evt) {
 		var self = $(this);
 		self.val(self.val().replace(/[^\d].+/, ""));
@@ -234,6 +246,22 @@
 						required: true,                
 					},
 					EndPointCity:{              
+						required: true,                
+					},
+					PickupTime:{              
+						required: true,                
+					},
+					
+					CarName:{              
+						required: true,                
+					},
+					CarRate:{              
+						required: true,                
+					},
+					Tax:{              
+						required: true,                
+					},
+					FinalAmount:{              
 						required: true,                
 					},
 						

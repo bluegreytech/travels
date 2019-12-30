@@ -40,15 +40,16 @@
 						</div>
 						<div class="col-md-12">
 							<div class="input-group">
-								<input type="hidden" name="CarBrandId" value="<?php echo $CarBrandId;?>">
-								<input type="hidden" name="BrandName" value="<?php echo $BrandName;?>">
-								<input type="hidden" name="StartPointCity" value="<?php echo $StartPointCity;?>">
-								<input type="hidden" name="EndPointCity" value="<?php echo $EndPointCity;?>">
-								<input type="hidden" name="PickupDate" value="<?php echo $PickupDate;?>">
-								<input type="hidden" name="DropofDate" value="<?php echo $DropofDate;?>">
-								<input type="hidden" name="PickupTime" value="<?php echo $PickupTime;?>">
-								<input type="hidden" name="ContactNumber" value="<?php echo $ContactNumber;?>">
-								<input type="text" class="form-control" name="OTPNumber" id="OTPNumber" placeholder="Enter 6 Digit OTP" minlength="6" maxlength="6" value="<?php echo $OTPNumber;?>">
+								<input type="text" name="CarBrandId" value="<?php echo $CarBrandId;?>">
+								<input type="text" name="BrandName" value="<?php echo $BrandName;?>">
+								<input type="text" name="StartPointCity" value="<?php echo $StartPointCity;?>">
+								<input type="text" name="EndPointCity" value="<?php echo $EndPointCity;?>">
+								<input type="text" name="PickupDate" value="<?php echo $PickupDate;?>">
+								<input type="text" name="DropofDate" value="<?php echo $DropofDate;?>">
+								<input type="text" name="PickupTime" value="<?php echo $PickupTime;?>">
+								<input type="text" name="ContactNumber" value="<?php echo $ContactNumber;?>">
+								<input type="text" name="OTPNumber" value="<?php echo $OTPNumber;?>">
+								<input type="text" class="form-control" name="OTPNumber" id="OTPNumber" placeholder="Enter 6 Digit OTP" minlength="5" maxlength="6" value="<?php echo $OTPNumber;?>">
 							</div>
 						</div>
 						<div class="col-md-12 text-center">

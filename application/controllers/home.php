@@ -11,32 +11,7 @@ class home extends CI_Controller
 		
 	}
 
-	public function login()
-	{   
-		$data['StartPointCity']=$this->input->post('StartPointCity');
-		$data['EndPointCity']=$this->input->post('EndPointCity');
-		$data['PickupDate']=$this->input->post('PickupDate');
-		$data['PickupTime']=$this->input->post('PickupTime');
-		$data['CarBrandId']=$this->input->post('CarBrandId');
-		$data['BrandName']=$this->input->post('BrandName');
-		$data['DropofDate']=$this->input->post('DropofDate');
-		if($_POST)
-		{
-			//print_r($_POST);die;
-			$StartPointCity=$this->input->post('StartPointCity');
-			$EndPointCity=$this->input->post('EndPointCity');
-			$PickupDate=$this->input->post('PickupDate');
-			$PickupTime=$this->input->post('PickupTime');
-			$CarBrandId=$this->input->post('CarBrandId');
-			$BrandName=$this->input->post('BrandName');
-			$DropofDate=$this->input->post('DropofDate');
-
-		}
-
-		$data['about']=$this->About_model->getabout(); 	  
-		$data['result']=$this->Contact_model->getsitedetail();   	
-		$this->load->view('common/login',$data);			
-	}
+	
 
 	public function index()
 	{    	
@@ -61,7 +36,81 @@ class home extends CI_Controller
 		echo json_encode($data);
 	}
 
-	public function booking()
+	// public function booking()
+	// {  
+	// 	$data['StartPointCity']=$this->input->post('StartPointCity');
+	// 	$data['EndPointCity']=$this->input->post('EndPointCity');
+	// 	$data['PickupDate']=$this->input->post('PickupDate');
+	// 	$data['PickupTime']=$this->input->post('PickupTime');
+	// 	$data['CarBrandId']=$this->input->post('CarBrandId');
+	// 	$data['BrandName']=$this->input->post('BrandName');
+	// 	$data['ContactNumber']=$this->input->post('ContactNumber');
+	// 	$data['OTPNumber']=$this->input->post('OTPNumber');
+	// 	$data['DropofDate']=$this->input->post('DropofDate');
+
+	// 	$data['CarRate']=$this->input->post('CarRate');
+	// 	$data['TaxAmount']=$this->input->post('TaxAmount');
+	// 	$data['Tax']=$this->input->post('Tax');
+
+	// 	if($_POST)
+	// 	{
+	// 		//print_r($_POST);die;
+	// 		$StartPointCity=$this->input->post('StartPointCity');
+	// 		$EndPointCity=$this->input->post('EndPointCity');
+	// 		$PickupDate=$this->input->post('PickupDate');
+	// 		$PickupTime=$this->input->post('PickupTime');
+	// 		$CarBrandId=$this->input->post('CarBrandId');
+	// 		$BrandName=$this->input->post('BrandName');
+	// 		$ContactNumber=$this->input->post('ContactNumber');
+	// 		$OTPNumber=$this->input->post('OTPNumber');
+	// 		$DropofDate=$this->input->post('DropofDate');
+	// 	}  
+	// 	if($data['CarBrandId']=$this->input->post('CarBrandId')=='')
+	// 	{
+	// 		$data['subcar']=$this->Login_model->getsubcarall();
+	// 	}
+	// 	else
+	// 	{
+	// 		$data['subcar']=$this->Login_model->getsubcar($CarBrandId);
+	// 	}
+	
+	// 	$data['about']=$this->About_model->getabout(); 	
+	// 	$data['result']=$this->Contact_model->getsitedetail();     	
+	// 	$this->load->view('booking/booking',$data);			
+	// }
+
+	public function login()
+	{   
+		$data['StartPointCity']=$this->input->post('StartPointCity');
+		$data['EndPointCity']=$this->input->post('EndPointCity');
+		$data['PickupDate']=$this->input->post('PickupDate');
+		$data['PickupTime']=$this->input->post('PickupTime');
+		$data['CarBrandId']=$this->input->post('CarBrandId');
+		$data['BrandName']=$this->input->post('BrandName');
+		$data['DropofDate']=$this->input->post('DropofDate');
+		$data['OTPNumber']=$this->input->post('OTPNumber');
+
+		if($_POST)
+		{
+			//print_r($_POST);die;
+			$StartPointCity=$this->input->post('StartPointCity');
+			$EndPointCity=$this->input->post('EndPointCity');
+			$PickupDate=$this->input->post('PickupDate');
+			$PickupTime=$this->input->post('PickupTime');
+			$CarBrandId=$this->input->post('CarBrandId');
+			$BrandName=$this->input->post('BrandName');
+			$DropofDate=$this->input->post('DropofDate');
+			$code=rand(12,1234567);
+			$OTPNumber=$this->input->post($code);
+			
+		}
+
+		$data['about']=$this->About_model->getabout(); 	  
+		$data['result']=$this->Contact_model->getsitedetail();   	
+		$this->load->view('common/login',$data);			
+	}
+	
+	public function process()
 	{  
 		$data['StartPointCity']=$this->input->post('StartPointCity');
 		$data['EndPointCity']=$this->input->post('EndPointCity');
@@ -72,6 +121,46 @@ class home extends CI_Controller
 		$data['ContactNumber']=$this->input->post('ContactNumber');
 		$data['OTPNumber']=$this->input->post('OTPNumber');
 		$data['DropofDate']=$this->input->post('DropofDate');
+		if($_POST)
+		{
+			print_r($_POST);die;
+			$StartPointCity=$this->input->post('StartPointCity');
+			$EndPointCity=$this->input->post('EndPointCity');
+			$PickupDate=$this->input->post('PickupDate');
+			$PickupTime=$this->input->post('PickupTime');
+			$CarBrandId=$this->input->post('CarBrandId');
+			$BrandName=$this->input->post('BrandName');
+			$ContactNumber=$this->input->post('ContactNumber');
+			$DropofDate=$this->input->post('DropofDate');
+			$OTPNumber=$this->input->post('OTPNumber');
+			$this->Login_model->login();
+			$this->session->set_flashdata('success', 'You have to send OTP on your contact number,Please submit!');
+			redirect('home/process');	
+		}  
+		$data['about']=$this->About_model->getabout(); 	  
+		$data['result']=$this->Contact_model->getsitedetail();  	
+		$this->load->view('common/login-process',$data);			
+	}
+
+
+	public function booking()
+	{  
+		// $data=array();
+		// $result=$this->Login_model->getuser();
+		$data['StartPointCity']=$this->input->post('StartPointCity');
+		$data['EndPointCity']=$this->input->post('EndPointCity');
+		$data['PickupDate']=$this->input->post('PickupDate');
+		$data['PickupTime']=$this->input->post('PickupTime');
+		$data['CarBrandId']=$this->input->post('CarBrandId');
+		$data['BrandName']=$this->input->post('BrandName');
+		$data['ContactNumber']=$this->input->post('ContactNumber');
+		$data['OTPNumber']=$this->input->post('OTPNumber');
+		$data['DropofDate']=$this->input->post('DropofDate');
+
+		$data['CarRate']=$this->input->post('CarRate');
+		$data['TaxAmount']=$this->input->post('TaxAmount');
+		$data['Tax']=$this->input->post('Tax');
+
 		if($_POST)
 		{
 			//print_r($_POST);die;
@@ -98,37 +187,15 @@ class home extends CI_Controller
 		$data['result']=$this->Contact_model->getsitedetail();     	
 		$this->load->view('booking/booking',$data);			
 	}
-	
-	public function process()
-	{  
-		$data['StartPointCity']=$this->input->post('StartPointCity');
-		$data['EndPointCity']=$this->input->post('EndPointCity');
-		$data['PickupDate']=$this->input->post('PickupDate');
-		$data['PickupTime']=$this->input->post('PickupTime');
-		$data['CarBrandId']=$this->input->post('CarBrandId');
-		$data['BrandName']=$this->input->post('BrandName');
-		$data['ContactNumber']=$this->input->post('ContactNumber');
-		$data['OTPNumber']=$this->input->post('OTPNumber');
-		$data['DropofDate']=$this->input->post('DropofDate');
-		if($_POST)
-		{
-			//print_r($_POST);die;
-			$StartPointCity=$this->input->post('StartPointCity');
-			$EndPointCity=$this->input->post('EndPointCity');
-			$PickupDate=$this->input->post('PickupDate');
-			$PickupTime=$this->input->post('PickupTime');
-			$CarBrandId=$this->input->post('CarBrandId');
-			$BrandName=$this->input->post('BrandName');
-			$ContactNumber=$this->input->post('ContactNumber');
-			$DropofDate=$this->input->post('DropofDate');
-			$code=rand(12,1234567);
-			$OTPNumber=$this->input->post($code);
-			
-		}  
 
-		$data['about']=$this->About_model->getabout(); 	  
-		$data['result']=$this->Contact_model->getsitedetail();  	
-		$this->load->view('common/login-process',$data);			
-	}
+	// public function book()
+	// {
+	// 	if($_POST!='')
+	// 	{
+	// 		$this->Login_model->user_book_car();
+	// 		$this->session->set_flashdata('success', 'Record has been Inserted Succesfully!');
+	// 		redirect('home/booking');
+	// 	}
+	// }
 	
 }

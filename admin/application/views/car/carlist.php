@@ -13,7 +13,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <!-- Table head options start -->
 <div class="row">
     <div class="col-xs-12">
-   <?php //echo $this->session->flashdata('success');?>
     <?php if(($this->session->flashdata('success'))){ ?>
         <div class="alert alert-success" id="successMessage">
         <strong> <?php echo $this->session->flashdata('success'); ?></strong> 

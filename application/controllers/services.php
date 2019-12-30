@@ -18,16 +18,17 @@ class Services extends CI_Controller
 		$data['EndPointCity']=$this->input->post('EndPointCity');
 		$data['PickupDate']=$this->input->post('PickupDate');
 		$data['PickupTime']=$this->input->post('PickupTime');
-			$data['DropofDate']=$this->input->post('DropofDate');
+		$data['DropofDate']=$this->input->post('DropofDate');
+		$data['PickupTime']=$this->input->post('PickupTime');
 		if($_POST)
 		{	
 			//print_r($_POST);die;
-   			  $StartPointCity=$this->input->post('StartPointCity');
-			  $EndPointCity=$this->input->post('EndPointCity');
-			  $PickupDate=$this->input->post('PickupDate');
-			  $PickupTime=$this->input->post('PickupTime');
-			  $DropofDate=$this->input->post('DropofDate');
-
+			$StartPointCity=$this->input->post('StartPointCity');
+		  	$EndPointCity=$this->input->post('EndPointCity');
+		  	$PickupDate=$this->input->post('PickupDate');
+		  	$PickupTime=$this->input->post('PickupTime');
+		  	$DropofDate=$this->input->post('DropofDate');
+		  	$PickupTime=$this->input->post('PickupTime');
 		}
 
 		$data['about']=$this->About_model->getabout(); 	

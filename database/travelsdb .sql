@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 27, 2019 at 01:15 PM
+-- Generation Time: Dec 30, 2019 at 05:12 AM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.8
 
@@ -144,12 +144,12 @@ CREATE TABLE `tblcartype` (
 --
 
 INSERT INTO `tblcartype` (`CarId`, `CarBrandId`, `CarName`, `CarRate`, `DriveAllowance`, `ExtraKMS`, `NumberOfSeat`, `NoOfBaggage`, `StartPointCityId`, `EndPointCityId`, `StateTax`, `AirCondition`, `CarNumber`, `CarImage`, `CarDescription`, `IsActive`, `IsDelete`, `CreatedOn`, `UpdatedOn`) VALUES
-(1, 1, 'Honda Amaze', 'Rs 1060', 'Rs 0.00', 'Rs 0.00', 3, 2, 1, 2, 'Included', 'AC', 'GJ23DF2411', '', '<p>Available Cabs : Indica Vista , Suzuki Swift , Hyundai Eon , Toyota Liva , Duston Go , Hyundai I10.</p>\r\n', 'Active', '0', '2019-12-18 05:00:00', '2019-12-26 05:00:00'),
-(2, 2, 'Mahindra Marazzo', 'Rs 1070', 'Rs 0.00', 'Rs 0.00', 6, 4, 3, 1, 'Included', 'AC', 'GJ23DF2411', '', '<p>Available Cabs : Tata Indigo , Swift Dzire , Toyota Etios , Hyundai Xcent , Honda Amaze , Ford Figo.</p>\r\n', 'Active', '0', '2019-12-18 05:00:00', '2019-12-26 05:00:00'),
-(3, 3, 'BMW', 'Rs 1999', 'Rs 0.00', 'Rs 0.00', 6, 4, 1, 6, 'Included', 'AC', 'GJ23DF2411', '', '<p>Available Cabs : Mahindra Xylo , Renault Lodgy , Nissan Evalia , Maruti Ertiga , Innova , XUV 500 , Tata Aria.</p>\r\n', 'Active', '0', '2019-12-18 05:00:00', '2019-12-26 05:00:00'),
-(4, 1, 'Maruti Suzuki Dzire', 'Rs 2020', 'Rs 0.00', 'Rs 0.00', 3, 3, 1, 8, 'Included', 'AC', 'GJ23DF2411', '', '<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using</p>\r\n', 'Active', '0', '2019-12-26 05:00:00', '2019-12-26 05:00:00'),
-(5, 2, 'Toyota Innova', 'Rs 2020', 'Rs 0.00', 'Rs 0.00', 6, 4, 3, 6, 'Included', 'AC', 'GJ23DF2411', '', '<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using</p>\r\n', 'Active', '0', '2019-12-26 05:00:00', '2019-12-26 10:50:00'),
-(6, 3, 'Audi', 'Rs 3000', 'Rs 0.00', 'Rs 0.00', 3, 2, 2, 1, '10', 'AC', 'GJ23DF2411', '', '<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using</p>\r\n', 'Active', '0', '2019-12-26 05:00:00', '2019-12-27 05:00:00');
+(1, 1, 'Honda Amaze', '1060', '0.00', '0.00', 3, 2, 1, 2, 'Included', 'AC', 'GJ23DF2411', '', '<p>Available Cabs : Indica Vista , Suzuki Swift , Hyundai Eon , Toyota Liva , Duston Go , Hyundai I10.</p>\r\n', 'Active', '0', '2019-12-18 05:00:00', '2019-12-27 05:00:00'),
+(2, 2, 'Mahindra Marazzo', '1070', '0.00', '0.00', 6, 4, 3, 1, 'Included', 'AC', 'GJ23DF2411', '', '<p>Available Cabs : Tata Indigo , Swift Dzire , Toyota Etios , Hyundai Xcent , Honda Amaze , Ford Figo.</p>\r\n', 'Active', '0', '2019-12-18 05:00:00', '2019-12-27 05:00:00'),
+(3, 3, 'BMW', '1999', '0.00', '0.00', 6, 4, 1, 6, 'Included', 'AC', 'GJ23DF2411', '', '<p>Available Cabs : Mahindra Xylo , Renault Lodgy , Nissan Evalia , Maruti Ertiga , Innova , XUV 500 , Tata Aria.</p>\r\n', 'Active', '0', '2019-12-18 05:00:00', '2019-12-27 05:00:00'),
+(4, 1, 'Maruti Suzuki Dzire', '2020', '0.00', '0.00', 3, 3, 1, 8, 'Included', 'AC', 'GJ23DF2411', '', '<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using</p>\r\n', 'Active', '0', '2019-12-26 05:00:00', '2019-12-27 05:00:00'),
+(5, 2, 'Toyota Innova', '2020', '0.00', '0.00', 6, 4, 3, 6, 'Included', 'AC', 'GJ23DF2411', '', '<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using</p>\r\n', 'Active', '0', '2019-12-26 05:00:00', '2019-12-27 05:00:00'),
+(6, 3, 'Audi', '3000', '0.00', '0.00', 3, 2, 2, 1, '10', 'AC', 'GJ23DF2411', '', '<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using</p>\r\n', 'Active', '0', '2019-12-26 05:00:00', '2019-12-27 05:00:00');
 
 -- --------------------------------------------------------
 

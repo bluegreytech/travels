@@ -145,3 +145,9 @@ ERROR - 2019-12-30 09:12:51 --> 404 Page Not Found: Assets/images
 ERROR - 2019-12-30 09:12:52 --> 404 Page Not Found: Assets/images
 ERROR - 2019-12-30 09:12:56 --> 404 Page Not Found: Assets/images
 ERROR - 2019-12-30 09:13:05 --> 404 Page Not Found: Assets/images
+ERROR - 2019-12-30 09:38:33 --> 404 Page Not Found: Assets/images
+ERROR - 2019-12-30 09:39:13 --> 404 Page Not Found: Assets/images
+ERROR - 2019-12-30 10:44:25 --> 404 Page Not Found: Assets/images
+ERROR - 2019-12-30 10:44:59 --> 404 Page Not Found: Assets/js
+ERROR - 2019-12-30 10:44:59 --> 404 Page Not Found: Assets/vendors
+ERROR - 2019-12-30 10:44:59 --> 404 Page Not Found: Assets/vendors

@@ -17,14 +17,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<h4 class="card-title" id="basic-layout-form">
 					<?php if($CityId==1)
 					{
-						echo	"Edit City";
+						echo	"Edit Routes";
 					}
 					else{
-					echo	"Add City";
+					echo	"Add Routes";
 					}
 					?>
 					<a class="heading-elements-toggle"><i class="icon-ellipsis font-medium-3"></i></a>
-					<a href="<?php echo base_url();?>city" class="btn btn-black" style="float:right">Back to City List</a>
+					<a href="<?php echo base_url();?>city" class="btn btn-black" style="float:right">Back to Routes List</a>
 				</div>
 				</h4>
 				<div class="card-body collapse in">
@@ -35,13 +35,54 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					
 							<div class="form-body">
 								<h4 class="form-section"><i class="icon-clipboard4"></i> Requirements</h4>
+
+								<div class="form-group">
+									<label>Select Brand Car</label>
+									<select name="CarBrandId" class="form-control" required>
+									<?php
+									// if($CarBrandId=='')
+									// {
+										?>
+										<option disabled value="">Please select brand car</option>
+										<?php
+									// }
+									// else
+									// {
+										?>
+										<!-- <option value="<?php //echo $CarBrandId;?>"><?php// echo $BrandName;?></option> -->
+										<?php
+									//}
+									?>
+								
+										<?php
+										if($carbrand)
+										{
+											foreach($carbrand as $brand)
+											{
+										?>
+											<!-- <option value="<?php// echo $brand->CarBrandId; ?>"><?php //echo 
+											$brand->BrandName;?></option> -->
+
+											<option value="<?php echo $brand->CarBrandId; ?>" <?php if($CarBrandId==$brand->CarBrandId){echo "selected" ;}?>><?php echo $brand->BrandName;?></option>
+
+										<?php
+										}}
+										?>
+									</select>
+								</div>
+
 							
 								<div class="form-group">
 								<input type="hidden" value="<?php echo $CityId; ?>" name="CityId">
-									<label>City Name</label>
-									<input type="text" class="form-control" placeholder="City Name" name="CityName" value="<?php echo $CityName;?>" minlength="3" maxlength="100">
+									<label>Start City Point</label>
+									<input type="text" class="form-control" placeholder="Start City Point" name="StartCity" value="<?php echo $StartCity;?>" minlength="3" maxlength="100">
 								</div>
 
+
+								<div class="form-group">
+									<label>End City Point</label>
+									<input type="text" class="form-control" placeholder="End City Point" name="EndCity" value="<?php echo $EndCity;?>" minlength="3" maxlength="100">
+								</div>
 											
 								<?php  if($IsActive!=''){ ?>                                
 								<div class="form-group">
@@ -121,7 +162,10 @@ $(document).ready(function()
    } ,'File size must be equal to or less then 2MB'); 
        $('#form_valid').validate({
 			rules: {
-				CityName:{              
+				StartCity:{              
+					required: true,                
+				},	
+				EndCity:{              
 					required: true,                
 				},		
 			 },

@@ -87,7 +87,7 @@
 														{
 													?>
 											
-														<option value="<?php echo $cData->CityName; ?>"><?php echo $cData->CityName;?></option>
+														<option value="<?php echo $cData->StartCity; ?>"><?php echo $cData->StartCity;?></option>
 													<?php
 													}}
 													?>

@@ -27,11 +27,12 @@ class Login_model extends CI_Model
 
   function list_city()
   {
-    $where= array('IsActive' =>'Active','IsDelete' =>'0');
+    $where=array('IsActive' =>'Active','IsDelete' =>'0');
     $this->db->select('*');
     $this->db->from('tblcity');
     $this->db->where($where);
-    $this->db->order_by('CityName','ACE');
+    $this->db->order_by('StartCity','ACE');
+    $this->db->group_by('StartCity');
     $query=$this->db->get();
     $res = $query->result();
     return $res;

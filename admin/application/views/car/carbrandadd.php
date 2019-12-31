@@ -42,6 +42,29 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 									<input type="text" class="form-control" placeholder="Car Brand Name" name="BrandName" value="<?php echo $BrandName;?>" minlength="3" maxlength="100">
 								</div>
 
+								
+								<div class="form-group">
+									<label>Per KMS Rate</label>
+									<input type="text" class="form-control" placeholder="Car Rate Per KM" id="PerKmRate" name="PerKmRate" value="<?php echo $PerKmRate;?>" minlength="1" maxlength="4">
+								</div>
+
+								<div class="form-group">
+									<label>Extra Per KMS</label>
+									<input type="text" class="form-control" placeholder="Extra Per KMS" id="ExtraKMS" name="ExtraKMS" value="<?php echo $ExtraKMS;?>" minlength="1" maxlength="4">
+								</div>
+
+								<div class="form-group">
+									<label>Driver Allowance Per Day</label>
+									<input type="text" class="form-control" placeholder="Driver Allowance Per Day" id="DriverAllowancePerDay" name="DriverAllowancePerDay" value="<?php echo $DriverAllowancePerDay;?>" minlength="1" maxlength="4">
+								</div>
+
+								<div class="form-group">
+									<label>State Tax</label>
+									<input type="text" class="form-control" placeholder="State Tax" id="StateTax" name="StateTax" value="<?php echo $StateTax;?>" minlength="1" maxlength="4">
+								</div>
+
+
+
 								<div class="form-group">
 									<label>Number of Seat</label>
 									<input type="text" class="form-control" placeholder="Number of Seat" id="TotalSeat" name="TotalSeat" value="<?php echo $TotalSeat;?>" minlength="1" maxlength="2">
@@ -145,6 +168,36 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 $(document).ready(function()
 {
+	$("#PerKmRate").on("input", function(evt) {
+		var self = $(this);
+		self.val(self.val().replace(/[^\d].+/, ""));
+		if ((evt.which < 48 || evt.which > 57)) 
+		{
+			evt.preventDefault();
+		}});
+
+	$("#ExtraKMS").on("input", function(evt) {
+		var self = $(this);
+		self.val(self.val().replace(/[^\d].+/, ""));
+		if ((evt.which < 48 || evt.which > 57)) 
+		{
+			evt.preventDefault();
+		}});
+	
+	$("#DriverAllowancePerDay").on("input", function(evt) {
+		var self = $(this);
+		self.val(self.val().replace(/[^\d].+/, ""));
+		if ((evt.which < 48 || evt.which > 57)) 
+		{
+			evt.preventDefault();
+		}});
+	$("#StateTax").on("input", function(evt) {
+		var self = $(this);
+		self.val(self.val().replace(/[^\d].+/, ""));
+		if ((evt.which < 48 || evt.which > 57)) 
+		{
+			evt.preventDefault();
+		}});
 	$("#TotalSeat").on("input", function(evt) {
 		var self = $(this);
 		self.val(self.val().replace(/[^\d].+/, ""));
@@ -166,6 +219,24 @@ $(document).ready(function()
        $('#form_valid').validate({
 			rules: {
 				BrandName:{              
+					required: true,                
+				},
+				StartPointCityId:{              
+					required: true,                
+				},
+				EndPointCityId:{              
+					required: true,                
+				},
+				PerKmRate:{              
+					required: true,                
+				},
+				ExtraKMS:{              
+					required: true,                
+				},
+				DriverAllowancePerDay:{              
+					required: true,                
+				},
+				StateTax:{              
 					required: true,                
 				},
 				TotalSeat:{              

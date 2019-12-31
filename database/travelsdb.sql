@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 30, 2019 at 11:13 AM
+-- Generation Time: Dec 31, 2019 at 08:18 AM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.8
 
@@ -92,6 +92,10 @@ INSERT INTO `tbladmin` (`AdminId`, `Admin_Type`, `FullName`, `EmailAddress`, `Pa
 CREATE TABLE `tblcarbrand` (
   `CarBrandId` int(11) NOT NULL,
   `BrandName` varchar(100) NOT NULL,
+  `PerKmRate` int(11) NOT NULL,
+  `ExtraKMS` int(11) NOT NULL,
+  `DriverAllowancePerDay` varchar(10) NOT NULL,
+  `StateTax` int(11) NOT NULL,
   `TotalSeat` int(2) DEFAULT NULL,
   `TotalBaggage` int(2) DEFAULT NULL,
   `BrandCarDescription` text DEFAULT NULL,
@@ -106,10 +110,10 @@ CREATE TABLE `tblcarbrand` (
 -- Dumping data for table `tblcarbrand`
 --
 
-INSERT INTO `tblcarbrand` (`CarBrandId`, `BrandName`, `TotalSeat`, `TotalBaggage`, `BrandCarDescription`, `BrandCarImage`, `IsActive`, `IsDelete`, `CreatedOn`, `UpdatedOn`) VALUES
-(1, 'Sedan', 3, 2, '<p>We offer affordable air conditioner sedan cab to the customers which guarantees comfort, space, and a great experience. If you are planning to travel for a vacation with your family and friends without any fibre of doubt go for the new AC Sedan cab. Because when it comes to traveling with your near and dear ones you want no compromise.</p>', '22416Car.png', 'Active', '0', '2019-12-26 05:00:00', '2019-12-27 05:00:00'),
-(2, 'SUV', 6, 2, '<p>We offer affordable air conditioner sedan cab to the customers which guarantees comfort, space, and a great experience. If you are planning to travel for a vacation with your family and friends without any fibre of doubt go for the new AC Sedan cab. Because when it comes to traveling with your near and dear ones you want no compromise.</p>', '20307Car.png', 'Active', '0', '2019-12-26 05:00:00', '2019-12-27 05:00:00'),
-(3, 'Luxury Segmentation', 3, 2, '<p>We offer affordable air conditioner sedan cab to the customers which guarantees comfort, space, and a great experience. If you are planning to travel for a vacation with your family and friends without any fibre of doubt go for the new AC Sedan cab. Because when it comes to traveling with your near and dear ones you want no compromise.</p>', '86315Car.png', 'Active', '0', '2019-12-26 05:00:00', '2019-12-27 05:00:00');
+INSERT INTO `tblcarbrand` (`CarBrandId`, `BrandName`, `PerKmRate`, `ExtraKMS`, `DriverAllowancePerDay`, `StateTax`, `TotalSeat`, `TotalBaggage`, `BrandCarDescription`, `BrandCarImage`, `IsActive`, `IsDelete`, `CreatedOn`, `UpdatedOn`) VALUES
+(1, 'Sedan', 0, 0, '400', 0, 3, 2, '<p>We offer affordable air conditioner sedan cab to the customers which guarantees comfort, space, and a great experience. If you are planning to travel for a vacation with your family and friends without any fibre of doubt go for the new AC Sedan cab. Because when it comes to traveling with your near and dear ones you want no compromise.</p>', '22416Car.png', 'Active', '0', '2019-12-26 05:00:00', '2019-12-31 05:00:00'),
+(2, 'SUV', 0, 0, '300', 0, 6, 2, '<p>We offer affordable air conditioner sedan cab to the customers which guarantees comfort, space, and a great experience. If you are planning to travel for a vacation with your family and friends without any fibre of doubt go for the new AC Sedan cab. Because when it comes to traveling with your near and dear ones you want no compromise.</p>', '20307Car.png', 'Active', '0', '2019-12-26 05:00:00', '2019-12-31 05:00:00'),
+(3, 'Luxury Segmentation', 0, 0, '300', 0, 3, 2, '<p>We offer affordable air conditioner sedan cab to the customers which guarantees comfort, space, and a great experience. If you are planning to travel for a vacation with your family and friends without any fibre of doubt go for the new AC Sedan cab. Because when it comes to traveling with your near and dear ones you want no compromise.</p>', '86315Car.png', 'Active', '0', '2019-12-26 05:00:00', '2019-12-31 05:00:00');
 
 -- --------------------------------------------------------
 
@@ -126,8 +130,6 @@ CREATE TABLE `tblcartype` (
   `ExtraKMS` varchar(10) DEFAULT '0',
   `NumberOfSeat` int(11) NOT NULL,
   `NoOfBaggage` int(2) NOT NULL,
-  `StartPointCityId` int(11) NOT NULL,
-  `EndPointCityId` int(11) NOT NULL,
   `StateTax` varchar(50) NOT NULL,
   `AirCondition` enum('AC','Nonac') NOT NULL,
   `CarNumber` varchar(20) NOT NULL,
@@ -143,13 +145,13 @@ CREATE TABLE `tblcartype` (
 -- Dumping data for table `tblcartype`
 --
 
-INSERT INTO `tblcartype` (`CarId`, `CarBrandId`, `CarName`, `CarRate`, `DriveAllowance`, `ExtraKMS`, `NumberOfSeat`, `NoOfBaggage`, `StartPointCityId`, `EndPointCityId`, `StateTax`, `AirCondition`, `CarNumber`, `CarImage`, `CarDescription`, `IsActive`, `IsDelete`, `CreatedOn`, `UpdatedOn`) VALUES
-(1, 1, 'Honda Amaze', '1060', '0.00', '0.00', 3, 2, 1, 2, 'Included', 'AC', 'GJ23DF2411', '', '<p>Available Cabs : Indica Vista , Suzuki Swift , Hyundai Eon , Toyota Liva , Duston Go , Hyundai I10.</p>\r\n', 'Active', '0', '2019-12-18 05:00:00', '2019-12-27 05:00:00'),
-(2, 2, 'Mahindra Marazzo', '1070', '0.00', '0.00', 6, 4, 3, 1, 'Included', 'AC', 'GJ23DF2411', '', '<p>Available Cabs : Tata Indigo , Swift Dzire , Toyota Etios , Hyundai Xcent , Honda Amaze , Ford Figo.</p>\r\n', 'Active', '0', '2019-12-18 05:00:00', '2019-12-27 05:00:00'),
-(3, 3, 'BMW', '1999', '0.00', '0.00', 6, 4, 1, 6, 'Included', 'AC', 'GJ23DF2411', '', '<p>Available Cabs : Mahindra Xylo , Renault Lodgy , Nissan Evalia , Maruti Ertiga , Innova , XUV 500 , Tata Aria.</p>\r\n', 'Active', '0', '2019-12-18 05:00:00', '2019-12-27 05:00:00'),
-(4, 1, 'Maruti Suzuki Dzire', '2020', '0.00', '0.00', 3, 3, 1, 8, 'Included', 'AC', 'GJ23DF2411', '', '<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using</p>\r\n', 'Active', '0', '2019-12-26 05:00:00', '2019-12-27 05:00:00'),
-(5, 2, 'Toyota Innova', '2020', '0.00', '0.00', 6, 4, 3, 6, 'Included', 'AC', 'GJ23DF2411', '', '<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using</p>\r\n', 'Active', '0', '2019-12-26 05:00:00', '2019-12-27 05:00:00'),
-(6, 3, 'Audi', '3000', '0.00', '0.00', 3, 2, 2, 1, '10', 'AC', 'GJ23DF2411', '', '<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using</p>\r\n', 'Active', '0', '2019-12-26 05:00:00', '2019-12-27 05:00:00');
+INSERT INTO `tblcartype` (`CarId`, `CarBrandId`, `CarName`, `CarRate`, `DriveAllowance`, `ExtraKMS`, `NumberOfSeat`, `NoOfBaggage`, `StateTax`, `AirCondition`, `CarNumber`, `CarImage`, `CarDescription`, `IsActive`, `IsDelete`, `CreatedOn`, `UpdatedOn`) VALUES
+(1, 1, 'Honda Amaze', '1060', '0.00', '0.00', 3, 2, 'Included', 'AC', 'GJ23DF2411', '', '<p>Available Cabs : Indica Vista , Suzuki Swift , Hyundai Eon , Toyota Liva , Duston Go , Hyundai I10.</p>\r\n', 'Active', '0', '2019-12-18 05:00:00', '2019-12-27 05:00:00'),
+(2, 2, 'Mahindra Marazzo', '1070', '0.00', '0.00', 6, 4, 'Included', 'AC', 'GJ23DF2411', '', '<p>Available Cabs : Tata Indigo , Swift Dzire , Toyota Etios , Hyundai Xcent , Honda Amaze , Ford Figo.</p>\r\n', 'Active', '0', '2019-12-18 05:00:00', '2019-12-27 05:00:00'),
+(3, 3, 'BMW', '1999', '0.00', '0.00', 6, 4, 'Included', 'AC', 'GJ23DF2411', '', '<p>Available Cabs : Mahindra Xylo , Renault Lodgy , Nissan Evalia , Maruti Ertiga , Innova , XUV 500 , Tata Aria.</p>\r\n', 'Active', '0', '2019-12-18 05:00:00', '2019-12-27 05:00:00'),
+(4, 1, 'Maruti Suzuki Dzire', '2020', '0.00', '0.00', 3, 3, 'Included', 'AC', 'GJ23DF2411', '', '<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using</p>\r\n', 'Active', '0', '2019-12-26 05:00:00', '2019-12-27 05:00:00'),
+(5, 2, 'Toyota Innova', '2020', '0.00', '0.00', 6, 4, 'Included', 'AC', 'GJ23DF2411', '', '<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using</p>\r\n', 'Active', '0', '2019-12-26 05:00:00', '2019-12-27 05:00:00'),
+(6, 3, 'Audi', '3000', '0.00', '0.00', 3, 2, '10', 'AC', 'GJ23DF2411', '', '<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using</p>\r\n', 'Active', '0', '2019-12-26 05:00:00', '2019-12-31 05:00:00');
 
 -- --------------------------------------------------------
 
@@ -161,7 +163,9 @@ CREATE TABLE `tblcity` (
   `CityId` int(11) NOT NULL,
   `CountryId` int(11) DEFAULT NULL,
   `StateId` int(11) DEFAULT NULL,
-  `CityName` varchar(50) NOT NULL,
+  `CarBrandId` int(11) NOT NULL,
+  `StartCity` varchar(50) NOT NULL,
+  `EndCity` varchar(50) NOT NULL,
   `IsActive` enum('Active','Inactive') NOT NULL DEFAULT 'Active',
   `IsDelete` enum('0','1') NOT NULL DEFAULT '0',
   `CreatedOn` timestamp NOT NULL DEFAULT current_timestamp(),
@@ -172,16 +176,13 @@ CREATE TABLE `tblcity` (
 -- Dumping data for table `tblcity`
 --
 
-INSERT INTO `tblcity` (`CityId`, `CountryId`, `StateId`, `CityName`, `IsActive`, `IsDelete`, `CreatedOn`, `UpdatedOn`) VALUES
-(1, NULL, 82, 'Vadodra', 'Active', '0', '2019-12-26 11:25:37', '2019-12-26 11:25:37'),
-(2, NULL, 82, 'Ahemdabad', 'Active', '0', '2019-12-26 11:25:37', '2019-12-26 11:25:37'),
-(3, NULL, 82, 'Anand', 'Active', '0', '2019-12-26 11:25:37', '2019-12-26 11:25:37'),
-(4, NULL, 82, 'Nadiad', 'Active', '0', '2019-12-26 11:25:37', '2019-12-26 11:25:37'),
-(5, NULL, 82, 'Surat', 'Active', '0', '2019-12-26 11:25:37', '2019-12-26 11:25:37'),
-(6, NULL, 82, 'Valsad', 'Active', '0', '2019-12-26 11:25:37', '2019-12-26 11:25:37'),
-(7, NULL, 82, 'Petlad', 'Active', '0', '2019-12-26 11:25:37', '2019-12-26 11:25:37'),
-(8, NULL, 82, 'Karamsad', 'Active', '0', '2019-12-26 11:25:37', '2019-12-26 11:25:37'),
-(9, NULL, NULL, 'Sarangpur', 'Active', '0', '2019-12-26 05:00:00', '2019-12-26 05:00:00');
+INSERT INTO `tblcity` (`CityId`, `CountryId`, `StateId`, `CarBrandId`, `StartCity`, `EndCity`, `IsActive`, `IsDelete`, `CreatedOn`, `UpdatedOn`) VALUES
+(1, NULL, NULL, 1, 'Anand', 'Vadodra', 'Active', '0', '2019-12-31 05:00:00', '2019-12-31 05:00:00'),
+(2, NULL, NULL, 2, 'Anand', 'Ahemdabad', 'Active', '0', '2019-12-31 05:00:00', '2019-12-31 05:00:00'),
+(3, NULL, NULL, 3, 'Anand', 'Valsad', 'Active', '0', '2019-12-31 05:00:00', '2019-12-31 05:00:00'),
+(4, NULL, NULL, 1, 'Valsad', 'Anand', 'Active', '0', '2019-12-31 05:00:00', '2019-12-31 05:00:00'),
+(5, NULL, NULL, 2, 'Ahemdabad', 'Anand', 'Active', '0', '2019-12-31 05:00:00', '2019-12-31 05:00:00'),
+(6, NULL, NULL, 3, 'Vadodra', 'Anand', 'Active', '0', '2019-12-31 05:00:00', '2019-12-31 05:00:00');
 
 -- --------------------------------------------------------
 
@@ -4261,7 +4262,9 @@ CREATE TABLE `tbluser` (
 
 INSERT INTO `tbluser` (`UserId`, `FirstName`, `LastName`, `EmailAddress`, `ContactNumber`, `BrandName`, `CarId`, `PickupDate`, `DropofDate`, `PickupTime`, `StartPointCity`, `EndPointCity`, `CarRate`, `TaxAmount`, `FinalAmount`, `IsActive`, `OTPNumber`, `Status`, `IsDelete`, `CreatedOn`, `UpdatedOn`) VALUES
 (1, 'Mit', 'Patel', 'mitnp16@gmail.com', '8200308821', 'Luxury Segmentation', 6, '1970-01-01', '1970-01-01', '4:45 am', 'Ahemdabad', 'Vadodra', 3000, 450, 2550, 'Active', '28012', 'Verify', '0', '2019-12-30 05:00:00', '2019-12-30 09:48:44'),
-(5, 'Binny', 'Rai', 'bluegreyindia@gmail.com', '9409521666', 'SUV', 5, '1970-01-01', '1970-01-01', '5:08 am', 'Ahemdabad', 'Vadodra', 2020, 303, 1717, 'Active', '81503', 'Verify', '0', '2019-12-30 05:00:00', '2019-12-30 05:00:00');
+(5, 'Binny', 'Rai', 'bluegreyindia@gmail.com', '9409521666', 'SUV', 5, '1970-01-01', '1970-01-01', '5:08 am', 'Ahemdabad', 'Vadodra', 2020, 303, 1717, 'Active', '81503', 'Verify', '0', '2019-12-30 05:00:00', '2019-12-30 05:00:00'),
+(6, NULL, NULL, NULL, '8200308821', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Active', '98896', 'Pending', '0', '2019-12-31 05:00:00', '2019-12-31 04:04:01'),
+(7, NULL, NULL, NULL, '8200308821', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Active', '46763', 'Pending', '0', '2019-12-31 05:00:00', '2019-12-31 04:12:15');
 
 --
 -- Indexes for dumped tables
@@ -4384,7 +4387,7 @@ ALTER TABLE `tblcartype`
 -- AUTO_INCREMENT for table `tblcity`
 --
 ALTER TABLE `tblcity`
-  MODIFY `CityId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `CityId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `tblcontactus`
@@ -4438,7 +4441,7 @@ ALTER TABLE `tbltestimonial`
 -- AUTO_INCREMENT for table `tbluser`
 --
 ALTER TABLE `tbluser`
-  MODIFY `UserId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `UserId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

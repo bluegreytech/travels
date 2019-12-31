@@ -81,8 +81,8 @@ class Car_model extends CI_Model
 				'ExtraKMS'=>trim($this->input->post('ExtraKMS')),	
 				'NumberOfSeat'=>trim($this->input->post('NumberOfSeat')),
 				'NoOfBaggage'=>trim($this->input->post('NoOfBaggage')),
-				'StartPointCityId'=>trim($this->input->post('StartPointCityId')),
-				'EndPointCityId'=>trim($this->input->post('EndPointCityId')),	
+				// 'StartPointCityId'=>trim($this->input->post('StartPointCityId')),
+				// 'EndPointCityId'=>trim($this->input->post('EndPointCityId')),	
 				'StateTax'=>trim($this->input->post('StateTax')),	
 				'AirCondition'=>trim($this->input->post('AirCondition')),	
 				'CarNumber'=>trim($this->input->post('CarNumber')),			
@@ -115,7 +115,7 @@ class Car_model extends CI_Model
 		$this->db->select('*');
 		$this->db->from('tblcity');
 		$this->db->where($where);
-		$this->db->order_by('CityName','ACE');
+		$this->db->order_by('StartCity','ACE');
 		$query=$this->db->get();
 		$res = $query->result();
 		return $res;
@@ -123,10 +123,8 @@ class Car_model extends CI_Model
 	
 
 	function getdata($CarId){
-		$this->db->select("car.*,city.CityName as CityStart,cityend.CityName as CityEnd,brand.BrandName");
+		$this->db->select("car.*,brand.BrandName");
 		$this->db->from("tblcartype as car");
-		$this->db->join('tblcity as city','car.StartPointCityId = city.CityId', 'LEFT');
-		$this->db->join('tblcity as cityend','car.EndPointCityId = cityend.CityId', 'LEFT');
 		$this->db->join('tblcarbrand as brand','car.CarBrandId = brand.CarBrandId', 'LEFT');
 		$this->db->where("car.IsDelete",'0');
 		$this->db->where("CarId",$CarId);
@@ -217,8 +215,8 @@ class Car_model extends CI_Model
 			'ExtraKMS'=>trim($this->input->post('ExtraKMS')),	
 			'NumberOfSeat'=>trim($this->input->post('NumberOfSeat')),
 			'NoOfBaggage'=>trim($this->input->post('NoOfBaggage')),
-			'StartPointCityId'=>trim($this->input->post('StartPointCityId')),
-			'EndPointCityId'=>trim($this->input->post('EndPointCityId')),	
+			// 'StartPointCityId'=>trim($this->input->post('StartPointCityId')),
+			// 'EndPointCityId'=>trim($this->input->post('EndPointCityId')),	
 			'StateTax'=>trim($this->input->post('StateTax')),	
 			'AirCondition'=>trim($this->input->post('AirCondition')),	
 			'CarNumber'=>trim($this->input->post('CarNumber')),			
@@ -308,6 +306,12 @@ class Car_model extends CI_Model
 
         $data = array(
 			'BrandName'=>trim($this->input->post('BrandName')),
+
+			'PerKmRate'=>trim($this->input->post('PerKmRate')),
+			'ExtraKMS'=>trim($this->input->post('ExtraKMS')),
+			'DriverAllowancePerDay'=>trim($this->input->post('DriverAllowancePerDay')),
+			'StateTax'=>trim($this->input->post('StateTax')),
+
 			'TotalSeat'=>trim($this->input->post('TotalSeat')),
 			'TotalBaggage'=>trim($this->input->post('TotalBaggage')),
 			'BrandCarDescription'=>trim($this->input->post('BrandCarDescription')),
@@ -331,14 +335,23 @@ class Car_model extends CI_Model
 		return $res;
 	}
 
-	function getbarbranddata($CarBrandId)
+	function getcarbranddata($CarBrandId)
 	{
-		$this->db->select("*");
-		$this->db->from("tblcarbrand");
-		$this->db->where("CarBrandId",$CarBrandId);
-	    $this->db->order_by('CarBrandId','desc');
+
+		$this->db->select("brand.*,brand.BrandName");
+		$this->db->from("tblcarbrand as brand");
+		$this->db->where("brand.IsDelete",'0');
+		$this->db->where("brand.CarBrandId",$CarBrandId);
+	    $this->db->order_by('brand.CarBrandId','desc');
 		$query=$this->db->get();
 		return $query->row_array();
+
+		// $this->db->select("*");
+		// $this->db->from("tblcarbrand");
+		// $this->db->where("CarBrandId",$CarBrandId);
+	 //    $this->db->order_by('CarBrandId','desc');
+		// $query=$this->db->get();
+		// return $query->row_array();
 	}
 
 
@@ -415,8 +428,18 @@ class Car_model extends CI_Model
 		   }
 
 	   	$CarBrandId=$this->input->post('CarBrandId');
+	   	// $StartPointCityId=implode(',',$this->input->post('StartPointCityId'));
+	   	// $EndPointCityId=implode(',',$this->input->post('EndPointCityId'));
         $data = array(
 		'BrandName'=>trim($this->input->post('BrandName')),
+
+		// 'StartPointCityId'=>trim($StartPointCityId),
+		// 'EndPointCityId'=>trim($EndPointCityId),
+		'PerKmRate'=>trim($this->input->post('PerKmRate')),
+		'ExtraKMS'=>trim($this->input->post('ExtraKMS')),
+		'DriverAllowancePerDay'=>trim($this->input->post('DriverAllowancePerDay')),
+		'StateTax'=>trim($this->input->post('StateTax')),
+
 		'TotalSeat'=>trim($this->input->post('TotalSeat')),
 		'TotalBaggage'=>trim($this->input->post('TotalBaggage')),
 		'BrandCarDescription'=>trim($this->input->post('BrandCarDescription')),

@@ -17,8 +17,10 @@ class City extends CI_Controller
 		}   
 			
 		$data=array();	
+		$data['CarBrandId']=$this->input->post('CarBrandId');
 		$data['CityId']=$this->input->post('CityId');
-		$data['CityName']=$this->input->post('CityName');
+		$data['StartCity']=$this->input->post('StartCity');
+		$data['EndCity']=$this->input->post('EndCity');
 		$data['IsActive']=$this->input->post('IsActive');
 	
 		if($_POST)
@@ -41,7 +43,8 @@ class City extends CI_Controller
 			
 			$data['activeTab']="cityadd";
 			//$data['cityData']=$this->City_model->list_city();
-			//print_r($data['cityData']);die;	
+			//print_r($data['cityData']);die;
+			$data['carbrand']=$this->City_model->getcarbrandlist();	
 			$this->load->view('city/cityadd',$data);
 				
 	}
@@ -65,12 +68,15 @@ class City extends CI_Controller
 		}
 			$data=array();
 			$result=$this->City_model->getcitydata($CityId);
-			//echo "<pre>";print_r($result);die;		
+			//echo "<pre>";print_r($result);die;
+			$data['CarBrandId']=$result['CarBrandId'];		
 			$data['CityId']=$result['CityId'];
-			$data['CityName']=$result['CityName'];	
+			$data['StartCity']=$result['StartCity'];
+			$data['EndCity']=$result['EndCity'];
 			$data['IsActive']=$result['IsActive'];
 			//echo "<pre>";print_r($data);die;	
-			$data['activeTab']="cityadd";	
+			$data['activeTab']="cityadd";
+			$data['carbrand']=$this->City_model->getcarbrandlist();	
 			$this->load->view('city/cityadd',$data);	
 		
 	}

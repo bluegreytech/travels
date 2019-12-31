@@ -22,9 +22,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
        
         <div class="card">
             <div class="card-header">
-                <h4 class="card-title">List of City
+                <h4 class="card-title">List of Routes
                 <a class="heading-elements-toggle"><i class="icon-ellipsis font-medium-3"></i></a>
-                <a href="<?php echo base_url();?>city/cityadd" class="btn btn-black" style="float:right">Add City</a>
+                <a href="<?php echo base_url();?>city/cityadd" class="btn btn-black" style="float:right">Add Routes</a>
                 </h4>
             </div>
             <div class="card-body collapse in">
@@ -33,7 +33,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <thead class="thead-inverse">
                             <tr>
                                 <th>Sr No</th>
-                                <th>City</th>                              
+                                <th>Type Car</th>  
+                                <th>Start Point</th>  
+                                <th>End Point</th>                                  
 								<th>Status</th>
                                 <th>Action</th>
                             </tr>
@@ -47,7 +49,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             ?>
                             <tr>
                                     <td><?php echo $i; ?></td>
-                                    <td><?php echo $row->CityName; ?></td>
+                                     <td><?php echo $row->BrandName; ?></td>
+                                    <td><?php echo $row->StartCity; ?></td>
+                                    <td><?php echo $row->EndCity; ?></td>
                                     <td>
                                         <?php if($row->IsActive=="Active")
                                             {

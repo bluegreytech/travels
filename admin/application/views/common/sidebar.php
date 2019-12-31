@@ -50,14 +50,14 @@
 
            <li class="nav-item <?php echo($activeTab == "cityadd"||$activeTab =="citylist") ? "open" : ""; ?>">
           <a class="<?php echo ($activeTab == "cityadd" || $activeTab == "citylist") ? "active" : ""; ?>">
-            <i class="icon-car"></i><span data-i18n="nav.dash.main" class="menu-title">City</span>
+            <i class="icon-car"></i><span data-i18n="nav.dash.main" class="menu-title">Routes</span>
           </a>
           <ul class="menu-content">
             <li>
-                <a href="<?php echo base_url(); ?>city/cityadd" data-i18n="nav.dash.main" class="menu-item <?php echo ($activeTab == "cityadd") ? "active" : ""; ?>"><i class="icon-plus"></i>Add City</a>
+                <a href="<?php echo base_url(); ?>city/cityadd" data-i18n="nav.dash.main" class="menu-item <?php echo ($activeTab == "cityadd") ? "active" : ""; ?>"><i class="icon-plus"></i>Add Routes</a>
             </li>
             <li>
-              <a href="<?php echo base_url(); ?>city" data-i18n="nav.dash.main" class="menu-item <?php echo ($activeTab == "citylist") ? "active" : ""; ?>"><i class="icon-file-text2"></i>List of City </a>
+              <a href="<?php echo base_url(); ?>city" data-i18n="nav.dash.main" class="menu-item <?php echo ($activeTab == "citylist") ? "active" : ""; ?>"><i class="icon-file-text2"></i>List of Routes </a>
             </li>
           </ul>
 

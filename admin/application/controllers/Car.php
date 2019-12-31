@@ -37,8 +37,8 @@ class Car extends CI_Controller {
 		$data['ExtraKMS']=$this->input->post('ExtraKMS');
 		$data['NumberOfSeat']=$this->input->post('NumberOfSeat');
 		$data['NoOfBaggage']=$this->input->post('NoOfBaggage');	
-		$data['StartPointCityId']=$this->input->post('StartPointCityId');
-		$data['StartPointCityId']=$this->input->post('StartPointCityId');
+		// $data['StartPointCityId']=$this->input->post('StartPointCityId');
+		// $data['StartPointCityId']=$this->input->post('StartPointCityId');
 		$data['StateTax']=$this->input->post('StateTax');
 		$data['AirCondition']=$this->input->post('AirCondition');
 		$data['CarNumber']=$this->input->post('CarNumber');
@@ -91,8 +91,8 @@ class Car extends CI_Controller {
 			$data['NumberOfSeat']=$result['NumberOfSeat'];
 			$data['NoOfBaggage']=$result['NoOfBaggage'];	
 			
-			$data['StartPointCityId']=$result['StartPointCityId'];
-			$data['EndPointCityId']=$result['EndPointCityId'];
+			// $data['StartPointCityId']=$result['StartPointCityId'];
+			// $data['EndPointCityId']=$result['EndPointCityId'];
 			$data['StateTax']=$result['StateTax'];
 			$data['AirCondition']=$result['AirCondition'];
 			$data['CarNumber']=$result['CarNumber'];
@@ -100,8 +100,8 @@ class Car extends CI_Controller {
 			$data['CarDescription']=$result['CarDescription'];		
 			$data['IsActive']=$result['IsActive'];
 
-			$data['CityStart']=$result['CityStart'];
-			$data['CityEnd']=$result['CityEnd'];
+			// $data['CityStart']=$result['CityStart'];
+			// $data['CityEnd']=$result['CityEnd'];
 			//echo "<pre>";print_r($data);die;	
 			$data['activeTab']="caradd";
 			$data['cityData']=$this->Car_model->list_city();
@@ -147,6 +147,13 @@ class Car extends CI_Controller {
 		$data=array();	
 		$data['CarBrandId']=$this->input->post('CarBrandId');
 		$data['BrandName']=$this->input->post('BrandName');
+
+		// $data['StartPointCityId']=$this->input->post('StartPointCityId');
+		// $data['EndPointCityId']=$this->input->post('EndPointCityId');
+		$data['PerKmRate']=$this->input->post('PerKmRate');
+		$data['ExtraKMS']=$this->input->post('ExtraKMS');
+		$data['DriverAllowancePerDay']=$this->input->post('DriverAllowancePerDay');
+		$data['StateTax']=$this->input->post('StateTax');
 
 		$data['TotalSeat']=$this->input->post('TotalSeat');
 		$data['TotalBaggage']=$this->input->post('TotalBaggage');
@@ -197,17 +204,30 @@ class Car extends CI_Controller {
 			redirect(base_url());
 		}
 			$data=array();
-			$result=$this->Car_model->getbarbranddata($CarBrandId);
+			$result=$this->Car_model->getcarbranddata($CarBrandId);
 			//echo "<pre>";print_r($result);die;		
 			$data['CarBrandId']=$result['CarBrandId'];
 			$data['BrandName']=$result['BrandName'];
+
+			// $data['StartPointCityId']=$result['StartPointCityId'];
+			// $data['EndPointCityId']=$result['EndPointCityId'];
+			$data['PerKmRate']=$result['PerKmRate'];
+			$data['ExtraKMS']=$result['ExtraKMS'];
+			$data['DriverAllowancePerDay']=$result['DriverAllowancePerDay'];
+			$data['StateTax']=$result['StateTax'];
+
 			$data['TotalSeat']=$result['TotalSeat'];
 			$data['TotalBaggage']=$result['TotalBaggage'];
 			$data['BrandCarDescription']=$result['BrandCarDescription'];
 			$data['BrandCarImage']=$result['BrandCarImage'];	
 			$data['IsActive']=$result['IsActive'];
+
+			// $data['StartCity']=$result['StartCity'];
+			// $data['EndCity']=$result['EndCity'];
+
 			//echo "<pre>";print_r($data);die;	
-			$data['activeTab']="carbrandadd";	
+			$data['activeTab']="carbrandadd";
+			$data['cityData']=$this->Car_model->list_city();	
 			$this->load->view('car/carbrandadd',$data);	
 		
 	}

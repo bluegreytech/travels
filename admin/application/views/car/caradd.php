@@ -101,72 +101,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 									<input type="text" class="form-control" placeholder="Number of Baggage" id="NoOfBaggage" name="NoOfBaggage" value="<?php echo $NoOfBaggage;?>" minlength="1" maxlength="2">
 								</div>
 
-								<div class="form-group">
-									<label>Start Point City</label>
-									<select name="StartPointCityId" class="form-control" required>
-									<?php
-									if($StartPointCityId=='')
-									{
-										?>
-										<option desabled value="">Please select start point city</option>
-										<?php
-									}
-									else
-									{
-										?>
-										<option value="<?php echo $StartPointCityId;?>"><?php echo $CityStart;?></option>
-										<?php
-									}
-									?>
 								
-										<?php
-										if($cityData)
-										{
-											foreach($cityData as $cData)
-											{
-										?>
+
 								
-											<option value="<?php echo $cData->CityId; ?>"><?php echo $cData->CityName;?></option>
-										<?php
-										}}
-										?>
-									</select>
-								</div>
-
-
-								<div class="form-group">
-									<label>End Point City</label>
-									<select name="EndPointCityId" class="form-control" required>
-									<?php
-									if($EndPointCityId=='')
-									{
-										?>
-										<option desabled value="">Please select end point city</option>
-										<?php
-									}
-									else
-									{
-										?>
-										<option value="<?php echo $EndPointCityId;?>"><?php echo $CityEnd;?></option>
-										<?php
-									}
-									?>
-									
-									
-										<?php
-										if($cityData)
-										{
-											foreach($cityData as $cData)
-											{
-										?>
-											<!-- <option value="<?php// echo $cData->companytypeid; ?>" <?php //if($companytypeid==$cData->companytypeid){echo "selected" ;}?>><?php //echo $cData->CityName;?></option> -->
-											<option value="<?php echo $cData->CityId; ?>"><?php echo $cData->CityName;?></option>
-										<?php
-										}}
-										?>
-									</select>
-									</select>
-								</div>
 
 								<div class="form-group">
 									<label>State Tax</label>

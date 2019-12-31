@@ -49,7 +49,10 @@
 								<div class="media-body this-body">
 									<div class="media this-header">
 										<div class="media-body">
-											<h2 class="rent"><?php echo $row->BrandName; ?></h2>						
+											<div class="row m0">
+												<h2 class="rent"><?php echo $row->BrandName; ?></h2>		
+											</div>	
+											<h4 class="vehicle-title"><span>Cab Rate: Rs 1200</span></h4>			
 										</div>
 									</div>
 									<div class="summary row m0">

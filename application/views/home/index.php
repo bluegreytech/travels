@@ -265,7 +265,7 @@
 		<div class="container">
 			<div class="row section-title text-center">
 				<h6 class="this-top">Fact About Us</h6>
-				<h2 class="h1 this-main">Why Choose Us</h2>
+				<h2 class="h1 this-main">Why Us...?</h2>
 			</div>
 			<div class="col-md-4 feature">
 				<div class="media">
@@ -349,7 +349,7 @@
 
 				<div class="col-md-4 fleet fleet2">
 					<div class="inner row">
-						<h2 class="rent text-center">Sedan</h2>
+						<h2 class="rent text-center"><?php echo $row->BrandName; ?></h2>
 						<!--<h4 class="vehicle-title text-center">Swift Honda</h4>-->
 						<div class="vehicle-img text-center">
 							<!-- <img class="cab" src="<?php //echo base_url();?>assets/images/sedan.png" alt="">
@@ -372,7 +372,97 @@
                 } 
             }
             ?>   	
-				
+				<div class="col-md-4 fleet fleet2">
+					<div class="inner row">
+						<h2 class="rent text-center">Luxury Segmentation</h2>
+						<!--<h4 class="vehicle-title text-center">Maruti Ciaz</h4>-->
+						<div class="vehicle-img text-center">
+							<img class="cab" src="<?php echo base_url();?>assets\images\luxury.png" alt="">
+							<img class="cab-hover" src="<?php echo base_url();?>assets\images\luxury-hover.png" alt="">
+						</div>
+						<div class="row specification">
+							<ul class="nav text-center">
+								<li><span><img src="<?php echo base_url();?>assets\images\icons\fleet2\1.png" alt=""></span>3 Seats</li>
+								<li><span><img src="<?php echo base_url();?>assets\images\icons\fleet2\2.png" alt=""></span>2 Luggage</li>
+							</ul>
+							<a href="#" data-toggle="modal" data-target="#luxurycar" class="details-page">Get A Quote</a>
+							<!-- Modal -->
+							<div id="luxurycar" class="modal fade" role="dialog">
+							  <div class="modal-dialog">
+
+							    <!-- Modal content-->
+							    <div class="modal-content">
+							      <div class="modal-header">
+							      	<div class="col-md-8 col-xs-8">
+							      		<h4 class="modal-title">Get A Quote</h4>
+							      	</div>
+							        <div class="col-md-4 col-xs-4">
+							        	<button type="button" class="close" data-dismiss="modal"><i class="fa fa-times"></i></button>
+							        </div>
+							      </div>
+							      <div class="modal-body">
+							        <div class="row">
+										<div class="col-md-12">
+												<?php if(($this->session->flashdata('error'))){ ?>
+													<div class="alert alert-danger" id="errorMessage">
+													<strong> <?php echo $this->session->flashdata('error'); ?></strong> 
+													</div>
+													<?php } ?>
+													<?php if(($this->session->flashdata('success'))){ ?>
+															<div class="alert alert-success" id="successMessage">
+															<strong> <?php echo $this->session->flashdata('success'); ?></strong> 
+															</div>
+													<?php } ?>
+													<?php if(($this->session->flashdata('warning'))){ ?>
+													<div class="alert alert-warning" id="warningMessage">
+													<strong> <?php echo $this->session->flashdata('warning'); ?></strong> 
+													</div>
+												<?php } ?>
+
+						                
+											<div class="contact-form-info">
+												<form class="contct-form contactForm row m0" id="form_valid" method="post" >
+													<div class="col-md-6">
+														<div class="input-group">
+															<input type="text" name="FullName" class="form-control" placeholder="Your full name">
+														</div>
+													</div>
+													<div class="col-md-6">
+														<div class="input-group">
+															<input type="tel" name="ContactNumber" id="ContactNumber" class="form-control" placeholder="Enter Mobile Number">
+														</div>
+													</div>
+													<div class="col-md-6">
+														<div class="input-group">
+															<input type="text" name="City"  class="form-control" placeholder="Enter city">
+														</div>
+													</div>
+													<div class="col-md-6">
+														<div class="input-group">
+															<input type="text" name="subject" class="form-control" value="Luxury Segmentation" readonly>
+														</div>
+													</div>
+													<div class="col-md-12">
+														<div class="input-group">
+															<textarea name="MessageDescription" class="form-control" placeholder="Enter your query"></textarea>
+														</div>
+													</div>
+													<div class="col-md-12">
+														<input type="submit" value="SEND REQUEST" class="btn btn-primary">
+													</div>
+												</form>
+											</div>
+										</div>
+									</div>
+							      </div>
+							    </div>
+
+							  </div>
+							</div>
+							<!--Model Content End-->
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</section>

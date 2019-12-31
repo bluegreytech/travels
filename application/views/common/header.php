@@ -58,10 +58,10 @@
 	<section class="row info-bar">
 		<div class="container">
 			<div class="row">
-				<div class="col-sm-4 col-xs-10 logo-box">
+				<div class="col-sm-5 col-xs-10 logo-box">
 					<a href="<?php echo base_url();?>" class="logo"><img src="<?php echo base_url();?>assets/images/logo.png" alt=""></a>
 				</div>
-				<div class="col-sm-8 col-xs-2 info-box">
+				<div class="col-sm-7 col-xs-2 info-box">
 					<div class="header-informations hidden-xs">
 						<div class="col-md-7">
 							<div class="media info-media">

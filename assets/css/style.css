@@ -979,7 +979,8 @@ a, .btn, button {
 .fleet-list.fleet {
   box-shadow: 0px 2px 11px 0px rgba(198, 31, 72, 0.26);
   border: solid 3px #c61f48;
-  background: #fff; }
+  background: #fff;
+  margin-bottom: 30px; }
   .fleet-list.fleet + .fleet {
     margin-top: 30px; }
   .fleet-list.fleet .media-left {
@@ -1006,7 +1007,7 @@ a, .btn, button {
       .fleet-list.fleet .reviews i:last-child {
         margin-right: 3px; }
   .fleet-list.fleet .vehicle-title {
-    margin-top: 5px;
+    margin-top: 10px;
     color: #2b2e4a; }
   .fleet-list.fleet .detail-btn {
     padding: 0;
@@ -1029,7 +1030,7 @@ a, .btn, button {
     padding: 20px 0;
     vertical-align: middle; }
   .fleet-list.fleet .summary {
-    padding: 22px 40px 28px 0;
+    padding: 10px 0;
     color: rgba(43, 46, 74, 0.5);
     font-family: "Open Sans", sans-serif;
     line-height: 24px; }
@@ -2252,7 +2253,7 @@ a, .btn, button {
 
 /*--------------------------------------------------------------------------------------------*/
 .page-cover {
-  background: url(../images/page-cover.jpg) no-repeat scroll center center; }
+  background: url(../images/page-cover.jpg) no-repeat scroll center center; background-size: cover;}
   .page-cover .breadcrumb {
     padding: 0;
     display: table;
@@ -4608,24 +4609,50 @@ h5.this-label span {
     background: #c61f48;
     color: #fff;
 }
-.routes td:last-child:before{
-  content: '\f156';
-   font-family: FontAwesome;
-    color: #c61f48;
-    margin-right: 2px;
-}
-.routes td:nth-child(2):before, .routes td:nth-child(3):before{
-  content: '\f156';
-   font-family: FontAwesome;
-    color: #c61f48;
-    margin-right: 2px;
-}
+
 .avial-title{
   font-weight: 700;
   color: #c61f48;
 }
+.order-data input{
+  height: 30px;
+  border:none;
+  outline: 0!important
+}
 .order-data input[disabled] {
-    background: none;
+    background: none!important;
     cursor: default;
     border: none;
+}
+.fade.in{
+  padding: 40px 0;
+}
+.modal-header{
+      background: #c61f48;
+}
+.modal-title{
+  color:#fff!important;
+  font-weight:800!important;
+}
+.close{
+  opacity: 1!important;
+}
+.close i{
+  color: #fff;
+}
+.modal-content{
+  border-radius: 10px;
+  overflow: hidden;
+  border: solid 4px #c61f48;
+}
+.condition-points p:before {
+    content: "\f0a4";
+    font-family: FontAwesome;
+    margin-right: 10px;
+    color: #c61f48;
+    font-size: 18px;
+    font-weight: 600;
+}
+.agreement{
+  margin-top: 20px!important;
 }

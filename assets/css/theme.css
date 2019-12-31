@@ -388,10 +388,11 @@
     .page-cover .breadcrumb li + li:before {
       color: #c61f48; }
     .page-cover .breadcrumb li a {
-      color: #fff; }
+      color: #c61f48; }
 
 .page-title {
-  color: #fff; }
+  color: #2b2a29;
+  text-shadow: 0px 0px 6px #1515154a;}
 
 /*--------------------------------------------------------------------------------------------*/
 .wrapper-404 .this-message {

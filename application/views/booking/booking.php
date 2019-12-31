@@ -148,19 +148,19 @@
 			      				<h4 class="this-heading">Your Cab</h4>
 			      				<div class="row order-data">
 			      					<div class="media name-of-car">
-			      						<div class="media-left media-middle"><span>Name of car</span></div>
+			      						<div class="media-left media-middle"><span>Type Of Cab</span></div>
 			      						<div class="media-body"><input type="text" id="CarName" name="CarName" disabled></div>
 			      					</div>
 			      					<ul class="nav other-infos-car">
-			      						<li>Price (per day) <span><i class="fa fa-inr"></i>
-			      							<input type="text" id="CarRate" name="CarRate" onChange="m1()"></span></li>
+			      						<li>Fare <span><i class="fa fa-inr"></i>
+			      							<input type="text" id="CarRate" name="CarRate" onChange="m1()" disabled></span></li>
 			      						<li>Tax (<?php
 										echo $Taxes=$result[0]->Tax;
 									?>%) <span>
-											<input type="hidden" id="Tax" name="Tax" onChange="m1()" value="<?php echo $Taxes?>">
-											<input type="text" id="TaxAmount" name="TaxAmount" onChange="m1()"></span></li>
+											<input type="hidden" id="Tax" name="Tax" onChange="m1()" value="<?php echo $Taxes?>" disabled>
+											<input type="text" id="TaxAmount" name="TaxAmount" onChange="m1()" disabled></span></li>
 			      						<li>total cost <span><i class="fa fa-inr"></i>
-			      							<input type="text" id="FinalAmount" name="FinalAmount" onChange="m1()"> </span></li>
+			      							<input type="text" id="FinalAmount" name="FinalAmount" onChange="m1()" disabled> </span></li>
 			      					</ul>
 			      				</div>
 			      				<!-- <button class="btn btn-primary btn-block">BOOK BY EMAIL!</button>	 -->						
@@ -171,7 +171,28 @@
 			      				<article class="stripe">Please send your cheque to Store Name, Store Street, Store Town, Store State / County, Store Postcode.</article>
 			      				<input type="radio" name="payment-method" id="payment-method02" class="sr-only">
 			      				<label for="payment-method02">Paypal <a href="#"><img src="<?php echo base_url();?>assets/images/car-detail/paypal.png" alt=""></a></label>
+
+			      				<label class="checkbox-inline agreement"><input type="checkbox" value="">I accept the <a href="#" data-toggle="modal" data-target="#Conditions">Terms and Conditions</a></label>
+			      				<!-- Modal -->
+								<div id="Conditions" class="modal fade" role="dialog">
+								  <div class="modal-dialog">
+
+								    <!-- Modal content-->
+								    <div class="modal-content">
+								      <div class="modal-header">
+								        <button type="button" class="close" data-dismiss="modal"><i class="fa fa-times"></i></button>
+								        <h4 class="modal-title">Terms and Conditions</h4>
+								      </div>
+								      <div class="modal-body condition-points">
+								        <p>Fare inclusive of Driver Allowance & Other Charges except Government Taxes.</p>
+								        <p>Remove your eyes off Odometer as we don't charge by KMs.</p>
+								         <p>We understand Plans change, that’s why we do not charge any Cancellation Fees.</p>
+								      </div>
+								    </div>
+								  </div>
+								</div>
 			      			</div>
+
 			      			<input type="submit" value="PAY NOW!" class="btn btn-primary btn-block">
 			      		</div>
 			      	</form>

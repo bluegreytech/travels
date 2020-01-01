@@ -21,6 +21,7 @@ class City extends CI_Controller
 		$data['CityId']=$this->input->post('CityId');
 		$data['StartCity']=$this->input->post('StartCity');
 		$data['EndCity']=$this->input->post('EndCity');
+		$data['LocalCity']=$this->input->post('LocalCity');
 		$data['IsActive']=$this->input->post('IsActive');
 	
 		if($_POST)
@@ -73,7 +74,9 @@ class City extends CI_Controller
 			$data['CityId']=$result['CityId'];
 			$data['StartCity']=$result['StartCity'];
 			$data['EndCity']=$result['EndCity'];
+			$data['LocalCity']=$result['LocalCity'];
 			$data['IsActive']=$result['IsActive'];
+
 			//echo "<pre>";print_r($data);die;	
 			$data['activeTab']="cityadd";
 			$data['carbrand']=$this->City_model->getcarbrandlist();	

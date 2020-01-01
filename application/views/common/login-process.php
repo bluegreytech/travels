@@ -56,15 +56,16 @@
 							<?php } ?>
 							<div class="input-group">
 								<?php
-								    if($this->session->userdata('StartPointCity')!='')
+								    if($this->session->userdata('StartCity')!='')
 								    {
 									 	$CarBrandId=$this->session->userdata('CarBrandId');
 										$BrandName=$this->session->userdata('BrandName');
-										$StartPointCity=$this->session->userdata('StartPointCity');
-										$EndPointCity=$this->session->userdata('EndPointCity');
+										$StartCity=$this->session->userdata('StartCity');
+										$EndCity=$this->session->userdata('EndCity');
 										$PickupDate=$this->session->userdata('PickupDate');
 										$DropofDate=$this->session->userdata('DropofDate');
 										$PickupTime=$this->session->userdata('PickupTime');
+										$DropofTime=$this->session->userdata('DropofTime');
 										$ContactNumber=$this->session->userdata('ContactNumber');
 										$OTPNumber=$this->session->userdata('OTPNumber');
 									 }
@@ -72,11 +73,12 @@
 
 								<input type="hidden" name="CarBrandId" value="<?php echo $this->session->userdata('CarBrandId');?>">
 								<input type="hidden" name="BrandName" value="<?php echo $this->session->userdata('BrandName');?>">
-								<input type="hidden" name="StartPointCity" value="<?php echo $this->session->userdata('StartPointCity');?>">
-								<input type="hidden" name="EndPointCity" value="<?php echo $this->session->userdata('EndPointCity');?>">
+								<input type="hidden" name="StartCity" value="<?php echo $this->session->userdata('StartCity');?>">
+								<input type="hidden" name="EndCity" value="<?php echo $this->session->userdata('EndCity');?>">
 								<input type="hidden" name="PickupDate" value="<?php echo $this->session->userdata('PickupDate');?>">
 								<input type="hidden" name="DropofDate" value="<?php echo $this->session->userdata('DropofDate');?>">
 								<input type="hidden" name="PickupTime" value="<?php echo $this->session->userdata('PickupTime');?>">
+								<input type="text" name="DropofTime" value="<?php echo $this->session->userdata('DropofTime');?>">
 								<input type="hidden" name="ContactNumber" value="<?php echo $this->session->userdata('ContactNumber');?>">
 								<input type="hidden" name="OTPNumber" value="<?php echo $this->session->userdata('OTPNumber');?>">
 								<input type="text" class="form-control" name="OTPNumber" id="OTPNumber" placeholder="Enter 6 Digit OTP" minlength="5" maxlength="6" value="<?php echo $OTPNumber;?>">

@@ -71,14 +71,14 @@
 			      	<div class="tab-content">
 				        <div class="tab-pane active" id="one-way">
 				        	<form class="form" method="post" enctype="multipart/form-data" 
-				        				action="<?php echo base_url();?>home">
+				        				action="<?php echo base_url();?>Services/search" id="form_valid_one">
 				        		<div class="row fr-it">
 			        				<div class="col-md-4">
 			        					<div class="location-group">
 											<div class="input-group">
 												<!-- <input type="text" class="form-control" placeholder="Enter Pickup Location">
 												<span class="input-group-addon"><i class="ion-android-locate"></i></span> -->
-												<select name="StartPointCityId" class="form-control" required>
+												<select name="StartCity" class="form-control" required>
 													<option desabled value="">Please select start point city</option>
 													<?php
 													if($cityData)
@@ -87,11 +87,12 @@
 														{
 													?>
 											
-														<option value="<?php echo $cData->CityName; ?>"><?php echo $cData->CityName;?></option>
+														<option value="<?php echo $cData->StartCity; ?>"><?php echo $cData->StartCity;?></option>
 													<?php
 													}}
 													?>
 												</select>
+												<span class="input-group-addon"><i class="ion-android-locate"></i></span>
 											</div>
 										</div>
 									</div>
@@ -100,32 +101,32 @@
 											<div class="input-group">
 												<!-- <input type="text" class="form-control" placeholder="Enter Drop Location">
 												<span class="input-group-addon"><i class="ion-android-locate"></i></span> -->
-												<select name="StartPointCityId" class="form-control" required>
-													<option desabled value="">Please select start point city</option>
+												<select name="EndCity" class="form-control" required>
+													<option desabled value="">Please select end point city</option>
 													<?php
-													if($cityData)
+													if($endcityData)
 													{
-														foreach($cityData as $cData)
+														foreach($endcityData as $cData)
 														{
 													?>
-														<option value="<?php echo $cData->CityName; ?>"><?php echo $cData->CityName;?></option>
+														<option value="<?php echo $cData->EndCity; ?>"><?php echo $cData->EndCity;?></option>
 													<?php
 													}}
 													?>
 												</select>
-
+												<span class="input-group-addon"><i class="ion-android-locate"></i></span>
 											</div>
 										</div>
 									</div>
 				        			<div class="col-md-2">
 										<div class="input-group date-group">
-											<input type="text" class="datedroper form-control" name="PickupDate" id="PickupDate" placeholder="Pick up date">
+											<input type="text" class="datedroper form-control" name="PickupDate" id="PickupDate" placeholder="Pick up date" required>
 											<span class="input-group-addon"><i class="ion-calendar"></i></span>
 										</div>
 									</div>
 									<div class="col-md-2">
 										<div class="input-group time-group">
-											<input type="text" class="timedroper form-control" name="PickupTime" placeholder="08:00 am">
+											<input type="text" class="timedroper form-control" name="PickupTime" placeholder="08:00 am" required>
 											<span class="input-group-addon"><i class="ion-ios-alarm-outline"></i></span>
 										</div>
 									</div>
@@ -138,21 +139,34 @@
 								</div>  				
 								<div class="row m0">
 									<div class="col-xs-12">
-										<!-- <button class="btn btn-primary" type="submit">Book a cab</button> -->
-										<!-- <button class="btn btn-primary" type="submit">Book a cab</button> -->
-										<!-- <button class="btn btn-primary" type="submit">Submit</button> -->
-										<input type="submit" value="Book11 Cab" class="btn btn-primary">
+										<button class="btn btn-primary" type="submit">Book a cab</button>
 									</div>
 								</div>
 							</form>
 				        </div>
 				        <div class="tab-pane" id="round-way">
-				        	<!-- <form> -->
+				        	<form class="form" method="post" enctype="multipart/form-data" 
+				        				action="<?php echo base_url();?>Services/search" id="form_valid_one">
 				        		<div class="row fr-it">
 				        			<div class="col-md-3">
 			        					<div class="location-group">
 											<div class="input-group">
-												<input type="text" class="form-control" placeholder="Enter Pickup Location">
+												<!-- <input type="text" class="form-control" placeholder="Enter Pickup Location">
+												<span class="input-group-addon"><i class="ion-android-locate"></i></span> -->
+												<select name="StartCity" class="form-control" required>
+													<option desabled value="">Please select start point city</option>
+													<?php
+													if($cityData)
+													{
+														foreach($cityData as $cData)
+														{
+													?>
+											
+														<option value="<?php echo $cData->StartCity; ?>"><?php echo $cData->StartCity;?></option>
+													<?php
+													}}
+													?>
+												</select>
 												<span class="input-group-addon"><i class="ion-android-locate"></i></span>
 											</div>
 										</div>
@@ -160,43 +174,54 @@
 									<div class="col-md-3">
 			        					<div class="location-group">
 											<div class="input-group">
-												<input type="text" class="form-control" placeholder="Enter Drop Location">
+												<!-- <input type="text" class="form-control" placeholder="Enter Drop Location">
+												<span class="input-group-addon"><i class="ion-android-locate"></i></span> -->
+												<select name="EndCity" class="form-control" required>
+													<option desabled value="">Please select end point city</option>
+													<?php
+													if($endcityData)
+													{
+														foreach($endcityData as $cData)
+														{
+													?>
+														<option value="<?php echo $cData->EndCity; ?>"><?php echo $cData->EndCity;?></option>
+													<?php
+													}}
+													?>
+												</select>
 												<span class="input-group-addon"><i class="ion-android-locate"></i></span>
 											</div>
 										</div>
 									</div>
 				        			<div class="col-md-2">
 										<div class="input-group date-group">
-											<input type="text" class="datedroper form-control" placeholder="Pickup date">
+											<input type="text" class="datedroper form-control" name="PickupDate"  placeholder="Pickup date" required>
 											<span class="input-group-addon"><i class="ion-calendar"></i></span>
 										</div>
 									</div>
 									<div class="col-md-2">
 										<div class="input-group date-group">
-											<input type="text" class="datedroper form-control" placeholder="Drop date">
+											<input type="text" class="datedroper form-control" name="DropofDate"  placeholder="Drop date" required>
 											<span class="input-group-addon"><i class="ion-calendar"></i></span>
 										</div>
 									</div>
 									<div class="col-md-2">
 										<div class="input-group time-group">
-											<input type="text" class="timedroper form-control" placeholder="08:00 am">
+											<input type="text" class="timedroper form-control" name="PickupTime" placeholder="08:00 am" required>
 											<span class="input-group-addon"><i class="ion-ios-alarm-outline"></i></span>
 										</div>
 									</div>
-
-								</div>  				
-								
-								
+								</div>  					
 								<div class="row m0">
 									<div class="col-xs-12">
-										<!-- <input type="" value="Book a cab" class="btn btn-primary"> -->
+										<button class="btn btn-primary" type="submit">Book a cab</button>
 									</div>
 								</div>
-								
-							<!-- </form> -->
+							</form>
 				        </div>
+
 				        <div class="tab-pane" id="local">
-				        <!-- 	<form> -->
+				        	<form>
 				        		<div class="row fr-it">
 				        			<div class="col-md-4">
 			        					<div class="location-group">
@@ -225,27 +250,26 @@
 										</div>
 									</div>
 								</div>  				
-								
-								
 								<div class="row m0">
 									<div class="col-xs-12">
-										<!-- <input type="" value="Book a cab" class="btn btn-primary"> -->
+										<input type="" value="Book a cab" class="btn btn-primary">
 									</div>
-								</div>
-								
-							<!-- </form> -->
+								</div>	
+							</form>
 				        </div>
+
 				    </div>
 			    </div>
 			</div>
 		</div>
 	</section>
+<br><br> <br> <br> <br>
 	<!--Features-->
 	<section class="row features">
 		<div class="container">
 			<div class="row section-title text-center">
 				<h6 class="this-top">Fact About Us</h6>
-				<h2 class="h1 this-main">Why Choose Us</h2>
+				<h2 class="h1 this-main">Why Us...?</h2>
 			</div>
 			<div class="col-md-4 feature">
 				<div class="media">
@@ -311,6 +335,7 @@
 			</div>
 		</div>
 	</section>
+
 	<!--Fleet-->
 	<section class="row fleets2">
 		<div class="container">
@@ -328,7 +353,7 @@
 
 				<div class="col-md-4 fleet fleet2">
 					<div class="inner row">
-						<h2 class="rent text-center">Sedan</h2>
+						<h2 class="rent text-center"><?php echo $row->BrandName; ?></h2>
 						<!--<h4 class="vehicle-title text-center">Swift Honda</h4>-->
 						<div class="vehicle-img text-center">
 							<!-- <img class="cab" src="<?php //echo base_url();?>assets/images/sedan.png" alt="">
@@ -350,8 +375,99 @@
             	$i++;
                 } 
             }
-            ?>   	
-				
+            ?>  
+             	
+				<div class="col-md-4 fleet fleet2">
+					<div class="inner row">
+						<h2 class="rent text-center">Luxury Segmentation</h2>
+						<!--<h4 class="vehicle-title text-center">Maruti Ciaz</h4>-->
+						<div class="vehicle-img text-center">
+							<img class="cab" src="<?php echo base_url();?>assets\images\luxury.png" alt="">
+							<img class="cab-hover" src="<?php echo base_url();?>assets\images\luxury-hover.png" alt="">
+						</div>
+						<div class="row specification">
+							<ul class="nav text-center">
+								<li><span><img src="<?php echo base_url();?>assets\images\icons\fleet2\1.png" alt=""></span>3 Seats</li>
+								<li><span><img src="<?php echo base_url();?>assets\images\icons\fleet2\2.png" alt=""></span>2 Luggage</li>
+							</ul>
+							<a href="#" data-toggle="modal" data-target="#luxurycar" class="details-page">Get A Quote</a>
+							<!-- Modal -->
+							<div id="luxurycar" class="modal fade" role="dialog">
+							  <div class="modal-dialog">
+
+							    <!-- Modal content-->
+							    <div class="modal-content">
+							      <div class="modal-header">
+							      	<div class="col-md-8 col-xs-8">
+							      		<h4 class="modal-title">Get A Quote</h4>
+							      	</div>
+							        <div class="col-md-4 col-xs-4">
+							        	<button type="button" class="close" data-dismiss="modal"><i class="fa fa-times"></i></button>
+							        </div>
+							      </div>
+							      <div class="modal-body">
+							        <div class="row">
+										<div class="col-md-12">
+												<?php if(($this->session->flashdata('error'))){ ?>
+													<div class="alert alert-danger" id="errorMessage">
+													<strong> <?php echo $this->session->flashdata('error'); ?></strong> 
+													</div>
+													<?php } ?>
+													<?php if(($this->session->flashdata('success'))){ ?>
+															<div class="alert alert-success" id="successMessage">
+															<strong> <?php echo $this->session->flashdata('success'); ?></strong> 
+															</div>
+													<?php } ?>
+													<?php if(($this->session->flashdata('warning'))){ ?>
+													<div class="alert alert-warning" id="warningMessage">
+													<strong> <?php echo $this->session->flashdata('warning'); ?></strong> 
+													</div>
+												<?php } ?>
+
+						                
+											<div class="contact-form-info">
+												<form class="contct-form contactForm row m0" id="form_valid" method="post" >
+													<div class="col-md-6">
+														<div class="input-group">
+															<input type="text" name="FullName" class="form-control" placeholder="Your full name">
+														</div>
+													</div>
+													<div class="col-md-6">
+														<div class="input-group">
+															<input type="tel" name="ContactNumber" id="ContactNumber" class="form-control" placeholder="Enter Mobile Number">
+														</div>
+													</div>
+													<div class="col-md-6">
+														<div class="input-group">
+															<input type="text" name="City"  class="form-control" placeholder="Enter city">
+														</div>
+													</div>
+													<div class="col-md-6">
+														<div class="input-group">
+															<input type="text" name="subject" class="form-control" value="Luxury Segmentation" readonly>
+														</div>
+													</div>
+													<div class="col-md-12">
+														<div class="input-group">
+															<textarea name="MessageDescription" class="form-control" placeholder="Enter your query"></textarea>
+														</div>
+													</div>
+													<div class="col-md-12">
+														<input type="submit" value="SEND REQUEST" class="btn btn-primary">
+													</div>
+												</form>
+											</div>
+										</div>
+									</div>
+							      </div>
+							    </div>
+
+							  </div>
+							</div>
+							<!--Model Content End-->
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</section>
@@ -366,7 +482,7 @@
 			</div>
 			
 			<div class="row">
-				<!--Offer-->
+				
 				<div class="col-md-4 feature text-center">
 					<div class="icon-box">
 						<img src="<?php echo base_url();?>assets/images/book-car.png" alt="">
@@ -374,7 +490,7 @@
 					<h4 class="this-title">Book a Your Cab</h4>
 					<p>Book a journey withus via <a href="#">ydcabs.com</a> or over a <br>call<a href="tel:+91 90990 42156"> +91 90990 42156</a>.</p>
 				</div>
-				<!--Offer-->
+				
 				<div class="col-md-4 feature text-center">
 					<div class="icon-box">
 						<img src="<?php echo base_url();?>assets/images/ride.png" alt="">
@@ -382,7 +498,7 @@
 					<h4 class="this-title">Enjoy your ride</h4>
 					<p>Enjoy your ride with a best of our drivers without worries about your safety.</p>
 				</div>
-				<!--Offer-->
+				
 				<div class="col-md-4 feature text-center">
 					<div class="icon-box">
 						<img src="<?php echo base_url();?>assets/images/pay.png" alt="">
@@ -394,11 +510,12 @@
 			</div>   			
 		</div>
 	</section>	
+
 	<!--Funfact-->
 	<section class="row funfacts">
 		<div class="container-fluid">
 			<div class="row inner">
-				<!--Fact-->
+				
 				<div class="col-md-3 col-xs-6 fact">
 					<div class="inner-fact">
 						<div class="this-icon"><i class="ionicons ion-model-s"></i></div>
@@ -408,7 +525,7 @@
 						</div>
 					</div>
 				</div>
-				<!--Fact-->
+				
 				<div class="col-md-3 col-xs-6 fact">
 					<div class="inner-fact">
 						<div class="this-icon"><i class="ionicons ion-ios-cog-outline"></i></div>
@@ -418,7 +535,7 @@
 						</div>
 					</div>
 				</div>
-				<!--Fact-->
+				
 				<div class="col-md-3 col-xs-6 fact">
 					<div class="inner-fact">
 						<div class="this-icon"><i class="ionicons ion-ios-people-outline"></i></div>
@@ -428,7 +545,7 @@
 						</div>
 					</div>
 				</div>
-				<!--Fact-->
+				
 				<div class="col-md-3 col-xs-6 fact">
 					<div class="inner-fact">
 						<div class="this-icon"><i class="ion-ios-speedometer-outline"></i></div>
@@ -441,15 +558,16 @@
 			</div>
 		</div>   	
 	</section>
+
 	<!--Banner 01-->
 	<section class="row features enivronment">
 		<div class="container">
 			<div class="row">
-			    <div class="col-md-6 text-center">
+			    <!-- <div class="col-md-6 text-center">
 			        <img src="<?php echo base_url();?>assets/images/save-water.png" class="img-fluid" alt="">
-			    </div>
-			    <div class="col-md-6 text-center">
-			        <img src="<?php echo base_url();?>assets/images/car-trash.png" class="img-resposnive" alt="">
+			    </div> -->
+			    <div class="col-md-12 text-center">
+			        <img src="<?php echo base_url();?>assets/images/environment.png" width="100%" alt="">
 			    </div>
 			</div>
 		</div>
@@ -496,12 +614,33 @@
 
 
 <script type="text/javascript">
-$('#PickupDate').datetimepicker({
+$(document).ready(function()
+{
+	$('#PickupDate').datetimepicker({
 	 defaultDate: new Date(),
   	 format: 'DD/MM/YYYY',
 	 ignoreReadonly: true,	
 	 maxDate: moment(),
+	});
 
+       $('#form_valid_one').validate({
+			rules: {
+				StartPointCity:{              
+					required: true,                
+				},
+				EndPointCity:{              
+					required: true,                
+				},
+				PickupDate:{              
+					required: true,                
+				},
+				PickupTime:{              
+					required: true,                
+				},		
+			 },
+    });
 });
+
+            
 
 </script>

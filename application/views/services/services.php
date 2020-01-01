@@ -16,7 +16,7 @@
 		<div class="container">
 			<?php
                 $i=1;
-                if($services){                             
+                if($services>0){                             
                 foreach($services as $row)
                 {
                 	$CarBrandId=$row->CarBrandId;
@@ -29,14 +29,30 @@
 						<div class="row">
 							<div class="col-md-5  col-sm-12 col-xs-12">
 								<!-- <div class="media-left"><img src="<?php //echo base_url();?>assets/images/sedan-hover.png" alt=""></div> -->
+								<?php
+					          	if($this->session->userdata('StartCity')!='')
+					          	{
 
-								<input type="hidden" name="CarBrandId" value="<?php echo $CarBrandId;?>">
-								<input type="hidden" name="BrandName" value="<?php echo $BrandName; ?>">
-								<input type="hidden" name="StartPointCity" value="<?php echo $StartPointCity;?>">
-								<input type="hidden" name="EndPointCity" value="<?php echo $EndPointCity;?>">
-								<input type="hidden" name="PickupDate" value="<?php echo $PickupDate;?>">
-								<input type="hidden" name="DropofDate" value="<?php echo $DropofDate;?>">
-								<input type="hidden" name="PickupTime" value="<?php echo $PickupTime;?>">
+								 	$StartCity=$this->session->userdata('StartCity');
+									$EndCity=$this->session->userdata('EndCity');
+									$PickupDate=$this->session->userdata('PickupDate');
+									$DropofDate=$this->session->userdata('DropofDate');
+									$PickupTime=$this->session->userdata('PickupTime');
+									$DropofTime=$this->session->userdata('DropofTime');
+									// $CarBrandId=$this->session->userdata('CarBrandId');
+									// $BrandName=$this->session->userdata('BrandName');
+								}
+								?>
+
+								<input type="text" name="CarBrandId" value="<?php echo $CarBrandId;?>">
+								<input type="text" name="BrandName" value="<?php echo $BrandName; ?>">
+								<input type="text" name="StartCity" value="<?php echo $StartCity;?>">
+								<input type="text" name="EndCity" value="<?php echo $EndCity;?>">
+								<input type="text" name="PickupDate" value="<?php echo $PickupDate;?>">
+								<input type="text" name="DropofDate" value="<?php echo $DropofDate;?>">
+								<input type="text" name="PickupTime" value="<?php echo $PickupTime;?>">
+								<input type="text" name="DropofTime" value="<?php echo $DropofTime;?>">
+
 								<div class="media-left"><img src="<?php echo base_url();?>admin/upload/carimages/<?php echo $row->BrandCarImage; ?>" alt=""></div>
 								<div class="row specification eminities">
 									<ul class="nav text-center">
@@ -52,7 +68,7 @@
 											<div class="row m0">
 												<h2 class="rent"><?php echo $row->BrandName; ?></h2>		
 											</div>	
-											<h4 class="vehicle-title"><span>Cab Rate: Rs 1200</span></h4>			
+											<h4 class="vehicle-title"><span>Cab Rate Per KMS: Rs <?php echo $row->PerKmRate; ?></span></h4>			
 										</div>
 									</div>
 									<div class="summary row m0">
@@ -85,6 +101,12 @@
 			<?php
             	$i++;
                 } 
+            }
+            else
+            {
+            	?>
+            		<h4>Not found Any Record</h4>
+            	<?php
             }
             ?>   
 			

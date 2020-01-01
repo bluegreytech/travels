@@ -35,7 +35,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <th>Sr No</th>
                                 <th>Type Car</th>  
                                 <th>Start Point</th>  
-                                <th>End Point</th>                                  
+                                <th>End Point</th>  
+                                <th>Start Point as Local City</th>                                  
 								<th>Status</th>
                                 <th>Action</th>
                             </tr>
@@ -52,6 +53,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                      <td><?php echo $row->BrandName; ?></td>
                                     <td><?php echo $row->StartCity; ?></td>
                                     <td><?php echo $row->EndCity; ?></td>
+                                    <td>
+                                        <?php if($row->LocalCity=="Active")
+                                            {
+
+                                                echo "<span class='label label-success'>Active</span>";
+                                            } 
+                                            else
+                                            {
+                                                echo "<span class='label label-danger'>Inactive</span>";
+                                            } 
+                                        ?>
+                                    </td>
                                     <td>
                                         <?php if($row->IsActive=="Active")
                                             {

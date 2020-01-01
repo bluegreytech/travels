@@ -38,6 +38,32 @@ class Login_model extends CI_Model
     return $res;
   }
 
+  function end_city()
+  {
+    $where=array('IsActive' =>'Active','IsDelete' =>'0');
+    $this->db->select('*');
+    $this->db->from('tblcity');
+    $this->db->where($where);
+    $this->db->order_by('EndCity','ACE');
+    $this->db->group_by('EndCity');
+    $query=$this->db->get();
+    $res = $query->result();
+    return $res;
+  }
+
+  function local_city()
+  {
+    $where=array('IsActive' =>'Active','IsDelete' =>'0',"LocalCity"=>'Active');
+    $this->db->select('*');
+    $this->db->from('tblcity');
+    $this->db->where($where);
+    $this->db->order_by('StartCity','ACE');
+    $this->db->group_by('StartCity');
+    $query=$this->db->get();
+    $res = $query->result();
+    return $res;
+  }
+
   function getsubcar($CarBrandId)
   {
     $where= array('IsActive' =>'Active','IsDelete' =>'0','CarBrandId'=>$CarBrandId);
@@ -62,11 +88,21 @@ class Login_model extends CI_Model
     return $res;
   }
 
-  function get_cartype($carid)
+  // function get_cartype($carid)
+  // {
+  //   $where = array('CarId' =>$carid, 'IsActive' =>'Active');
+  //   $this->db->select('*');
+  //   $this->db->from('tblcartype');
+  //   $this->db->where($where);
+  //   $query=$this->db->get();
+  //   return $query->row_array();
+  // }
+
+  function get_brandcartype($CarBrandId)
   {
-    $where = array('CarId' =>$carid, 'IsActive' =>'Active');
+    $where = array('CarBrandId'=>$CarBrandId,'IsActive'=>'Active');
     $this->db->select('*');
-    $this->db->from('tblcartype');
+    $this->db->from('tblcarbrand');
     $this->db->where($where);
     $query=$this->db->get();
     return $query->row_array();
@@ -98,7 +134,7 @@ class Login_model extends CI_Model
   }
 
 
-   function user_book_car()
+  function user_book_car()
   {
       $ContactNumber=$this->input->post('ContactNumber');
       $pdate=$this->input->post('PickupDate');
@@ -115,15 +151,22 @@ class Login_model extends CI_Model
         'EmailAddress'=>trim($this->input->post('EmailAddress')),
         'ContactNumber'=>trim($this->input->post('ContactNumber')),
         'BrandName'=>trim($this->input->post('BrandName')), 
-        'CarId'=>trim($this->input->post('CarId')),
         'PickupDate'=>trim($PickupDate),
         'DropofDate'=>trim($DropofDate),
         'PickupTime'=>trim($this->input->post('PickupTime')), 
-        'StartPointCity'=>trim($this->input->post('StartPointCity')), 
-        'EndPointCity'=>trim($this->input->post('EndPointCity')), 
-        'CarRate'=>trim($this->input->post('CarRate')), 
-        'TaxAmount'=>trim($this->input->post('TaxAmount')),     
+
+        'DropofTime'=>trim($this->input->post('DropofTime')), 
+        'StartCity'=>trim($this->input->post('StartCity')), 
+        'EndCity'=>trim($this->input->post('EndCity')), 
+        'PerKmRate'=>trim($this->input->post('PerKmRate')),
+        'KMS'=>trim($this->input->post('KMS')), 
+        'TotalFareAmount'=>trim($this->input->post('TotalFareAmount')),  
+        'ExtraKMS'=>trim($this->input->post('ExtraKMS')), 
+        'StateTax'=>trim($this->input->post('StateTax')),    
+        'TotalAmount'=>trim($this->input->post('TotalAmount')), 
+        'TaxAdded'=>trim($this->input->post('TaxAdded')),     
         'FinalAmount' =>$this->input->post('FinalAmount'),
+        'OTPNumber' =>'', 
         'Status' =>'Verify',    
         'UpdatedOn'=>date('Y-m-d')    
       );

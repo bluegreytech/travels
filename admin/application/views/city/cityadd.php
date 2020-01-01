@@ -83,6 +83,44 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 									<label>End City Point</label>
 									<input type="text" class="form-control" placeholder="End City Point" name="EndCity" value="<?php echo $EndCity;?>" minlength="3" maxlength="100">
 								</div>
+
+
+								<?php  if($LocalCity!=''){ ?>                                
+								<div class="form-group">
+									<label>Start City Point Add Local</label>
+									<div class="input-group">
+										<label class="display-inline-block custom-control custom-radio ml-1">
+											
+											<input type="radio" name="LocalCity" value="Active"
+												<?php if($LocalCity=="Active") { echo "checked"; } ?>
+												 class="custom-control-input">																					<span class="custom-control-indicator"></span>																	<span class="custom-control-description ml-0">Active</span>
+													</label>
+													<label class="display-inline-block custom-control custom-radio"><input type="radio" name="LocalCity" value="Inactive"  <?php if($LocalCity=="Inactive") { echo "checked"; } ?> class="custom-control-input">
+													<span class="custom-control-indicator"></span>
+													<span class="custom-control-description ml-0">Inactive</span>
+													</label>
+														</div>
+								</div>
+								<?php } else { ?>
+									<div class="form-group">
+									<label>Status</label>
+									<div class="input-group">
+										<label class="display-inline-block custom-control custom-radio ml-1">                           
+										<input type="radio" name="LocalCity" value="Active" checked="" 
+											class="custom-control-input">
+											<span class="custom-control-indicator"></span>
+											<span class="custom-control-description ml-0">Active</span>
+										</label>
+										<label class="display-inline-block custom-control custom-radio">
+											<input type="radio" name="LocalCity" value="Inactive"
+												class="custom-control-input">
+												<span class="custom-control-indicator"></span>
+												<span class="custom-control-description ml-0">Inactive</span>
+										</label>
+									</div>
+								</div>
+								<?php } ?>
+
 											
 								<?php  if($IsActive!=''){ ?>                                
 								<div class="form-group">

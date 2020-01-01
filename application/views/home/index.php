@@ -71,14 +71,14 @@
 			      	<div class="tab-content">
 				        <div class="tab-pane active" id="one-way">
 				        	<form class="form" method="post" enctype="multipart/form-data" 
-				        				action="<?php echo base_url();?>Services" id="form_valid_one">
+				        				action="<?php echo base_url();?>Services/search" id="form_valid_one">
 				        		<div class="row fr-it">
 			        				<div class="col-md-4">
 			        					<div class="location-group">
 											<div class="input-group">
 												<!-- <input type="text" class="form-control" placeholder="Enter Pickup Location">
 												<span class="input-group-addon"><i class="ion-android-locate"></i></span> -->
-												<select name="StartPointCity" class="form-control" required>
+												<select name="StartCity" class="form-control" required>
 													<option desabled value="">Please select start point city</option>
 													<?php
 													if($cityData)
@@ -99,17 +99,16 @@
 									<div class="col-md-4">
 			        					<div class="location-group">
 											<div class="input-group">
-												<!-- <input type="text" class="form-control" placeholder="Enter Drop Location">
-												<span class="input-group-addon"><i class="ion-android-locate"></i></span> -->
-												<select name="EndPointCity" class="form-control" required>
-													<option desabled value="">Please select start point city</option>
+												
+												<select name="EndCity" class="form-control" required>
+													<option desabled value="">Please select end point city</option>
 													<?php
-													if($cityData)
+													if($endcityData)
 													{
-														foreach($cityData as $cData)
+														foreach($endcityData as $cData)
 														{
 													?>
-														<option value="<?php echo $cData->CityName; ?>"><?php echo $cData->CityName;?></option>
+														<option value="<?php echo $cData->EndCity; ?>"><?php echo $cData->EndCity;?></option>
 													<?php
 													}}
 													?>
@@ -146,14 +145,13 @@
 				        </div>
 				        <div class="tab-pane" id="round-way">
 				        	<form class="form" method="post" enctype="multipart/form-data" 
-				        				action="<?php echo base_url();?>Services" id="form_valid_one">
+				        				action="<?php echo base_url();?>Services/search" id="form_valid_one">
 				        		<div class="row fr-it">
 				        			<div class="col-md-3">
 			        					<div class="location-group">
 											<div class="input-group">
-												<!-- <input type="text" class="form-control" placeholder="Enter Pickup Location">
-												<span class="input-group-addon"><i class="ion-android-locate"></i></span> -->
-												<select name="StartPointCity" class="form-control" required>
+												
+												<select name="StartCity" class="form-control" required>
 													<option desabled value="">Please select start point city</option>
 													<?php
 													if($cityData)
@@ -162,32 +160,33 @@
 														{
 													?>
 											
-														<option value="<?php echo $cData->CityName; ?>"><?php echo $cData->CityName;?></option>
+														<option value="<?php echo $cData->StartCity; ?>"><?php echo $cData->StartCity;?></option>
 													<?php
 													}}
 													?>
 												</select>
+												<span class="input-group-addon"><i class="ion-android-locate"></i></span>
 											</div>
 										</div>
 									</div>
 									<div class="col-md-3">
 			        					<div class="location-group">
 											<div class="input-group">
-												<!-- <input type="text" class="form-control" placeholder="Enter Drop Location">
-												<span class="input-group-addon"><i class="ion-android-locate"></i></span> -->
-												<select name="EndPointCity" class="form-control" required>
-													<option desabled value="">Please select start point city</option>
+												
+												<select name="EndCity" class="form-control" required>
+													<option desabled value="">Please select end point city</option>
 													<?php
-													if($cityData)
+													if($endcityData)
 													{
-														foreach($cityData as $cData)
+														foreach($endcityData as $cData)
 														{
 													?>
-														<option value="<?php echo $cData->CityName; ?>"><?php echo $cData->CityName;?></option>
+														<option value="<?php echo $cData->EndCity; ?>"><?php echo $cData->EndCity;?></option>
 													<?php
 													}}
 													?>
 												</select>
+												<span class="input-group-addon"><i class="ion-android-locate"></i></span>
 											</div>
 										</div>
 									</div>
@@ -217,43 +216,59 @@
 								</div>
 							</form>
 				        </div>
+
 				        <div class="tab-pane" id="local">
-				        	<form>
+				        	<form class="form" method="post" enctype="multipart/form-data" 
+				        				action="<?php echo base_url();?>Services/search" id="form_valid_one">
 				        		<div class="row fr-it">
 				        			<div class="col-md-4">
 			        					<div class="location-group">
 											<div class="input-group">
-												<input type="text" class="form-control" placeholder="Enter Pickup Location">
+												<select name="StartCity" class="form-control" required>
+													<option desabled value="">Please select start point city</option>
+													<?php
+													if($localcityData)
+													{
+														foreach($localcityData as $cData)
+														{
+													?>
+											
+														<option value="<?php echo $cData->StartCity; ?>"><?php echo $cData->StartCity;?></option>
+													<?php
+													}}
+													?>
+												</select>
 												<span class="input-group-addon"><i class="ion-android-locate"></i></span>
 											</div>
 										</div>
 									</div>
 				        			<div class="col-md-4">
 										<div class="input-group date-group">
-											<input type="text" class="datedroper form-control" placeholder="Pickup date">
+											<input type="text" class="datedroper form-control" name="PickupDate"  placeholder="Pickup date" required>
 											<span class="input-group-addon"><i class="ion-calendar"></i></span>
 										</div>
 									</div>
 									<div class="col-md-2">
 										<div class="input-group time-group">
-											<input type="text" class="timedroper form-control" placeholder="08:00 am">
+											<input type="text" class="timedroper form-control" name="PickupTime" placeholder="08:00 am" required>
 											<span class="input-group-addon"><i class="ion-ios-alarm-outline"></i></span>
 										</div>
 									</div>
 									<div class="col-md-2">
 										<div class="input-group time-group">
-											<input type="text" class="timedroper form-control" placeholder="Duration">
+											<input type="text" class="timedroper form-control" name="DropofTime" placeholder="Duration" required>
 											<span class="input-group-addon"><i class="ion-ios-alarm-outline"></i></span>
 										</div>
 									</div>
 								</div>  				
 								<div class="row m0">
 									<div class="col-xs-12">
-										<input type="" value="Book a cab" class="btn btn-primary">
+										<button class="btn btn-primary" type="submit">Book a cab</button>
 									</div>
 								</div>	
 							</form>
 				        </div>
+
 				    </div>
 			    </div>
 			</div>
@@ -371,7 +386,8 @@
             	$i++;
                 } 
             }
-            ?>   	
+            ?>  
+             	
 				<div class="col-md-4 fleet fleet2">
 					<div class="inner row">
 						<h2 class="rent text-center">Luxury Segmentation</h2>

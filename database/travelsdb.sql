@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 31, 2019 at 08:18 AM
+-- Generation Time: Jan 01, 2020 at 11:10 AM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.8
 
@@ -111,9 +111,9 @@ CREATE TABLE `tblcarbrand` (
 --
 
 INSERT INTO `tblcarbrand` (`CarBrandId`, `BrandName`, `PerKmRate`, `ExtraKMS`, `DriverAllowancePerDay`, `StateTax`, `TotalSeat`, `TotalBaggage`, `BrandCarDescription`, `BrandCarImage`, `IsActive`, `IsDelete`, `CreatedOn`, `UpdatedOn`) VALUES
-(1, 'Sedan', 0, 0, '400', 0, 3, 2, '<p>We offer affordable air conditioner sedan cab to the customers which guarantees comfort, space, and a great experience. If you are planning to travel for a vacation with your family and friends without any fibre of doubt go for the new AC Sedan cab. Because when it comes to traveling with your near and dear ones you want no compromise.</p>', '22416Car.png', 'Active', '0', '2019-12-26 05:00:00', '2019-12-31 05:00:00'),
-(2, 'SUV', 0, 0, '300', 0, 6, 2, '<p>We offer affordable air conditioner sedan cab to the customers which guarantees comfort, space, and a great experience. If you are planning to travel for a vacation with your family and friends without any fibre of doubt go for the new AC Sedan cab. Because when it comes to traveling with your near and dear ones you want no compromise.</p>', '20307Car.png', 'Active', '0', '2019-12-26 05:00:00', '2019-12-31 05:00:00'),
-(3, 'Luxury Segmentation', 0, 0, '300', 0, 3, 2, '<p>We offer affordable air conditioner sedan cab to the customers which guarantees comfort, space, and a great experience. If you are planning to travel for a vacation with your family and friends without any fibre of doubt go for the new AC Sedan cab. Because when it comes to traveling with your near and dear ones you want no compromise.</p>', '86315Car.png', 'Active', '0', '2019-12-26 05:00:00', '2019-12-31 05:00:00');
+(1, 'Sedan', 10, 0, '400', 0, 3, 2, '<p>We offer affordable air conditioner sedan cab to the customers which guarantees comfort, space, and a great experience. If you are planning to travel for a vacation with your family and friends without any fibre of doubt go for the new AC Sedan cab. Because when it comes to traveling with your near and dear ones you want no compromise.</p>', '22416Car.png', 'Active', '0', '2019-12-26 05:00:00', '2020-01-01 05:00:00'),
+(2, 'SUV', 13, 0, '300', 2000, 6, 2, '<p>We offer affordable air conditioner sedan cab to the customers which guarantees comfort, space, and a great experience. If you are planning to travel for a vacation with your family and friends without any fibre of doubt go for the new AC Sedan cab. Because when it comes to traveling with your near and dear ones you want no compromise.</p>', '20307Car.png', 'Active', '0', '2019-12-26 05:00:00', '2020-01-01 05:00:00'),
+(3, 'Luxury Segmentation', 20, 0, '300', 0, 3, 2, '<p>We offer affordable air conditioner sedan cab to the customers which guarantees comfort, space, and a great experience. If you are planning to travel for a vacation with your family and friends without any fibre of doubt go for the new AC Sedan cab. Because when it comes to traveling with your near and dear ones you want no compromise.</p>', '86315Car.png', 'Active', '0', '2019-12-26 05:00:00', '2020-01-01 05:00:00');
 
 -- --------------------------------------------------------
 
@@ -166,6 +166,7 @@ CREATE TABLE `tblcity` (
   `CarBrandId` int(11) NOT NULL,
   `StartCity` varchar(50) NOT NULL,
   `EndCity` varchar(50) NOT NULL,
+  `LocalCity` enum('Active','Inactive') NOT NULL DEFAULT 'Active',
   `IsActive` enum('Active','Inactive') NOT NULL DEFAULT 'Active',
   `IsDelete` enum('0','1') NOT NULL DEFAULT '0',
   `CreatedOn` timestamp NOT NULL DEFAULT current_timestamp(),
@@ -176,13 +177,14 @@ CREATE TABLE `tblcity` (
 -- Dumping data for table `tblcity`
 --
 
-INSERT INTO `tblcity` (`CityId`, `CountryId`, `StateId`, `CarBrandId`, `StartCity`, `EndCity`, `IsActive`, `IsDelete`, `CreatedOn`, `UpdatedOn`) VALUES
-(1, NULL, NULL, 1, 'Anand', 'Vadodra', 'Active', '0', '2019-12-31 05:00:00', '2019-12-31 05:00:00'),
-(2, NULL, NULL, 2, 'Anand', 'Ahemdabad', 'Active', '0', '2019-12-31 05:00:00', '2019-12-31 05:00:00'),
-(3, NULL, NULL, 3, 'Anand', 'Valsad', 'Active', '0', '2019-12-31 05:00:00', '2019-12-31 05:00:00'),
-(4, NULL, NULL, 1, 'Valsad', 'Anand', 'Active', '0', '2019-12-31 05:00:00', '2019-12-31 05:00:00'),
-(5, NULL, NULL, 2, 'Ahemdabad', 'Anand', 'Active', '0', '2019-12-31 05:00:00', '2019-12-31 05:00:00'),
-(6, NULL, NULL, 3, 'Vadodra', 'Anand', 'Active', '0', '2019-12-31 05:00:00', '2019-12-31 05:00:00');
+INSERT INTO `tblcity` (`CityId`, `CountryId`, `StateId`, `CarBrandId`, `StartCity`, `EndCity`, `LocalCity`, `IsActive`, `IsDelete`, `CreatedOn`, `UpdatedOn`) VALUES
+(1, NULL, NULL, 1, 'Anand', 'Vadodra', 'Inactive', 'Active', '0', '2019-12-31 05:00:00', '2020-01-01 05:00:00'),
+(2, NULL, NULL, 2, 'Anand', 'Ahemdabad', 'Active', 'Active', '0', '2019-12-31 05:00:00', '2020-01-01 05:00:00'),
+(3, NULL, NULL, 3, 'Anand', 'Valsad', 'Active', 'Active', '0', '2019-12-31 05:00:00', '2020-01-01 05:00:00'),
+(4, NULL, NULL, 1, 'Valsad', 'Anand', 'Active', 'Active', '0', '2019-12-31 05:00:00', '2019-12-31 05:00:00'),
+(5, NULL, NULL, 2, 'Ahemdabad', 'Anand', 'Active', 'Active', '0', '2019-12-31 05:00:00', '2019-12-31 05:00:00'),
+(6, NULL, NULL, 3, 'Vadodra', 'Anand', 'Active', 'Active', '0', '2019-12-31 05:00:00', '2019-12-31 05:00:00'),
+(7, NULL, NULL, 1, 'Ahemdabad', 'Anand', 'Active', 'Active', '0', '2020-01-01 05:00:00', '2020-01-01 05:00:00');
 
 -- --------------------------------------------------------
 
@@ -4238,15 +4240,22 @@ CREATE TABLE `tbluser` (
   `LastName` varchar(50) DEFAULT NULL,
   `EmailAddress` varchar(50) DEFAULT NULL,
   `ContactNumber` varchar(13) DEFAULT NULL,
+  `CarBrandId` int(11) DEFAULT NULL,
   `BrandName` varchar(50) DEFAULT NULL,
-  `CarId` int(11) DEFAULT NULL,
   `PickupDate` date DEFAULT NULL,
   `DropofDate` date DEFAULT NULL,
   `PickupTime` varchar(30) DEFAULT NULL,
-  `StartPointCity` varchar(50) DEFAULT NULL,
-  `EndPointCity` varchar(50) DEFAULT NULL,
-  `CarRate` int(11) DEFAULT NULL,
-  `TaxAmount` int(11) DEFAULT NULL,
+  `DropofTime` varchar(20) DEFAULT NULL,
+  `StartCity` varchar(50) DEFAULT NULL,
+  `EndCity` varchar(50) DEFAULT NULL,
+  `PerKmRate` int(11) DEFAULT NULL,
+  `KMS` int(11) DEFAULT NULL,
+  `TotalFareAmount` int(11) DEFAULT NULL,
+  `ExtraKMS` int(11) DEFAULT NULL,
+  `StateTax` int(11) DEFAULT NULL,
+  `Tax` int(11) DEFAULT NULL,
+  `TotalAmount` int(11) DEFAULT NULL,
+  `TaxAdded` int(11) DEFAULT NULL,
   `FinalAmount` int(11) DEFAULT NULL,
   `IsActive` enum('Active','Inactive') NOT NULL DEFAULT 'Active',
   `OTPNumber` varchar(10) DEFAULT NULL,
@@ -4260,11 +4269,10 @@ CREATE TABLE `tbluser` (
 -- Dumping data for table `tbluser`
 --
 
-INSERT INTO `tbluser` (`UserId`, `FirstName`, `LastName`, `EmailAddress`, `ContactNumber`, `BrandName`, `CarId`, `PickupDate`, `DropofDate`, `PickupTime`, `StartPointCity`, `EndPointCity`, `CarRate`, `TaxAmount`, `FinalAmount`, `IsActive`, `OTPNumber`, `Status`, `IsDelete`, `CreatedOn`, `UpdatedOn`) VALUES
-(1, 'Mit', 'Patel', 'mitnp16@gmail.com', '8200308821', 'Luxury Segmentation', 6, '1970-01-01', '1970-01-01', '4:45 am', 'Ahemdabad', 'Vadodra', 3000, 450, 2550, 'Active', '28012', 'Verify', '0', '2019-12-30 05:00:00', '2019-12-30 09:48:44'),
-(5, 'Binny', 'Rai', 'bluegreyindia@gmail.com', '9409521666', 'SUV', 5, '1970-01-01', '1970-01-01', '5:08 am', 'Ahemdabad', 'Vadodra', 2020, 303, 1717, 'Active', '81503', 'Verify', '0', '2019-12-30 05:00:00', '2019-12-30 05:00:00'),
-(6, NULL, NULL, NULL, '8200308821', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Active', '98896', 'Pending', '0', '2019-12-31 05:00:00', '2019-12-31 04:04:01'),
-(7, NULL, NULL, NULL, '8200308821', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Active', '46763', 'Pending', '0', '2019-12-31 05:00:00', '2019-12-31 04:12:15');
+INSERT INTO `tbluser` (`UserId`, `FirstName`, `LastName`, `EmailAddress`, `ContactNumber`, `CarBrandId`, `BrandName`, `PickupDate`, `DropofDate`, `PickupTime`, `DropofTime`, `StartCity`, `EndCity`, `PerKmRate`, `KMS`, `TotalFareAmount`, `ExtraKMS`, `StateTax`, `Tax`, `TotalAmount`, `TaxAdded`, `FinalAmount`, `IsActive`, `OTPNumber`, `Status`, `IsDelete`, `CreatedOn`, `UpdatedOn`) VALUES
+(1, 'Mit', 'Patel', 'mitnp16@gmail.com', '8200308821', NULL, 'SUV', '2020-01-01', '2020-02-01', '3:37 am', NULL, 'Ahemdabad', 'Anand', 13, 400, 5200, 0, 2000, NULL, 7200, 1080, 8280, 'Active', '', 'Verify', '0', '2020-01-01 05:00:00', '2020-01-01 05:00:00'),
+(2, 'Binny', 'Rai', 'bluetech@gmail.com', '9409521666', NULL, 'Sedan', '2020-01-01', '2020-01-01', '3:40 am', NULL, 'Ahemdabad', 'Anand', 10, 200, 2000, 0, 0, NULL, 2000, 300, 2300, 'Active', '', 'Verify', '0', '2020-01-01 05:00:00', '2020-01-01 05:00:00'),
+(4, 'Himani', 'Shah', 'yyy@gmail.com', '8888888888', NULL, 'Luxury Segmentation', '2020-03-01', '2020-03-01', '1:00 am', '2:00 am', 'Anand', '', 20, 0, 0, 0, 0, NULL, 0, 0, NULL, 'Active', '', 'Verify', '0', '2020-01-01 05:00:00', '2020-01-01 05:00:00');
 
 --
 -- Indexes for dumped tables
@@ -4387,7 +4395,7 @@ ALTER TABLE `tblcartype`
 -- AUTO_INCREMENT for table `tblcity`
 --
 ALTER TABLE `tblcity`
-  MODIFY `CityId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `CityId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `tblcontactus`
@@ -4441,7 +4449,7 @@ ALTER TABLE `tbltestimonial`
 -- AUTO_INCREMENT for table `tbluser`
 --
 ALTER TABLE `tbluser`
-  MODIFY `UserId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `UserId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

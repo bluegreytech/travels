@@ -44,14 +44,14 @@
 								}
 								?>
 
-								<input type="text" name="CarBrandId" value="<?php echo $CarBrandId;?>">
-								<input type="text" name="BrandName" value="<?php echo $BrandName; ?>">
-								<input type="text" name="StartCity" value="<?php echo $StartCity;?>">
-								<input type="text" name="EndCity" value="<?php echo $EndCity;?>">
-								<input type="text" name="PickupDate" value="<?php echo $PickupDate;?>">
-								<input type="text" name="DropofDate" value="<?php echo $DropofDate;?>">
-								<input type="text" name="PickupTime" value="<?php echo $PickupTime;?>">
-								<input type="text" name="DropofTime" value="<?php echo $DropofTime;?>">
+								<input type="hidden" name="CarBrandId" value="<?php echo $CarBrandId;?>">
+								<input type="hidden" name="BrandName" value="<?php echo $BrandName; ?>">
+								<input type="hidden" name="StartCity" value="<?php echo $StartCity;?>">
+								<input type="hidden" name="EndCity" value="<?php echo $EndCity;?>">
+								<input type="hidden" name="PickupDate" value="<?php echo $PickupDate;?>">
+								<input type="hidden" name="DropofDate" value="<?php echo $DropofDate;?>">
+								<input type="hidden" name="PickupTime" value="<?php echo $PickupTime;?>">
+								<input type="hidden" name="DropofTime" value="<?php echo $DropofTime;?>">
 
 								<div class="media-left"><img src="<?php echo base_url();?>admin/upload/carimages/<?php echo $row->BrandCarImage; ?>" alt=""></div>
 								<div class="row specification eminities">
@@ -80,7 +80,7 @@
 											<?php
 											foreach($subcar as $car)
 											{
-													//print_r($car);
+												//print_r($car);
 												?>
 												<label for="Honda Amaze"><?php echo $car->CarName;?></label>
 												<?php

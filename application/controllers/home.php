@@ -78,9 +78,9 @@ class home extends CI_Controller
 				//'ContactNumber'=> $data['ContactNumber'],
 				//'OTPNumber'=>$data['OTPNumber'],		
 			 );
-			
+			$this->session->set_userdata($session);	
 		}
-		$this->session->set_userdata($session);	
+		
 		$data['about']=$this->About_model->getabout(); 	  
 		$data['result']=$this->Contact_model->getsitedetail();   	
 		$this->load->view('common/login',$data);			

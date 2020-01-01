@@ -78,7 +78,7 @@
 								<input type="hidden" name="PickupDate" value="<?php echo $this->session->userdata('PickupDate');?>">
 								<input type="hidden" name="DropofDate" value="<?php echo $this->session->userdata('DropofDate');?>">
 								<input type="hidden" name="PickupTime" value="<?php echo $this->session->userdata('PickupTime');?>">
-								<input type="text" name="DropofTime" value="<?php echo $this->session->userdata('DropofTime');?>">
+								<input type="hidden" name="DropofTime" value="<?php echo $this->session->userdata('DropofTime');?>">
 								<input type="hidden" name="ContactNumber" value="<?php echo $this->session->userdata('ContactNumber');?>">
 								<input type="hidden" name="OTPNumber" value="<?php echo $this->session->userdata('OTPNumber');?>">
 								<input type="text" class="form-control" name="OTPNumber" id="OTPNumber" placeholder="Enter 6 Digit OTP" minlength="5" maxlength="6" value="<?php echo $OTPNumber;?>">

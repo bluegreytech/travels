@@ -2,23 +2,7 @@
 	 $this->load->view('common/header');
 ?>
 
-	<script>
-
-	function m1()
-	{
-		var a=document.getElementById("CarRate").value;
-		var b=document.getElementById("Tax").value;
-
-		var t=a*b/100;
-		document.getElementById("TaxAmount").value=t;
-
-		var f=a-t;
-		document.getElementById("FinalAmount").value=f;
-
-	}
-
-	</script>
-
+	
   	<!--Page Cover-->
   	<section class="row page-cover">
   		<div class="container">

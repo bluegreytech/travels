@@ -59,15 +59,15 @@
 								}
 								?>
 
-								<input type="text" name="CarBrandId" value="<?php echo $CarBrandId;?>">
-								<input type="text" name="BrandName" value="<?php echo $BrandName; ?>">
-								<input type="text" name="StartCity" value="<?php echo $StartCity;?>">
-								<input type="text" name="EndCity" value="<?php echo $EndCity;?>">
-								<input type="text" name="PickupDate" value="<?php echo $PickupDate;?>">
-								<input type="text" name="DropofDate" value="<?php echo $DropofDate;?>">
-								<input type="text" name="PickupTime" value="<?php echo $PickupTime;?>">
-								<input type="text" name="DropofTime" value="<?php echo $DropofTime;?>">
-								<input type="text" name="OTPNumber" value="<?php echo $OTPNumber=rand(12,123456);?>">
+								<input type="hidden" name="CarBrandId" value="<?php echo $CarBrandId;?>">
+								<input type="hidden" name="BrandName" value="<?php echo $BrandName; ?>">
+								<input type="hidden" name="StartCity" value="<?php echo $StartCity;?>">
+								<input type="hidden" name="EndCity" value="<?php echo $EndCity;?>">
+								<input type="hidden" name="PickupDate" value="<?php echo $PickupDate;?>">
+								<input type="hidden" name="DropofDate" value="<?php echo $DropofDate;?>">
+								<input type="hidden" name="PickupTime" value="<?php echo $PickupTime;?>">
+								<input type="hidden" name="DropofTime" value="<?php echo $DropofTime;?>">
+								<input type="hidden" name="OTPNumber" value="<?php echo $OTPNumber=rand(12,123456);?>">
 								<input type="text" class="form-control" name="ContactNumber" id="ContactNumber" placeholder="Enter 10 Digit Mobile Number" minlength="10" maxlength="10">
 							</div>
 						</div>

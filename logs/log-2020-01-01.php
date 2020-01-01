@@ -923,3 +923,15 @@ ERROR - 2020-01-01 10:57:57 --> 404 Page Not Found: Assets/images
 ERROR - 2020-01-01 11:12:10 --> Severity: Notice --> Undefined variable: session C:\xampp\htdocs\travels\application\controllers\home.php 83
 ERROR - 2020-01-01 11:16:15 --> 404 Page Not Found: Assets/images
 ERROR - 2020-01-01 11:16:40 --> 404 Page Not Found: Assets/images
+ERROR - 2020-01-01 11:41:12 --> 404 Page Not Found: Assets/images
+ERROR - 2020-01-01 11:41:25 --> 404 Page Not Found: Assets/images
+ERROR - 2020-01-01 11:41:27 --> 404 Page Not Found: Assets/images
+ERROR - 2020-01-01 11:48:35 --> 404 Page Not Found: Assets/images
+ERROR - 2020-01-01 11:50:31 --> 404 Page Not Found: Assets/images
+ERROR - 2020-01-01 11:57:55 --> 404 Page Not Found: Assets/images
+ERROR - 2020-01-01 12:02:24 --> 404 Page Not Found: Assets/images
+ERROR - 2020-01-01 12:08:14 --> 404 Page Not Found: Assets/images
+ERROR - 2020-01-01 12:18:01 --> 404 Page Not Found: Assets/images
+ERROR - 2020-01-01 12:19:34 --> 404 Page Not Found: Assets/images
+ERROR - 2020-01-01 12:19:40 --> 404 Page Not Found: Assets/images
+ERROR - 2020-01-01 12:19:50 --> 404 Page Not Found: Assets/images

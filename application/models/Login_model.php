@@ -27,7 +27,7 @@ class Login_model extends CI_Model
 
   function list_city()
   {
-    $where=array('IsActive' =>'Active','IsDelete' =>'0');
+    $where=array('IsActive'=>'Active','IsDelete'=>'0');
     $this->db->select('*');
     $this->db->from('tblcity');
     $this->db->where($where);
@@ -40,7 +40,7 @@ class Login_model extends CI_Model
 
   function end_city()
   {
-    $where=array('IsActive' =>'Active','IsDelete' =>'0');
+    $where=array('IsActive'=>'Active','IsDelete'=>'0');
     $this->db->select('*');
     $this->db->from('tblcity');
     $this->db->where($where);
@@ -53,7 +53,7 @@ class Login_model extends CI_Model
 
   function local_city()
   {
-    $where=array('IsActive' =>'Active','IsDelete' =>'0',"LocalCity"=>'Active');
+    $where=array('IsActive'=>'Active','IsDelete'=>'0',"LocalCity"=>'Active');
     $this->db->select('*');
     $this->db->from('tblcity');
     $this->db->where($where);
@@ -78,7 +78,7 @@ class Login_model extends CI_Model
 
   function getsubcarall()
   {
-    $where= array('IsActive' =>'Active','IsDelete' =>'0');
+    $where= array('IsActive'=>'Active','IsDelete'=>'0');
     $this->db->select('*');
     $this->db->from("tblcartype");
     $this->db->where($where);
@@ -87,16 +87,6 @@ class Login_model extends CI_Model
     $res = $query->result();
     return $res;
   }
-
-  // function get_cartype($carid)
-  // {
-  //   $where = array('CarId' =>$carid, 'IsActive' =>'Active');
-  //   $this->db->select('*');
-  //   $this->db->from('tblcartype');
-  //   $this->db->where($where);
-  //   $query=$this->db->get();
-  //   return $query->row_array();
-  // }
 
   function get_brandcartype($CarBrandId)
   {
@@ -150,11 +140,11 @@ class Login_model extends CI_Model
         'LastName'=>trim($this->input->post('LastName')),
         'EmailAddress'=>trim($this->input->post('EmailAddress')),
         'ContactNumber'=>trim($this->input->post('ContactNumber')),
+        'CarBrandId'=>trim($this->input->post('CarBrandId')),
         'BrandName'=>trim($this->input->post('BrandName')), 
         'PickupDate'=>trim($PickupDate),
         'DropofDate'=>trim($DropofDate),
         'PickupTime'=>trim($this->input->post('PickupTime')), 
-
         'DropofTime'=>trim($this->input->post('DropofTime')), 
         'StartCity'=>trim($this->input->post('StartCity')), 
         'EndCity'=>trim($this->input->post('EndCity')), 

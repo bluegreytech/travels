@@ -139,11 +139,18 @@
 			      					<h5 class="this-label">Pickup Time<span>*</span></h5>
 			      					<input type="text" class="form-control" name="PickupTime" placeholder="Pickup time" value="<?php echo $PickupTime;?>" readonly>
 			      				</div>
+
+			      				<?php
+	      						if($this->session->userdata('DropofTime')!='')
+	      						{
+	      						?>
 			      				<div class="form-group col-sm-6">
 			      					<h5 class="this-label">Drop Time<span>*</span></h5>
 			      					<input type="text" class="form-control" name="DropofTime" placeholder="Drop of time" value="<?php echo $DropofTime;?>" readonly>
 			      				</div>
-
+								<?php
+	      						}
+	      						?>
 			      				<!-- <div class="form-group col-sm-12">
 			      					<h5 class="this-label">Extra Note</h5>
 			      					<textarea class="form-control"></textarea>

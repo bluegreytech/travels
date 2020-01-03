@@ -76,9 +76,8 @@
 			        				<div class="col-md-4">
 			        					<div class="location-group">
 											<div class="input-group">
-												<!-- <input type="text" class="form-control" placeholder="Enter Pickup Location">
-												<span class="input-group-addon"><i class="ion-android-locate"></i></span> -->
-												<select name="StartCity" class="form-control" required>
+												<select name="StartCity" class="form-control" required onChange="getendcity(this.value)" 
+			      					 id="StartCity">
 													<option desabled value="">Please select start point city</option>
 													<?php
 													if($cityData)
@@ -100,19 +99,20 @@
 			        					<div class="location-group">
 											<div class="input-group">
 												
-												<select name="EndCity" class="form-control" required>
-													<option desabled value="">Please select end point city</option>
-													<?php
+												<select name="EndCity" class="form-control" required id="EndCity">
+													<option value="">Please select end point city</option>
+													<!-- <?php
 													if($endcityData)
 													{
 														foreach($endcityData as $cData)
 														{
 													?>
-														<option value="<?php echo $cData->EndCity; ?>"><?php echo $cData->EndCity;?></option>
+														<option value="<?php echo $cData->EndCity; ?>" ><?php echo $cData->EndCity; ?></option>
 													<?php
 													}}
-													?>
+													?> -->
 												</select>
+
 												<span class="input-group-addon"><i class="ion-android-locate"></i></span>
 											</div>
 										</div>
@@ -129,12 +129,6 @@
 											<span class="input-group-addon"><i class="ion-ios-alarm-outline"></i></span>
 										</div>
 									</div>
-									<!-- <div class="col-md-2">
-										<div class="input-group time-group">
-											<input type="text" class="timedroper form-control" placeholder="08:00 am">
-											<span class="input-group-addon"><i class="ion-ios-alarm-outline"></i></span>
-										</div>
-									</div> -->
 								</div>  				
 								<div class="row m0">
 									<div class="col-xs-12">
@@ -151,7 +145,8 @@
 			        					<div class="location-group">
 											<div class="input-group">
 												
-												<select name="StartCity" class="form-control" required>
+												<select name="StartCity" class="form-control" required onChange="getendcityround(this.value)" 
+			      					 id="StartCityRound">
 													<option desabled value="">Please select start point city</option>
 													<?php
 													if($cityData)
@@ -173,9 +168,9 @@
 			        					<div class="location-group">
 											<div class="input-group">
 												
-												<select name="EndCity" class="form-control" required>
+												<select name="EndCity" class="form-control" required id="EndCityRound">
 													<option desabled value="">Please select end point city</option>
-													<?php
+													<!-- <?php
 													if($endcityData)
 													{
 														foreach($endcityData as $cData)
@@ -184,7 +179,7 @@
 														<option value="<?php echo $cData->EndCity; ?>"><?php echo $cData->EndCity;?></option>
 													<?php
 													}}
-													?>
+													?> -->
 												</select>
 												<span class="input-group-addon"><i class="ion-android-locate"></i></span>
 											</div>
@@ -622,17 +617,62 @@
 <?php 
 	 $this->load->view('common/footer');
 ?>
+<script>
+function getendcity(StartCity) 
+{
+	$("option[id=EndCity]").remove();
+	url="<?php echo base_url();?>"
+	$.ajax({
+        url: url+'home/getendcity',
+        type: 'post',
+		data:{StartCity:StartCity},
+        success:function(response){
+			var response = JSON.parse(response);
+            //console.log(response);
+            $("option[id=EndCity]").empty();
+              $.each(response, function(key, val) {
+              	console.log(val.EndCity);
+                $("#EndCity").append(
+                        "<option value=" + val.CityId + ">" + val.EndCity+ "</option>");
+            });
+			
+         }
+      });	
+}
 
+function getendcityround(StartCityRound) 
+{
+	alert(StartCityRound);
+	$("option[id=EndCityRound]").remove();
+	url="<?php echo base_url();?>"
+	$.ajax({
+        url: url+'home/getendcity',
+        type: 'post',
+		data:{StartCity:EndCityRound},
+        success:function(response){
+			var response = JSON.parse(response);
+            //console.log(response);
+            $("option[id=EndCityRound]").empty();
+              $.each(response, function(key, val) {
+              	console.log(val.EndCity);
+                $("#EndCityRound").append(
+                        "<option value=" + val.CityId + ">" + val.EndCity+ "</option>");
+            });
+			
+         }
+      });	
+}
+
+</script>
 
 <script type="text/javascript">
 $(document).ready(function()
 {
-	$('#PickupDate').datetimepicker({
-	 defaultDate: new Date(),
-  	 format: 'DD/MM/YYYY',
-	 ignoreReadonly: true,	
-	 maxDate: moment(),
-	});
+	// $('#PickupDate').datetimepicker({
+	//  defaultDate: new Date(),
+ //  	 format: 'DD/MM/YYYY',
+	//  ignoreReadonly: true,	
+	// });
 
        $('#form_valid_one').validate({
 			rules: {

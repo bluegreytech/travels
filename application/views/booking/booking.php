@@ -23,7 +23,7 @@
 			    <?php } ?>
 				<div class="col-md-12">
 					<form class="contactForm contct-form" method="post" enctype="multipart/form-data" 
-				        				action="<?php echo base_url();?>home/book" id="form_valid">
+				       id="form_valid">
 			      		<div class="col-sm-8">
 			      			<div class="row">
 			      				<div class="form-group col-sm-6">
@@ -53,17 +53,17 @@
 								<input type="hidden" name="OTPNumber" value="<?php echo $OTPNumber;?>">
 								<input type="hidden" name="CarBrandId" value="<?php echo $CarBrandId;?>">
 								<input type="hidden" name="BrandName" value="<?php echo $BrandName;?>">
-
+<?php echo base_url() ;?>
 			      					<h5 class="this-label">First Name<span>*</span></h5>
-			      					<input type="text" class="form-control" name="FirstName" placeholder="Enter First Name" minlength="2" maxlength="25">
+			      					<input type="text" class="form-control" name="FirstName" id="FirstName" placeholder="Enter First Name" minlength="2" maxlength="25">
 			      				</div>
 			      				<div class="form-group col-sm-6">
 			      					<h5 class="this-label">Last Name<span>*</span></h5>
-			      					<input type="text" class="form-control" name="LastName" placeholder="Enter Last Name" minlength="2" maxlength="12">
+			      					<input type="text" class="form-control" name="LastName" id="LastName" placeholder="Enter Last Name" minlength="2" maxlength="12">
 			      				</div>
 			      				<div class="form-group col-sm-6">
 			      					<h5 class="this-label">Email Address<span>*</span></h5>
-			      					<input type="email" class="form-control" name="EmailAddress" placeholder="Enter Email Address">
+			      					<input type="email" class="form-control" name="EmailAddress" id="EmailAddress" placeholder="Enter Email Address">
 			      				</div>
 			      				<div class="form-group col-sm-6">
 			      					<h5 class="this-label">Contact Number<span>*</span></h5>
@@ -71,7 +71,7 @@
 			      				</div>
 			      				<div class="form-group col-sm-6">
 			      					<h5 class="this-label">Car Brand Type<span>*</span></h5>
-			      					<input type="text"  class="form-control" placeholder="Select Brand Car" name="BrandName" value="<?php echo $BrandName;?>" readonly> 
+			      					<input type="text"  class="form-control" placeholder="Select Brand Car" id="BrandName" name="BrandName" value="<?php echo $BrandName;?>" readonly> 
 			      				</div>
 			      				<!-- <div class="form-group col-sm-6">
 			      					<h5 class="this-label">Select Car<span>*</span></h5>
@@ -93,7 +93,7 @@
 			      				</div> -->
 			      				<div class="form-group col-sm-6">
 			      					<h5 class="this-label">Pickup Date<span>*</span></h5>
-			      					<input type="text" class="form-control" name="PickupDate" placeholder="dd/mm/yyyy" value="<?php echo $PickupDate;?>" readonly>
+			      					<input type="text" class="form-control" name="PickupDate" id="PickupDate" placeholder="dd/mm/yyyy" value="<?php echo $PickupDate;?>" readonly>
 			      				</div>
 
 			      				<div class="form-group col-sm-6">
@@ -103,21 +103,21 @@
 			      				{
 			      					?>
 
-			      					<input type="text" class="form-control"  name="DropofDate" placeholder="dd/mm/yyyy" value="<?php echo $PickupDate;?>" readonly>
+			      					<input type="text" class="form-control" id="DropofDate"  name="DropofDate" placeholder="dd/mm/yyyy" value="<?php echo $PickupDate;?>" readonly>
 			      					<?php
 			      				}
 			      				else
 			      				{
 			      					?>
 
-			      					<input type="text" class="form-control"  name="DropofDate" placeholder="dd/mm/yyyy" value="<?php echo $DropofDate;?>" readonly>
+			      					<input type="text" class="form-control" id="DropofDate" name="DropofDate" placeholder="dd/mm/yyyy" value="<?php echo $DropofDate;?>" readonly>
 			      					<?php
 			      				}
 			      				?>
 			      				</div>
 			      				<div class="form-group col-sm-6">
 			      					<h5 class="this-label">Pickup Location<span>*</span></h5>
-			      					<input type="text" class="form-control" name="StartCity" placeholder="Pickup location" value="<?php echo $StartCity;?>" readonly>
+			      					<input type="text" class="form-control" name="StartCity" id="StartCity" placeholder="Pickup location" value="<?php echo $StartCity;?>" readonly>
 			      				</div>
 			      				<?php
 	      						if($this->session->userdata('DropofTime')=='')
@@ -125,7 +125,7 @@
 	      						?>
 			      				<div class="form-group col-sm-6">
 			      					<h5 class="this-label">Destination<span>*</span></h5>
-			      					<input type="text" class="form-control" name="EndCity" placeholder="Drop of location" value="<?php echo $EndCity;?>" readonly>
+			      					<input type="text" class="form-control" name="EndCity" id="EndCity" placeholder="Drop of location" value="<?php echo $EndCity;?>" readonly>
 			      				</div>
 			      				<?php
 	      						}
@@ -137,7 +137,7 @@
 	      						?>
 			      				<div class="form-group col-sm-6">
 			      					<h5 class="this-label">Pickup Time<span>*</span></h5>
-			      					<input type="text" class="form-control" name="PickupTime" placeholder="Pickup time" value="<?php echo $PickupTime;?>" readonly>
+			      					<input type="text" class="form-control" name="PickupTime" id="PickupTime" placeholder="Pickup time" value="<?php echo $PickupTime;?>" readonly>
 			      				</div>
 
 			      				<?php
@@ -146,7 +146,7 @@
 	      						?>
 			      				<div class="form-group col-sm-6">
 			      					<h5 class="this-label">Drop Time<span>*</span></h5>
-			      					<input type="text" class="form-control" name="DropofTime" placeholder="Drop of time" value="<?php echo $DropofTime;?>" readonly>
+			      					<input type="text" class="form-control" name="DropofTime" id="DropofTime" placeholder="Drop of time" value="<?php echo $DropofTime;?>" readonly>
 			      				</div>
 								<?php
 	      						}
@@ -163,12 +163,12 @@
 			      				<div class="row order-data">
 			      					<div class="media name-of-car">
 			      						<div class="media-left media-middle"><span>Type Of Cab</span></div>
-			      						<div class="media-body"><input type="text" name="BrandName" readonly value="<?php echo $BrandName;?>"></div>
+			      						<div class="media-body"><input type="text" name="BrandName" id="BrandName" readonly value="<?php echo $BrandName;?>"></div>
 			      					</div>
 			      					
 			      					<ul class="nav other-infos-car">
 			      						<li>Per KM Fare <span><i class="fa fa-inr"></i>
-			      							<input type="text" name="PerKmRate" value="<?php echo $brandcar['PerKmRate'];?>" readonly></span>
+			      							<input type="text" name="PerKmRate" id="PerKmRate" value="<?php echo $brandcar['PerKmRate'];?>" readonly></span>
 			      						</li>
 
 			      						<?php
@@ -182,14 +182,14 @@
 			      							{
 			      								$RoundFare=200;
 			      								?>
-			      									<input type="text" name="KMS" value="<?php echo $RoundFare; ?>" readonly></span>
+			      									<input type="text" name="KMS" id="KMS" value="<?php echo $RoundFare; ?>" readonly></span>
 			      								<?php
 			      							}
 			      							else
 			      							{
 			      								$RoundFare=200*2;
 			      								?>
-													<input type="text" name="KMS" value="<?php echo $RoundFare; ?>" readonly></span>
+													<input type="text" name="KMS" id="KMS" value="<?php echo $RoundFare; ?>" readonly></span>
 			      								<?php
 			      							}
 			      							?>
@@ -201,11 +201,11 @@
 			      						?>
 
 			      						<li>Total Fare Rs <span><i class="fa fa-inr"></i>
-			      							<input type="text" name="TotalFareAmount" value="<?php echo $TotalFareAmount ?>" readonly></span>
+			      							<input type="text" name="TotalFareAmount" id="TotalFareAmount" value="<?php echo $TotalFareAmount ?>" readonly></span>
 			      						</li>
 
 			      						<li>Extra KMS <span><i class="fa fa-inr"></i>
-			      							<input type="text" name="ExtraKMS" value="<?php echo $brandcar['ExtraKMS'];?>" readonly></span>
+			      							<input type="text" name="ExtraKMS" id="ExtraKMS" value="<?php echo $brandcar['ExtraKMS'];?>" readonly></span>
 			      						</li>
 
 			      						<!-- <li>Driver <span><i class="fa fa-inr"></i>
@@ -213,19 +213,19 @@
 			      						</li> -->
 
 			      						<li>State Tax  <span><i class="fa fa-inr"></i>
-			      							<input type="text" name="StateTax" value="<?php echo $brandcar['StateTax'];?>" readonly></span>
+			      							<input type="text" name="StateTax" id="StateTax" value="<?php echo $brandcar['StateTax'];?>" readonly></span>
 			      						</li>
 										<?php
 			      							$TotalAmount=$brandcar['StateTax']+$TotalFareAmount;
 			      						?>
 			      						<li>total cost <span><i class="fa fa-inr"></i>
-			      							<input type="text" name="TotalAmount" value="<?php echo $TotalAmount;?>" readonly> </span>
+			      							<input type="text" name="TotalAmount" id="TotalAmount" value="<?php echo $TotalAmount;?>" readonly> </span>
 			      						</li>
 
 			      						<li>Tax (<?php
 										    echo $Taxes=$result[0]->Tax;?>%) <span>
-											<input type="hidden" name="Tax" value="<?php echo $Taxes;?>" readonly>
-											<!-- <input type="hidden"  name="Tax"> --></span>
+											<input type="hidden" name="Tax" id="Tax" value="<?php echo $Taxes;?>" readonly>
+											</span>
 										</li>
 
 										<?php
@@ -233,14 +233,14 @@
 			      						?>
 
 										<li>Tax Fare<span><i class="fa fa-inr"></i>
-			      							<input type="text" name="TaxAdded" value="<?php echo $TaxAdded;?>" readonly>
+			      							<input type="text" name="TaxAdded" id="TaxAdded" value="<?php echo $TaxAdded;?>" readonly>
 			      							 </span>
 			      						</li>
 										<?php
 			      							$FinalAmount=$TaxAdded+$TotalAmount;
 			      						?>
 			      						<li>Final Fare<span><i class="fa fa-inr"></i>
-			      							<input type="text" id="FinalAmount" name="FinalAmount" value="<?php echo $FinalAmount;?>" readonly> </span>
+			      							<input type="text" id="FinalAmount"id="FinalAmount" name="FinalAmount" value="<?php echo $FinalAmount;?>" readonly> </span>
 			      						</li>
 										
 			      						<?php
@@ -255,7 +255,14 @@
 			      				<input type="radio" name="payment-method" id="payment-method01" class="sr-only" checked="">
 			      				<label for="payment-method01">Pay To Driver</label>
 			      				<article class="stripe">Please send your cheque to Store Name, Store Street, Store Town, Store State / County, Store Postcode.</article>
-			      				<input type="radio" name="payment-method" id="payment-method02" class="sr-only">
+
+
+
+			      				
+								<!-- <input type="radio" name="payment-method" data-amount="<?php //echo $FinalAmount;?>" data-id="1"  id="payment-method02"  class="sr-only">
+			      				<label for="payment-method02">Paypal <a href="#"><img src="<?php// echo base_url();?>assets/images/car-detail/paypal.png" alt=""></a></label> -->
+
+			      				<input type="radio" name="payment-method" data-amount="<?php echo $FinalAmount;?>" data-id="1"  id="payment-method02"  class="sr-only">
 			      				<label for="payment-method02">Paypal <a href="#"><img src="<?php echo base_url();?>assets/images/car-detail/paypal.png" alt=""></a></label>
 
 			      				<label class="checkbox-inline agreement"><input type="checkbox" value="">I accept the <a href="#" data-toggle="modal" data-target="#Conditions">Terms and Conditions</a></label>
@@ -279,7 +286,7 @@
 								</div>
 			      			</div>
 
-			      			<input type="submit" value="PAY NOW!" class="btn btn-primary btn-block">
+			      			<input type="button" id="submit" value="PAY NOW!" class="btn btn-primary btn-block">
 			      		</div>
 			      	</form>
 				</div>
@@ -291,31 +298,67 @@
 <?php 
 	$this->load->view('common/footer');
 ?>
-
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 <script>
-	function getcartype(CarBrandId) {
-	alert(carid);
-	url="<?php echo base_url();?>"
-	$.ajax({
-         url: url+'home/getcartype',
-         type: 'post',
-		 data:{CarBrandId:CarBrandId},
-         success:function(response){
-			var response = JSON.parse(response);
-               console.log(response);
-			//   console.log(response.FullName);
-            $('#CarBrandId').val(response.CarBrandId);
-			$('#BrandName').val(response.BrandName);
-			// $('#CarRate').val(response.CarRate);
-			// $('#StateTax').val(response.StateTax);
-         }
-      });	
-
-}
-
-
-
+	
+var SITEURL = "<?php echo base_url() ?>";
+$('body').on('click', '#submit', function(e)
+{
+    //var totalAmount = $('#FinalAmount').val();
+    var FirstName = $('#FirstName').val();
+    var LastName = $('#LastName').val();
+    var EmailAddress = $('#EmailAddress').val();
+    var ContactNumber = $('#ContactNumber').val();
+    var CarBrandId = $('#CarBrandId').val();
+    var BrandName = $('#BrandName').val();
+    var PickupDate = $('#PickupDate').val();
+    var DropofDate = $('#DropofDate').val();
+    var PickupTime = $('#PickupTime').val();
+  	var DropofTime = $('#DropofTime').val();
+   	var StartCity = $('#StartCity').val();
+    var EndCity = $('#EndCity').val();
+    var PerKmRate = $('#PerKmRate').val();
+    var KMS = $('#KMS').val();
+    var TotalFareAmount = $('#TotalFareAmount').val();
+    var ExtraKMS = $('#ExtraKMS').val();
+    var StateTax = $('#StateTax').val();
+    var Tax = $('#Tax').val();
+    var TotalAmount = $('#TotalAmount').val();
+    var TaxAdded = $('#TaxAdded').val();
+    var totalAmount = $('#FinalAmount').val();
+  
+    var options = {
+    "key":'rzp_test_C7fnEIVjsS6Bsd',   
+    "amount":(totalAmount*100), // 2000 paise = INR 20
+    "name": "Yashdeep Travel Pay",
+    "description": "Report  Payment",
+    "image": "<?php echo base_url();?>assets/images/favicon.png",
+    "handler": function (response){
+      console.log(response);
+          $.ajax({
+            url: SITEURL + 'home/razorPaySuccess',
+            type: 'post',
+            dataType: 'json',
+            data: {
+                razorpay_payment_id:response.razorpay_payment_id,FinalAmount:totalAmount,FirstName:FirstName,LastName:LastName,EmailAddress:EmailAddress,ContactNumber:ContactNumber,CarBrandId:CarBrandId,BrandName:BrandName,PickupDate:PickupDate,DropofDate:DropofDate,PickupTime:PickupTime,DropofTime:DropofTime,StartCity:StartCity,PerKmRate:PerKmRate,KMS:KMS,TotalFareAmount:TotalFareAmount,ExtraKMS:ExtraKMS,StateTax:StateTax,Tax:Tax,TotalAmount:TotalAmount,TaxAdded:TaxAdded
+            }, 
+            success: function (msg) { 
+            	//alert('dfgdfg');
+               window.location.href = SITEURL + 'home/ThankYou';
+            }
+        });
+    },
+    "theme": {
+        "color": "#528FF0"
+          }
+  };
+  var rzp1 = new Razorpay(options);
+  rzp1.open();
+  e.preventDefault();
+});
 </script>
+
+
 
 
 <script type="text/javascript">

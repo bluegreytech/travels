@@ -1,17 +1,15 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-class home extends CI_Controller 
+class Home extends CI_Controller 
 {
 	public function __construct()
 	{
       	parent::__construct();
 		$this->load->model('Login_model');
 		$this->load->model('Contact_model');
-		$this->load->model('About_model');
-		
+		$this->load->model('About_model');	
 	}
 
-	
 	public function index()
 	{    	
 		$data['testimonial']=$this->Login_model->gettestimoniallist();
@@ -19,11 +17,23 @@ class home extends CI_Controller
 		$data['result']=$this->Contact_model->getsitedetail(); 
 		$data['services']=$this->Login_model->getcarbrandlist();	 	
 		$data['cityData']=$this->Login_model->list_city();
-		$data['endcityData']=$this->Login_model->end_city();
+
+		//$data['endcityData']=$this->Login_model->end_city();
+		//$data['endcityData']=$this->Login_model->ajax_end_city();
 		$data['localcityData']=$this->Login_model->local_city();
-		//print_r($data['localcityData']);die;
+		//print_r($data['endcityData']);die;
 		$this->load->view('home/index',$data);			
 	}
+
+
+	public function getendcity()
+	{
+		$data=array();
+		$endcityData=$this->Login_model->ajax_end_city($this->input->post('StartCity'));	
+		//print_r($result);die;
+		echo json_encode($endcityData);
+	}
+
 
 	public function login()
 	{   
@@ -115,9 +125,8 @@ class home extends CI_Controller
 		$data['PerKmRate']=$this->input->post('PerKmRate');
 		$data['TaxAmount']=$this->input->post('TaxAmount');
 		$data['Tax']=$this->input->post('Tax');
-
+		$data['razorpay_payment_id']=$this->input->post('razorpay_payment_id');
 		
-
 		$result=$this->Login_model->getuser($this->input->post('ContactNumber'));
 		$AlreadyOTPNumber=$result['OTPNumber'];
 		if($this->input->post('OTPNumber')==$AlreadyOTPNumber)
@@ -150,10 +159,27 @@ class home extends CI_Controller
 		$data['about']=$this->About_model->getabout(); 	
 		$data['result']=$this->Contact_model->getsitedetail();     	
 		$this->load->view('booking/booking',$data);	
-
 	}
 
-	public function book()
+	
+	public function razorPaySuccess()
+  	{ 
+  		if($_POST)
+		{
+			if($this->input->post('ContactNumber')!='')
+			{
+				$result=$this->Login_model->user_bookcar_online();
+				echo json_encode($result);
+     		}	
+		}
+    }
+
+    public function ThankYou()
+    {
+      	$this->load->view('booking/razorthankyou');
+    }
+
+    public function book()
 	{
 		if($_POST)
 		{
@@ -165,5 +191,7 @@ class home extends CI_Controller
 			}	
 		}
 	}
+
+   
 	
 }

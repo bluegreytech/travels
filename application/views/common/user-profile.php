@@ -73,7 +73,7 @@
                         <th>Pickup Date</th>
                         <th>Start Point</th>
                         <th>End Point</th>
-                        <th>Fare</th>
+                        <th class="text-center">Action</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -89,7 +89,100 @@
                         <td><?php echo $row->PickupDate; ?></td>
                         <td><?php echo $row->StartCity; ?></td>
                         <td><?php if($row->EndCity!=''){echo $row->EndCity;}else{echo "N/A";}  ?></td>
-                        <td><i class="fa fa-inr"></i> <?php echo $row->FinalAmount;?></td>
+                        <td class="text-center">
+                            <a href="#" data-toggle="modal" data-target="#faredetail"><i class="fa fa-eye" title="View Details"></i></a>
+                        </td>
+                        <!-- Modal -->
+                        <div id="faredetail" class="modal fade" role="dialog">
+                          <div class="modal-dialog faredetail">
+
+                            <!-- Modal content-->
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">Fare Detail</h4>
+                              </div>
+                              <div class="modal-body">
+                                <div class="row mb-1">
+                                    <div class="col-md-6 col-xs-6">
+                                        <div class="col-md-5"><strong>Name:</strong></div>
+                                        <div class="col-md-7">Veerbhadrasinh Chauhan</div>
+                                    </div>
+                                     <div class="col-md-6 col-xs-6">
+                                        <div class="col-md-5"><strong>Phone No.:</strong></div>
+                                        <div class="col-md-7">9843984930</div>
+                                    </div>
+                                </div>
+                                <div class="row mb-1">
+                                    <div class="col-md-6 col-xs-6">
+                                        <div class="col-md-5"><strong>Email:</strong></div>
+                                        <div class="col-md-7">abc@gmail.com</div>
+                                    </div>
+                                     <div class="col-md-6 col-xs-6">
+                                        <div class="col-md-5"><strong>Cab Type:</strong></div>
+                                        <div class="col-md-7">Sedan</div>
+                                    </div>
+                                </div>
+                                <div class="row mb-1">
+                                    <div class="col-md-6 col-xs-6">
+                                        <div class="col-md-5"><strong>Origin:</strong></div>
+                                        <div class="col-md-7">Ahemdabad</div>
+                                    </div>
+                                     <div class="col-md-6 col-xs-6">
+                                        <div class="col-md-5"><strong>Desination:</strong></div>
+                                        <div class="col-md-7">Surat</div>
+                                    </div>
+                                </div>
+                                <div class="row mb-1">
+                                    <div class="col-md-6 col-xs-6">
+                                        <div class="col-md-5"><strong>Pickup Date:</strong></div>
+                                        <div class="col-md-7">06-Jan-2020</div>
+                                    </div>
+                                     <div class="col-md-6 col-xs-6">
+                                        <div class="col-md-5"><strong>Drop Date:</strong></div>
+                                        <div class="col-md-7">06-Jan-2020</div>
+                                    </div>
+                                </div>
+                                <div class="row mb-1">
+                                    <div class="col-md-6 col-xs-6">
+                                        <div class="col-md-5"><strong>Pickup Time:</strong></div>
+                                        <div class="col-md-7">9:00am</div>
+                                    </div>
+                                     <div class="col-md-6 col-xs-6">
+                                        <div class="col-md-5"><strong>Drop Time:</strong></div>
+                                        <div class="col-md-7">12:00am</div>
+                                    </div>
+                                </div>
+                                <div class="row mb-1">
+                                    <div class="col-md-6 col-xs-6">
+                                        <div class="col-md-5"><strong>Payment:</strong></div>
+                                        <div class="col-md-7">Online</div>
+                                    </div>
+                                    <!-- <div class="col-md-6 col-xs-6">
+                                        <div class="col-md-5"><strong>Drop Time:</strong></div>
+                                        <div class="col-md-7">12:00am</div>
+                                    </div> -->
+                                </div>
+                                <div class="row price-detail">
+                                    <div class="col-md-6 col-xs-6 left-border">
+                                        <div class="text-center">
+                                            <div><h3>Total Distance</h3></div>
+                                            <div>200KM</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-xs-6">
+                                         <div class="text-center">
+                                            <div><h3>Total Fare</h3></div>
+                                            <div>2000</div>
+                                        </div>
+                                    </div>
+                                </div>
+                              </div>
+                            </div>
+
+                          </div>
+                        </div>
+                        <!-- End Model --> 
                       </tr>
                       <?php
                       $i++;

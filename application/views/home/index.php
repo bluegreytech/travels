@@ -435,7 +435,7 @@
 											<div class="contact-form-info">
 												<!-- <form class="contct-form contactForm row m0" id="form_valid" method="post"> -->
 
-													<form class="contct-form row m0" id="form_valid" method="post"  
+													<form class="contct-form contactForm row m0" id="form_valid" method="post"  
 													action="<?php echo base_url();?>Services/addquotes">
 													<div class="col-md-6">
 														<div class="input-group">

@@ -4168,7 +4168,7 @@ button.close {
 
 @media (min-width: 544px) {
   .modal-dialog {
-    max-width: 600px;
+    max-width: 750px;
     margin: 30px auto; }
   .modal-sm {
     max-width: 300px; } }

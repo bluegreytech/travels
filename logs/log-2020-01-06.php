@@ -1,9 +1,0 @@
-ERROR - 2020-01-06 11:40:13 --> 404 Page Not Found: Assets/images
-ERROR - 2020-01-06 11:47:36 --> 404 Page Not Found: Assets/images
-ERROR - 2020-01-06 11:47:38 --> 404 Page Not Found: Assets/images
-ERROR - 2020-01-06 11:48:48 --> 404 Page Not Found: Assets/js
-ERROR - 2020-01-06 11:48:48 --> 404 Page Not Found: Assets/vendors
-ERROR - 2020-01-06 11:48:48 --> 404 Page Not Found: Assets/vendors
-ERROR - 2020-01-06 11:51:07 --> 404 Page Not Found: Assets/images
-ERROR - 2020-01-06 11:58:55 --> 404 Page Not Found: Assets/images
-ERROR - 2020-01-06 12:00:49 --> 404 Page Not Found: Assets/images

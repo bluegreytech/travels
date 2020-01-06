@@ -6,10 +6,10 @@
   	<!--Page Cover-->
   	<section class="row page-cover">
   		<div class="container">
-  			<h2 class="h1 page-title">Booking Confirmation</h2>
+  			<h2 class="h1 page-title">Fare Information</h2>
   			<ol class="breadcrumb">
   				<li><a href="index.php">Home</a></li>
-  				<li class="active">Booking Confirmation</li>
+  				<li class="active">Fare Information</li>
   			</ol>
   		</div>
   	</section> 	
@@ -70,7 +70,7 @@
 			      					<input type="text" class="form-control" name="ContactNumber" id="ContactNumber" placeholder="Enter 10 Digit Mobile Number" minlength="10" maxlength="10" value="<?php echo $ContactNumber;?>" readonly>
 			      				</div>
 			      				<div class="form-group col-sm-6">
-			      					<h5 class="this-label">Car Brand Type<span>*</span></h5>
+			      					<h5 class="this-label">Cab Type<span>*</span></h5>
 			      					<input type="text"  class="form-control" placeholder="Select Brand Car" id="BrandName" name="BrandName" value="<?php echo $BrandName;?>" readonly> 
 			      				</div>
 			      				<!-- <div class="form-group col-sm-6">

@@ -175,7 +175,19 @@
 			      		?>
 
 						<li class="dropdown">
-			              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo $this->session->userdata('FirstName')?> <?php echo $this->session->userdata('LastName');?>  <b class="caret"></b></a>
+			              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+			              	<?php
+			              	if($this->session->userdata('FirstName')!='' && $this->session->userdata('LastName')!='')
+			              	{
+			              		echo $this->session->userdata('FirstName'); echo $this->session->userdata('LastName'); 
+			              	}
+			              	else
+			              	{
+			              		echo "Login";
+			              	}
+			              	?>
+			              	
+			              	<b class="caret"></b></a>
 			              <ul class="dropdown-menu">
 			                <li><a href="<?php echo base_url();?>home/userprofile"><i class="fa fa-user"></i> User Profile</a></li>
 			                <li><a href="<?php echo base_url();?>home/logout"><i class="fa fa-sign-out"></i> Sign Out</a></li>

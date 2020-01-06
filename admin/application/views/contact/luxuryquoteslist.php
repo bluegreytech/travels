@@ -22,9 +22,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
        
         <div class="card">
             <div class="card-header">
-                <h4 class="card-title">List of Testimonial
+                <h4 class="card-title">List of Luxury Segmentation Inquiry
                 <a class="heading-elements-toggle"><i class="icon-ellipsis font-medium-3"></i></a>
-                <a href="<?php echo base_url();?>Testimonial/Testimonialadd" class="btn btn-black" style="float:right">Add Testimonial</a>
+                <!-- <a href="<?php// echo base_url();?>Contact/Aboutadd" class="btn btn-black" style="float:right">Add Contact Us</a> -->
                 </h4>
             </div>
             <div class="card-body collapse in">
@@ -33,11 +33,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <thead class="thead-inverse">
                             <tr>
                                 <th>Sr No</th>
-                                <th>Name</th>                              
-                                <!-- <th>Description</th> -->
-                                <th>Image</th>
-								<th>Status</th>
-                                <th>Approve Status</th>
+                                <th>Name </th>                              
+                                <th>Email Address </th>
+								<th>Contact Number</th>
+                                <th>Subject</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -50,49 +49,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             ?>
                             <tr>
                                     <td><?php echo $i; ?></td>
-                                    <td><?php echo $row->FirstName.' '.$row->LastName; ?></td>
+                                    <td><?php echo $row->FullName; ?></td>
+                                    <td><?php echo $row->ContactNumber; ?></td>
+                                    <td><?php echo $row->Subject; ?></td>
+                                    <td><?php echo $row->StartCity; ?></td>
                                     <td>
-                                        <?php
-                                        if($row->TestimonialImage=='' && $row->TestimonialImage==null)
-                                        {
-                                            echo "N/A";
-                                        }
-                                        else
-                                        {
-                                            ?>
-                                            <img src="<?php echo base_url();?>upload/testimonialimages/<?php echo $row->TestimonialImage;?>" height='70px' width='100px'>
-                                            <?php
-                                        }
-                                        ?>  
-                                    </td>
-                                    <!-- <td><?php //echo $row->TetimonialDescription; ?></td> -->
-                                    <td>
-                                        <?php if($row->IsActive=="Active")
-                                            {
-
-                                                echo "<span class='label label-success'>Active</span>";
-                                            } 
-                                            else
-                                            {
-                                                echo "<span class='label label-danger'>Inactive</span>";
-                                            } 
-                                        ?>
-                                    </td>
-                                     <td>
-                                        <?php if($row->ApproveStatus=="Active")
-                                            {
-
-                                                echo "<span class='label label-success'>Active</span>";
-                                            } 
-                                            else
-                                            {
-                                                echo "<span class='label label-danger'>Inactive</span>";
-                                            } 
-                                        ?>
-                                    </td>
-                                    <td>
-                                        <?php echo anchor('Testimonial/Edittestimonial/'.$row->TestimonialId,'<i class="ficon icon-pencil2"></i>'); ?>
-                                        <a onclick="deletedata('<?php echo $row->TestimonialId; ?>')" ><i class="ficon icon-bin"></i></a>    
+                                        <a onclick="deletedata('<?php echo $row->LuxuryQuoteId; ?>')" ><i class="ficon icon-bin"></i></a>    
                                     </td>  
                                 </tr>      
                                 <?php
@@ -142,15 +104,15 @@ $(function() {
    
 });
 
-function deletedata(TestimonialId){  
+function deletedata(LuxuryQuoteId){  
     $('#myModal').modal('show');
   // alert(id);
         $('#yes_btn').click(function(){
-                url="<?php echo base_url();?>Testimonial/testimonial_delete/";
+                url="<?php echo base_url();?>Contact/luxurysegment_delete/";
                 $.ajax({
                 url: url,
                 type: "post",
-                data: {TestimonialId:TestimonialId} ,
+                data: {LuxuryQuoteId:LuxuryQuoteId} ,
                 success: function (response) {   
                     console.log(response);  
                     return false;        

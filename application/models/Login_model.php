@@ -4,7 +4,7 @@ class Login_model extends CI_Model
 {
     function gettestimoniallist()
     {
-      $where=array('IsDelete'=>'0','IsActive'=>'Active');
+      $where=array('IsDelete'=>'0','IsActive'=>'Active','ApproveStatus'=>'Active');
       $this->db->select('*');
       $this->db->from('tbltestimonial');
       $this->db->where($where);
@@ -332,7 +332,7 @@ class Login_model extends CI_Model
     {
       $where= array('ContactNumber'=>$ContactNumberid);
       $this->db->select('*');
-      $this->db->from("tblfeedback");
+      $this->db->from("tbltestimonial");
       $this->db->where($where);
       $query=$this->db->get();
       $res = $query->result();
@@ -342,35 +342,35 @@ class Login_model extends CI_Model
 
     
 
-    function feedback_add()
+    function testimonial_add()
     {
         $data = array(
         'FirstName'=>trim($this->input->post('FirstName')),
         'LastName'=>trim($this->input->post('LastName')),
         'ContactNumber'=>trim($this->input->post('ContactNumber')),
-        'FeedbackDescription'=>trim($this->input->post('FeedbackDescription')),
+        'TestimonialDescription'=>trim($this->input->post('TestimonialDescription')),
         'CreatedOn'=>date('Y-m-d')    
       );
         //echo "<pre>";print_r($data);die; 
        // $this->db->where("ContactNumber",$ContactNumber);
-        $res=$this->db->insert('tblfeedback',$data); 
+        $res=$this->db->insert('tbltestimonial',$data); 
         return $res;
     }
 
 
-    function feedback_update()
+    function testimonial_update()
     {
-      $FeedbackId=$this->input->post('FeedbackId');
+      $TestimonialId=$this->input->post('TestimonialId');
       $data = array(
         'FirstName'=>trim($this->input->post('FirstName')),
         'LastName'=>trim($this->input->post('LastName')),
         'ContactNumber'=>trim($this->input->post('ContactNumber')),
-        'FeedbackDescription'=>trim($this->input->post('FeedbackDescription')),
+        'TestimonialDescription'=>trim($this->input->post('TestimonialDescription')),
         'UpdatedOn'=>date('Y-m-d')    
       );
         //echo "<pre>";print_r($data);die; 
-        $this->db->where("FeedbackId",$FeedbackId);
-        $res=$this->db->update('tblfeedback',$data); 
+        $this->db->where("TestimonialId",$TestimonialId);
+        $res=$this->db->update('tbltestimonial',$data); 
         return $res;
     }
 }

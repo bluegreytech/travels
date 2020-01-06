@@ -246,8 +246,8 @@ class Home extends CI_Controller
     	$data['ContactNumber']=$this->input->post('ContactNumber');
 		$data['OTPNumber']=$this->input->post('OTPNumber');
 
-		$data['FeedbackId']=$this->input->post('FeedbackId');
-		$data['FeedbackDescription']=$this->input->post('FeedbackDescription');
+		$data['TestimonialId']=$this->input->post('TestimonialId');
+		$data['TestimonialDescription']=$this->input->post('TestimonialDescription');
     	if($_POST)
 		{
 			if($this->input->post('ContactNumber')!='')
@@ -307,17 +307,19 @@ class Home extends CI_Controller
 	public function userfeedback()
     {
     	$data['ContactNumber']=$this->input->post('ContactNumber');
+    	// $data['TestimonialId']=$this->input->post('TestimonialId');
+    	// $data['TestimonialDescription']=$this->input->post('TestimonialDescription');
     	if($_POST)
 		{
-			if($this->input->post('FeedbackId')!='' && $this->input->post('ContactNumber')!='')
+			if($this->input->post('TestimonialId')!='' && $this->input->post('ContactNumber')!='')
 			{
-				$this->Login_model->feedback_update();
+				$this->Login_model->testimonial_update();
 				$this->session->set_flashdata('success', 'Your feedback has been updated Succesfully!');
 				redirect('home/userprofile');
 			}
 			else
 			{
-				$this->Login_model->feedback_add();
+				$this->Login_model->testimonial_add();
 				$this->session->set_flashdata('success', 'Your feedback has been submitted Succesfully!');
 				redirect('home/userprofile');
 			}

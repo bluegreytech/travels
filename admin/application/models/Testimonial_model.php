@@ -47,8 +47,9 @@ class Testimonial_model extends CI_Model
 
             $data = array(
 			'FirstName'=>trim($this->input->post('FirstName')),	
-			'LastName'=>trim($this->input->post('LastName')),			
-			'TetimonialDescription'=>trim($this->input->post('TetimonialDescription')),
+			'LastName'=>trim($this->input->post('LastName')),	
+			'ContactNumber' =>trim($this->input->post('ContactNumber')),			
+			'TestimonialDescription'=>trim($this->input->post('TestimonialDescription')),
 			'TestimonialImage'=>$testimonial_image,			
 			'IsActive' =>$this->input->post('IsActive'),			
 			'CreatedOn'=>date('Y-m-d')		
@@ -129,10 +130,12 @@ class Testimonial_model extends CI_Model
 
             $data = array(
 			'FirstName' =>trim($this->input->post('FirstName')),
-			'LastName' =>trim($this->input->post('LastName')),			
-			'TetimonialDescription' => trim($this->input->post('TetimonialDescription')),
+			'LastName' =>trim($this->input->post('LastName')),	
+			'ContactNumber' =>trim($this->input->post('ContactNumber')),			
+			'TestimonialDescription' => trim($this->input->post('TestimonialDescription')),
 			'TestimonialImage'=>$testimonial_image,		
-			'IsActive' => $this->input->post('IsActive'),			
+			'IsActive' => $this->input->post('IsActive'),
+			'ApproveStatus' =>$this->input->post('ApproveStatus'),			
 			'CreatedOn'=>date('Y-m-d')		
 			); 
 			//print_r($data);die;

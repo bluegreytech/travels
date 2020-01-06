@@ -1269,3 +1269,160 @@ ERROR - 2020-01-06 07:48:31 --> 404 Page Not Found: Default/images
 ERROR - 2020-01-06 07:48:31 --> 404 Page Not Found: Default/images
 ERROR - 2020-01-06 07:48:33 --> 404 Page Not Found: Default/images
 ERROR - 2020-01-06 07:48:33 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 09:36:50 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 09:36:50 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 09:38:41 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 09:38:41 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 09:41:50 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 09:41:50 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 09:42:15 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 09:42:15 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 09:49:58 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 09:49:58 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 10:01:06 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 10:01:06 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 10:01:37 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 10:01:37 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 10:01:39 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 10:01:39 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 10:02:57 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 10:02:57 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 10:03:04 --> Severity: Notice --> Undefined index: TetimonialDescription C:\xampp\htdocs\travels\admin\application\controllers\Testimonial.php 71
+ERROR - 2020-01-06 10:03:55 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 10:03:55 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 10:03:59 --> Severity: Notice --> Undefined index: TetimonialDescription C:\xampp\htdocs\travels\admin\application\controllers\Testimonial.php 71
+ERROR - 2020-01-06 10:04:51 --> Severity: Notice --> Undefined variable: TetimonialDescription C:\xampp\htdocs\travels\admin\application\views\testimonial\testimonialadd.php 52
+ERROR - 2020-01-06 10:06:50 --> Severity: Notice --> Undefined variable: ContactNumber C:\xampp\htdocs\travels\admin\application\views\testimonial\testimonialadd.php 52
+ERROR - 2020-01-06 10:07:52 --> Severity: Notice --> Undefined variable: ContactNumber C:\xampp\htdocs\travels\admin\application\views\testimonial\testimonialadd.php 52
+ERROR - 2020-01-06 10:07:54 --> Severity: Notice --> Undefined variable: ContactNumber C:\xampp\htdocs\travels\admin\application\views\testimonial\testimonialadd.php 52
+ERROR - 2020-01-06 10:10:01 --> Severity: Notice --> Undefined variable: ApproveStatus C:\xampp\htdocs\travels\admin\application\views\testimonial\testimonialadd.php 116
+ERROR - 2020-01-06 10:14:02 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 10:14:02 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 10:14:29 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 10:14:29 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 10:27:10 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 10:27:10 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 10:28:16 --> Severity: error --> Exception: syntax error, unexpected ';', expecting ')' C:\xampp\htdocs\travels\admin\application\models\Testimonial_model.php 138
+ERROR - 2020-01-06 10:28:24 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 10:28:24 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 10:28:30 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 10:28:30 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 10:28:41 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 10:28:41 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 10:30:34 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 10:30:35 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 10:40:23 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 10:40:23 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 10:40:28 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 10:40:28 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 10:45:53 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 10:45:53 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 10:45:58 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 10:45:58 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 10:46:02 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 10:46:02 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 10:46:04 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 10:46:04 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 10:46:13 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 10:46:13 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 10:48:07 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 10:48:07 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 10:48:14 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 10:48:14 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 10:53:45 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 10:53:45 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 10:56:49 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 10:56:49 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 10:57:03 --> Severity: Notice --> Undefined property: stdClass::$EmailAddress C:\xampp\htdocs\travels\admin\application\views\contact\luxuryquoteslist.php 52
+ERROR - 2020-01-06 10:57:03 --> Severity: Notice --> Undefined property: stdClass::$ContactId C:\xampp\htdocs\travels\admin\application\views\contact\luxuryquoteslist.php 55
+ERROR - 2020-01-06 10:57:03 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 10:57:03 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 10:57:35 --> Severity: Notice --> Undefined property: stdClass::$EmailAddress C:\xampp\htdocs\travels\admin\application\views\contact\luxuryquoteslist.php 52
+ERROR - 2020-01-06 10:57:35 --> Severity: Notice --> Undefined property: stdClass::$ContactId C:\xampp\htdocs\travels\admin\application\views\contact\luxuryquoteslist.php 55
+ERROR - 2020-01-06 10:57:35 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 10:57:36 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 10:57:50 --> Severity: Notice --> Undefined property: stdClass::$EmailAddress C:\xampp\htdocs\travels\admin\application\views\contact\luxuryquoteslist.php 52
+ERROR - 2020-01-06 10:57:50 --> Severity: Notice --> Undefined property: stdClass::$ContactId C:\xampp\htdocs\travels\admin\application\views\contact\luxuryquoteslist.php 55
+ERROR - 2020-01-06 10:57:50 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 10:57:50 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 10:58:33 --> Severity: Notice --> Undefined property: stdClass::$ContactId C:\xampp\htdocs\travels\admin\application\views\contact\luxuryquoteslist.php 56
+ERROR - 2020-01-06 10:59:13 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 10:59:13 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 11:00:35 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 11:00:35 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 11:00:46 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 11:00:46 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 11:01:14 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 11:01:14 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 11:01:17 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 11:01:17 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 11:01:59 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 11:01:59 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 11:02:02 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 11:02:02 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 11:02:06 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 11:02:06 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 11:02:16 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 11:02:16 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 11:02:24 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 11:02:24 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 11:02:28 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 11:02:28 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 11:03:45 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 11:03:45 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 11:04:34 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 11:04:34 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 11:04:42 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 11:04:42 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 11:04:47 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 11:04:47 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 11:04:49 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 11:04:49 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 11:04:51 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 11:04:51 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 11:11:24 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 11:11:24 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 11:11:52 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 11:11:52 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 11:12:02 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 11:12:02 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 11:12:04 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 11:12:04 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 11:13:12 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 11:13:12 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 11:13:36 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 11:13:36 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 11:20:54 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 11:20:54 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 11:21:09 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 11:21:09 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 11:23:28 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 11:23:28 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 11:24:03 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 11:24:03 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 11:25:08 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 11:25:08 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 11:25:31 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 11:25:31 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 11:27:01 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 11:27:01 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 11:27:27 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 11:27:27 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 11:27:41 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 11:27:41 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 11:28:08 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 11:28:08 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 11:28:11 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 11:28:11 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 11:28:23 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 11:28:23 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 11:28:25 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 11:28:25 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 11:28:35 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 11:28:35 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 11:28:59 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 11:28:59 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 11:29:01 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 11:29:01 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 11:30:01 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-06 11:30:01 --> 404 Page Not Found: Default/images

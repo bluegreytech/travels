@@ -39,17 +39,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								<div class="form-group">
 								<input type="hidden" value="<?php echo $TestimonialId; ?>" name="TestimonialId">
 									<label>First Name</label>
-									<input type="text" class="form-control" placeholder="First Title" name="FirstName" value="<?php echo $FirstName;?>" minlength="3" maxlength="100">
+									<input type="text" class="form-control" placeholder="First Name" name="FirstName" value="<?php echo $FirstName;?>" minlength="3" maxlength="100">
 								</div>
 
 								<div class="form-group">
 									<label>Last Name</label>
-									<input type="text" class="form-control" placeholder="Last Title" name="LastName" value="<?php echo $LastName;?>" minlength="3" maxlength="100">
+									<input type="text" class="form-control" placeholder="Last Name" name="LastName" value="<?php echo $LastName;?>" minlength="3" maxlength="100">
+								</div>
+
+								<div class="form-group">
+									<label>Contact Number</label>
+									<input type="text" class="form-control" placeholder="Contact Number" name="ContactNumber" value="<?php echo $ContactNumber;?>" minlength="10" maxlength="10">
 								</div>
 								
 								<div class="form-group">
 									<label>Testimonial Short Description</label>
-									<textarea id="editor1" rows="5" class="form-control" name="TetimonialDescription" id="Notificationdescription"><?php echo $TetimonialDescription; ?></textarea>
+									<textarea id="editor1" rows="5" class="form-control" name="TestimonialDescription" id="Notificationdescription"><?php echo $TestimonialDescription; ?></textarea>
 									<script>
 										CKEDITOR.replace('editor1');
 									</script>
@@ -100,6 +105,42 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 										</label>
 										<label class="display-inline-block custom-control custom-radio">
 											<input type="radio" name="IsActive" value="Inactive"
+												class="custom-control-input">
+												<span class="custom-control-indicator"></span>
+												<span class="custom-control-description ml-0">Inactive</span>
+										</label>
+									</div>
+								</div>
+								<?php } ?>
+
+								<?php  if($ApproveStatus!=''){ ?>                                
+								<div class="form-group">
+									<label>Status Approve</label>
+									<div class="input-group">
+										<label class="display-inline-block custom-control custom-radio ml-1">
+											
+											<input type="radio" name="ApproveStatus" value="Active"
+												<?php if($ApproveStatus=="Active") { echo "checked"; } ?>
+												 class="custom-control-input">																					<span class="custom-control-indicator"></span>																	<span class="custom-control-description ml-0">Active</span>
+													</label>
+													<label class="display-inline-block custom-control custom-radio"><input type="radio" name="ApproveStatus" value="Inactive"  <?php if($ApproveStatus=="Inactive") { echo "checked"; } ?> class="custom-control-input">
+													<span class="custom-control-indicator"></span>
+													<span class="custom-control-description ml-0">Inactive</span>
+													</label>
+														</div>
+								</div>
+								<?php } else { ?>
+									<div class="form-group">
+									<label>Status</label>
+									<div class="input-group">
+										<label class="display-inline-block custom-control custom-radio ml-1">                           
+										<input type="radio" name="ApproveStatus" value="Active" checked="" 
+											class="custom-control-input">
+											<span class="custom-control-indicator"></span>
+											<span class="custom-control-description ml-0">Active</span>
+										</label>
+										<label class="display-inline-block custom-control custom-radio">
+											<input type="radio" name="ApproveStatus" value="Inactive"
 												class="custom-control-input">
 												<span class="custom-control-indicator"></span>
 												<span class="custom-control-description ml-0">Inactive</span>
@@ -165,15 +206,15 @@ $(document).ready(function()
 		{
 			TestimonialImage:
 			{
-				required:function(){
-					testimonial_image='<?php echo $TestimonialImage; ?>';
-                   if(testimonial_image){
-                    	return false;
-                   }else{
-               			return true;
-                   }
+				// required:function(){
+				// 	testimonial_image='<?php echo $TestimonialImage; ?>';
+    //                if(testimonial_image){
+    //                 	return false;
+    //                }else{
+    //            			return true;
+    //                }
 
-				},
+				// },
 				extension: "JPG|jpeg|png|bmp",
 				//filesize: 2097152,  
 				//dimention:[110,110]

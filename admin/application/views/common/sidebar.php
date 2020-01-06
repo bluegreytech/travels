@@ -103,6 +103,20 @@
             </ul>
           </li> 
 
+           <li class="nav-item <?php echo($activeTab == "contactadd"||$activeTab =="luxuryquotelist") ? "open" : ""; ?>">
+            <a class="<?php echo ($activeTab == "contactadd" || $activeTab == "luxuryquotelist") ? "active" : ""; ?>">
+              <i class="icon-address-book"></i><span data-i18n="nav.dash.main" class="menu-title">Segment Contact</span>
+            </a>
+            <ul class="menu-content">
+              <!-- <li>
+                <a href="<?php// echo base_url(); ?>About/Aboutadd" data-i18n="nav.dash.main" class="menu-item <?php //echo ($activeTab == "aboutusadd") ? "active" : ""; ?>"><i class="icon-plus"></i> Add About</a>
+              </li> -->
+              <li>
+                <a href="<?php echo base_url(); ?>contact/luxuryquotelist" data-i18n="nav.dash.main" class="menu-item <?php echo ($activeTab == "acontactlist") ? "active" : ""; ?>"><i class="icon-file-text2"></i>List of Luxury Inquiry </a>
+              </li>
+            </ul>
+          </li> 
+
           <li class="nav-item <?php echo($activeTab == "contactadd"||$activeTab =="contactlist") ? "open" : ""; ?>">
             <a class="<?php echo ($activeTab == "contactadd" || $activeTab == "contactlist") ? "active" : ""; ?>">
               <i class="icon-address-book"></i><span data-i18n="nav.dash.main" class="menu-title">Contact Us</span>
@@ -112,7 +126,7 @@
                 <a href="<?php// echo base_url(); ?>About/Aboutadd" data-i18n="nav.dash.main" class="menu-item <?php //echo ($activeTab == "aboutusadd") ? "active" : ""; ?>"><i class="icon-plus"></i> Add About</a>
               </li> -->
               <li>
-                <a href="<?php echo base_url(); ?>Contact/Contactlist" data-i18n="nav.dash.main" class="menu-item <?php echo ($activeTab == "acontactlist") ? "active" : ""; ?>"><i class="icon-file-text2"></i>List of Contact </a>
+                <a href="<?php echo base_url(); ?>contact/Contactlist" data-i18n="nav.dash.main" class="menu-item <?php echo ($activeTab == "acontactlist") ? "active" : ""; ?>"><i class="icon-file-text2"></i>List of Contact </a>
               </li>
             </ul>
           </li> 

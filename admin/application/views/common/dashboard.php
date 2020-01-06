@@ -39,7 +39,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <div class="card-block">
                         <div class="media">
                             <div class="media-body text-xs-left">
-                                <h3 class="pink"><?php //echo Count($users);?></h3>
+                                <h3 class="pink"><?php echo Count($users);?></h3>
                                 <span>Total User</span>
                             </div>
                             <div class="media-right media-middle">
@@ -54,12 +54,32 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="col-md-4">
             <div class="card">
                 <div class="card-body">
-                    <a href="<?php// echo base_url()?>user/userrefer_list">
+                    <a href="<?php echo base_url()?>contact/Contactlist">
                     <div class="card-block">
                         <div class="media">
                             <div class="media-body text-xs-left">
-                                <h3 class="pink"><?php //echo Count($userrefer);?></h3>
-                                <span>Today Inquires</span>
+                                <h3 class="pink"><?php echo Count($inquiry);?></h3>
+                                <span>Total Inquires</span>
+                            </div>
+                            <div class="media-right media-middle">
+                                <i class="icon-paper pink font-large-2 float-xs-right"></i>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                </div>
+            </div>
+        </div>
+
+         <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <a href="<?php echo base_url()?>contact/luxuryquotelist">
+                    <div class="card-block">
+                        <div class="media">
+                            <div class="media-body text-xs-left">
+                                <h3 class="pink"><?php echo Count($luxurysegment);?></h3>
+                                <span>Luxury Segment Inquiry</span>
                             </div>
                             <div class="media-right media-middle">
                                 <i class="icon-paper pink font-large-2 float-xs-right"></i>

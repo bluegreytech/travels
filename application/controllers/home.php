@@ -18,7 +18,7 @@ class Home extends CI_Controller
 		$data['services']=$this->Login_model->getcarbrandlist();	 	
 		$data['cityData']=$this->Login_model->list_city();
 
-		//$data['endcityData']=$this->Login_model->end_city();
+		$data['endcityData']=$this->Login_model->end_city();
 		//$data['endcityData']=$this->Login_model->ajax_end_city();
 		$data['localcityData']=$this->Login_model->local_city();
 		//print_r($data['endcityData']);die;
@@ -30,7 +30,15 @@ class Home extends CI_Controller
 	{
 		$data=array();
 		$endcityData=$this->Login_model->ajax_end_city($this->input->post('StartCity'));	
-		//print_r($result);die;
+		//print_r($endcityData);die;
+		echo json_encode($endcityData);
+	}
+
+	public function getendcityround()
+	{
+		$data=array();
+		$endcityData=$this->Login_model->ajax_end_cityround($this->input->post('StartCity'));	
+		//echo "<pre>";print_r($endcityData);die;
 		echo json_encode($endcityData);
 	}
 
@@ -193,5 +201,130 @@ class Home extends CI_Controller
 	}
 
    
+
+    public function userlogin()
+	{
+		$data['about']=$this->About_model->getabout(); 	
+		$data['result']=$this->Contact_model->getsitedetail();
+		$this->load->view('common/userlogin',$data);
+	}
+
+	public function loginprocess()
+	{
+		$data['ContactNumber']=$this->input->post('ContactNumber');
+		$ContactNumber=$data['ContactNumber']=$this->input->post('ContactNumber');
+		$data['OTPNumber']=$this->input->post('OTPNumber');
+		if($_POST)
+		{
+			if($this->input->post('ContactNumber')!='')
+			{
+				$session= array(
+						'ContactNumber'=> $data['ContactNumber'],	
+					);
+				//print_r($session);die;
+				$this->session->set_userdata($session);	
+				$login =$this->Login_model->check_number();
+				if($login == '1')
+				{
+		         	$this->session->set_flashdata('success', 'You have to send OTP on your contact number,Please submit!');
+				}
+				elseif($login == '2')
+				{        
+		          	$this->session->set_flashdata('wrong','Your mobile number not registered');
+					redirect('home/userlogin');
+				}
+			}	
+		}  
+
+		$data['about']=$this->About_model->getabout(); 	
+		$data['result']=$this->Contact_model->getsitedetail();
+		$this->load->view('common/logincomplete',$data);
+	}
+
+	public function userprofile()
+    {
+    	$data['ContactNumber']=$this->input->post('ContactNumber');
+		$data['OTPNumber']=$this->input->post('OTPNumber');
+
+		$data['FeedbackId']=$this->input->post('FeedbackId');
+		$data['FeedbackDescription']=$this->input->post('FeedbackDescription');
+    	if($_POST)
+		{
+			if($this->input->post('ContactNumber')!='')
+			{
+				$login =$this->Login_model->check_login();
+				if($login == '1')
+				{
+					$ContactNumber = $this->input->post('ContactNumber');
+					$where = array(
+					"ContactNumber"=>$ContactNumber,
+					);
+					$log = $this->Login_model->login_where('tbluser',$where);
+					if($log)
+					{
+						
+							$session= array(
+								'FirstName'=> $log->FirstName,
+								'LastName'=> $log->LastName,
+								'EmailAddress'=> $log->EmailAddress,
+								'ContactNumber'=>$log->ContactNumber,		
+							);
+							//print_r($session);die;
+							$this->session->set_userdata($session);
+							$this->session->set_flashdata('success','You are Login successfully!');
+						
+						
+					}
+
+				
+				}
+				else if($login == '2')
+				{        
+		  			$this->session->set_flashdata('wrong','Your entered wrong OTP');
+					redirect('home/loginprocess');
+				}
+				
+			}
+
+		}
+
+		$ContactNumberid=$this->session->userdata('ContactNumber');
+		$data['feedbackhistory']=$this->Login_model->get_feedback($ContactNumberid); 
+		$data['cabhistory']=$this->Login_model->get_history($ContactNumberid); 
+    	$data['about']=$this->About_model->getabout(); 	
+		$data['result']=$this->Contact_model->getsitedetail();
+		//print_r($data['feedbackhistory']);die;	
+      	$this->load->view('common/user-profile',$data);
+    }
+
+    public function logout()
+	{	
+		$this->session->sess_destroy();
+		redirect('home');
+	}
+
+
+	public function userfeedback()
+    {
+    	$data['ContactNumber']=$this->input->post('ContactNumber');
+    	if($_POST)
+		{
+			if($this->input->post('FeedbackId')!='' && $this->input->post('ContactNumber')!='')
+			{
+				$this->Login_model->feedback_update();
+				$this->session->set_flashdata('success', 'Your feedback has been updated Succesfully!');
+				redirect('home/userprofile');
+			}
+			else
+			{
+				$this->Login_model->feedback_add();
+				$this->session->set_flashdata('success', 'Your feedback has been submitted Succesfully!');
+				redirect('home/userprofile');
+			}
+
+		}
+      	
+    }
+
 	
 }

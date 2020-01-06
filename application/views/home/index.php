@@ -71,7 +71,7 @@
 			      	<div class="tab-content">
 				        <div class="tab-pane active" id="one-way">
 				        	<form class="form" method="post" enctype="multipart/form-data" 
-				        				action="<?php echo base_url();?>Services/search" id="form_valid_one">
+				        				action="<?php echo base_url();?>Services/search">
 				        		<div class="row fr-it">
 			        				<div class="col-md-4">
 			        					<div class="location-group">
@@ -101,7 +101,7 @@
 												
 												<select name="EndCity" class="form-control" required id="EndCity">
 													<option value="">Please select end point city</option>
-													<!-- <?php
+													<?php
 													if($endcityData)
 													{
 														foreach($endcityData as $cData)
@@ -110,7 +110,7 @@
 														<option value="<?php echo $cData->EndCity; ?>" ><?php echo $cData->EndCity; ?></option>
 													<?php
 													}}
-													?> -->
+													?>
 												</select>
 
 												<span class="input-group-addon"><i class="ion-android-locate"></i></span>
@@ -139,13 +139,14 @@
 				        </div>
 				        <div class="tab-pane" id="round-way">
 				        	<form class="form" method="post" enctype="multipart/form-data" 
-				        				action="<?php echo base_url();?>Services/search" id="form_valid_one">
+				        				action="<?php echo base_url();?>Services/search">
 				        		<div class="row fr-it">
 				        			<div class="col-md-3">
 			        					<div class="location-group">
 											<div class="input-group">
 												
-												<select name="StartCity" class="form-control" required onChange="getendcityround(this.value)" 
+												<select name="StartCity" class="form-control" required 
+												onChange="getendcityround(this.value)" 
 			      					 id="StartCityRound">
 													<option desabled value="">Please select start point city</option>
 													<?php
@@ -169,8 +170,8 @@
 											<div class="input-group">
 												
 												<select name="EndCity" class="form-control" required id="EndCityRound">
-													<option desabled value="">Please select end point city</option>
-													<!-- <?php
+													<option value="">Please select end point city</option>
+													<?php
 													if($endcityData)
 													{
 														foreach($endcityData as $cData)
@@ -179,7 +180,7 @@
 														<option value="<?php echo $cData->EndCity; ?>"><?php echo $cData->EndCity;?></option>
 													<?php
 													}}
-													?> -->
+													?>
 												</select>
 												<span class="input-group-addon"><i class="ion-android-locate"></i></span>
 											</div>
@@ -214,7 +215,7 @@
 
 				        <div class="tab-pane" id="local">
 				        	<form class="form" method="post" enctype="multipart/form-data" 
-				        				action="<?php echo base_url();?>Services/search" id="form_valid_one">
+				        				action="<?php echo base_url();?>Services/search">
 				        		<div class="row fr-it">
 				        			<div class="col-md-4">
 			        					<div class="location-group">
@@ -639,16 +640,17 @@ function getendcity(StartCity)
          }
       });	
 }
+</script>
 
+<script>
 function getendcityround(StartCityRound) 
 {
-	alert(StartCityRound);
-	$("option[id=EndCityRound]").remove();
+	$("option[id=StartCityRound]").remove();
 	url="<?php echo base_url();?>"
 	$.ajax({
-        url: url+'home/getendcity',
+        url: url+'home/getendcityround',
         type: 'post',
-		data:{StartCity:EndCityRound},
+		data:{StartCity:StartCityRound},
         success:function(response){
 			var response = JSON.parse(response);
             //console.log(response);
@@ -665,16 +667,10 @@ function getendcityround(StartCityRound)
 
 </script>
 
-<script type="text/javascript">
+<!-- <script type="text/javascript">
 $(document).ready(function()
 {
-	// $('#PickupDate').datetimepicker({
-	//  defaultDate: new Date(),
- //  	 format: 'DD/MM/YYYY',
-	//  ignoreReadonly: true,	
-	// });
-
-       $('#form_valid_one').validate({
+    $('#form_valid_one').validate({
 			rules: {
 				StartPointCity:{              
 					required: true,                
@@ -691,7 +687,4 @@ $(document).ready(function()
 			 },
     });
 });
-
-            
-
-</script>
+</script> -->

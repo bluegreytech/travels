@@ -23,7 +23,7 @@
 			    <?php } ?>
 				<div class="col-md-12">
 					<form class="contactForm contct-form" method="post" enctype="multipart/form-data" 
-				       id="form_valid">
+				       id="form_valid" action="<?php echo base_url();?>home/book">
 			      		<div class="col-sm-8">
 			      			<div class="row">
 			      				<div class="form-group col-sm-6">
@@ -53,7 +53,7 @@
 								<input type="hidden" name="OTPNumber" value="<?php echo $OTPNumber;?>">
 								<input type="hidden" name="CarBrandId" value="<?php echo $CarBrandId;?>">
 								<input type="hidden" name="BrandName" value="<?php echo $BrandName;?>">
-<?php echo base_url() ;?>
+
 			      					<h5 class="this-label">First Name<span>*</span></h5>
 			      					<input type="text" class="form-control" name="FirstName" id="FirstName" placeholder="Enter First Name" minlength="2" maxlength="25">
 			      				</div>
@@ -249,21 +249,18 @@
 
 			      					</ul>
 			      				</div>
-			      				<!-- <button class="btn btn-primary btn-block">BOOK BY EMAIL!</button>	 -->						
+			      									
 			      			</div>
 			      			<div class="row m0 choose-payment-method">
 			      				<input type="radio" name="payment-method" id="payment-method01" class="sr-only" checked="">
 			      				<label for="payment-method01">Pay To Driver</label>
 			      				<article class="stripe">Please send your cheque to Store Name, Store Street, Store Town, Store State / County, Store Postcode.</article>
 
-
-
-			      				
-								<!-- <input type="radio" name="payment-method" data-amount="<?php //echo $FinalAmount;?>" data-id="1"  id="payment-method02"  class="sr-only">
-			      				<label for="payment-method02">Paypal <a href="#"><img src="<?php// echo base_url();?>assets/images/car-detail/paypal.png" alt=""></a></label> -->
-
 			      				<input type="radio" name="payment-method" data-amount="<?php echo $FinalAmount;?>" data-id="1"  id="payment-method02"  class="sr-only">
 			      				<label for="payment-method02">Paypal <a href="#"><img src="<?php echo base_url();?>assets/images/car-detail/paypal.png" alt=""></a></label>
+
+			      				<!-- <input type="radio" name="payment-method" data-amount="<?php echo $FinalAmount;?>" data-id="1"  id="payment-method02"  class="sr-only">
+			      				<label for="payment-method02">Paypal <a href="#"><img src="<?php echo base_url();?>assets/images/car-detail/paypal.png" alt=""></a></label> -->
 
 			      				<label class="checkbox-inline agreement"><input type="checkbox" value="">I accept the <a href="#" data-toggle="modal" data-target="#Conditions">Terms and Conditions</a></label>
 			      				<!-- Modal -->
@@ -286,7 +283,10 @@
 								</div>
 			      			</div>
 
-			      			<input type="button" id="submit" value="PAY NOW!" class="btn btn-primary btn-block">
+			      		<!-- 	<input type="button" id="submit" value="PAY NOW!" class="btn btn-primary btn-block"> -->
+
+			      			<input type="submit" value="Book NOW!" class="btn btn-primary btn-block">
+
 			      		</div>
 			      	</form>
 				</div>
@@ -299,8 +299,10 @@
 	$this->load->view('common/footer');
 ?>
 <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
-<script>
-	
+
+
+
+<script>	
 var SITEURL = "<?php echo base_url() ?>";
 $('body').on('click', '#submit', function(e)
 {

@@ -203,7 +203,7 @@ class Login_model extends CI_Model
        
     }
 
-     function check_login()
+    function check_login()
     {
        //echo "vfcgcv";die;
          //$this->load->helper('cookie');
@@ -219,7 +219,7 @@ class Login_model extends CI_Model
     //xecho "<pre>";print_r($admin);die;
     if($query->num_rows()>0)
     {
-                         $admin_type=$admin['Admin_Type'];
+                        $admin_type=$admin['Admin_Type'];
                         $admin_status=$admin['IsActive'];
                         
                         if($admin_status !='Active')

@@ -104,16 +104,37 @@
                 <h3 class="this-title"><i class="fa fa-comments-o"></i> Valuable Feedback</h3>
                 <div class="contact-form-info">
                   <form method="post" action="<?php echo base_url();?>home/userfeedback" class="contct-form row m0">
+                  <?php
+                  if($TestimonialId=='')
+                  {
+                  ?>
                     <div class="col-md-12">
-                        <input type="hidden" name="FeedbackId" value="<?php echo $feedbackhistory[0]->FeedbackId;?>">
+                        <input type="hidden" name="TestimonialId" value="<?php echo $feedbackhistory[0]->TestimonialId;?>">
                         <input type="hidden" name="FirstName" value="<?php echo $this->session->userdata('FirstName');?>">
                         <input type="hidden" name="LastName" value="<?php echo $this->session->userdata('LastName');?>">
                         <input type="hidden" name="ContactNumber" value="<?php echo $this->session->userdata('ContactNumber');?>">
-                      <div>
-                        <textarea id="message" name="FeedbackDescription" class="form-control" placeholder="Your Valuable Review"><?php echo $feedbackhistory[0]->FeedbackDescription;?></textarea>
-                      </div>
+                    <div>
+                        <textarea id="message" name="TestimonialDescription" class="form-control" placeholder="Your Valuable Review"><?php echo $feedbackhistory[0]->TestimonialDescription;?></textarea>
+                    </div>
                       <br>
                     </div>
+                    <?php
+                    }
+                    else
+                    {
+                      ?>
+                      <div class="col-md-12">
+                        <input type="hidden" name="FirstName" value="<?php echo $this->session->userdata('FirstName');?>">
+                        <input type="hidden" name="LastName" value="<?php echo $this->session->userdata('LastName');?>">
+                        <input type="hidden" name="ContactNumber" value="<?php echo $this->session->userdata('ContactNumber');?>">
+                    <div>
+                        <textarea id="message" name="TestimonialDescription" class="form-control" placeholder="Your Valuable Review"></textarea>
+                    </div>
+                      <br>
+                    </div>
+                    <?php
+                    }
+                    ?>
                     <div class="col-md-12">
                       <input type="submit" value="SUBMIT" class="btn btn-primary">
                     </div>

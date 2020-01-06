@@ -32,9 +32,11 @@ class Testimonial extends CI_Controller {
 		$data['TestimonialId']=$this->input->post('TestimonialId');
 		$data['FirstName']=$this->input->post('FirstName');
 		$data['LastName']=$this->input->post('LastName');
-		$data['TetimonialDescription']=$this->input->post('TetimonialDescription');
+		$data['ContactNumber']=$this->input->post('ContactNumber');
+		$data['TestimonialDescription']=$this->input->post('TestimonialDescription');
 		$data['TestimonialImage']=$this->input->post('TestimonialImage');
 		$data['IsActive']=$this->input->post('IsActive');
+		$data['ApproveStatus']=$this->input->post('ApproveStatus');
 
 		if($_POST)
 		{	
@@ -68,9 +70,11 @@ class Testimonial extends CI_Controller {
 			$data['TestimonialId']=$result['TestimonialId'];
 			$data['FirstName']=$result['FirstName'];
 			$data['LastName']=$result['LastName'];	
-			$data['TetimonialDescription']=$result['TetimonialDescription'];
+			$data['ContactNumber']=$result['ContactNumber'];	
+			$data['TestimonialDescription']=$result['TestimonialDescription'];
 			$data['TestimonialImage']=$result['TestimonialImage'];		
 			$data['IsActive']=$result['IsActive'];	
+			$data['ApproveStatus']=$result['ApproveStatus'];
 			//echo "<pre>";print_r($data);die;	
 			$data['activeTab']="testimonialadd";	
 			$this->load->view('testimonial/testimonialadd',$data);	

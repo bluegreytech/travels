@@ -91,6 +91,7 @@ class User_model extends CI_Model
 		$this->db->from('tbluser');
 		$this->db->where('IsDelete','0');
 		$this->db->order_by('UserId','desc');
+		$this->db->group_by('ContactNumber');
 		$query=$this->db->get();
 		$res = $query->result();
 		return $res;

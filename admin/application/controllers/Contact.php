@@ -35,6 +35,32 @@ class Contact extends CI_Controller {
 			die;
 		
 	}
+
+
+	function luxuryquotelist()
+	{	
+		if(!check_admin_authentication()){ 
+			redirect(base_url());
+		}else{	
+			$data['activeTab']="luxuryquotelist";		
+			$data['result']=$this->Contact_model->get_luxuryquotelist();
+			$this->load->view('contact/luxuryquoteslist',$data);
+		}
+	}
 	
+
+	function luxurysegment_delete(){
+		if(!check_admin_authentication()){ 
+			redirect(base_url());
+		}
+			$data= array('IsActive'=>'Inactive','IsDelete' =>'1');
+			$LuxuryQuoteId=$this->input->post('LuxuryQuoteId');
+			$this->db->where("LuxuryQuoteId",$LuxuryQuoteId);			
+			$res=$this->db->update('tblluxuryquotes',$data);
+			//echo $this->db->last_query();die;
+			echo json_encode($res);
+			die;
+		
+	}
 	
 }

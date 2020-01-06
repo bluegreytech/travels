@@ -28,6 +28,19 @@ class Contact_model extends CI_Model
 	}
 	
 
+	function get_luxuryquotelist(){
+		$this->db->select('*');
+		$this->db->from('tblluxuryquotes');
+		$this->db->where('IsDelete','0');
+		$this->db->order_by('LuxuryQuoteId','desc');
+		$query=$this->db->get();
+		$res = $query->result();
+		return $res;
+
+	}
+
+	
+
 	
 
 	

@@ -601,9 +601,24 @@
 	                    ?>
 						<div class="item testimonial">
 							<div class="inner row m0">
-								<p><?php echo $testimorow->TetimonialDescription;?></p>
+								<p><?php echo $testimorow->TestimonialDescription;?></p>
 								<h5 class="client"><?php echo $testimorow->FirstName.' '.$testimorow->LastName;?></h5>
-								<a class="client-img"><img src="<?php echo base_url();?>admin/upload\testimonialimages/<?php echo $testimorow->TestimonialImage;?>" alt="" class="img-circle" height="80" width="80"></a>
+								<a class="client-img">
+								<?php
+								if($testimorow->TestimonialImage!='')
+								{
+									?>
+										<img src="<?php echo base_url();?>admin/upload/testimonialimages/<?php echo $testimorow->TestimonialImage;?>" alt="" class="img-circle" height="80" width="80"></a>
+									<?php
+								}
+								else
+								{
+									?>
+										<img src="<?php echo base_url();?>assets/images/testimonial/user_no_image.png" alt="" class="img-circle" height="80" width="80"></a>
+									<?php
+								}
+								?>
+									
 							</div>
 						</div>
 							<?php

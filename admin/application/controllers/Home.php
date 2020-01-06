@@ -67,7 +67,7 @@ class Home extends CI_Controller {
 		$data['Tax']=$result['Tax'];
 		$data['activeTab']="Editabout";	
 		//echo "<pre>";print_r($data);die;	
-		$data['activeTab']="sitesetting";	
+		$data['activeTab']="sitesettinglist";	
 		$this->load->view('common/sitesetting',$data);	
 	}
 
@@ -77,12 +77,12 @@ class Home extends CI_Controller {
 			redirect(base_url());
 		}		
 		
-		// $data['result']=$this->user_model->getbdayuser();
-		// $data['users']=$this->user_model->getuser();
-		// $data['userrefer']=$this->user_model->get_userefer();
+		//$data['result']=$this->Login_model->getbdayuser();
+		$data['users']=$this->Login_model->getuser();
+		$data['inquiry']=$this->Login_model->get_inquiry();
+		$data['luxurysegment']=$this->Login_model->get_segment();
 		$data['activeTab']="dashboard";
-
-		//echo count($data['result']); die;
+		//echo count($data['inquiry']); die;
 		$this->load->view('common/dashboard',$data);
 	}
 

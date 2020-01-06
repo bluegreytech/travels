@@ -428,4 +428,39 @@ class Login_model extends CI_Model
        
     } 
 
+
+  function getuser()
+  {
+    $this->db->select('*');
+    $this->db->from('tbluser');
+    $this->db->where('IsDelete','0');
+    $this->db->order_by('UserId','desc');
+    $this->db->group_by('ContactNumber');
+    $query=$this->db->get();
+    $res = $query->result();
+    return $res;
+  }
+
+  
+  function get_inquiry()
+  {
+    $this->db->select('*');
+    $this->db->from('tblcontactus');
+    $this->db->where('IsDelete','0');
+    $query=$this->db->get();
+    $res = $query->result();
+    return $res;
+  }
+
+  
+  function get_segment()
+  {
+    $this->db->select('*');
+    $this->db->from('tblluxuryquotes');
+    $this->db->where('IsDelete','0');
+    $query=$this->db->get();
+    $res = $query->result();
+    return $res;
+  }
+
 }

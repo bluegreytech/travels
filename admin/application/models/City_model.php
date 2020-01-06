@@ -9,10 +9,11 @@ class City_model extends CI_Model
         	'CarBrandId'=>trim($this->input->post('CarBrandId')),
 			'StartCity'=>trim($this->input->post('StartCity')),
 			'EndCity'=>trim($this->input->post('EndCity')),
+			'LocalCity' =>$this->input->post('LocalCity'),
 			'IsActive' =>$this->input->post('IsActive'),			
 			'CreatedOn'=>date('Y-m-d')		
 		);
-	    //echo "<pre>";print_r($data);die;	         
+	    echo "<pre>";print_r($data);die;	         
         $res=$this->db->insert('tblcity',$data);	
 		return $res;
 	}
@@ -49,6 +50,7 @@ class City_model extends CI_Model
         'CarBrandId'=>trim($this->input->post('CarBrandId')),
 		'StartCity'=>trim($this->input->post('StartCity')),
 		'EndCity'=>trim($this->input->post('EndCity')),
+		'LocalCity' =>$this->input->post('LocalCity'),
 		'IsActive' =>$this->input->post('IsActive'),					
 		'UpdatedOn'=>date('Y-m-d')		
 		); 

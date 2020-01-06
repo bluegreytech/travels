@@ -35,33 +35,74 @@
 	<script src="<?php echo base_url();?>assets/js/slider.js"></script>
 </head>
 <body>
+
+	 <?php
+      if($this->session->userdata('ContactNumber')!='')
+      {
+          //$UserId=$this->session->userdata('UserId');
+           $FirstName=$this->session->userdata('FirstName');
+           $LastName=$this->session->userdata('LastName');
+           $ContactNumber=$this->session->userdata('ContactNumber');
+           $EmailAddress=$this->session->userdata('EmailAddress');
+      }
+  ?>
 	<!--Top Bar-->
 	<section class="row top-bar">
 		<h2 class="hd-sec">Heading</h2>
 		<div class="container">
-			<div class="welcome-texts"><span class="welcome-text">Welcome to
-				</span><span> 
+			<div class="col-md-8 col-xs-6 col-rpadd">
+				<div class="welcome-texts"><span class="welcome-text">Welcome to
+					</span><span> 
+						<?php
+							echo $result[0]->FullName;
+						?>	
+					</span>
+				</div>
+			</div>
+			<!-- Book via call Laptop -->
+			<div class="col-md-4 col-xs-6 col-rpadd hidden-xs">
+				<ul class="nav navbar-nav request-btn">
+					<li><a href="tel:+91 90990 42156">Book Via Call</a></li>	
+				</ul>
+			</div>
+			<!-- Login panel Mobile -->
+			<div class="col-md-4 col-xs-5 col-rpadd hidden-sm hidden-md hidden-lg">
+				<ul class="nav navbar-nav login-menu">
 					<?php
-						echo $result[0]->FullName;
-					?>	
-				</span></div>
-			<ul class="social-lists-wSearch nav nav-pills">
-				<li><a href="#"><i class="ion-social-facebook"></i></a></li>
-				<li><a href="#"><i class="ion-social-twitter"></i></a></li>
-				<li><a href="#"><i class="ion-social-instagram"></i></a></li>
-				<li><a href="#"><i class="ion-social-linkedin-outline"></i></a></li>
-				<li><a href="#"><i class="ion-social-rss"></i></a></li>
-			</ul>
+			      	if($this->session->userdata('ContactNumber')=='')
+			      	{
+			      		?>
+			      		<li><a href="<?php echo base_url();?>home/userlogin">Login</a></li>
+			      		<?php
+			      	}
+			      	else
+			      	{
+			      		?>
+			      		<li class="dropdown">
+			              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo $this->session->userdata('FirstName')?> <?php echo $this->session->userdata('LastName');?> <b class="caret"></b></a>
+			              <ul class="dropdown-menu">
+			                <li><a href="<?php echo base_url();?>home/userprofile"><i class="fa fa-user"></i> User Profile</a></li>
+			                <li><a href="<?php echo base_url();?>home/logout"><i class="fa fa-sign-out"></i> Sign Out</a></li>
+			               </ul>
+			            </li>
+			      		<?php
+			      	}
+			      	?>
+ 					
+					
+	         	</ul>
+			</div>
+
 		</div>
 	</section>
 	<!--Info Bar-->
 	<section class="row info-bar">
 		<div class="container">
 			<div class="row">
-				<div class="col-sm-5 col-xs-10 logo-box">
+				<div class="col-sm-5 col-xs-8 logo-box">
 					<a href="<?php echo base_url();?>" class="logo"><img src="<?php echo base_url();?>assets/images/logo.png" alt=""></a>
 				</div>
-				<div class="col-sm-7 col-xs-2 info-box">
+				<div class="col-sm-7 col-xs-4 info-box">
 					<div class="header-informations hidden-xs">
 						<div class="col-md-7">
 							<div class="media info-media">
@@ -111,23 +152,41 @@
 				<ul class="nav navbar-nav">
 					<li class="active"><a href="<?php echo base_url();?>">Home</a></li>
 					<li><a href="<?php echo base_url();?>about">About</a></li>
-					<!-- <li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Services <span class="caret"></span></a>
-						<ul class="dropdown-menu">
-							<li><a href="#">Sedan</a></li>
-							<li><a href="#">SUV</a></li>
-							<li><a href="#">Luxury</a></li>
-						</ul>
-					</li> -->
 					<li><a href="<?php echo base_url();?>services">Services</a></li>
 					<li><a href="<?php echo base_url();?>routes">Routes</a></li>
+					<li><a href="<?php echo base_url();?>career">career</a></li>
 					<li><a href="<?php echo base_url();?>contact">contact</a></li>
-					<li><a href="<?php echo base_url();?>home/login">Login</a></li>
-					
+
+
 				</ul>
-				<ul class="nav navbar-nav request-btn">
-					<li><a href="tel:+91 90990 42156">Book Via Call</a></li>	
-				</ul>			
+				
+				<!-- Login panel Laptop -->
+				<div class="col-rpadd hidden-xs">
+					<ul class="nav navbar-nav login-menu" style="float: right;">
+					<?php
+			      	if($this->session->userdata('ContactNumber')=='')
+			      	{
+			      		?>
+			      		<li><a href="<?php echo base_url();?>home/userlogin">Login</a></li>
+			      		<?php
+			      	}
+			      	else
+			      	{
+			      		?>
+
+						<li class="dropdown">
+			              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo $this->session->userdata('FirstName')?> <?php echo $this->session->userdata('LastName');?>  <b class="caret"></b></a>
+			              <ul class="dropdown-menu">
+			                <li><a href="<?php echo base_url();?>home/userprofile"><i class="fa fa-user"></i> User Profile</a></li>
+			                <li><a href="<?php echo base_url();?>home/logout"><i class="fa fa-sign-out"></i> Sign Out</a></li>
+			               </ul>
+			            </li>
+			          <?php
+			      	}
+			          ?>
+		         	</ul>
+				</div>				
+				
 			</div><!-- /.navbar-collapse -->
 		</div><!-- /.container-fluid -->
 	</nav> 

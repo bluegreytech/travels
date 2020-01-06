@@ -36,31 +36,24 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <th>Name</th>
                                 <th>Email Address</th>
                                 <th>Contact Number</th>
-                                <th>Total Points</th>
-                                <th>Redeem Points</th>
 								<th>Status</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
 						<tbody>
-                        <?php
+                            <?php
                                 $i=1;
                                 if($result){                             
                                 foreach($result as $row)
-                                { 
-                                    $referral_point=$row->referral_point;
-                                    $closing_point=$row->closing_point;
-                                    $totalpoints=$referral_point+$closing_point;
-                                    
+                                {          
                             ?>
                             <tr>
                             
                                     <td><?php echo $i; ?></td>
-                                    <td><?php echo $row->FullName; ?></td>
+                                    <td><?php echo $row->FirstName.' '.$row->LastName; ?></td>
                                     <td><?php echo $row->EmailAddress; ?></td>
-                                    <td><?php echo $row->UserContact; ?></td>
-                                    <td><?php echo $totalpoints; ?></td>
-                                    <td style="width: 57px;"><?php echo $row->redeem_point; ?></td>
+                                    <td><?php echo $row->ContactNumber; ?></td>
+                                 
                                     <td>
                                         <?php if($row->IsActive=="Active")
                                             {
@@ -73,10 +66,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                         ?>
                                     </td>
                                     <td>
-                                        <?php echo anchor('user/Edituser/'.$row->UsersId,'<i class="ficon icon-pencil2" data-toggle="tooltip" title="Edit User"></i> '); ?>
-                                        <a href="javascript:void(0)"  onclick="deletedata('<?php echo $row->UsersId; ?>')" ><i class="ficon icon-bin" data-toggle="tooltip" title="Delete User"></i></a>
+                                        <?php echo anchor('user/Edituser/'.$row->UserId,'<i class="ficon icon-pencil2" data-toggle="tooltip" title="Edit User"></i> '); ?>
+                                        <a href="javascript:void(0)"  onclick="deletedata('<?php echo $row->UserId; ?>')" ><i class="ficon icon-bin" data-toggle="tooltip" title="Delete User"></i></a>
                                         
-                                        <?php echo anchor('/user/loyalty_point/'.$row->UsersId,'<i class="ficon icon-gift" data-toggle="tooltip" title="Loyalty points" style="color: #f0ad4e;"></i> '); ?>
+                                      <?php echo anchor('user/Cabhistory/'.$row->ContactNumber,'<i class="ficon icon-history" data-toggle="tooltip" title="User Cab History"></i> '); ?>
                                         
                                     </td>  
                                 </tr>      
@@ -127,7 +120,7 @@ $(function() {
    
 });
 
-function deletedata(id){  
+function deletedata(UserId){  
    // alert(id);
     $('#myModal').modal('show')
    
@@ -137,7 +130,7 @@ function deletedata(id){
                 $.ajax({
                 url: url+"/user/deletedata/",
                 type: "post",
-                data: {id:id} ,
+                data: {UserId:UserId} ,
                 success: function (response) {  
                 console.log(response);           
                 //document.location.href = url+'user/userlist';                  

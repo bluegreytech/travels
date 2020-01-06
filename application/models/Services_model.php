@@ -24,5 +24,70 @@ class Services_model extends CI_Model
     return $res;
   }
 
+  function search()
+  {
+
+      $StartCity=$this->input->post('StartCity');
+      $EndCity=$this->input->post('EndCity');
+      //die;
+      $where=array("StartCity"=>$StartCity,"EndCity"=>$EndCity);
+      $this->db->select('city.CityId,city.CarBrandId,city.StartCity,city.EndCity,brand.*');
+      $this->db->from("tblcity as city");
+      $this->db->join('tblcarbrand as brand', 'city.CarBrandId = brand.CarBrandId', 'LEFT');
+      $this->db->where($where);
+      //$this->db->order_by('CarBrandId','desc');
+      $query=$this->db->get();
+      $res = $query->result();
+      if($res)
+      {
+          return $res;
+      }
+      else
+      {
+          return 0;
+      }
+      
+  }
+
+
+  function search_local()
+  {
+      $StartCity=$this->input->post('StartCity');
+      //die;
+      $where=array("StartCity"=>$StartCity,"LocalCity"=>'Active');
+      $this->db->select('city.CityId,city.CarBrandId,city.StartCity,city.LocalCity,brand.*');
+      $this->db->from("tblcity as city");
+      $this->db->join('tblcarbrand as brand', 'city.CarBrandId = brand.CarBrandId', 'LEFT');
+      $this->db->where($where);
+      //$this->db->order_by('CarBrandId','desc');
+      $query=$this->db->get();
+      $res = $query->result();
+      if($res)
+      {
+          return $res;
+      }
+      else
+      {
+          return 0;
+      }
+      
+  }
+
+  function add_luxuryquotes()
+  {
+      $data = array(
+        'FullName'=>trim($this->input->post('FullName')),
+        'ContactNumber'=>trim($this->input->post('ContactNumber')),
+        'StartCity'=>trim($this->input->post('StartCity')),
+        'Subject'=>trim($this->input->post('Subject')),
+        'QueryDescription'=>trim($this->input->post('QueryDescription')),
+        'CreatedOn'=>date('Y-m-d')    
+      );
+        //echo "<pre>";print_r($data);die; 
+        $res=$this->db->insert('tblluxuryquotes',$data); 
+        return $res;
+  }
+
+
 
 }

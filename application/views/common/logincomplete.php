@@ -34,7 +34,7 @@
 			<div class="row finder-form">
 				<div class="col-md-6 col-md-offset-3 car-finder-form">
 					<form class="row inner" method="post" enctype="multipart/form-data" 
-				        				action="<?php echo base_url();?>home/booking" id="form_valid">
+				        				action="<?php echo base_url();?>home/userprofile" id="form_valid">
 						<div class="col-md-12">
 							<h3 class="form-title">Enter OTP Number</h3>
 						</div>
@@ -56,32 +56,19 @@
 							<?php } ?>
 							<div class="input-group">
 								<?php
-								    if($this->session->userdata('StartCity')!='')
+								    if($this->session->userdata('ContactNumber')!='')
 								    {
-									 	$CarBrandId=$this->session->userdata('CarBrandId');
-										$BrandName=$this->session->userdata('BrandName');
-										$StartCity=$this->session->userdata('StartCity');
-										$EndCity=$this->session->userdata('EndCity');
-										$PickupDate=$this->session->userdata('PickupDate');
-										$DropofDate=$this->session->userdata('DropofDate');
-										$PickupTime=$this->session->userdata('PickupTime');
-										$DropofTime=$this->session->userdata('DropofTime');
 										$ContactNumber=$this->session->userdata('ContactNumber');
-										$OTPNumber=$this->session->userdata('OTPNumber');
+										//$LoginOTP=$this->session->userdata('LoginOTP');
 									 }
+
+									//$ContactNumbers=$this->input->post('ContactNumber');
 								 ?>
 
-								<input type="hidden" name="CarBrandId" value="<?php echo $this->session->userdata('CarBrandId');?>">
-								<input type="hidden" name="BrandName" value="<?php echo $this->session->userdata('BrandName');?>">
-								<input type="hidden" name="StartCity" value="<?php echo $this->session->userdata('StartCity');?>">
-								<input type="hidden" name="EndCity" value="<?php echo $this->session->userdata('EndCity');?>">
-								<input type="hidden" name="PickupDate" value="<?php echo $this->session->userdata('PickupDate');?>">
-								<input type="hidden" name="DropofDate" value="<?php echo $this->session->userdata('DropofDate');?>">
-								<input type="hidden" name="PickupTime" value="<?php echo $this->session->userdata('PickupTime');?>">
-								<input type="hidden" name="DropofTime" value="<?php echo $this->session->userdata('DropofTime');?>">
-								<input type="hidden" name="ContactNumber" value="<?php echo $this->session->userdata('ContactNumber');?>">
-								<input type="hidden" name="OTPNumber" value="<?php echo $this->session->userdata('OTPNumber');?>">
-								<input type="text" class="form-control" name="OTPNumber" id="OTPNumber" placeholder="Enter 6 Digit OTP" minlength="5" maxlength="6" value="<?php echo $OTPNumber;?>">
+								
+								<input type="text" name="ContactNumber" value="<?php echo $this->session->userdata('ContactNumber');?>">
+								<!-- <input type="text" name="LoginOTP" value="<?php//echo $this->session->userdata('LoginOTP');?>"> -->
+								<input type="text" class="form-control" name="LoginOTP" id="OTPNumber" placeholder="Enter 6 Digit OTP" minlength="5" maxlength="6">
 							</div>
 						</div>
 						<div class="col-md-12 text-center">
@@ -105,6 +92,13 @@
 		$(function() { 
 	    setTimeout(function() {
 		  $('#wrongMessage').fadeOut('fast');
+		}, 10000);
+		   
+		});
+
+		$(function() { 
+	    setTimeout(function() {
+		  $('#successMessage').fadeOut('fast');
 		}, 10000);
 		   
 		});

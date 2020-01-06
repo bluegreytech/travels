@@ -22,9 +22,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
        
         <div class="card">
             <div class="card-header">
-                <h4 class="card-title">List of Routes
+                <h4 class="card-title">List of User
                 <a class="heading-elements-toggle"><i class="icon-ellipsis font-medium-3"></i></a>
-                <a href="<?php echo base_url();?>city/cityadd" class="btn btn-black" style="float:right">Add Routes</a>
+                <a href="<?php echo base_url();?>user/Userlist" class="btn btn-black" style="float:right">Back To User List</a>
                 </h4>
             </div>
             <div class="card-body collapse in">
@@ -33,42 +33,30 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <thead class="thead-inverse">
                             <tr>
                                 <th>Sr No</th>
-                                <th>Type Car</th>  
-                                <th>Start Point</th>  
-                                <th>End Point</th>  
-                                <th>Start Point as Local City</th>                                  
+                                <th>Name</th>
+                                <th>Email Address</th>
+                                <th>Contact Number</th>
 								<th>Status</th>
-                                <th>Action</th>
+                                
                             </tr>
                         </thead>
 						<tbody>
-                        <?php
+                            <?php
                                 $i=1;
-                                if($result){                             
-                                foreach($result as $row)
-                                {
+                                if($cabhistory){                             
+                                foreach($cabhistory as $row)
+                                {          
                             ?>
                             <tr>
+                            
                                     <td><?php echo $i; ?></td>
-                                     <td><?php echo $row->BrandName; ?></td>
-                                    <td><?php echo $row->StartCity; ?></td>
-                                    <td><?php echo $row->EndCity; ?></td>
-                                    <td>
-                                        <?php if($row->LocalCity=="Active")
-                                            {
-
-                                                echo "<span class='label label-success'>Active</span>";
-                                            } 
-                                            else
-                                            {
-                                                echo "<span class='label label-danger'>Inactive</span>";
-                                            } 
-                                        ?>
-                                    </td>
+                                    <td><?php echo $row->FirstName.' '.$row->LastName; ?></td>
+                                    <td><?php echo $row->EmailAddress; ?></td>
+                                    <td><?php echo $row->ContactNumber; ?></td>
+                                 
                                     <td>
                                         <?php if($row->IsActive=="Active")
                                             {
-
                                                 echo "<span class='label label-success'>Active</span>";
                                             } 
                                             else
@@ -77,10 +65,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             } 
                                         ?>
                                     </td>
-                                    <td>
-                                        <?php echo anchor('city/editcity/'.$row->CityId,'<i class="ficon icon-pencil2"></i>'); ?>
-                                        <a onclick="deletedata('<?php echo $row->CityId; ?>')" ><i class="ficon icon-bin"></i></a>    
-                                    </td>  
+                                   
                                 </tr>      
                                 <?php
                                 $i++;
@@ -129,19 +114,20 @@ $(function() {
    
 });
 
-function deletedata(CityId){  
-    $('#myModal').modal('show');
-  // alert(id);
+function deletedata(UserId){  
+   // alert(id);
+    $('#myModal').modal('show')
+   
         $('#yes_btn').click(function(){
-                url="<?php echo base_url();?>city/city_delete/";
+           
+                url="<?php echo base_url();?>"
                 $.ajax({
-                url: url,
+                url: url+"/user/deletedata/",
                 type: "post",
-                data: {CityId:CityId} ,
-                success: function (response) {   
-                    console.log(response);  
-                    return false;        
-                //document.location.href = url+'project/projectlist';                  
+                data: {UserId:UserId} ,
+                success: function (response) {  
+                console.log(response);           
+                //document.location.href = url+'user/userlist';                  
 
             },
             error: function(jqXHR, textStatus, errorThrown) {

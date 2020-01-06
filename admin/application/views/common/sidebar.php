@@ -30,8 +30,23 @@
               </li>
             </ul>
           </li> 
-          <?php } ?>  
+          <?php } ?> 
 
+
+          <li class="nav-item <?php echo ($activeTab == "AddUser"|| $activeTab == "Userlist") ? "open" : ""; ?>">
+            <a class="<?php echo ($activeTab == "AddUser" || $activeTab == "Userlist") ? "active" : ""; ?>">
+              <i class="icon-user"></i><span data-i18n="nav.dash.main" class="menu-title">User</span>
+            </a>
+            <ul class="menu-content">
+             <!--  <li>
+                <a href="<?php// echo base_url(); ?>user/AddUser" data-i18n="nav.dash.main" class="menu-item  <?php //echo ($activeTab == "AddUser") ? "active" : ""; ?>" ><i class="icon-plus"></i> Add User</a>
+              </li> -->
+              <li>
+              <li>
+                <a href="<?php echo base_url(); ?>user/Userlist" data-i18n="nav.dash.main" class="menu-item <?php echo ($activeTab == "Userlist") ? "active" : ""; ?>"><i class="icon-file-text2"></i>List of User</a>
+              </li>
+            </ul>
+          </li> 
 
           <li class="nav-item <?php echo($activeTab == "aboutusadd"||$activeTab =="aboutuslist") ? "open" : ""; ?>">
             <a class="<?php echo ($activeTab == "aboutusadd" || $activeTab == "aboutuslist") ? "active" : ""; ?>">

@@ -71,14 +71,13 @@
 			      	<div class="tab-content">
 				        <div class="tab-pane active" id="one-way">
 				        	<form class="form" method="post" enctype="multipart/form-data" 
-				        				action="<?php echo base_url();?>Services" id="form_valid_one">
+				        				action="<?php echo base_url();?>Services/search">
 				        		<div class="row fr-it">
 			        				<div class="col-md-4">
 			        					<div class="location-group">
 											<div class="input-group">
-												<!-- <input type="text" class="form-control" placeholder="Enter Pickup Location">
-												<span class="input-group-addon"><i class="ion-android-locate"></i></span> -->
-												<select name="StartPointCity" class="form-control" required>
+												<select name="StartCity" class="form-control" required onChange="getendcity(this.value)" 
+			      					 id="StartCity">
 													<option desabled value="">Please select start point city</option>
 													<?php
 													if($cityData)
@@ -99,21 +98,21 @@
 									<div class="col-md-4">
 			        					<div class="location-group">
 											<div class="input-group">
-												<!-- <input type="text" class="form-control" placeholder="Enter Drop Location">
-												<span class="input-group-addon"><i class="ion-android-locate"></i></span> -->
-												<select name="EndPointCity" class="form-control" required>
-													<option desabled value="">Please select start point city</option>
+												
+												<select name="EndCity" class="form-control" required id="EndCity">
+													<option value="">Please select end point city</option>
 													<?php
-													if($cityData)
+													if($endcityData)
 													{
-														foreach($cityData as $cData)
+														foreach($endcityData as $cData)
 														{
 													?>
-														<option value="<?php echo $cData->CityName; ?>"><?php echo $cData->CityName;?></option>
+														<option value="<?php echo $cData->EndCity; ?>" ><?php echo $cData->EndCity; ?></option>
 													<?php
 													}}
 													?>
 												</select>
+
 												<span class="input-group-addon"><i class="ion-android-locate"></i></span>
 											</div>
 										</div>
@@ -130,12 +129,6 @@
 											<span class="input-group-addon"><i class="ion-ios-alarm-outline"></i></span>
 										</div>
 									</div>
-									<!-- <div class="col-md-2">
-										<div class="input-group time-group">
-											<input type="text" class="timedroper form-control" placeholder="08:00 am">
-											<span class="input-group-addon"><i class="ion-ios-alarm-outline"></i></span>
-										</div>
-									</div> -->
 								</div>  				
 								<div class="row m0">
 									<div class="col-xs-12">
@@ -146,14 +139,15 @@
 				        </div>
 				        <div class="tab-pane" id="round-way">
 				        	<form class="form" method="post" enctype="multipart/form-data" 
-				        				action="<?php echo base_url();?>Services" id="form_valid_one">
+				        				action="<?php echo base_url();?>Services/search">
 				        		<div class="row fr-it">
 				        			<div class="col-md-3">
 			        					<div class="location-group">
 											<div class="input-group">
-												<!-- <input type="text" class="form-control" placeholder="Enter Pickup Location">
-												<span class="input-group-addon"><i class="ion-android-locate"></i></span> -->
-												<select name="StartPointCity" class="form-control" required>
+												
+												<select name="StartCity" class="form-control" required 
+												onChange="getendcityround(this.value)" 
+			      					 id="StartCityRound">
 													<option desabled value="">Please select start point city</option>
 													<?php
 													if($cityData)
@@ -162,32 +156,33 @@
 														{
 													?>
 											
-														<option value="<?php echo $cData->CityName; ?>"><?php echo $cData->CityName;?></option>
+														<option value="<?php echo $cData->StartCity; ?>"><?php echo $cData->StartCity;?></option>
 													<?php
 													}}
 													?>
 												</select>
+												<span class="input-group-addon"><i class="ion-android-locate"></i></span>
 											</div>
 										</div>
 									</div>
 									<div class="col-md-3">
 			        					<div class="location-group">
 											<div class="input-group">
-												<!-- <input type="text" class="form-control" placeholder="Enter Drop Location">
-												<span class="input-group-addon"><i class="ion-android-locate"></i></span> -->
-												<select name="EndPointCity" class="form-control" required>
-													<option desabled value="">Please select start point city</option>
+												
+												<select name="EndCity" class="form-control" required id="EndCityRound">
+													<option value="">Please select end point city</option>
 													<?php
-													if($cityData)
+													if($endcityData)
 													{
-														foreach($cityData as $cData)
+														foreach($endcityData as $cData)
 														{
 													?>
-														<option value="<?php echo $cData->CityName; ?>"><?php echo $cData->CityName;?></option>
+														<option value="<?php echo $cData->EndCity; ?>"><?php echo $cData->EndCity;?></option>
 													<?php
 													}}
 													?>
 												</select>
+												<span class="input-group-addon"><i class="ion-android-locate"></i></span>
 											</div>
 										</div>
 									</div>
@@ -217,43 +212,59 @@
 								</div>
 							</form>
 				        </div>
+
 				        <div class="tab-pane" id="local">
-				        	<form>
+				        	<form class="form" method="post" enctype="multipart/form-data" 
+				        				action="<?php echo base_url();?>Services/search">
 				        		<div class="row fr-it">
 				        			<div class="col-md-4">
 			        					<div class="location-group">
 											<div class="input-group">
-												<input type="text" class="form-control" placeholder="Enter Pickup Location">
+												<select name="StartCity" class="form-control" required>
+													<option desabled value="">Please select start point city</option>
+													<?php
+													if($localcityData)
+													{
+														foreach($localcityData as $cData)
+														{
+													?>
+											
+														<option value="<?php echo $cData->StartCity; ?>"><?php echo $cData->StartCity;?></option>
+													<?php
+													}}
+													?>
+												</select>
 												<span class="input-group-addon"><i class="ion-android-locate"></i></span>
 											</div>
 										</div>
 									</div>
 				        			<div class="col-md-4">
 										<div class="input-group date-group">
-											<input type="text" class="datedroper form-control" placeholder="Pickup date">
+											<input type="text" class="datedroper form-control" name="PickupDate"  placeholder="Pickup date" required>
 											<span class="input-group-addon"><i class="ion-calendar"></i></span>
 										</div>
 									</div>
 									<div class="col-md-2">
 										<div class="input-group time-group">
-											<input type="text" class="timedroper form-control" placeholder="08:00 am">
+											<input type="text" class="timedroper form-control" name="PickupTime" placeholder="08:00 am" required>
 											<span class="input-group-addon"><i class="ion-ios-alarm-outline"></i></span>
 										</div>
 									</div>
 									<div class="col-md-2">
 										<div class="input-group time-group">
-											<input type="text" class="timedroper form-control" placeholder="Duration">
+											<input type="text" class="timedroper form-control" name="DropofTime" placeholder="Duration" required>
 											<span class="input-group-addon"><i class="ion-ios-alarm-outline"></i></span>
 										</div>
 									</div>
 								</div>  				
 								<div class="row m0">
 									<div class="col-xs-12">
-										<input type="" value="Book a cab" class="btn btn-primary">
+										<button class="btn btn-primary" type="submit">Book a cab</button>
 									</div>
 								</div>	
 							</form>
 				        </div>
+
 				    </div>
 			    </div>
 			</div>
@@ -371,7 +382,8 @@
             	$i++;
                 } 
             }
-            ?>   	
+            ?>  
+             	
 				<div class="col-md-4 fleet fleet2">
 					<div class="inner row">
 						<h2 class="rent text-center">Luxury Segmentation</h2>
@@ -421,30 +433,33 @@
 
 						                
 											<div class="contact-form-info">
-												<form class="contct-form contactForm row m0" id="form_valid" method="post" >
+												<!-- <form class="contct-form contactForm row m0" id="form_valid" method="post"> -->
+
+													<form class="contct-form row m0" id="form_valid" method="post"  
+													action="<?php echo base_url();?>Services/addquotes">
 													<div class="col-md-6">
 														<div class="input-group">
-															<input type="text" name="FullName" class="form-control" placeholder="Your full name">
+															<input type="text" name="FullName" class="form-control" placeholder="Your full name" minlength="3" maxlength="30">
 														</div>
 													</div>
 													<div class="col-md-6">
 														<div class="input-group">
-															<input type="tel" name="ContactNumber" id="ContactNumber" class="form-control" placeholder="Enter Mobile Number">
+															<input type="tel" name="ContactNumber" id="ContactNumber" class="form-control" placeholder="Enter Mobile Number" minlength="10" maxlength="10">
 														</div>
 													</div>
 													<div class="col-md-6">
 														<div class="input-group">
-															<input type="text" name="City"  class="form-control" placeholder="Enter city">
+															<input type="text" name="StartCity"  class="form-control" placeholder="Enter city" minlength="2" maxlength="10">
 														</div>
 													</div>
 													<div class="col-md-6">
 														<div class="input-group">
-															<input type="text" name="subject" class="form-control" value="Luxury Segmentation" readonly>
+															<input type="text" name="Subject" class="form-control" value="Luxury Segmentation" readonly>
 														</div>
 													</div>
 													<div class="col-md-12">
 														<div class="input-group">
-															<textarea name="MessageDescription" class="form-control" placeholder="Enter your query"></textarea>
+															<textarea name="QueryDescription" class="form-control" placeholder="Enter your query" minlength="20" maxlength="300"></textarea>
 														</div>
 													</div>
 													<div class="col-md-12">
@@ -606,36 +621,109 @@
 <?php 
 	 $this->load->view('common/footer');
 ?>
+<script>
+function getendcity(StartCity) 
+{
+	$("option[id=EndCity]").remove();
+	url="<?php echo base_url();?>"
+	$.ajax({
+        url: url+'home/getendcity',
+        type: 'post',
+		data:{StartCity:StartCity},
+        success:function(response){
+			var response = JSON.parse(response);
+            //console.log(response);
+            $("option[id=EndCity]").empty();
+              $.each(response, function(key, val) {
+              	console.log(val.EndCity);
+                $("#EndCity").append(
+                        "<option value=" + val.CityId + ">" + val.EndCity+ "</option>");
+            });
+			
+         }
+      });	
+}
+</script>
+
+<script>
+function getendcityround(StartCityRound) 
+{
+	$("option[id=StartCityRound]").remove();
+	url="<?php echo base_url();?>"
+	$.ajax({
+        url: url+'home/getendcityround',
+        type: 'post',
+		data:{StartCity:StartCityRound},
+        success:function(response){
+			var response = JSON.parse(response);
+            //console.log(response);
+            $("option[id=EndCityRound]").empty();
+              $.each(response, function(key, val) {
+              	console.log(val.EndCity);
+                $("#EndCityRound").append(
+                        "<option value=" + val.CityId + ">" + val.EndCity+ "</option>");
+            });
+			
+         }
+      });	
+}
+
+</script>
+
 
 
 <script type="text/javascript">
-$(document).ready(function()
+$("#ContactNumber").on("input", function(evt) {
+var self = $(this);
+self.val(self.val().replace(/[^\d].+/, ""));
+if ((evt.which < 48 || evt.which > 57)) 
 {
-	$('#PickupDate').datetimepicker({
-	 defaultDate: new Date(),
-  	 format: 'DD/MM/YYYY',
-	 ignoreReadonly: true,	
-	 maxDate: moment(),
-	});
+	evt.preventDefault();
+}});
 
-       $('#form_valid_one').validate({
-			rules: {
-				StartPointCity:{              
-					required: true,                
-				},
-				EndPointCity:{              
-					required: true,                
-				},
-				PickupDate:{              
-					required: true,                
-				},
-				PickupTime:{              
-					required: true,                
-				},		
-			 },
-    });
-});
 
-            
+$(document).ready(function()
+		{
 
+	       $('#form_valid').validate({
+				rules: {
+					FullName:{              
+						required: true,                
+					},
+					ContactNumber:{              
+						required: true,                
+					},
+					StartCity:{              
+						required: true,                
+					},
+					Subject:{              
+						required: true,                
+					},
+					QueryDescription:{              
+						required: true,                
+					},	
+				 },
+		    });
+		});
+
+
+// $(document).ready(function()
+// {
+//     $('#form_valid_one').validate({
+// 			rules: {
+// 				StartPointCity:{              
+// 					required: true,                
+// 				},
+// 				EndPointCity:{              
+// 					required: true,                
+// 				},
+// 				PickupDate:{              
+// 					required: true,                
+// 				},
+// 				PickupTime:{              
+// 					required: true,                
+// 				},		
+// 			 },
+//     });
+// });
 </script>

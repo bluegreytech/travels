@@ -86,43 +86,23 @@ class User_model extends CI_Model
 			
 	}
 
-	function getuser(){
+	function userlist(){
 		$this->db->select('*');
 		$this->db->from('tbluser');
-		$this->db->where('Is_deleted','0');
-		$this->db->order_by('UsersId','desc');
-		$query=$this->db->get();
-		$res = $query->result();
-		return $res;
-	}
-	function getbdayuser(){
-		//today b
-		// $query=$this->db->query("SELECT *, 
-		// 	IF(DAY(DateofBirth)=DAY(NOW()) AND MONTH(DateofBirth)=MONTH(NOW()), 'Today',
-		// 	IF(DAY(DateofBirth) =DAY(ADDDATE(NOW(),-1)) AND MONTH(DateofBirth)=MONTH(ADDDATE(NOW(),-1)), 'Yesterday', 
-		// 	IF(DAY(DateofBirth) =DAY(ADDDATE(NOW(),+1)) AND MONTH(DateofBirth)=MONTH(ADDDATE(NOW(),+1)), 'Tomorrow', 'Future') 
-
-		// 	) )as dob FROM tbluser");
-		//echo $this->db->last_query();die;
-
-		$today=date('m-d');
-		$this->db->select('*');
-		$this->db->from('tbluser');
-		$this->db->where('Is_deleted','0');
-		$this->db->like('DateofBirth',$today);
+		$this->db->where('IsDelete','0');
+		$this->db->order_by('UserId','desc');
 		$query=$this->db->get();
 		$res = $query->result();
 		return $res;
 	}
 	
-	function getdata($id){
+	
+	function getdata($UserId){
 		$this->db->select("*");
 		$this->db->from("tbluser");
-		$this->db->where("Is_deleted",'0');
-		$this->db->where("UsersId",$id);
+		$this->db->where("UserId",$UserId);
 		$query=$this->db->get();	
 		return $query->row_array();
-	
 	}
 
 	function user_update(){
@@ -214,72 +194,19 @@ class User_model extends CI_Model
 		$this->db->update('tbluser',$data);		
 		
 	}
-	function get_userefer(){
-		$this->db->select('*');
-		$this->db->from('tblrefer ru');
-		$this->db->join('tbluser us','ru.user_id=us.UsersId','left');
-		$this->db->where('ru.Is_deleted','0');
-		$this->db->order_by('refer_id','desc');
-		$query=$this->db->get();
-		//echo $this->db->last_query();die;
-		$res = $query->result();
-		return $res;
-	}
-	function getuserhistorydata($user_id){
-		$this->db->select('*');
-		$this->db->from('tbluser_redeempoints ru');
-		$this->db->join('tblrefer rf','ru.refer_id=rf.refer_id','left');
-		//$this->db->where('ru.Is_deleted','0');
-		$this->db->where('ru.user_id',$user_id);
-		$this->db->order_by('userredeem_id','desc');
-
-		$query=$this->db->get();
-		//echo $this->db->last_query();die;
-		$res = $query->result();
-		return $res;
-	}
-
 	
-		
-	function getreferdata($id){
-		$this->db->select('*');
-		$this->db->from('tblrefer ru');
-		$this->db->join('tbluser us','ru.user_id=us.UsersId','left');
-		$this->db->where('ru.Is_deleted','0');
-		$this->db->where("ru.refer_id",$id);
+	
+
+	function get_cabhistory($ContactNumber){
+		$this->db->select("*");
+		$this->db->from("tbluser");
+		$this->db->where("ContactNumber",$ContactNumber);
 		$query=$this->db->get();
-		//echo $this->db->last_query();die;
-		return $query->row_array();
+		$res = $query->result();
+		return $res;
 	}
-	function userrefer_update(){
-		$id=$this->input->post('refer_id');
-		$user_id=$this->input->post('UsersId');
-		$userdata=get_one_record('tbluser','UsersId',$user_id);
-      	//echo "<pre>";print_r($userdata->FullName);die;
-
-        $data1=array(	
-			'redeem_point'=>$this->input->post('closing_points'),
-			'redeem_type'=>"closed",
-			'comment'=>$this->input->post('comments'),
-			'user_id'=>$user_id,
-			'refer_id'=>$id
-		);		
-		$this->db->insert('tbluser_redeempoints',$data1);
-
-		$userdata=array(	
-			'closing_point'=>$this->input->post('closing_points'),
-		);
-		$this->db->where("UsersId",$user_id);
-		$this->db->update('tbluser',$userdata);
-
-		$data=array(
-			'comments'=>$this->input->post('comments'),
-			'status'=>$this->input->post('status'),
-		);
-		//echo "<pre>";print_r($data);die;	
-		$this->db->where("refer_id",$id);
-		$this->db->update('tblrefer',$data);		
-	}
+		
+	
 	
 
 }

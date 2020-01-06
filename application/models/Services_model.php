@@ -73,6 +73,21 @@ class Services_model extends CI_Model
       
   }
 
+  function add_luxuryquotes()
+  {
+      $data = array(
+        'FullName'=>trim($this->input->post('FullName')),
+        'ContactNumber'=>trim($this->input->post('ContactNumber')),
+        'StartCity'=>trim($this->input->post('StartCity')),
+        'Subject'=>trim($this->input->post('Subject')),
+        'QueryDescription'=>trim($this->input->post('QueryDescription')),
+        'CreatedOn'=>date('Y-m-d')    
+      );
+        //echo "<pre>";print_r($data);die; 
+        $res=$this->db->insert('tblluxuryquotes',$data); 
+        return $res;
+  }
+
 
 
 }

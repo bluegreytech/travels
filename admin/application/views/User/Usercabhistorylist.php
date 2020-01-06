@@ -24,7 +24,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="card-header">
                 <h4 class="card-title">List of User
                 <a class="heading-elements-toggle"><i class="icon-ellipsis font-medium-3"></i></a>
-               <!--  <a href="<?php //echo base_url();?>User/Useradd/" class="btn btn-black" style="float:right">Add User</a> -->
+                <a href="<?php echo base_url();?>user/Userlist" class="btn btn-black" style="float:right">Back To User List</a>
                 </h4>
             </div>
             <div class="card-body collapse in">
@@ -37,14 +37,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <th>Email Address</th>
                                 <th>Contact Number</th>
 								<th>Status</th>
-                                <th>Action</th>
+                                
                             </tr>
                         </thead>
 						<tbody>
                             <?php
                                 $i=1;
-                                if($result){                             
-                                foreach($result as $row)
+                                if($cabhistory){                             
+                                foreach($cabhistory as $row)
                                 {          
                             ?>
                             <tr>
@@ -65,13 +65,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             } 
                                         ?>
                                     </td>
-                                    <td>
-                                        <?php echo anchor('user/Edituser/'.$row->UserId,'<i class="ficon icon-pencil2" data-toggle="tooltip" title="Edit User"></i> '); ?>
-                                        <a href="javascript:void(0)"  onclick="deletedata('<?php echo $row->UserId; ?>')" ><i class="ficon icon-bin" data-toggle="tooltip" title="Delete User"></i></a>
-                                        
-                                      <?php echo anchor('user/Cabhistory/'.$row->ContactNumber,'<i class="ficon icon-history" data-toggle="tooltip" title="User Cab History"></i> '); ?>
-                                        
-                                    </td>  
+                                   
                                 </tr>      
                                 <?php
                                 $i++;

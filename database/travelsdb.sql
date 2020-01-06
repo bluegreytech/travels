@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 01, 2020 at 11:10 AM
+-- Generation Time: Jan 06, 2020 at 07:45 AM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.8
 
@@ -52,7 +52,7 @@ CREATE TABLE `tblaboutus` (
 --
 
 INSERT INTO `tblaboutus` (`AboutusId`, `AboutTitle`, `AboutDescription`, `SecondTitle`, `SecondDescription`, `ThirdTitle`, `ThirdDescription`, `FourthTitle`, `FourthDescription`, `AboutImage`, `IsActive`, `IsDelete`, `CreatedBy`, `CreatedOn`, `UpdatedBy`, `UpdatedOn`) VALUES
-(1, 'Who We Are', '<p>AAAA YD Cabs by Yashdeep Travels is a travelling solutions providing networking company where we provide cab services to the customers and help them reach their destination in time with comfort that you aspire for, along with the affordable pricing forte.</p>\r\n\r\n<p>With the increased amount of rush going around, often people fall prey to weak transport facility which leads to delayed commitments ultimately inviting huge trip costs and unsatisfactory trip experience.</p>\r\n\r\n<p>However,even when the people are getting a cab facility, they are charged with unacceptably high rates and. Yashdeep Travels is a place where you find easily accessible car rides at the most affordable price and the modernized technology of the top ended vehicles offering Airbags, AC/Heater, Stereo Systems, makes the entire process easier for the customers. Our efficient team has toiled around the clock to make it a customer-oriented service, where we as well encourage feedback from our customers. Our customer&rsquo;s safety is one of the core values we maintain.</p>', 'Our Mission', '<p>It is our continuous endeavour to incorporate more and more unique services that will fulfil every trajectory of the customer&rsquo;s necessities. We are not only providing car services but also offer traveling solutions at the most affordable price.</p>', 'Our Vision', '<p>We strive each day to expand our company and make it accessible to a larger population. We target to capture the entire Gujarat market and also aspire to spread it over domestic borders.</p>', 'What Do We Offer?', '<p>With the increased amount of rush going around, often people fall prey to weak transport facility which leads to delayed meetings and hypertension. However,even when the people are getting a cab facility, they are charged with unacceptably high rates.</p>\r\n\r\n<p>Yashdeep Travels is a place where you find easily accessible car rides at the most affordable price equipped with modernized technology making the entire experience seamless for its clients.</p>\r\n\r\n<p>Our efficient team has toiled around the clock to makeit a customer-oriented service, where we encourage feedback from our clients. Our client&rsquo;s safety is one of the core values we maintain.Yashdeep Travel&rsquo;s mission entirely works on the convenience of the clients.</p>', '93162About.jpeg', 'Active', '0', 1, '2019-12-26 05:00:00', 1, '2019-11-20 10:58:26');
+(1, 'Who We Are', '<p>AAAA YD Cabs by Yashdeep Travels is a travelling solutions providing networking company where we provide cab services to the customers and help them reach their destination in time with comfort that you aspire for, along with the affordable pricing forte.</p>\r\n\r\n<p>With the increased amount of rush going around, often people fall prey to weak transport facility which leads to delayed commitments ultimately inviting huge trip costs and unsatisfactory trip experience.</p>\r\n\r\n<p>However,even when the people are getting a cab facility, they are charged with unacceptably high rates and. Yashdeep Travels is a place where you find easily accessible car rides at the most affordable price and the modernized technology of the top ended vehicles offering Airbags, AC/Heater, Stereo Systems, makes the entire process easier for the customers. Our efficient team has toiled around the clock to make it a customer-oriented service, where we as well encourage feedback from our customers. Our customer&rsquo;s safety is one of the core values we maintain.</p>', 'Our Mission', '<p>It is our continuous endeavour to incorporate more and more unique services that will fulfil every trajectory of the customer&rsquo;s necessities. We are not only providing car services but also offer traveling solutions at the most affordable price.</p>', 'Our Vision', '<p>We strive each day to expand our company and make it accessible to a larger population. We target to capture the entire Gujarat market and also aspire to spread it over domestic borders.</p>', 'What Do We Offer?', '<p>With the increased amount of rush going around, often people fall prey to weak transport facility which leads to delayed meetings and hypertension. However,even when the people are getting a cab facility, they are charged with unacceptably high rates.</p>\r\n\r\n<p>Yashdeep Travels is a place where you find easily accessible car rides at the most affordable price equipped with modernized technology making the entire experience seamless for its clients.</p>\r\n\r\n<p>Our efficient team has toiled around the clock to makeit a customer-oriented service, where we encourage feedback from our clients. Our client&rsquo;s safety is one of the core values we maintain.Yashdeep Travel&rsquo;s mission entirely works on the convenience of the clients.</p>', '52317About.jpeg', 'Active', '0', 1, '2020-01-06 05:00:00', 1, '2019-11-20 10:58:26');
 
 -- --------------------------------------------------------
 
@@ -112,8 +112,7 @@ CREATE TABLE `tblcarbrand` (
 
 INSERT INTO `tblcarbrand` (`CarBrandId`, `BrandName`, `PerKmRate`, `ExtraKMS`, `DriverAllowancePerDay`, `StateTax`, `TotalSeat`, `TotalBaggage`, `BrandCarDescription`, `BrandCarImage`, `IsActive`, `IsDelete`, `CreatedOn`, `UpdatedOn`) VALUES
 (1, 'Sedan', 10, 0, '400', 0, 3, 2, '<p>We offer affordable air conditioner sedan cab to the customers which guarantees comfort, space, and a great experience. If you are planning to travel for a vacation with your family and friends without any fibre of doubt go for the new AC Sedan cab. Because when it comes to traveling with your near and dear ones you want no compromise.</p>', '22416Car.png', 'Active', '0', '2019-12-26 05:00:00', '2020-01-01 05:00:00'),
-(2, 'SUV', 13, 0, '300', 2000, 6, 2, '<p>We offer affordable air conditioner sedan cab to the customers which guarantees comfort, space, and a great experience. If you are planning to travel for a vacation with your family and friends without any fibre of doubt go for the new AC Sedan cab. Because when it comes to traveling with your near and dear ones you want no compromise.</p>', '20307Car.png', 'Active', '0', '2019-12-26 05:00:00', '2020-01-01 05:00:00'),
-(3, 'Luxury Segmentation', 20, 0, '300', 0, 3, 2, '<p>We offer affordable air conditioner sedan cab to the customers which guarantees comfort, space, and a great experience. If you are planning to travel for a vacation with your family and friends without any fibre of doubt go for the new AC Sedan cab. Because when it comes to traveling with your near and dear ones you want no compromise.</p>', '86315Car.png', 'Active', '0', '2019-12-26 05:00:00', '2020-01-01 05:00:00');
+(2, 'SUV', 13, 0, '300', 2000, 6, 2, '<p>We offer affordable air conditioner sedan cab to the customers which guarantees comfort, space, and a great experience. If you are planning to travel for a vacation with your family and friends without any fibre of doubt go for the new AC Sedan cab. Because when it comes to traveling with your near and dear ones you want no compromise.</p>', '20307Car.png', 'Active', '0', '2019-12-26 05:00:00', '2020-01-01 05:00:00');
 
 -- --------------------------------------------------------
 
@@ -148,10 +147,10 @@ CREATE TABLE `tblcartype` (
 INSERT INTO `tblcartype` (`CarId`, `CarBrandId`, `CarName`, `CarRate`, `DriveAllowance`, `ExtraKMS`, `NumberOfSeat`, `NoOfBaggage`, `StateTax`, `AirCondition`, `CarNumber`, `CarImage`, `CarDescription`, `IsActive`, `IsDelete`, `CreatedOn`, `UpdatedOn`) VALUES
 (1, 1, 'Honda Amaze', '1060', '0.00', '0.00', 3, 2, 'Included', 'AC', 'GJ23DF2411', '', '<p>Available Cabs : Indica Vista , Suzuki Swift , Hyundai Eon , Toyota Liva , Duston Go , Hyundai I10.</p>\r\n', 'Active', '0', '2019-12-18 05:00:00', '2019-12-27 05:00:00'),
 (2, 2, 'Mahindra Marazzo', '1070', '0.00', '0.00', 6, 4, 'Included', 'AC', 'GJ23DF2411', '', '<p>Available Cabs : Tata Indigo , Swift Dzire , Toyota Etios , Hyundai Xcent , Honda Amaze , Ford Figo.</p>\r\n', 'Active', '0', '2019-12-18 05:00:00', '2019-12-27 05:00:00'),
-(3, 3, 'BMW', '1999', '0.00', '0.00', 6, 4, 'Included', 'AC', 'GJ23DF2411', '', '<p>Available Cabs : Mahindra Xylo , Renault Lodgy , Nissan Evalia , Maruti Ertiga , Innova , XUV 500 , Tata Aria.</p>\r\n', 'Active', '0', '2019-12-18 05:00:00', '2019-12-27 05:00:00'),
+(3, 1, 'Verna', '1999', '0.00', '0.00', 6, 4, 'Included', 'AC', 'GJ23DF2411', '', '<p>Available Cabs : Mahindra Xylo , Renault Lodgy , Nissan Evalia , Maruti Ertiga , Innova , XUV 500 , Tata Aria.</p>\r\n', 'Active', '0', '2019-12-18 05:00:00', '2019-12-27 05:00:00'),
 (4, 1, 'Maruti Suzuki Dzire', '2020', '0.00', '0.00', 3, 3, 'Included', 'AC', 'GJ23DF2411', '', '<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using</p>\r\n', 'Active', '0', '2019-12-26 05:00:00', '2019-12-27 05:00:00'),
 (5, 2, 'Toyota Innova', '2020', '0.00', '0.00', 6, 4, 'Included', 'AC', 'GJ23DF2411', '', '<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using</p>\r\n', 'Active', '0', '2019-12-26 05:00:00', '2019-12-27 05:00:00'),
-(6, 3, 'Audi', '3000', '0.00', '0.00', 3, 2, '10', 'AC', 'GJ23DF2411', '', '<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using</p>\r\n', 'Active', '0', '2019-12-26 05:00:00', '2019-12-31 05:00:00');
+(6, 2, 'Innova', '3000', '0.00', '0.00', 3, 2, '10', 'AC', 'GJ23DF2411', '', '<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using</p>\r\n', 'Active', '0', '2019-12-26 05:00:00', '2019-12-31 05:00:00');
 
 -- --------------------------------------------------------
 
@@ -178,7 +177,7 @@ CREATE TABLE `tblcity` (
 --
 
 INSERT INTO `tblcity` (`CityId`, `CountryId`, `StateId`, `CarBrandId`, `StartCity`, `EndCity`, `LocalCity`, `IsActive`, `IsDelete`, `CreatedOn`, `UpdatedOn`) VALUES
-(1, NULL, NULL, 1, 'Anand', 'Vadodra', 'Inactive', 'Active', '0', '2019-12-31 05:00:00', '2020-01-01 05:00:00'),
+(1, NULL, NULL, 1, 'Anand', 'Vadodra', 'Active', 'Active', '0', '2019-12-31 05:00:00', '2020-01-01 05:00:00'),
 (2, NULL, NULL, 2, 'Anand', 'Ahemdabad', 'Active', 'Active', '0', '2019-12-31 05:00:00', '2020-01-01 05:00:00'),
 (3, NULL, NULL, 3, 'Anand', 'Valsad', 'Active', 'Active', '0', '2019-12-31 05:00:00', '2020-01-01 05:00:00'),
 (4, NULL, NULL, 1, 'Valsad', 'Anand', 'Active', 'Active', '0', '2019-12-31 05:00:00', '2019-12-31 05:00:00'),
@@ -453,6 +452,58 @@ CREATE TABLE `tblemail_template` (
 INSERT INTO `tblemail_template` (`email_template_id`, `task`, `from_address`, `reply_address`, `subject`, `message`) VALUES
 (1, 'User registration', 'bluegreyindia@gmail.com', 'bluegreyindia@gmail.com', 'User registration', '\r\n   <html>\r\n    <head>\r\n        <title>Welcome to {site_name}</title>\r\n       \r\n    </head>\r\n    <body>\r\n         <table cellspacing=\"0\" style=\"border: 2px; width: 500px; height: 70px;\">\r\n            <tr>\r\n                <td style=\"background: #49ab48;\"><img src=\"{image_url}/images/logo-wide.png\" alt=\"Chem Sam Logo\"></td>\r\n              \r\n            </tr>\r\n           \r\n        </table>\r\n      \r\n        <table cellspacing=\"0\" style=\"border: 2px; width: 500px; height: 400px;\">\r\n            <tr>\r\n                <td>Hello {username},</td>\r\n                \r\n            </tr>\r\n            <tr >\r\n               <td><p>Thanks you for joining with us!</p></td>\r\n            </tr>\r\n            <tr>\r\n               <td><p>Regard</p>\r\n               <p>Chem Sam Team,</p></td>\r\n            </tr>\r\n        </table>\r\n        <table cellspacing=\"0\" style=\"border: 2px; width: 500px; height: 50px;\">\r\n            <tr>\r\n                <td style=\"background: #000;\"><p style=\"color: #fff; text-align: center;\">Copyright © {year} Chemshem Virtual Classes. All Rights Reserved</p></td>\r\n              \r\n            </tr>\r\n           \r\n        </table>\r\n        \r\n    </body>\r\n</html>'),
 (2, 'Forgot Password by admin', 'bluegreyindia@gmail.com', 'bluegreyindia@gmail.com', 'Forgot Password by admin', '\r\n<!DOCTYPE html>\r\n   <html>\r\n    <head>\r\n          <meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" />\r\n        <title>Welcome to {site_name}</title>\r\n       \r\n    </head>\r\n    <body>\r\n         <table cellspacing=\"0\" style=\"border: 2px; width: 500px; height: 70px;\">\r\n            <tr>\r\n                <td style=\"background: #eee; border-bottom: 1px solid #f88120;\"><img src=\"http://nyalkaran.bluegreytech.co.in/admin/default/images/logo/logo.png\" alt=\"Nyalkaran Group Logo\" style=\"width: 121px;\"></td>\r\n              \r\n            </tr>\r\n           \r\n        </table>\r\n\r\n      \r\n        <table cellspacing=\"0\" style=\"border: 2px; width: 500px; height: 400px;background: #eee;\">\r\n            <tr>\r\n                <td>Hello {username},</td>\r\n            </tr>\r\n            <tr >\r\n               <td><p>We were told that you forgot your password on {username}.</p>\r\n                \r\n                <p>To reeset your password,please click this link: <a>{reset_link}</a></p>\r\n                \r\n               </td>\r\n            </tr>\r\n            <tr>\r\n               <td><p>Regard,</p>\r\n               <p>Nyalkaran Group,</p></td>\r\n            </tr>\r\n        </table>\r\n        <table cellspacing=\"0\" style=\"border: 2px; width: 500px; height: 50px;\">\r\n            <tr>\r\n                <td style=\"background: #283f82;\"><p style=\"color: #fff; text-align: center;\">Copyright © {year} Nyalkaran Group. All Rights Reserved</p></td>\r\n              \r\n            </tr>\r\n           \r\n        </table>\r\n        \r\n    </body>\r\n</html>\r\n');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tblfeedback`
+--
+
+CREATE TABLE `tblfeedback` (
+  `FeedbackId` int(11) NOT NULL,
+  `FirstName` varchar(50) NOT NULL,
+  `LastName` varchar(50) NOT NULL,
+  `ContactNumber` varchar(13) NOT NULL,
+  `FeedbackDescription` text NOT NULL,
+  `IsActive` enum('Active','Inactive') NOT NULL,
+  `IsDelete` enum('0','1') NOT NULL DEFAULT '0',
+  `CreatedOn` timestamp NOT NULL DEFAULT current_timestamp(),
+  `UpdatedOn` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tblfeedback`
+--
+
+INSERT INTO `tblfeedback` (`FeedbackId`, `FirstName`, `LastName`, `ContactNumber`, `FeedbackDescription`, `IsActive`, `IsDelete`, `CreatedOn`, `UpdatedOn`) VALUES
+(1, 'Mit', 'Patel', '8200308821', 'hhtrhftrhrh mmmmmmmmm', 'Active', '0', '2020-01-06 04:14:19', '2020-01-06 05:00:00'),
+(2, 'Mit', 'Patel', '8200308821', 'hhtrhftrhrh', 'Active', '0', '2020-01-06 04:30:46', '2020-01-06 05:00:00'),
+(3, 'Mit', 'Patel', '8200308821', 'hhtrhftrhrh mmmmmmmmmmm', 'Active', '0', '2020-01-06 04:30:53', '2020-01-06 05:00:00');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tblluxuryquotes`
+--
+
+CREATE TABLE `tblluxuryquotes` (
+  `LuxuryQuoteId` int(11) NOT NULL,
+  `FullName` varchar(100) NOT NULL,
+  `ContactNumber` varchar(13) NOT NULL,
+  `StartCity` varchar(100) NOT NULL,
+  `Subject` varchar(100) NOT NULL,
+  `QueryDescription` text NOT NULL,
+  `IsActive` enum('Active','Inactive') NOT NULL DEFAULT 'Active',
+  `IsDelete` enum('0','1') NOT NULL DEFAULT '0',
+  `CreatedOn` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tblluxuryquotes`
+--
+
+INSERT INTO `tblluxuryquotes` (`LuxuryQuoteId`, `FullName`, `ContactNumber`, `StartCity`, `Subject`, `QueryDescription`, `IsActive`, `IsDelete`, `CreatedOn`) VALUES
+(1, 'Shilpa', '9974616445', 'Vadodra', 'Luxury Segmentation', 'ascfsacfasfca erygergyey reyeryeyh', 'Active', '0', '2020-01-06 05:00:00');
 
 -- --------------------------------------------------------
 
@@ -4240,6 +4291,7 @@ CREATE TABLE `tbluser` (
   `LastName` varchar(50) DEFAULT NULL,
   `EmailAddress` varchar(50) DEFAULT NULL,
   `ContactNumber` varchar(13) DEFAULT NULL,
+  `LoginOTP` varchar(10) DEFAULT NULL,
   `CarBrandId` int(11) DEFAULT NULL,
   `BrandName` varchar(50) DEFAULT NULL,
   `PickupDate` date DEFAULT NULL,
@@ -4257,6 +4309,8 @@ CREATE TABLE `tbluser` (
   `TotalAmount` int(11) DEFAULT NULL,
   `TaxAdded` int(11) DEFAULT NULL,
   `FinalAmount` int(11) DEFAULT NULL,
+  `transaction_id` varchar(200) DEFAULT NULL,
+  `payment_status` varchar(200) DEFAULT NULL,
   `IsActive` enum('Active','Inactive') NOT NULL DEFAULT 'Active',
   `OTPNumber` varchar(10) DEFAULT NULL,
   `Status` enum('Pending','Verify') NOT NULL DEFAULT 'Pending',
@@ -4269,10 +4323,11 @@ CREATE TABLE `tbluser` (
 -- Dumping data for table `tbluser`
 --
 
-INSERT INTO `tbluser` (`UserId`, `FirstName`, `LastName`, `EmailAddress`, `ContactNumber`, `CarBrandId`, `BrandName`, `PickupDate`, `DropofDate`, `PickupTime`, `DropofTime`, `StartCity`, `EndCity`, `PerKmRate`, `KMS`, `TotalFareAmount`, `ExtraKMS`, `StateTax`, `Tax`, `TotalAmount`, `TaxAdded`, `FinalAmount`, `IsActive`, `OTPNumber`, `Status`, `IsDelete`, `CreatedOn`, `UpdatedOn`) VALUES
-(1, 'Mit', 'Patel', 'mitnp16@gmail.com', '8200308821', NULL, 'SUV', '2020-01-01', '2020-02-01', '3:37 am', NULL, 'Ahemdabad', 'Anand', 13, 400, 5200, 0, 2000, NULL, 7200, 1080, 8280, 'Active', '', 'Verify', '0', '2020-01-01 05:00:00', '2020-01-01 05:00:00'),
-(2, 'Binny', 'Rai', 'bluetech@gmail.com', '9409521666', NULL, 'Sedan', '2020-01-01', '2020-01-01', '3:40 am', NULL, 'Ahemdabad', 'Anand', 10, 200, 2000, 0, 0, NULL, 2000, 300, 2300, 'Active', '', 'Verify', '0', '2020-01-01 05:00:00', '2020-01-01 05:00:00'),
-(4, 'Himani', 'Shah', 'yyy@gmail.com', '8888888888', NULL, 'Luxury Segmentation', '2020-03-01', '2020-03-01', '1:00 am', '2:00 am', 'Anand', '', 20, 0, 0, 0, 0, NULL, 0, 0, NULL, 'Active', '', 'Verify', '0', '2020-01-01 05:00:00', '2020-01-01 05:00:00');
+INSERT INTO `tbluser` (`UserId`, `FirstName`, `LastName`, `EmailAddress`, `ContactNumber`, `LoginOTP`, `CarBrandId`, `BrandName`, `PickupDate`, `DropofDate`, `PickupTime`, `DropofTime`, `StartCity`, `EndCity`, `PerKmRate`, `KMS`, `TotalFareAmount`, `ExtraKMS`, `StateTax`, `Tax`, `TotalAmount`, `TaxAdded`, `FinalAmount`, `transaction_id`, `payment_status`, `IsActive`, `OTPNumber`, `Status`, `IsDelete`, `CreatedOn`, `UpdatedOn`) VALUES
+(1, 'Mit', 'Patel', 'bluegreyindia@gmail.com', '8200308821', '', 0, 'SUV', '2020-01-02', '2020-01-02', '6:37 am', '', 'Ahemdabad', '', 13, 200, 2600, 0, 2000, NULL, 4600, 690, 5290, 'pay_DzarIS2oeBo46t', 'Success', 'Active', '', 'Verify', '0', '2020-01-02 05:00:00', '2020-01-06 05:00:00'),
+(2, 'Mit', 'Patel', 'mitnp16@gmail.com', '9409521666', '', 0, 'SUV', '2020-01-02', '2020-01-02', '6:40 am', '', 'Ahemdabad', '', 13, 200, 2600, 0, 2000, NULL, 4600, 690, 5290, 'pay_Dzauouxah24tSl', 'Success', 'Active', '', 'Verify', '0', '2020-01-02 05:00:00', '2020-01-03 05:00:00'),
+(3, 'Nash', 'Bhagat', 'rsharma@getaguru.net', '9974616445', '', 0, 'Sedan', '2020-01-02', '2020-01-02', '6:42 am', '', 'Ahemdabad', '', 10, 200, 2000, 0, 0, NULL, 2000, 300, 2300, 'pay_DzawD102BtbUZK', 'Success', 'Active', '', 'Verify', '0', '2020-01-02 05:00:00', '2020-01-02 05:00:00'),
+(6, 'Super', 'Admin', 'rsharma@getaguru.net', '8200308821', '', 2, 'SUV', '2020-01-03', '2020-01-03', '1:15 am', '', 'Ahemdabad', 'Anand', 13, 200, 2600, 0, 2000, NULL, 4600, 690, 5290, NULL, 'Pending', 'Active', '', 'Verify', '0', '2020-01-03 05:00:00', '2020-01-06 05:00:00');
 
 --
 -- Indexes for dumped tables
@@ -4331,6 +4386,18 @@ ALTER TABLE `tblemail_setting`
 --
 ALTER TABLE `tblemail_template`
   ADD PRIMARY KEY (`email_template_id`);
+
+--
+-- Indexes for table `tblfeedback`
+--
+ALTER TABLE `tblfeedback`
+  ADD PRIMARY KEY (`FeedbackId`);
+
+--
+-- Indexes for table `tblluxuryquotes`
+--
+ALTER TABLE `tblluxuryquotes`
+  ADD PRIMARY KEY (`LuxuryQuoteId`);
 
 --
 -- Indexes for table `tblsitesetting`
@@ -4422,6 +4489,18 @@ ALTER TABLE `tblemail_template`
   MODIFY `email_template_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
+-- AUTO_INCREMENT for table `tblfeedback`
+--
+ALTER TABLE `tblfeedback`
+  MODIFY `FeedbackId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `tblluxuryquotes`
+--
+ALTER TABLE `tblluxuryquotes`
+  MODIFY `LuxuryQuoteId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `tblsitesetting`
 --
 ALTER TABLE `tblsitesetting`
@@ -4449,7 +4528,7 @@ ALTER TABLE `tbltestimonial`
 -- AUTO_INCREMENT for table `tbluser`
 --
 ALTER TABLE `tbluser`
-  MODIFY `UserId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `UserId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

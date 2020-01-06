@@ -23,17 +23,10 @@ class Services extends CI_Controller
 		$data['PickupTime']=$this->input->post('PickupTime');
 		$data['DropofTime']=$this->input->post('DropofTime');
 		
-		//$data['CarBrandId']=$this->input->post('CarBrandId');
-		//$data['BrandName']=$this->input->post('BrandName');
+	
 		if($_POST)
 		{	
-			//print_r($_POST);die;
-			// $StartCity=$this->input->post('StartCity');
-			//  	$EndCity=$this->input->post('EndCity');
-			//  	$PickupDate=$this->input->post('PickupDate');
-			//  	$PickupTime=$this->input->post('PickupTime');
-			//  	$DropofDate=$this->input->post('DropofDate');
-			//  	$PickupTime=$this->input->post('PickupTime');
+			$PickupTime=$this->input->post('PickupTime');
 
 			$session= array(
 				'StartCity'=> $data['StartCity'],
@@ -108,6 +101,17 @@ class Services extends CI_Controller
 		$data['about']=$this->About_model->getabout(); 	
 		$data['result']=$this->Contact_model->getsitedetail(); 
 		$this->load->view('services/services',$data);			
+	}
+
+
+	public function addquotes()
+	{   	
+		if($_POST)
+		{
+			$this->Services_model->add_luxuryquotes();
+			$this->session->set_flashdata('success', 'Your quotes has been submitted Succesfully!');
+			redirect('home');
+		}		
 	}
 
 	

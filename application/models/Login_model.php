@@ -189,6 +189,7 @@ class Login_model extends CI_Model
         'DropofTime'=>trim($this->input->post('DropofTime')), 
         'StartCity'=>trim($this->input->post('StartCity')), 
         'EndCity'=>trim($this->input->post('EndCity')), 
+        'PerHoureFare'=>trim($this->input->post('PerHoureFare')), 
         'PerKmRate'=>trim($this->input->post('PerKmRate')),
         'KMS'=>trim($this->input->post('KMS')), 
         'TotalFareAmount'=>trim($this->input->post('TotalFareAmount')),  

@@ -24,51 +24,56 @@ class User extends CI_Controller {
 	}
 
 	public function Useradd()
-	{      
+	{   
+		// print_r($_POST);die;
 		if(!check_admin_authentication()){ 
 			redirect(base_url());
 		}   
 			$data=array();
 			$data['activeTab']="Useradd";	
 			$this->load->library("form_validation");
-			$this->form_validation->set_rules('FullName', 'Full Name', 'required');
-			$this->form_validation->set_rules('UserContact', 'Mobileno', 'required');
+			$this->form_validation->set_rules('FirstName', 'Full Name', 'required');
+			$this->form_validation->set_rules('ContactNumber', 'Mobileno', 'required');
 		
-		if($this->form_validation->run() == FALSE){			
-			if(validation_errors())
-			{
-				$data["error"] = validation_errors();
-				//echo "<pre>";print_r($data["error"]);die;
-			}else{
-				$data["error"] = "";
-			}
-           	$data['redirect_page']="userlist";
-			$data['UserId']=$this->input->post('UserId');
-			$data['FirstName']=$this->input->post('FirstName');
-			$data['LastName']=$this->input->post('LastName');	
-			$data['EmailAddress']=$this->input->post('EmailAddress');
-			$data['ContactNumber']=$this->input->post('ContactNumber');
-			$data['IsActive']=$this->input->post('IsActive');	
+			if($this->form_validation->run() == FALSE)
+			{	
+				//echo "gygu";die;
+				if(validation_errors())
+				{
+					$data["error"] = validation_errors();
+					//echo "<pre>";print_r($data["error"]);die;
+				}else{
+					$data["error"] = "";
+				}
+	           //	$data['redirect_page']="userlist";
+				$data['UserId']=$this->input->post('UserId');
+				$data['FirstName']=$this->input->post('FirstName');
+				$data['LastName']=$this->input->post('LastName');	
+				$data['EmailAddress']=$this->input->post('EmailAddress');
+				$data['ContactNumber']=$this->input->post('ContactNumber');
+				$data['IsActive']=$this->input->post('IsActive');
+				$data['payment_status']=$this->input->post('payment_status');	
 			}
 			else
 			{
-				if($this->input->post("UserId")!="")
-				{	
-					$this->User_model->user_update();
-					$this->session->set_flashdata('success', 'Record has been Updated Succesfully!');
-					redirect('User/Userlist');
+					//echo "sdgddg";   die;
+					if($this->input->post("UserId")!="")
+					{	
+						$this->User_model->user_update();
+						$this->session->set_flashdata('success', 'Record has been Updated Succesfully!');
+						redirect('User/Userlist');
+						
+					}
+					else
+					{ 
+						$this->User_model->user_insert();
+						$this->session->set_flashdata('success', 'Record has been Inserted Succesfully!');
+						redirect('User/Userlist');
 					
-				}
-				else
-				{ 
-					$this->User_model->user_insert();
-					$this->session->set_flashdata('success', 'Record has been Inserted Succesfully!');
-					redirect('User/Userlist');
-				
-				}
+					}
 				
 			}
-			$this->load->view('User/UserAdd',$data);	
+			     $this->load->view('User/UserAdd',$data);	
 	}
 	
 	function Edituser($UserId){
@@ -77,13 +82,15 @@ class User extends CI_Controller {
 		}else{
 			$data=array();
 			$data['activeTab']="AddUser";	
-			$result=$this->User_model->getdata($UserId);	
+			$result=$this->User_model->getdata($UserId);
+			//print_r($result);die;	
 			$data['UserId']=$result['UserId'];
 			$data['FirstName']=$result['FirstName'];
 			$data['LastName']=$result['LastName'];	
 			$data['EmailAddress']=$result['EmailAddress'];	
 			$data['ContactNumber']=$result['ContactNumber'];	
-			$data['IsActive']=$result['IsActive'];	
+			$data['IsActive']=$result['IsActive'];
+			$data['payment_status']=$result['payment_status'];	
 			$data['redirect_page']="userlist";		
 			$this->load->view('User/UserAdd',$data);	
 		}

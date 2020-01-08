@@ -138,17 +138,32 @@ class Login_model extends CI_Model
         return $res;         
   }
 
+  // function getuser()
+  // {
+  //   $ContactNumber=$this->input->post('ContactNumber');
+  //   $where=array("ContactNumber"=>$ContactNumber,"OTPNumber!="=>'');
+  //   $this->db->select("*");
+  //   $this->db->from("tbluser");
+  //   $this->db->where("ContactNumber",$ContactNumber);
+  //   $query=$this->db->get();
+  //   return $query->row_array();
+  // }
+
+
   function getuser()
   {
+    
     $ContactNumber=$this->input->post('ContactNumber');
-    $where=array("ContactNumber"=>$ContactNumber,"OTPNumber!="=>'');
+    $where=array("ContactNumber"=>$ContactNumber,"OTPNumber!="=>'',"Status"=>'Pending');
     $this->db->select("*");
     $this->db->from("tbluser");
-    $this->db->where("ContactNumber",$ContactNumber);
+    //$this->db->where("ContactNumber",$ContactNumber);
+    $this->db->where($where);
     $query=$this->db->get();
+    // echo $this->db->last_query();
+    // die;
     return $query->row_array();
   }
-
 
   function user_book_car()
   {
@@ -190,6 +205,7 @@ class Login_model extends CI_Model
       );
         //echo "<pre>";print_r($data);die; 
         $this->db->where("ContactNumber",$ContactNumber);
+        $this->db->where("Status",'Pending');
         $res=$this->db->update('tbluser',$data); 
         return $res;
 

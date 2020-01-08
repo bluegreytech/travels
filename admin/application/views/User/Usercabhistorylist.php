@@ -36,7 +36,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <th>Name</th>
                                 <th>Email Address</th>
                                 <th>Contact Number</th>
-								<th>Status</th>
+								<th>Payment Status</th>
                                 <th class="text-center">Action</th>
                             </tr>
                         </thead>
@@ -55,18 +55,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <td><?php echo $row->ContactNumber; ?></td>
                              
                                 <td>
-                                    <?php if($row->IsActive=="Active")
+                                    <?php if($row->payment_status=="Success")
                                         {
-                                            echo "<span class='label label-success'>Active</span>";
+                                            echo "<span class='label label-success'>Success</span>";
                                         } 
                                         else
                                         {
-                                            echo "<span class='label label-danger'>Inactive</span>";
+                                            echo "<span class='label label-danger'>Pending</span>";
                                         } 
                                     ?>
                                 </td>
                                 <td class="text-center">
-                                   <!--  <a href="" data-id="<?php $row->UserId; ?>" data-toggle="modal" data-target="#myModal"><i class="ficon icon-eye" data-toggle="tooltip" title="View Details"></i></a> -->
+                                    <?php echo anchor('user/Edituser/'.$row->UserId,'<i class="ficon icon-pencil2" data-toggle="tooltip" title="Edit User"></i> '); ?>
                                     <a href="" data-id="<?=$row->UserId; ?>" data-toggle="modal" data-target="#myModal2"><i class="ficon icon-eye" data-toggle="tooltip" title="View Details"></i></a>
                                 </td>  
                                 <!-- Modal -->
@@ -197,9 +197,7 @@ $(function() {
 function deletedata(UserId){  
    // alert(id);
     $('#myModal').modal('show')
-   
         $('#yes_btn').click(function(){
-           
                 url="<?php echo base_url();?>"
                 $.ajax({
                 url: url+"/user/deletedata/",
@@ -214,24 +212,11 @@ function deletedata(UserId){
                  console.log(textStatus, errorThrown);
             }
             })
-           
-
         });
-    
-   
-
 }
 </script>
 
 <script>
-
-// $('#DateofBirth2').datetimepicker({
-//                     defaultDate: new Date(),
-//                     format: 'DD/MM/YYYY',
-//                     maxDate: moment(),
-//                     ignoreReadonly: true,
-// });
-
 $(document).ready(function()
 {
     $('#myModal2').on('show.bs.modal', function (e)
@@ -245,7 +230,7 @@ $(document).ready(function()
             data: {UserId:UserId},
             success:function(response){
                 var response = JSON.parse(response);
-                //console.log(response.FirstName);
+                console.log(response.PickupDate);
 
                 $('#UserId').val(response.UserId);
                 $('#FirstName').val(response.FirstName+' '+response.LastName);
@@ -287,6 +272,7 @@ function myDateFormatter(dobdate)
     var day = d.getDate();
     var month = d.getMonth() + 1;
     var year = d.getFullYear();
+    alert(day);
     if (day < 10) {
         day = "0" + day ;
     }

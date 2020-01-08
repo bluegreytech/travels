@@ -180,3 +180,25 @@ ERROR - 2020-01-08 07:56:17 --> Severity: Notice --> Undefined index: EndCity C:
 ERROR - 2020-01-08 07:56:17 --> Severity: Notice --> Undefined index: StartCity C:\xampp\htdocs\travels\application\views\home\index.php 183
 ERROR - 2020-01-08 07:56:17 --> Severity: Notice --> Undefined index: EndCity C:\xampp\htdocs\travels\application\views\home\index.php 219
 ERROR - 2020-01-08 07:56:17 --> 404 Page Not Found: Assets/images
+ERROR - 2020-01-08 07:57:21 --> Severity: Notice --> Undefined index: StartCity C:\xampp\htdocs\travels\application\views\home\index.php 83
+ERROR - 2020-01-08 07:57:21 --> Severity: Notice --> Undefined index: EndCity C:\xampp\htdocs\travels\application\views\home\index.php 120
+ERROR - 2020-01-08 07:57:21 --> Severity: Notice --> Undefined index: StartCity C:\xampp\htdocs\travels\application\views\home\index.php 183
+ERROR - 2020-01-08 07:57:21 --> Severity: Notice --> Undefined index: EndCity C:\xampp\htdocs\travels\application\views\home\index.php 219
+ERROR - 2020-01-08 07:57:21 --> 404 Page Not Found: Assets/images
+ERROR - 2020-01-08 08:34:30 --> Severity: Notice --> Undefined index: StartCity C:\xampp\htdocs\travels\application\views\home\index.php 83
+ERROR - 2020-01-08 08:34:30 --> Severity: Notice --> Undefined index: EndCity C:\xampp\htdocs\travels\application\views\home\index.php 120
+ERROR - 2020-01-08 08:34:30 --> Severity: Notice --> Undefined index: StartCity C:\xampp\htdocs\travels\application\views\home\index.php 183
+ERROR - 2020-01-08 08:34:30 --> Severity: Notice --> Undefined index: EndCity C:\xampp\htdocs\travels\application\views\home\index.php 219
+ERROR - 2020-01-08 08:34:30 --> 404 Page Not Found: Assets/images
+ERROR - 2020-01-08 08:34:31 --> Severity: Notice --> Undefined index: StartCity C:\xampp\htdocs\travels\application\views\home\index.php 83
+ERROR - 2020-01-08 08:34:31 --> Severity: Notice --> Undefined index: EndCity C:\xampp\htdocs\travels\application\views\home\index.php 120
+ERROR - 2020-01-08 08:34:31 --> Severity: Notice --> Undefined index: StartCity C:\xampp\htdocs\travels\application\views\home\index.php 183
+ERROR - 2020-01-08 08:34:31 --> Severity: Notice --> Undefined index: EndCity C:\xampp\htdocs\travels\application\views\home\index.php 219
+ERROR - 2020-01-08 08:34:32 --> 404 Page Not Found: Assets/images
+ERROR - 2020-01-08 08:36:40 --> Severity: Notice --> Undefined index: StartCity C:\xampp\htdocs\travels\application\views\home\index.php 83
+ERROR - 2020-01-08 08:36:40 --> Severity: Notice --> Undefined index: EndCity C:\xampp\htdocs\travels\application\views\home\index.php 120
+ERROR - 2020-01-08 08:36:40 --> Severity: Notice --> Undefined index: StartCity C:\xampp\htdocs\travels\application\views\home\index.php 183
+ERROR - 2020-01-08 08:36:40 --> Severity: Notice --> Undefined index: EndCity C:\xampp\htdocs\travels\application\views\home\index.php 219
+ERROR - 2020-01-08 08:36:40 --> 404 Page Not Found: Assets/images
+ERROR - 2020-01-08 08:45:17 --> Severity: error --> Exception: syntax error, unexpected 'NUL' (T_STRING), expecting ')' C:\xampp\htdocs\travels\application\models\Login_model.php 157
+ERROR - 2020-01-08 08:45:29 --> Severity: error --> Exception: syntax error, unexpected 'NULL' (T_STRING), expecting ')' C:\xampp\htdocs\travels\application\models\Login_model.php 157

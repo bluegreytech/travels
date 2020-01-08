@@ -168,7 +168,6 @@ class Home extends CI_Controller
 						'ContactNumber'=> $data['ContactNumber'],
 						'OTPNumber'=>$data['OTPNumber'],		
 					);
-					//print_r($session);die;
 					$this->session->set_userdata($session);		 
 		}
 		else if($this->input->post('OTPNumber')!=$AlreadyOTPNumber)

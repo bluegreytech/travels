@@ -4860,6 +4860,33 @@ button.close{
 .mb-1{
   margin-bottom: 14px !important;
 }
+.faredetail input {
+    border: none;
+    outline: none;
+    width: 100%;
+    white-space: normal;
+}
+.total-data-left,.total-data-right{
+  display: inline-flex;
+    width: 100%
+}
+.total-data-left span{
+  margin-top: 1px;
+  margin-left: 2px;
+}
+.total-data-left input{
+  text-align: right;
+    width: 50%;
+}
+.total-data-right span{
+  width: 50%;
+  text-align: right;
+  margin-top: 1px;
+  margin-right: 2px;
+}
+.total-data-right input{
+  width: 50%;
+}
 @media(max-width: 768px){
   .price-detail h3{
     font-weight: 600;

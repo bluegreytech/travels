@@ -21,7 +21,7 @@
             <div class="col-sm-3 col-xs-12 benefit-it">
               <div id="sidebar">
                 <div class="pro-user">
-                  <img src="http://rn53themes.net/themes/demo/education-master/images/user.jpg" alt="user">
+                  <img src="<?php echo base_url();?>assets/images/user.png" alt="user">
                 </div>
                   
                   <div class="pro-user-bio">
@@ -32,8 +32,8 @@
                           <input type="hidden" name="LastName" value="<?php echo $this->session->userdata('LastName')?>">
                           <input type="hidden" name="LastName" value="<?php echo $this->session->userdata('ContactNumber')?>">
                         </li>
-                        <li><a href="#"><i class="fa fa-envelope"></i> <?php echo $this->session->userdata('EmailAddress')?></a></li>
-                        <li><a href="#"><i class="fa fa-phone"></i> +91 <?php echo $this->session->userdata('ContactNumber')?></a></li>
+                        <li><a><i class="fa fa-envelope"></i> <?php echo $this->session->userdata('EmailAddress')?></a></li>
+                        <li><a><i class="fa fa-phone"></i> +91 <?php echo $this->session->userdata('ContactNumber')?></a></li>
                         <!-- <li><a href="#profile"><i class="fa fa-user"></i> User Profile</a></li> -->
                         <li><a href="#history"><i class="fa fa-history"></i> Booking History</a></li>
                         <li><a href="#feedback"><i class="fa fa-comments-o "></i> Feedback</a></li>
@@ -167,13 +167,13 @@
                                             <div class="col-md-6 col-xs-6 left-border">
                                                 <div class="text-center">
                                                     <div><h3>Total Distance</h3></div>
-                                                    <div>KMS<input type="text" id="KMS" readonly></div>
+                                                    <div class="total-data-left"><input type="text" id="KMS" readonly><span>KMS</span></div>
                                                 </div>
                                             </div>
                                             <div class="col-md-6 col-xs-6">
                                                  <div class="text-center">
                                                     <div><h3>Total Fare</h3></div>
-                                                    <div>Rs.<input type="text" id="FinalAmount" readonly></div>
+                                                    <div class="total-data-right"><span>Rs.</span><input type="text" id="FinalAmount" readonly></div>
                                                 </div>
                                             </div>
                                         </div>

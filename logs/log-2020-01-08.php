@@ -231,3 +231,125 @@ ERROR - 2020-01-08 10:57:34 --> 404 Page Not Found: Assets/vendors
 ERROR - 2020-01-08 10:57:48 --> 404 Page Not Found: Assets/vendors
 ERROR - 2020-01-08 10:58:05 --> 404 Page Not Found: Assets/vendors
 ERROR - 2020-01-08 10:58:08 --> 404 Page Not Found: Assets/vendors
+ERROR - 2020-01-08 11:47:04 --> Severity: Notice --> Undefined index: StartCity C:\xampp\htdocs\travels\application\views\home\index.php 83
+ERROR - 2020-01-08 11:47:04 --> Severity: Notice --> Undefined index: EndCity C:\xampp\htdocs\travels\application\views\home\index.php 120
+ERROR - 2020-01-08 11:47:04 --> Severity: Notice --> Undefined index: StartCity C:\xampp\htdocs\travels\application\views\home\index.php 183
+ERROR - 2020-01-08 11:47:04 --> Severity: Notice --> Undefined index: EndCity C:\xampp\htdocs\travels\application\views\home\index.php 219
+ERROR - 2020-01-08 11:47:04 --> 404 Page Not Found: Assets/images
+ERROR - 2020-01-08 11:48:20 --> 404 Page Not Found: Assets/vendors
+ERROR - 2020-01-08 11:48:20 --> 404 Page Not Found: Assets/js
+ERROR - 2020-01-08 11:48:20 --> 404 Page Not Found: Assets/vendors
+ERROR - 2020-01-08 11:54:32 --> Severity: Notice --> Undefined index: StartCity C:\xampp\htdocs\travels\application\views\home\index.php 83
+ERROR - 2020-01-08 11:54:32 --> Severity: Notice --> Undefined index: EndCity C:\xampp\htdocs\travels\application\views\home\index.php 120
+ERROR - 2020-01-08 11:54:32 --> Severity: Notice --> Undefined index: StartCity C:\xampp\htdocs\travels\application\views\home\index.php 183
+ERROR - 2020-01-08 11:54:32 --> Severity: Notice --> Undefined index: EndCity C:\xampp\htdocs\travels\application\views\home\index.php 219
+ERROR - 2020-01-08 11:54:32 --> 404 Page Not Found: Assets/images
+ERROR - 2020-01-08 11:54:35 --> Severity: Notice --> Undefined index: StartCity C:\xampp\htdocs\travels\application\views\home\index.php 83
+ERROR - 2020-01-08 11:54:35 --> Severity: Notice --> Undefined index: EndCity C:\xampp\htdocs\travels\application\views\home\index.php 120
+ERROR - 2020-01-08 11:54:35 --> Severity: Notice --> Undefined index: StartCity C:\xampp\htdocs\travels\application\views\home\index.php 183
+ERROR - 2020-01-08 11:54:35 --> Severity: Notice --> Undefined index: EndCity C:\xampp\htdocs\travels\application\views\home\index.php 219
+ERROR - 2020-01-08 11:54:36 --> 404 Page Not Found: Assets/images
+ERROR - 2020-01-08 11:58:06 --> Severity: Notice --> Undefined index: StartCity C:\xampp\htdocs\travels\application\views\home\index.php 83
+ERROR - 2020-01-08 11:58:06 --> Severity: Notice --> Undefined index: EndCity C:\xampp\htdocs\travels\application\views\home\index.php 120
+ERROR - 2020-01-08 11:58:06 --> Severity: Notice --> Undefined index: StartCity C:\xampp\htdocs\travels\application\views\home\index.php 183
+ERROR - 2020-01-08 11:58:06 --> Severity: Notice --> Undefined index: EndCity C:\xampp\htdocs\travels\application\views\home\index.php 219
+ERROR - 2020-01-08 11:58:06 --> 404 Page Not Found: Assets/images
+ERROR - 2020-01-08 12:15:48 --> Severity: Notice --> Undefined index: StartCity C:\xampp\htdocs\travels\application\views\home\index.php 83
+ERROR - 2020-01-08 12:15:48 --> Severity: Notice --> Undefined index: EndCity C:\xampp\htdocs\travels\application\views\home\index.php 120
+ERROR - 2020-01-08 12:15:48 --> Severity: Notice --> Undefined index: StartCity C:\xampp\htdocs\travels\application\views\home\index.php 183
+ERROR - 2020-01-08 12:15:48 --> Severity: Notice --> Undefined index: EndCity C:\xampp\htdocs\travels\application\views\home\index.php 219
+ERROR - 2020-01-08 12:15:48 --> 404 Page Not Found: Assets/images
+ERROR - 2020-01-08 12:16:22 --> 404 Page Not Found: Assets/js
+ERROR - 2020-01-08 12:16:22 --> 404 Page Not Found: Assets/vendors
+ERROR - 2020-01-08 12:16:22 --> 404 Page Not Found: Assets/vendors
+ERROR - 2020-01-08 12:17:42 --> 404 Page Not Found: Assets/vendors
+ERROR - 2020-01-08 12:17:42 --> 404 Page Not Found: Assets/js
+ERROR - 2020-01-08 12:17:42 --> 404 Page Not Found: Assets/vendors
+ERROR - 2020-01-08 12:17:48 --> 404 Page Not Found: Assets/vendors
+ERROR - 2020-01-08 12:17:48 --> 404 Page Not Found: Assets/js
+ERROR - 2020-01-08 12:17:48 --> 404 Page Not Found: Assets/vendors
+ERROR - 2020-01-08 12:17:54 --> 404 Page Not Found: Assets/vendors
+ERROR - 2020-01-08 12:17:54 --> 404 Page Not Found: Assets/js
+ERROR - 2020-01-08 12:17:54 --> 404 Page Not Found: Assets/vendors
+ERROR - 2020-01-08 12:17:55 --> 404 Page Not Found: Assets/vendors
+ERROR - 2020-01-08 12:17:55 --> 404 Page Not Found: Assets/vendors
+ERROR - 2020-01-08 12:17:55 --> 404 Page Not Found: Assets/js
+ERROR - 2020-01-08 12:18:49 --> 404 Page Not Found: Assets/vendors
+ERROR - 2020-01-08 12:18:49 --> 404 Page Not Found: Assets/js
+ERROR - 2020-01-08 12:18:49 --> 404 Page Not Found: Assets/vendors
+ERROR - 2020-01-08 12:21:17 --> 404 Page Not Found: Assets/vendors
+ERROR - 2020-01-08 12:21:17 --> 404 Page Not Found: Assets/js
+ERROR - 2020-01-08 12:21:17 --> 404 Page Not Found: Assets/vendors
+ERROR - 2020-01-08 12:23:00 --> 404 Page Not Found: Assets/vendors
+ERROR - 2020-01-08 12:23:00 --> 404 Page Not Found: Assets/js
+ERROR - 2020-01-08 12:23:00 --> 404 Page Not Found: Assets/vendors
+ERROR - 2020-01-08 12:23:18 --> 404 Page Not Found: Assets/js
+ERROR - 2020-01-08 12:23:18 --> 404 Page Not Found: Assets/vendors
+ERROR - 2020-01-08 12:23:18 --> 404 Page Not Found: Assets/vendors
+ERROR - 2020-01-08 12:25:01 --> 404 Page Not Found: Assets/js
+ERROR - 2020-01-08 12:25:01 --> 404 Page Not Found: Assets/vendors
+ERROR - 2020-01-08 12:25:02 --> 404 Page Not Found: Assets/vendors
+ERROR - 2020-01-08 12:27:03 --> 404 Page Not Found: Assets/vendors
+ERROR - 2020-01-08 12:27:03 --> 404 Page Not Found: Assets/js
+ERROR - 2020-01-08 12:27:03 --> 404 Page Not Found: Assets/vendors
+ERROR - 2020-01-08 12:28:11 --> 404 Page Not Found: Assets/js
+ERROR - 2020-01-08 12:28:11 --> 404 Page Not Found: Assets/vendors
+ERROR - 2020-01-08 12:28:12 --> 404 Page Not Found: Assets/vendors
+ERROR - 2020-01-08 12:28:33 --> Severity: Notice --> Undefined index: StartCity C:\xampp\htdocs\travels\application\views\home\index.php 83
+ERROR - 2020-01-08 12:28:33 --> Severity: Notice --> Undefined index: EndCity C:\xampp\htdocs\travels\application\views\home\index.php 120
+ERROR - 2020-01-08 12:28:33 --> Severity: Notice --> Undefined index: StartCity C:\xampp\htdocs\travels\application\views\home\index.php 183
+ERROR - 2020-01-08 12:28:33 --> Severity: Notice --> Undefined index: EndCity C:\xampp\htdocs\travels\application\views\home\index.php 219
+ERROR - 2020-01-08 12:28:34 --> 404 Page Not Found: Assets/images
+ERROR - 2020-01-08 12:32:40 --> 404 Page Not Found: Assets/vendors
+ERROR - 2020-01-08 12:32:40 --> 404 Page Not Found: Assets/js
+ERROR - 2020-01-08 12:32:40 --> 404 Page Not Found: Assets/vendors
+ERROR - 2020-01-08 12:34:45 --> 404 Page Not Found: Assets/vendors
+ERROR - 2020-01-08 12:34:45 --> 404 Page Not Found: Assets/js
+ERROR - 2020-01-08 12:34:45 --> 404 Page Not Found: Assets/vendors
+ERROR - 2020-01-08 12:36:16 --> 404 Page Not Found: Assets/js
+ERROR - 2020-01-08 12:36:16 --> 404 Page Not Found: Assets/vendors
+ERROR - 2020-01-08 12:36:16 --> 404 Page Not Found: Assets/vendors
+ERROR - 2020-01-08 12:38:06 --> 404 Page Not Found: Assets/js
+ERROR - 2020-01-08 12:38:06 --> 404 Page Not Found: Assets/vendors
+ERROR - 2020-01-08 12:38:06 --> 404 Page Not Found: Assets/vendors
+ERROR - 2020-01-08 12:39:57 --> 404 Page Not Found: Assets/js
+ERROR - 2020-01-08 12:39:57 --> 404 Page Not Found: Assets/vendors
+ERROR - 2020-01-08 12:39:57 --> 404 Page Not Found: Assets/vendors
+ERROR - 2020-01-08 12:41:14 --> Severity: Notice --> Undefined index: StartCity C:\xampp\htdocs\travels\application\views\home\index.php 83
+ERROR - 2020-01-08 12:41:14 --> Severity: Notice --> Undefined index: EndCity C:\xampp\htdocs\travels\application\views\home\index.php 120
+ERROR - 2020-01-08 12:41:14 --> Severity: Notice --> Undefined index: StartCity C:\xampp\htdocs\travels\application\views\home\index.php 183
+ERROR - 2020-01-08 12:41:14 --> Severity: Notice --> Undefined index: EndCity C:\xampp\htdocs\travels\application\views\home\index.php 219
+ERROR - 2020-01-08 12:41:14 --> 404 Page Not Found: Assets/images
+ERROR - 2020-01-08 12:41:21 --> Severity: Notice --> Undefined index: StartCity C:\xampp\htdocs\travels\application\views\home\index.php 83
+ERROR - 2020-01-08 12:41:21 --> Severity: Notice --> Undefined index: EndCity C:\xampp\htdocs\travels\application\views\home\index.php 120
+ERROR - 2020-01-08 12:41:21 --> Severity: Notice --> Undefined index: StartCity C:\xampp\htdocs\travels\application\views\home\index.php 183
+ERROR - 2020-01-08 12:41:21 --> Severity: Notice --> Undefined index: EndCity C:\xampp\htdocs\travels\application\views\home\index.php 219
+ERROR - 2020-01-08 12:41:21 --> 404 Page Not Found: Assets/images
+ERROR - 2020-01-08 12:41:43 --> Severity: Notice --> Undefined offset: 0 C:\xampp\htdocs\travels\application\views\common\user-profile.php 200
+ERROR - 2020-01-08 12:41:43 --> Severity: Notice --> Trying to get property 'TestimonialId' of non-object C:\xampp\htdocs\travels\application\views\common\user-profile.php 200
+ERROR - 2020-01-08 12:42:52 --> Severity: Notice --> Undefined index: StartCity C:\xampp\htdocs\travels\application\views\home\index.php 83
+ERROR - 2020-01-08 12:42:52 --> Severity: Notice --> Undefined index: EndCity C:\xampp\htdocs\travels\application\views\home\index.php 120
+ERROR - 2020-01-08 12:42:52 --> Severity: Notice --> Undefined index: StartCity C:\xampp\htdocs\travels\application\views\home\index.php 183
+ERROR - 2020-01-08 12:42:52 --> Severity: Notice --> Undefined index: EndCity C:\xampp\htdocs\travels\application\views\home\index.php 219
+ERROR - 2020-01-08 12:42:53 --> 404 Page Not Found: Assets/images
+ERROR - 2020-01-08 12:43:09 --> Severity: Notice --> Undefined index: StartCity C:\xampp\htdocs\travels\application\views\home\index.php 83
+ERROR - 2020-01-08 12:43:09 --> Severity: Notice --> Undefined index: EndCity C:\xampp\htdocs\travels\application\views\home\index.php 120
+ERROR - 2020-01-08 12:43:09 --> Severity: Notice --> Undefined index: StartCity C:\xampp\htdocs\travels\application\views\home\index.php 183
+ERROR - 2020-01-08 12:43:09 --> Severity: Notice --> Undefined index: EndCity C:\xampp\htdocs\travels\application\views\home\index.php 219
+ERROR - 2020-01-08 12:43:53 --> Severity: Notice --> Undefined index: StartCity C:\xampp\htdocs\travels\application\views\home\index.php 83
+ERROR - 2020-01-08 12:43:53 --> Severity: Notice --> Undefined index: EndCity C:\xampp\htdocs\travels\application\views\home\index.php 120
+ERROR - 2020-01-08 12:43:53 --> Severity: Notice --> Undefined index: StartCity C:\xampp\htdocs\travels\application\views\home\index.php 183
+ERROR - 2020-01-08 12:43:53 --> Severity: Notice --> Undefined index: EndCity C:\xampp\htdocs\travels\application\views\home\index.php 219
+ERROR - 2020-01-08 12:45:05 --> Severity: Notice --> Undefined offset: 0 C:\xampp\htdocs\travels\application\views\common\user-profile.php 200
+ERROR - 2020-01-08 12:45:05 --> Severity: Notice --> Trying to get property 'TestimonialId' of non-object C:\xampp\htdocs\travels\application\views\common\user-profile.php 200
+ERROR - 2020-01-08 13:09:33 --> Severity: Notice --> Undefined index: StartCity C:\xampp\htdocs\travels\application\views\home\index.php 83
+ERROR - 2020-01-08 13:09:33 --> Severity: Notice --> Undefined index: EndCity C:\xampp\htdocs\travels\application\views\home\index.php 120
+ERROR - 2020-01-08 13:09:33 --> Severity: Notice --> Undefined index: StartCity C:\xampp\htdocs\travels\application\views\home\index.php 183
+ERROR - 2020-01-08 13:09:33 --> Severity: Notice --> Undefined index: EndCity C:\xampp\htdocs\travels\application\views\home\index.php 219
+ERROR - 2020-01-08 13:09:33 --> Severity: Notice --> Undefined index: StartCity C:\xampp\htdocs\travels\application\views\home\index.php 83
+ERROR - 2020-01-08 13:09:33 --> Severity: Notice --> Undefined index: EndCity C:\xampp\htdocs\travels\application\views\home\index.php 120
+ERROR - 2020-01-08 13:09:33 --> Severity: Notice --> Undefined index: StartCity C:\xampp\htdocs\travels\application\views\home\index.php 183
+ERROR - 2020-01-08 13:09:33 --> Severity: Notice --> Undefined index: EndCity C:\xampp\htdocs\travels\application\views\home\index.php 219
+ERROR - 2020-01-08 13:09:34 --> 404 Page Not Found: Assets/images
+ERROR - 2020-01-08 13:10:24 --> Severity: Notice --> Undefined offset: 0 C:\xampp\htdocs\travels\application\views\common\user-profile.php 200
+ERROR - 2020-01-08 13:10:24 --> Severity: Notice --> Trying to get property 'TestimonialId' of non-object C:\xampp\htdocs\travels\application\views\common\user-profile.php 200

@@ -87,11 +87,13 @@ class Services extends CI_Controller
 			$this->session->set_userdata($session);
 			if($this->input->post('DropofTime')!='')
 			{
+				echo "111";die;
 				$data['services']=$this->Services_model->search_local();
 				//echo "<pre>";print_r($data['services']);die;
 			}
 			else
 			{
+				//echo "2222";die;
 				$data['services']=$this->Services_model->search();
 			}
 			

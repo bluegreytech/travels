@@ -283,9 +283,9 @@
 								</div>
 			      			</div>
 
-			      		<!-- 	<input type="button" id="submit" value="PAY NOW!" class="btn btn-primary btn-block"> -->
+			      			<input type="button" id="submit" value="PAY NOW!" class="btn btn-primary btn-block" style="display:none">
 
-			      			<input type="submit" value="Book NOW!" class="btn btn-primary btn-block">
+			      			<input type="submit" id="booknow" value="Book NOW!" class="btn btn-primary btn-block" >
 
 			      		</div>
 			      	</form>
@@ -298,6 +298,19 @@
 <?php 
 	$this->load->view('common/footer');
 ?>
+
+<script>
+$(document).ready(function(){
+  $("#payment-method01").click(function(){
+    $("#submit").hide();
+	$("#booknow").show();
+  });
+  $("#payment-method02").click(function(){
+    $("#booknow").hide();
+	$("#submit").show();
+  });
+});
+</script>
 <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 
 

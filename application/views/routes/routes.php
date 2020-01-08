@@ -28,7 +28,7 @@
           ?>
   				<div class="col-md-6 col-sm-12 col-xs-12 mission-it">
   					<!-- <h3 class="this-title">Cabs</h3> -->
-           
+           <form class="form" method="post" enctype="multipart/form-data">
             <table class="table">
               <thead>
                 <tr>
@@ -39,17 +39,21 @@
                     <?php
                     foreach($subroutes as $routes)
                     {
-                          //print_r($car);
                     ?>
                     <tr class="routes">
-                        <td><?php echo $routes->StartCity;?> to <?php echo $routes->EndCity;?> </td>
+                       <!-- <input type="hidden" name="StartCity" value="<?php echo $routes->StartCity;?>">
+                        <input type="hidden" name="EndCity" value="<?php echo $routes->EndCity;?>"> -->
+                         <td>
+                            <a href="<?php echo base_url();?>home?StartCity=<?php echo $routes->StartCity?>&EndCity=<?php echo $routes->EndCity?>" target="_blanck" value="<?php echo $routes->StartCity.' '.$routes->EndCity;?>">
+                              <?php echo $routes->StartCity;?> to <?php echo $routes->EndCity;?></a> 
+                         </td>
                     </tr>
                     <?php
                     }
                     ?>
               </tbody>
             </table>
-           
+           </form>
           </div>
 			    <?php
              }

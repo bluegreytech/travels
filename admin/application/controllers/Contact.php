@@ -62,5 +62,31 @@ class Contact extends CI_Controller {
 			die;
 		
 	}
+
+
+	function carrierlist()
+	{	
+		if(!check_admin_authentication()){ 
+			redirect(base_url());
+		}else{	
+			$data['activeTab']="carrierlist";		
+			$data['result']=$this->Contact_model->get_carrierlist();
+			$this->load->view('contact/carrierlist',$data);
+		}
+	}
+
+	function carrier_delete(){
+		if(!check_admin_authentication()){ 
+			redirect(base_url());
+		}
+			$data= array('IsActive'=>'Inactive','IsDelete' =>'1');
+			$CarrierInquiryId=$this->input->post('CarrierInquiryId');
+			$this->db->where("CarrierInquiryId",$CarrierInquiryId);			
+			$res=$this->db->update('tblcarrierinquiry',$data);
+			//echo $this->db->last_query();die;
+			echo json_encode($res);
+			die;
+		
+	}
 	
 }

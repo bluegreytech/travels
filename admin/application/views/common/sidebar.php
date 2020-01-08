@@ -131,6 +131,20 @@
             </ul>
           </li> 
 
+           <li class="nav-item <?php echo($activeTab == "carreradd"||$activeTab =="carrerlist") ? "open" : ""; ?>">
+            <a class="<?php echo ($activeTab == "carreradd" || $activeTab == "carrerlist") ? "active" : ""; ?>">
+              <i class="icon-address-book"></i><span data-i18n="nav.dash.main" class="menu-title">Carrer</span>
+            </a>
+            <ul class="menu-content">
+              <li>
+                <a href="<?php echo base_url(); ?>carrer/carreradd" data-i18n="nav.dash.main" class="menu-item <?php echo ($activeTab == "carreradd") ? "active" : ""; ?>"><i class="icon-plus"></i> Add Carrer</a>
+              </li>
+              <li>
+                <a href="<?php echo base_url(); ?>carrer" data-i18n="nav.dash.main" class="menu-item <?php echo ($activeTab == "carrerlist") ? "active" : ""; ?>"><i class="icon-file-text2"></i>List of Carrer </a>
+              </li>
+            </ul>
+          </li> 
+
           <li class="nav-item <?php echo($activeTab == "testimonialadd"||$activeTab =="testimoniallist") ? "open" : ""; ?>">
             <a class="<?php echo ($activeTab == "testimonialadd" || $activeTab == "testimoniallist") ? "active" : ""; ?>">
               <i class="icon-tasks"></i><span data-i18n="nav.dash.main" class="menu-title">Testimonial</span>

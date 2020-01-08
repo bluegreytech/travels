@@ -36,7 +36,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <th>Name</th>
                                 <th>Email Address</th>
                                 <th>Contact Number</th>
-								<th>Status</th>
+								<th>Payment Status</th>
                                 <th class="text-center">Action</th>
                             </tr>
                         </thead>
@@ -55,21 +55,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <td><?php echo $row->ContactNumber; ?></td>
                              
                                 <td>
-                                    <?php if($row->IsActive=="Active")
+                                    <?php if($row->payment_status=="Success")
                                         {
-                                            echo "<span class='label label-success'>Active</span>";
+                                            echo "<span class='label label-success'>Success</span>";
                                         } 
                                         else
                                         {
-                                            echo "<span class='label label-danger'>Inactive</span>";
+                                            echo "<span class='label label-danger'>Pending</span>";
                                         } 
                                     ?>
                                 </td>
                                 <td class="text-center">
-                                    <a href="#" data-toggle="modal" data-target="#myModal"><i class="ficon icon-eye" data-toggle="tooltip" title="View Details"></i></a>
+                                    <?php echo anchor('user/Edituser/'.$row->UserId,'<i class="ficon icon-pencil2" data-toggle="tooltip" title="Edit User"></i> '); ?>
+                                    <a href="" data-id="<?=$row->UserId; ?>" data-toggle="modal" data-target="#myModal2"><i class="ficon icon-eye" data-toggle="tooltip" title="View Details"></i></a>
                                 </td>  
                                 <!-- Modal -->
-                                <div id="myModal" class="modal fade" role="dialog">
+                                <div id="myModal2" class="modal fade" role="dialog">
                                   <div class="modal-dialog">
 
                                     <!-- Modal content-->
@@ -82,57 +83,58 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                         <div class="row mb-1">
                                             <div class="col-md-6 col-xs-6">
                                                 <div class="col-md-5"><strong>Name:</strong></div>
-                                                <div class="col-md-7">Veerbhadrasinh Chauhan</div>
+                                                <div class="col-md-7"><input type="text" id="FirstName" readonly></div>
                                             </div>
                                              <div class="col-md-6 col-xs-6">
                                                 <div class="col-md-5"><strong>Phone No.:</strong></div>
-                                                <div class="col-md-7">9843984930</div>
+                                                <div class="col-md-7"><input type="text" id="ContactNumber" readonly></div>
                                             </div>
                                         </div>
                                         <div class="row mb-1">
                                             <div class="col-md-6 col-xs-6">
                                                 <div class="col-md-5"><strong>Email:</strong></div>
-                                                <div class="col-md-7">abc@gmail.com</div>
+                                                <div class="col-md-7"><input type="text" id="EmailAddress" readonly></div>
                                             </div>
                                              <div class="col-md-6 col-xs-6">
                                                 <div class="col-md-5"><strong>Cab Type:</strong></div>
-                                                <div class="col-md-7">Sedan</div>
+                                                <div class="col-md-7"><input type="text" id="BrandName" readonly></div>
                                             </div>
                                         </div>
                                         <div class="row mb-1">
                                             <div class="col-md-6 col-xs-6">
                                                 <div class="col-md-5"><strong>Origin:</strong></div>
-                                                <div class="col-md-7">Ahemdabad</div>
+                                                <div class="col-md-7"><input type="text" id="StartCity" readonly></div>
                                             </div>
                                              <div class="col-md-6 col-xs-6">
                                                 <div class="col-md-5"><strong>Desination:</strong></div>
-                                                <div class="col-md-7">Surat</div>
+                                                <div class="col-md-7"><input type="text" id="EndCity" readonly></div>
                                             </div>
                                         </div>
                                         <div class="row mb-1">
                                             <div class="col-md-6 col-xs-6">
                                                 <div class="col-md-5"><strong>Pickup Date:</strong></div>
-                                                <div class="col-md-7">06-Jan-2020</div>
+                                                <div class="col-md-7"><input type="text" id="PickupDate" readonly>
+                                                </div>
                                             </div>
                                              <div class="col-md-6 col-xs-6">
                                                 <div class="col-md-5"><strong>Drop Date:</strong></div>
-                                                <div class="col-md-7">06-Jan-2020</div>
+                                                <div class="col-md-7"><input type="text" id="DropofDate" readonly></div>
                                             </div>
                                         </div>
                                         <div class="row mb-1">
                                             <div class="col-md-6 col-xs-6">
                                                 <div class="col-md-5"><strong>Pickup Time:</strong></div>
-                                                <div class="col-md-7">9:00am</div>
+                                                <div class="col-md-7"><input type="text" id="PickupTime" readonly></div>
                                             </div>
                                              <div class="col-md-6 col-xs-6">
                                                 <div class="col-md-5"><strong>Drop Time:</strong></div>
-                                                <div class="col-md-7">12:00am</div>
+                                                <div class="col-md-7"><input type="text" id="DropofTime" readonly></div>
                                             </div>
                                         </div>
                                         <div class="row mb-1">
                                             <div class="col-md-6 col-xs-6">
                                                 <div class="col-md-5"><strong>Payment:</strong></div>
-                                                <div class="col-md-7">Online</div>
+                                                <div class="col-md-7"><input type="text" id="payment_status" readonly></div>
                                             </div>
                                             <!-- <div class="col-md-6 col-xs-6">
                                                 <div class="col-md-5"><strong>Drop Time:</strong></div>
@@ -143,13 +145,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             <div class="col-md-6 col-xs-6 left-border">
                                                 <div class="text-center">
                                                     <div><h3>Total Distance</h3></div>
-                                                    <div>200KM</div>
+                                                    <div>KMS<input type="text" id="KMS" readonly></div>
                                                 </div>
                                             </div>
                                             <div class="col-md-6 col-xs-6">
                                                  <div class="text-center">
                                                     <div><h3>Total Fare</h3></div>
-                                                    <div>2000</div>
+                                                    <div>Rs.<input type="text" id="FinalAmount" readonly></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -188,21 +190,19 @@ $this->load->view('common/footer');
 $(function() { 
     setTimeout(function() {
   $('#successMessage').fadeOut('fast');
-}, 3000);
+}, 10000);
    
 });
 
 function deletedata(UserId){  
    // alert(id);
     $('#myModal').modal('show')
-   
         $('#yes_btn').click(function(){
-           
                 url="<?php echo base_url();?>"
                 $.ajax({
                 url: url+"/user/deletedata/",
                 type: "post",
-                data: {UserId:UserId} ,
+                data: {UserId:UserId},
                 success: function (response) {  
                 console.log(response);           
                 //document.location.href = url+'user/userlist';                  
@@ -212,12 +212,74 @@ function deletedata(UserId){
                  console.log(textStatus, errorThrown);
             }
             })
-           
-
         });
-    
-   
-
 }
 </script>
 
+<script>
+$(document).ready(function()
+{
+    $('#myModal2').on('show.bs.modal', function (e)
+    {
+        var UserId = $(e.relatedTarget).data('id');
+        //alert(UserId);
+        url="<?php echo base_url();?>"
+            $.ajax({
+            url: url+"user/ajaxuserdata/",
+            type: "post",
+            data: {UserId:UserId},
+            success:function(response){
+                var response = JSON.parse(response);
+                console.log(response.PickupDate);
+
+                $('#UserId').val(response.UserId);
+                $('#FirstName').val(response.FirstName+' '+response.LastName);
+                $('#EmailAddress').val(response.EmailAddress);
+                $('#ContactNumber').val(response.ContactNumber);
+                $('#BrandName').val(response.BrandName);
+                $('#PickupDate').val(myDateFormatter(response.PickupDate));
+
+                // $pdate=$this->input->post('#PickupDate');
+                // $pidate = str_replace('/', '-', $pdate );
+                // $PickupDate = date("Y-m-d", strtotime($pidate));
+
+
+                $('#DropofDate').val(myDateFormatter(response.DropofDate));
+                $('#PickupTime').val(response.PickupTime);
+                $('#DropofTime').val(response.DropofTime);
+                $('#StartCity').val(response.StartCity);
+                $('#EndCity').val(response.EndCity);
+                $('#PerKmRate').val(response.PerKmRate);
+                $('#KMS').val(response.KMS);
+                $('#TotalFareAmount').val(response.TotalFareAmount);
+                $('#StateTax').val(response.StateTax);
+                $('#Tax').val(response.Tax);
+                $('#TotalAmount').val(response.TotalAmount);
+                $('#TaxAdded').val(response.TaxAdded);
+                $('#FinalAmount').val(response.FinalAmount);
+                $('#payment_status').val(response.payment_status);
+            }
+           
+        });
+     });
+});
+
+
+
+function myDateFormatter(dobdate) 
+{
+    var d = new Date(dobdate);
+    var day = d.getDate();
+    var month = d.getMonth() + 1;
+    var year = d.getFullYear();
+    alert(day);
+    if (day < 10) {
+        day = "0" + day ;
+    }
+    if (month < 10) {
+      month = "0" + month;
+    }
+    var date = day + "/" + month + "/" + year;
+    return date;
+}; 
+</script>

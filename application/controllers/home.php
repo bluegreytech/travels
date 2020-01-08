@@ -11,16 +11,32 @@ class Home extends CI_Controller
 	}
 
 	public function index()
-	{    	
-		$data['testimonial']=$this->Login_model->gettestimoniallist();
-		$data['about']=$this->About_model->getabout(); 	
-		$data['result']=$this->Contact_model->getsitedetail(); 
-		$data['services']=$this->Login_model->getcarbrandlist();	 	
-		$data['cityData']=$this->Login_model->list_city();
-
-		$data['endcityData']=$this->Login_model->end_city();
-		//$data['endcityData']=$this->Login_model->ajax_end_city();
-		$data['localcityData']=$this->Login_model->local_city();
+	{    
+		if(isset($_GET['StartCity']) && isset($_GET['EndCity']))
+		{	$data=array();
+			$data['StartCity']=$_GET['StartCity'];
+			$data['EndCity']=$_GET['EndCity'];
+			$data['testimonial']=$this->Login_model->gettestimoniallist();
+			$data['about']=$this->About_model->getabout(); 	
+			$data['result']=$this->Contact_model->getsitedetail(); 
+			$data['services']=$this->Login_model->getcarbrandlist();	 	
+			$data['cityData']=$this->Login_model->list_city();
+			$data['endcityData']=$this->Login_model->end_city();
+			//$data['endcityData']=$this->Login_model->ajax_end_city();
+			$data['localcityData']=$this->Login_model->local_city();
+		}
+		else
+		{	
+			$data['testimonial']=$this->Login_model->gettestimoniallist();
+			$data['about']=$this->About_model->getabout(); 	
+			$data['result']=$this->Contact_model->getsitedetail(); 
+			$data['services']=$this->Login_model->getcarbrandlist();	 	
+			$data['cityData']=$this->Login_model->list_city();
+			$data['endcityData']=$this->Login_model->end_city();
+			//$data['endcityData']=$this->Login_model->ajax_end_city();
+			$data['localcityData']=$this->Login_model->local_city();
+		}
+		
 		//print_r($data['endcityData']);die;
 		$this->load->view('home/index',$data);			
 	}
@@ -152,7 +168,6 @@ class Home extends CI_Controller
 						'ContactNumber'=> $data['ContactNumber'],
 						'OTPNumber'=>$data['OTPNumber'],		
 					);
-					//print_r($session);die;
 					$this->session->set_userdata($session);		 
 		}
 		else if($this->input->post('OTPNumber')!=$AlreadyOTPNumber)
@@ -307,8 +322,8 @@ class Home extends CI_Controller
 	public function userfeedback()
     {
     	$data['ContactNumber']=$this->input->post('ContactNumber');
-    	// $data['TestimonialId']=$this->input->post('TestimonialId');
-    	// $data['TestimonialDescription']=$this->input->post('TestimonialDescription');
+    	$data['TestimonialId']=$this->input->post('TestimonialId');
+    	$data['TestimonialDescription']=$this->input->post('TestimonialDescription');
     	if($_POST)
 		{
 			if($this->input->post('TestimonialId')!='' && $this->input->post('ContactNumber')!='')
@@ -328,5 +343,99 @@ class Home extends CI_Controller
       	
     }
 
+
+    function ajaxuserdata()
+	{	
+		$UserId=$this->input->post('UserId');
+		$result=$this->Login_model->getajaxdata($UserId);
+		echo json_encode($result);
+		//die;
+	}
+
+
+	// function getdistance()
+	// {
+
+	//     $address = urlencode('Ahmadabad');
+	//     $url = "http://maps.google.com/maps/api/geocode/json?address=$address&sensor=false&region=Anand";
+	//     $ch = curl_init();
+	//     curl_setopt($ch, CURLOPT_URL, $url);
+	//     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+	//     curl_setopt($ch, CURLOPT_PROXYPORT, 3128);
+	//     curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+	//     curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+	//     $response = curl_exec($ch);
+	//     curl_close($ch);
+	//     $response_a = json_decode($response);
+	//     $status = $response_a->status;
+
+	//     if ( $status == 'ZERO_RESULTS' )
+	//     {
+	//         return FALSE;
+	//     }
+	//     else
+	//     {
+	//         $return = array('lat' => $response_a->results[0]->geometry->location->lat, 'long' => $long = $response_a->results[0]->geometry->location->lng);
+	//         print_r($return);die;
+	//         return $return;
+	//     }
+
+	// }
+
+
+	// function getDistance()
+	// {
+	// 	// $addressFrom, $addressTo, $unit = ''
+	// 	$addressFrom="Ahmadabad";
+	// 	$addressTo="Anand";
+	// 	$unit ='';
+	//     // Google API key
+	//     $apiKey = 'AIzaSyDAo78y6rMKrFS_7nyi_Fg69YCCDpmF6Ho';
+	    
+	//     // Change address format
+	//     $formattedAddrFrom    = str_replace(' ', '+', $addressFrom);
+	//     $formattedAddrTo     = str_replace(' ', '+', $addressTo);
+	    
+	//     // Geocoding API request with start address
+	//     echo $geocodeFrom = file_get_contents('https://maps.googleapis.com/maps/api/geocode/json?address='.$formattedAddrFrom.'&sensor=false&key='.$apiKey);
+	//     die;
+	//     $outputFrom = json_decode($geocodeFrom);
+	//     if(!empty($outputFrom->error_message)){
+	//         return $outputFrom->error_message;
+	//     }
+	    
+	//     // Geocoding API request with end address
+	//     $geocodeTo = file_get_contents('https://maps.googleapis.com/maps/api/geocode/json?address='.$formattedAddrTo.'&sensor=false&key='.$apiKey);
+	//     $outputTo = json_decode($geocodeTo);
+	//     if(!empty($outputTo->error_message)){
+	//         return $outputTo->error_message;
+	//     }
+	    
+	//     // Get latitude and longitude from the geodata
+	//     $latitudeFrom    = $outputFrom->results[0]->geometry->location->lat;
+	//     $longitudeFrom    = $outputFrom->results[0]->geometry->location->lng;
+	//     $latitudeTo        = $outputTo->results[0]->geometry->location->lat;
+	//     $longitudeTo    = $outputTo->results[0]->geometry->location->lng;
+	    
+	//     // Calculate distance between latitude and longitude
+	//     $theta    = $longitudeFrom - $longitudeTo;
+	//     $dist    = sin(deg2rad($latitudeFrom)) * sin(deg2rad($latitudeTo)) +  cos(deg2rad($latitudeFrom)) * cos(deg2rad($latitudeTo)) * cos(deg2rad($theta));
+	//     $dist    = acos($dist);
+	//     $dist    = rad2deg($dist);
+	//     $miles    = $dist * 60 * 1.1515;
+	    
+	//     // Convert unit and return distance
+	//     $unit = strtoupper($unit);
+	//     if($unit == "K"){
+	//         return round($miles * 1.609344, 2).' km';
+	//     }elseif($unit == "M"){
+	//         echo round($miles * 1609.344, 2).' meters';
+	//         die;
+	//     }else{
+	//         echo  round($miles, 2).' miles';
+	//         die;
+	//     }
+	// }
+	
 	
 }

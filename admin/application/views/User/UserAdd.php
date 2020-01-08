@@ -63,7 +63,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 
 								<div class="form-group">
 									<label>Status</label>
-										<div class="input-group">								<label class="display-inline-block custom-control custom-radio ml-1">										<?php //echo $IsActive; ?>							<input type="radio" name="IsActive" value="Active"
+										<div class="input-group">								
+											<label class="display-inline-block custom-control custom-radio ml-1">		   <input type="radio" name="IsActive" value="Active"
 											<?php if($IsActive=="Active") { echo "checked"; } ?>
 											 class="custom-control-input">					
 											 <span class="custom-control-indicator"></span>
@@ -80,11 +81,51 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 										</div>
 								</div>
 							<?php } ?>
-							<!-- <div class="form-actions">
-							 <button class="btn btn-black " type="submit"><i class="icon-ok"></i> <?php //echo ($UserId!='')?'Update':'Submit' ?></button>
-							
-								<input type="button" name="cancel" class="btn btn-default" value="Cancel" onClick="location.href='<?php// echo base_url(); ?>user/<?php// echo $redirect_page; ?>'">
-							</div> -->
+
+
+							<?php  if($payment_status!=''){ ?>
+                                
+								<div class="form-group">
+									<label>Payment Status</label>
+										<div class="input-group">								
+											<label class="display-inline-block custom-control custom-radio ml-1">			<input type="radio" name="payment_status" value="Success"
+													<?php if($payment_status=="Success") { echo "checked"; } ?>
+													 class="custom-control-input">					
+													 <span class="custom-control-indicator"></span>
+													 <span class="custom-control-description ml-0">Success</span> 
+											</label>										
+											<label class="display-inline-block custom-control custom-radio">					<input type="radio" name="payment_status" value="Pending"  
+												 	<?php if($payment_status=="Pending") { echo "checked"; } ?> 
+													class="custom-control-input">					<span class="custom-control-indicator"></span>										
+													<span class="custom-control-description ml-0">Pending</span>     
+											</label>
+									</div>
+								</div>
+							<?php } else { ?>
+									<div class="form-group">
+										<label>Payment Status</label>									
+										<div class="input-group">								
+										<label class="display-inline-block custom-control custom-radio ml-1">				<input type="radio" name="payment_status" value="Success" checked="" class="custom-control-input">		
+											<span class="custom-control-indicator"></span>		
+											<span class="custom-control-description ml-0">Success</span>	
+										</label>										
+										<label class="display-inline-block custom-control custom-radio">
+											<input type="radio" name="payment_status" value="Pending"
+											class="custom-control-input">						
+											<span class="custom-control-indicator"></span>		
+											<span class="custom-control-description ml-0">Pending</span>
+										</label>
+									</div>
+								</div>
+							<?php } ?>
+
+
+
+							<div class="form-actions">
+							 	<button class="btn btn-black" type="submit"><i class="icon-ok"></i> <?php echo ($UserId!='')?'Update':'Submit' ?></button>
+								
+								<input type="button" name="cancel" class="btn btn-default" value="Cancel" onClick="location.href='<?php echo base_url(); ?>user/Userlist'">
+							</div>
 						</form>
 					</div>
 				</div>

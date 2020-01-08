@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 06, 2020 at 07:45 AM
+-- Generation Time: Jan 08, 2020 at 10:50 AM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.8
 
@@ -117,6 +117,58 @@ INSERT INTO `tblcarbrand` (`CarBrandId`, `BrandName`, `PerKmRate`, `ExtraKMS`, `
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `tblcarrer`
+--
+
+CREATE TABLE `tblcarrer` (
+  `CarrerId` int(11) NOT NULL,
+  `CarrerTitle` varchar(100) NOT NULL,
+  `CarrerDescription` text NOT NULL,
+  `IsActive` enum('Active','Inactive') NOT NULL,
+  `IsDelete` enum('0','1') NOT NULL DEFAULT '0',
+  `CreatedOn` timestamp NOT NULL DEFAULT current_timestamp(),
+  `UpdatedOn` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tblcarrer`
+--
+
+INSERT INTO `tblcarrer` (`CarrerId`, `CarrerTitle`, `CarrerDescription`, `IsActive`, `IsDelete`, `CreatedOn`, `UpdatedOn`) VALUES
+(1, 'Cab Driver', '<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters</p>', 'Active', '0', '2020-01-06 05:00:00', '2020-01-07 05:00:00'),
+(2, 'Cab Driver for Sedan', '<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters mjmjmjmjmj</p>', 'Active', '0', '2020-01-07 05:00:00', '2020-01-07 05:00:00');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tblcarrierinquiry`
+--
+
+CREATE TABLE `tblcarrierinquiry` (
+  `CarrierInquiryId` int(11) NOT NULL,
+  `FullName` varchar(100) NOT NULL,
+  `EmailAddress` varchar(100) NOT NULL,
+  `ContactNumber` varchar(13) NOT NULL,
+  `Subject` varchar(100) NOT NULL,
+  `RemarkDescription` text NOT NULL,
+  `CarrierCv` varchar(100) NOT NULL,
+  `IsActive` enum('Active','Inactive') NOT NULL,
+  `IsDelete` enum('0','1') NOT NULL,
+  `CreatedOn` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tblcarrierinquiry`
+--
+
+INSERT INTO `tblcarrierinquiry` (`CarrierInquiryId`, `FullName`, `EmailAddress`, `ContactNumber`, `Subject`, `RemarkDescription`, `CarrierCv`, `IsActive`, `IsDelete`, `CreatedOn`) VALUES
+(1, 'Mitesh Patel', 'bluegreyindia@gmail.com', '9974616445', 'Cab Driver', 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters', '20403CV.pdf', 'Active', '0', '2020-01-07 05:00:00'),
+(2, 'Hr Shah', 'bluegreyindia@gmail.com', '9974616445', 'Cab Driver', 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.', '18736CV.docx', 'Active', '0', '2020-01-07 05:00:00'),
+(3, 'Binny Rai', 'mitnp16@gmail.com', '9974616445', 'Cab Driver for Sedan', 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.', '27434CV.pdf', 'Active', '0', '2020-01-07 05:00:00');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `tblcartype`
 --
 
@@ -179,10 +231,10 @@ CREATE TABLE `tblcity` (
 INSERT INTO `tblcity` (`CityId`, `CountryId`, `StateId`, `CarBrandId`, `StartCity`, `EndCity`, `LocalCity`, `IsActive`, `IsDelete`, `CreatedOn`, `UpdatedOn`) VALUES
 (1, NULL, NULL, 1, 'Anand', 'Vadodra', 'Active', 'Active', '0', '2019-12-31 05:00:00', '2020-01-01 05:00:00'),
 (2, NULL, NULL, 2, 'Anand', 'Ahemdabad', 'Active', 'Active', '0', '2019-12-31 05:00:00', '2020-01-01 05:00:00'),
-(3, NULL, NULL, 3, 'Anand', 'Valsad', 'Active', 'Active', '0', '2019-12-31 05:00:00', '2020-01-01 05:00:00'),
+(3, NULL, NULL, 2, 'Anand', 'Valsad', 'Active', 'Active', '0', '2019-12-31 05:00:00', '2020-01-07 05:00:00'),
 (4, NULL, NULL, 1, 'Valsad', 'Anand', 'Active', 'Active', '0', '2019-12-31 05:00:00', '2019-12-31 05:00:00'),
 (5, NULL, NULL, 2, 'Ahemdabad', 'Anand', 'Active', 'Active', '0', '2019-12-31 05:00:00', '2019-12-31 05:00:00'),
-(6, NULL, NULL, 3, 'Vadodra', 'Anand', 'Active', 'Active', '0', '2019-12-31 05:00:00', '2019-12-31 05:00:00'),
+(6, NULL, NULL, 1, 'Vadodra', 'Anand', 'Active', 'Active', '0', '2019-12-31 05:00:00', '2020-01-07 05:00:00'),
 (7, NULL, NULL, 1, 'Ahemdabad', 'Anand', 'Active', 'Active', '0', '2020-01-01 05:00:00', '2020-01-01 05:00:00');
 
 -- --------------------------------------------------------
@@ -4262,9 +4314,11 @@ CREATE TABLE `tbltestimonial` (
   `TestimonialId` int(11) NOT NULL,
   `FirstName` varchar(100) NOT NULL,
   `LastName` varchar(100) NOT NULL,
-  `TetimonialDescription` text NOT NULL,
+  `ContactNumber` varchar(13) NOT NULL,
+  `TestimonialDescription` text NOT NULL,
   `TestimonialImage` varchar(200) DEFAULT NULL,
   `IsActive` enum('Active','Inactive') NOT NULL DEFAULT 'Active',
+  `ApproveStatus` enum('Active','Inactive') NOT NULL DEFAULT 'Inactive',
   `IsDelete` enum('0','1') NOT NULL DEFAULT '0',
   `CreatedOn` timestamp NOT NULL DEFAULT current_timestamp(),
   `UpdatedOn` timestamp NOT NULL DEFAULT current_timestamp()
@@ -4274,10 +4328,11 @@ CREATE TABLE `tbltestimonial` (
 -- Dumping data for table `tbltestimonial`
 --
 
-INSERT INTO `tbltestimonial` (`TestimonialId`, `FirstName`, `LastName`, `TetimonialDescription`, `TestimonialImage`, `IsActive`, `IsDelete`, `CreatedOn`, `UpdatedOn`) VALUES
-(1, 'Mitesh', 'Patel', '<p>AAAA YD Cabs by Yashdeep Travels is a travelling solutions providing networking company where we provide cab services to the customers and help them reach their destination in time with comfort that you aspire for, along with the affordable pricing forte.</p>', '17115Testimonial.jpg', 'Active', '0', '2019-12-26 05:00:00', '2019-11-21 10:18:22'),
-(2, 'Mit', 'Patel', '<p>AAAA YD Cabs by Yashdeep Travels is a travelling solutions providing networking company where we provide cab services to the customers and help them reach their destination in time with comfort that you aspire for, along with the affordable pricing forte.</p>', '69322Testimonial.jpg', 'Active', '0', '2019-12-26 05:00:00', '2019-11-21 11:38:23'),
-(3, 'trytrytr', 'rttrjurjutr', '<p>AAAA YD Cabs by Yashdeep Travels is a travelling solutions providing networking company where we provide cab services to the customers and help them reach their destination in time with comfort that you aspire for, along with the affordable pricing forte.</p>', '36452Testimonial.jpg', 'Active', '0', '2019-12-26 05:00:00', '2019-11-27 09:02:19');
+INSERT INTO `tbltestimonial` (`TestimonialId`, `FirstName`, `LastName`, `ContactNumber`, `TestimonialDescription`, `TestimonialImage`, `IsActive`, `ApproveStatus`, `IsDelete`, `CreatedOn`, `UpdatedOn`) VALUES
+(1, 'Mit', 'Patel', '8200308821', '<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,</p>', '', 'Active', 'Active', '0', '2020-01-08 05:00:00', '2020-01-06 05:00:00'),
+(2, 'Mit', 'Patel', '9409521666', '<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,</p>', '', 'Active', 'Active', '0', '2020-01-08 05:00:00', '2020-01-06 09:39:46'),
+(5, 'Himansi', 'Shah', '8888888888', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s,', NULL, 'Active', 'Inactive', '0', '2020-01-07 05:00:00', '2020-01-07 09:44:01'),
+(6, 'Himansi', 'Shah', '8888888888', 'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour,', NULL, 'Active', 'Inactive', '0', '2020-01-07 05:00:00', '2020-01-07 09:45:22');
 
 -- --------------------------------------------------------
 
@@ -4310,7 +4365,7 @@ CREATE TABLE `tbluser` (
   `TaxAdded` int(11) DEFAULT NULL,
   `FinalAmount` int(11) DEFAULT NULL,
   `transaction_id` varchar(200) DEFAULT NULL,
-  `payment_status` varchar(200) DEFAULT NULL,
+  `payment_status` enum('Pending','Success') DEFAULT 'Pending',
   `IsActive` enum('Active','Inactive') NOT NULL DEFAULT 'Active',
   `OTPNumber` varchar(10) DEFAULT NULL,
   `Status` enum('Pending','Verify') NOT NULL DEFAULT 'Pending',
@@ -4325,9 +4380,13 @@ CREATE TABLE `tbluser` (
 
 INSERT INTO `tbluser` (`UserId`, `FirstName`, `LastName`, `EmailAddress`, `ContactNumber`, `LoginOTP`, `CarBrandId`, `BrandName`, `PickupDate`, `DropofDate`, `PickupTime`, `DropofTime`, `StartCity`, `EndCity`, `PerKmRate`, `KMS`, `TotalFareAmount`, `ExtraKMS`, `StateTax`, `Tax`, `TotalAmount`, `TaxAdded`, `FinalAmount`, `transaction_id`, `payment_status`, `IsActive`, `OTPNumber`, `Status`, `IsDelete`, `CreatedOn`, `UpdatedOn`) VALUES
 (1, 'Mit', 'Patel', 'bluegreyindia@gmail.com', '8200308821', '', 0, 'SUV', '2020-01-02', '2020-01-02', '6:37 am', '', 'Ahemdabad', '', 13, 200, 2600, 0, 2000, NULL, 4600, 690, 5290, 'pay_DzarIS2oeBo46t', 'Success', 'Active', '', 'Verify', '0', '2020-01-02 05:00:00', '2020-01-06 05:00:00'),
-(2, 'Mit', 'Patel', 'mitnp16@gmail.com', '9409521666', '', 0, 'SUV', '2020-01-02', '2020-01-02', '6:40 am', '', 'Ahemdabad', '', 13, 200, 2600, 0, 2000, NULL, 4600, 690, 5290, 'pay_Dzauouxah24tSl', 'Success', 'Active', '', 'Verify', '0', '2020-01-02 05:00:00', '2020-01-03 05:00:00'),
+(2, 'Mitesh', 'Patel', 'mitnp16@gmail.com', '9409521666', '', 0, 'SUV', '2020-01-02', '2020-01-02', '6:40 am', '', 'Ahemdabad', '', 13, 200, 2600, 0, 2000, NULL, 4600, 690, 5290, 'pay_Dzauouxah24tSl', 'Success', 'Active', '', 'Verify', '0', '2020-01-02 05:00:00', '2020-01-06 05:00:00'),
 (3, 'Nash', 'Bhagat', 'rsharma@getaguru.net', '9974616445', '', 0, 'Sedan', '2020-01-02', '2020-01-02', '6:42 am', '', 'Ahemdabad', '', 10, 200, 2000, 0, 0, NULL, 2000, 300, 2300, 'pay_DzawD102BtbUZK', 'Success', 'Active', '', 'Verify', '0', '2020-01-02 05:00:00', '2020-01-02 05:00:00'),
-(6, 'Super', 'Admin', 'rsharma@getaguru.net', '8200308821', '', 2, 'SUV', '2020-01-03', '2020-01-03', '1:15 am', '', 'Ahemdabad', 'Anand', 13, 200, 2600, 0, 2000, NULL, 4600, 690, 5290, NULL, 'Pending', 'Active', '', 'Verify', '0', '2020-01-03 05:00:00', '2020-01-06 05:00:00');
+(6, 'Super', 'Admin', 'bluegreyindia@gmail.com', '8200308821', '', 2, 'SUV', '2020-01-03', '2020-01-03', '1:15 am', '', 'Ahemdabad', 'Anand', 13, 200, 2600, 0, 2000, NULL, 4600, 690, 5290, NULL, 'Pending', 'Active', '', 'Verify', '0', '2020-01-03 05:00:00', '2020-01-06 05:00:00'),
+(13, 'Himnasi', 'Shah', 'rsharma@getaguru.net', '8888888888', '', 1, 'Sedan', '2020-01-07', '2020-01-07', '6:00 am', '', 'Valsad', 'Anand', 10, 200, 2000, 0, 0, NULL, 2000, 300, 2300, NULL, 'Pending', 'Active', '41567', 'Verify', '0', '2020-01-07 05:00:00', '2020-01-07 05:00:00'),
+(15, 'Himnasi', 'Shah', 'rsharma@getaguru.net', '8888888888', '', 1, 'Sedan', '2020-01-08', '2020-01-08', '6:00 am', '', 'Valsad', 'Anand', 10, 200, 2000, 0, 0, NULL, 2000, 300, 2300, NULL, 'Pending', 'Active', '41567', 'Verify', '0', '2020-01-07 05:00:00', '2020-01-07 05:00:00'),
+(17, 'Binny', 'Rai', 'rshyyyarma@getaguru.net', '7777777777', NULL, 2, 'SUV', '2020-01-08', '2020-01-08', '1:47 am', '', 'Ahemdabad', 'Anand', 13, 200, 2600, 0, 2000, NULL, 4600, 690, 5290, NULL, 'Pending', 'Active', '', 'Verify', '0', '2020-01-08 05:00:00', '2020-01-08 05:00:00'),
+(19, 'Mitesh', 'Patelssss', 'rsharma@getaguru.net', '8200308821', NULL, 2, 'SUV', '2020-02-12', '2020-01-08', '2:36 am', '', 'Ahemdabad', 'Anand', 13, 200, 2600, 0, 2000, NULL, 4600, 690, 5290, NULL, 'Success', 'Active', '', 'Verify', '0', '2020-01-08 05:00:00', '2020-01-08 05:00:00');
 
 --
 -- Indexes for dumped tables
@@ -4350,6 +4409,18 @@ ALTER TABLE `tbladmin`
 --
 ALTER TABLE `tblcarbrand`
   ADD PRIMARY KEY (`CarBrandId`);
+
+--
+-- Indexes for table `tblcarrer`
+--
+ALTER TABLE `tblcarrer`
+  ADD PRIMARY KEY (`CarrerId`);
+
+--
+-- Indexes for table `tblcarrierinquiry`
+--
+ALTER TABLE `tblcarrierinquiry`
+  ADD PRIMARY KEY (`CarrierInquiryId`);
 
 --
 -- Indexes for table `tblcartype`
@@ -4453,6 +4524,18 @@ ALTER TABLE `tblcarbrand`
   MODIFY `CarBrandId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
+-- AUTO_INCREMENT for table `tblcarrer`
+--
+ALTER TABLE `tblcarrer`
+  MODIFY `CarrerId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `tblcarrierinquiry`
+--
+ALTER TABLE `tblcarrierinquiry`
+  MODIFY `CarrierInquiryId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT for table `tblcartype`
 --
 ALTER TABLE `tblcartype`
@@ -4522,13 +4605,13 @@ ALTER TABLE `tblstate`
 -- AUTO_INCREMENT for table `tbltestimonial`
 --
 ALTER TABLE `tbltestimonial`
-  MODIFY `TestimonialId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `TestimonialId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `tbluser`
 --
 ALTER TABLE `tbluser`
-  MODIFY `UserId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `UserId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

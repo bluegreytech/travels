@@ -81,3 +81,5 @@ ERROR - 2020-01-08 10:45:54 --> 404 Page Not Found: Default/images
 ERROR - 2020-01-08 10:45:54 --> 404 Page Not Found: Default/images
 ERROR - 2020-01-08 10:49:01 --> 404 Page Not Found: Default/images
 ERROR - 2020-01-08 10:49:01 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-08 10:50:52 --> 404 Page Not Found: Default/images
+ERROR - 2020-01-08 10:50:52 --> 404 Page Not Found: Default/images

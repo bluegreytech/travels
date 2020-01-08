@@ -145,13 +145,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             <div class="col-md-6 col-xs-6 left-border">
                                                 <div class="text-center">
                                                     <div><h3>Total Distance</h3></div>
-                                                    <div>KMS<input type="text" id="KMS" readonly></div>
+                                                    <div><span>KMS</span><input type="text" id="KMS" readonly></div>
                                                 </div>
                                             </div>
                                             <div class="col-md-6 col-xs-6">
                                                  <div class="text-center">
                                                     <div><h3>Total Fare</h3></div>
-                                                    <div>Rs.<input type="text" id="FinalAmount" readonly></div>
+                                                    <div><span>Cab Rate</span><input type="text" id="FinalAmount" readonly></div>
                                                 </div>
                                             </div>
                                         </div>

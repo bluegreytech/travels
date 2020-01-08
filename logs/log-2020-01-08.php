@@ -202,3 +202,32 @@ ERROR - 2020-01-08 08:36:40 --> Severity: Notice --> Undefined index: EndCity C:
 ERROR - 2020-01-08 08:36:40 --> 404 Page Not Found: Assets/images
 ERROR - 2020-01-08 08:45:17 --> Severity: error --> Exception: syntax error, unexpected 'NUL' (T_STRING), expecting ')' C:\xampp\htdocs\travels\application\models\Login_model.php 157
 ERROR - 2020-01-08 08:45:29 --> Severity: error --> Exception: syntax error, unexpected 'NULL' (T_STRING), expecting ')' C:\xampp\htdocs\travels\application\models\Login_model.php 157
+ERROR - 2020-01-08 10:56:01 --> Severity: Notice --> Undefined index: StartCity C:\xampp\htdocs\travels\application\views\home\index.php 83
+ERROR - 2020-01-08 10:56:01 --> Severity: Notice --> Undefined index: EndCity C:\xampp\htdocs\travels\application\views\home\index.php 120
+ERROR - 2020-01-08 10:56:01 --> Severity: Notice --> Undefined index: StartCity C:\xampp\htdocs\travels\application\views\home\index.php 183
+ERROR - 2020-01-08 10:56:01 --> Severity: Notice --> Undefined index: EndCity C:\xampp\htdocs\travels\application\views\home\index.php 219
+ERROR - 2020-01-08 10:56:02 --> 404 Page Not Found: Assets/vendors
+ERROR - 2020-01-08 10:56:02 --> 404 Page Not Found: Assets/vendors
+ERROR - 2020-01-08 10:56:02 --> 404 Page Not Found: Assets/images
+ERROR - 2020-01-08 10:57:31 --> Query error: Table 'travelsdb.tbltestimonial' doesn't exist - Invalid query: SELECT *
+FROM `tbltestimonial`
+WHERE `IsDelete` = '0'
+AND `IsActive` = 'Active'
+AND `ApproveStatus` = 'Active'
+ORDER BY `TestimonialId` DESC
+ERROR - 2020-01-08 10:57:32 --> Query error: Table 'travelsdb.tbltestimonial' doesn't exist - Invalid query: SELECT *
+FROM `tbltestimonial`
+WHERE `IsDelete` = '0'
+AND `IsActive` = 'Active'
+AND `ApproveStatus` = 'Active'
+ORDER BY `TestimonialId` DESC
+ERROR - 2020-01-08 10:57:33 --> Severity: Notice --> Undefined index: StartCity C:\xampp\htdocs\travels\application\views\home\index.php 83
+ERROR - 2020-01-08 10:57:33 --> Severity: Notice --> Undefined index: EndCity C:\xampp\htdocs\travels\application\views\home\index.php 120
+ERROR - 2020-01-08 10:57:33 --> Severity: Notice --> Undefined index: StartCity C:\xampp\htdocs\travels\application\views\home\index.php 183
+ERROR - 2020-01-08 10:57:33 --> Severity: Notice --> Undefined index: EndCity C:\xampp\htdocs\travels\application\views\home\index.php 219
+ERROR - 2020-01-08 10:57:33 --> 404 Page Not Found: Assets/vendors
+ERROR - 2020-01-08 10:57:34 --> 404 Page Not Found: Assets/images
+ERROR - 2020-01-08 10:57:34 --> 404 Page Not Found: Assets/vendors
+ERROR - 2020-01-08 10:57:48 --> 404 Page Not Found: Assets/vendors
+ERROR - 2020-01-08 10:58:05 --> 404 Page Not Found: Assets/vendors
+ERROR - 2020-01-08 10:58:08 --> 404 Page Not Found: Assets/vendors

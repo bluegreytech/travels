@@ -934,3 +934,9 @@ a:hover {
 .is-active .icon-menu5:before{
   content: "\f057";
 }
+
+#myModal2 .modal-content input {
+    outline: none;
+    border: none;
+    width: 100%;
+}

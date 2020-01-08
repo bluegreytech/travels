@@ -306,7 +306,7 @@ class Car_model extends CI_Model
 
         $data = array(
 			'BrandName'=>trim($this->input->post('BrandName')),
-
+			'PerHoureFare'=>trim($this->input->post('PerHoureFare')),
 			'PerKmRate'=>trim($this->input->post('PerKmRate')),
 			'ExtraKMS'=>trim($this->input->post('ExtraKMS')),
 			'DriverAllowancePerDay'=>trim($this->input->post('DriverAllowancePerDay')),
@@ -432,7 +432,7 @@ class Car_model extends CI_Model
 	   	// $EndPointCityId=implode(',',$this->input->post('EndPointCityId'));
         $data = array(
 		'BrandName'=>trim($this->input->post('BrandName')),
-
+		'PerHoureFare'=>trim($this->input->post('PerHoureFare')),
 		// 'StartPointCityId'=>trim($StartPointCityId),
 		// 'EndPointCityId'=>trim($EndPointCityId),
 		'PerKmRate'=>trim($this->input->post('PerKmRate')),

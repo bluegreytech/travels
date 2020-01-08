@@ -110,16 +110,16 @@
 	 * @return	boolen
 	 */
 	 
-	function check_admin_authentication()
+	function check_user_authentication()
 	{	
 	//echo "hghgf";die;	
 		$CI =& get_instance();
 		
                 
-                if($CI->session->userdata('AdminId')!='')
+                if($CI->session->userdata('ContactNumber')!='')
                 {
                     //check user active
-                    $a_data = get_one_admin($CI->session->userdata('AdminId'));
+                    $a_data = get_one_user($CI->session->userdata('ContactNumber'));
               		// echo "<pre>";print_r($a_data);die;
                     if($a_data->IsActive == 'Active'){
                     	 
@@ -127,7 +127,7 @@
                     }
                     else{
 
-                        redirect('login/logout');
+                        redirect('home');
                     }
                 }
                 else
@@ -137,10 +137,10 @@
 	
 	}
     
-	function get_one_admin($id)
+	function get_one_user($ContactNumber)
 	{
 		$CI =& get_instance();
-		$query = $CI->db->get_where('tbladmin',array('AdminId'=>$id));
+		$query = $CI->db->get_where('tbluser',array('ContactNumber'=>$ContactNumber));
 		return $query->row();
 	}	
 	// --------------------------------------------------------------------
@@ -150,11 +150,11 @@
 	 *
 	 * @return	integer
 	 */
-	function get_authenticateadminID()
-	{		
-		$CI =& get_instance();
-		return $CI->session->userdata('AdminId');
-	}
+	// function get_authenticateadminID()
+	// {		
+	// 	$CI =& get_instance();
+	// 	return $CI->session->userdata('AdminId');
+	// }
 	
 	
 	

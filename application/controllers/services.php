@@ -22,7 +22,7 @@ class Services extends CI_Controller
 		$data['PickupTime']=$this->input->post('PickupTime');
 		$data['PickupTime']=$this->input->post('PickupTime');
 		$data['DropofTime']=$this->input->post('DropofTime');
-		
+		$data['PerHoureFare']=$this->input->post('PerHoureFare');
 	
 		if($_POST)
 		{	
@@ -69,6 +69,8 @@ class Services extends CI_Controller
 		$data['DropofDate']=$this->input->post('DropofDate');
 		$data['PickupTime']=$this->input->post('PickupTime');
 		$data['DropofTime']=$this->input->post('DropofTime');
+		$data['PerHoureFare']=$this->input->post('PerHoureFare');
+		
 		//$data['CarBrandId']=$this->input->post('CarBrandId');
 		//$data['BrandName']=$this->input->post('BrandName');
 		if($_POST)
@@ -87,13 +89,11 @@ class Services extends CI_Controller
 			$this->session->set_userdata($session);
 			if($this->input->post('DropofTime')!='')
 			{
-				echo "111";die;
 				$data['services']=$this->Services_model->search_local();
 				//echo "<pre>";print_r($data['services']);die;
 			}
 			else
 			{
-				//echo "2222";die;
 				$data['services']=$this->Services_model->search();
 			}
 			

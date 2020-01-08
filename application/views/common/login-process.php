@@ -60,6 +60,7 @@
 								    {
 									 	$CarBrandId=$this->session->userdata('CarBrandId');
 										$BrandName=$this->session->userdata('BrandName');
+										$PerHoureFare=$this->session->userdata('PerHoureFare');
 										$StartCity=$this->session->userdata('StartCity');
 										$EndCity=$this->session->userdata('EndCity');
 										$PickupDate=$this->session->userdata('PickupDate');
@@ -73,6 +74,7 @@
 
 								<input type="hidden" name="CarBrandId" value="<?php echo $this->session->userdata('CarBrandId');?>">
 								<input type="hidden" name="BrandName" value="<?php echo $this->session->userdata('BrandName');?>">
+								<input type="hidden" name="PerHoureFare" value="<?php echo $this->session->userdata('PerHoureFare'); ?>">
 								<input type="hidden" name="StartCity" value="<?php echo $this->session->userdata('StartCity');?>">
 								<input type="hidden" name="EndCity" value="<?php echo $this->session->userdata('EndCity');?>">
 								<input type="hidden" name="PickupDate" value="<?php echo $this->session->userdata('PickupDate');?>">

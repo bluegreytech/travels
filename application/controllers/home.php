@@ -69,6 +69,7 @@ class Home extends CI_Controller
 		$data['DropofTime']=$this->input->post('DropofTime');
 		$data['CarBrandId']=$this->input->post('CarBrandId');
 		$data['BrandName']=$this->input->post('BrandName');
+		$data['PerHoureFare']=$this->input->post('PerHoureFare');
 		//$data['OTPNumber']=$this->input->post('OTPNumber');
 
 		if($_POST)
@@ -83,6 +84,8 @@ class Home extends CI_Controller
 				'DropofTime'=> $data['DropofTime'],
 				'CarBrandId'=> $data['CarBrandId'],
 				'BrandName'=>$data['BrandName'],
+				'PerHoureFare'=>$data['PerHoureFare'],
+			 
 			 );
 			$this->session->set_userdata($session);	
 		}
@@ -102,6 +105,7 @@ class Home extends CI_Controller
 		$data['DropofTime']=$this->input->post('DropofTime');
 		$data['CarBrandId']=$this->input->post('CarBrandId');
 		$data['BrandName']=$this->input->post('BrandName');
+		$data['PerHoureFare']=$this->input->post('PerHoureFare');
 		$data['ContactNumber']=$this->input->post('ContactNumber');
 		$data['OTPNumber']=$this->input->post('OTPNumber');
 		if($_POST)
@@ -116,8 +120,10 @@ class Home extends CI_Controller
 				'DropofTime'=> $data['DropofTime'],
 				'CarBrandId'=> $data['CarBrandId'],
 				'BrandName'=>$data['BrandName'],
+				'PerHoureFare'=>$data['PerHoureFare'],	
 				'ContactNumber'=> $data['ContactNumber'],
-				'OTPNumber'=>$data['OTPNumber'],		
+				'OTPNumber'=>$data['OTPNumber'],
+
 			 );
 
 			//print_r($session);die;
@@ -143,6 +149,7 @@ class Home extends CI_Controller
 		$data['CarBrandId']=$this->input->post('CarBrandId');
 		$CarBrandId=$this->input->post('CarBrandId');
 		$data['BrandName']=$this->input->post('BrandName');
+		$data['PerHoureFare']=$this->input->post('PerHoureFare');
 		$data['ContactNumber']=$this->input->post('ContactNumber');
 		$data['OTPNumber']=$this->input->post('OTPNumber');
 		$data['DropofDate']=$this->input->post('DropofDate');
@@ -165,6 +172,7 @@ class Home extends CI_Controller
 						'DropofTime'=> $data['DropofTime'],
 						'CarBrandId'=> $data['CarBrandId'],
 						'BrandName'=>$data['BrandName'],
+						'PerHoureFare'=>$data['PerHoureFare'],
 						'ContactNumber'=> $data['ContactNumber'],
 						'OTPNumber'=>$data['OTPNumber'],		
 					);
@@ -258,6 +266,9 @@ class Home extends CI_Controller
 
 	public function userprofile()
     {
+    	if(!check_user_authentication()){ 
+			redirect(base_url());
+		}
     	$data['ContactNumber']=$this->input->post('ContactNumber');
 		$data['OTPNumber']=$this->input->post('OTPNumber');
 

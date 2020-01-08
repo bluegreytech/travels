@@ -32,6 +32,7 @@
 								    {
 									 	$CarBrandId=$this->session->userdata('CarBrandId');
 										$BrandName=$this->session->userdata('BrandName');
+										$PerHoureFare=$this->session->userdata('PerHoureFare');
 										$StartCity=$this->session->userdata('StartCity');
 										$EndCity=$this->session->userdata('EndCity');
 										$PickupDate=$this->session->userdata('PickupDate');
@@ -53,6 +54,7 @@
 								<input type="hidden" name="OTPNumber" value="<?php echo $OTPNumber;?>">
 								<input type="hidden" name="CarBrandId" value="<?php echo $CarBrandId;?>">
 								<input type="hidden" name="BrandName" value="<?php echo $BrandName;?>">
+								<input type="hidden" name="PerHoureFare" value="<?php echo $PerHoureFare; ?>">
 
 			      					<h5 class="this-label">First Name<span>*</span></h5>
 			      					<input type="text" class="form-control" name="FirstName" id="FirstName" placeholder="Enter First Name" minlength="2" maxlength="25">
@@ -102,7 +104,6 @@
 			      				if($DropofDate=='')
 			      				{
 			      					?>
-
 			      					<input type="text" class="form-control" id="DropofDate"  name="DropofDate" placeholder="dd/mm/yyyy" value="<?php echo $PickupDate;?>" readonly>
 			      					<?php
 			      				}
@@ -115,26 +116,25 @@
 			      				}
 			      				?>
 			      				</div>
+
 			      				<div class="form-group col-sm-6">
 			      					<h5 class="this-label">Pickup Location<span>*</span></h5>
 			      					<input type="text" class="form-control" name="StartCity" id="StartCity" placeholder="Pickup location" value="<?php echo $StartCity;?>" readonly>
 			      				</div>
+
 			      				<?php
 	      						if($this->session->userdata('DropofTime')=='')
 	      						{
 	      						?>
+
 			      				<div class="form-group col-sm-6">
 			      					<h5 class="this-label">Destination<span>*</span></h5>
 			      					<input type="text" class="form-control" name="EndCity" id="EndCity" placeholder="Drop of location" value="<?php echo $EndCity;?>" readonly>
 			      				</div>
 			      				<?php
 	      						}
-	      						else
-	      						{
-
-	      							
-	      						}
 	      						?>
+
 			      				<div class="form-group col-sm-6">
 			      					<h5 class="this-label">Pickup Time<span>*</span></h5>
 			      					<input type="text" class="form-control" name="PickupTime" id="PickupTime" placeholder="Pickup time" value="<?php echo $PickupTime;?>" readonly>
@@ -167,14 +167,16 @@
 			      					</div>
 			      					
 			      					<ul class="nav other-infos-car">
-			      						<li>Per KM Fare <span><i class="fa fa-inr"></i>
-			      							<input type="text" name="PerKmRate" id="PerKmRate" value="<?php echo $brandcar['PerKmRate'];?>" readonly></span>
-			      						</li>
-
-			      						<?php
+			      						
+		      						<?php
+		      						if($this->session->userdata('EndCity')!='')
+		      						{
 			      						if($this->session->userdata('DropofTime')=='')
 			      						{
 			      						?>
+			      						<li>Per KM Fare <span><i class="fa fa-inr"></i>
+			      							<input type="text" name="PerKmRate" id="PerKmRate" value="<?php echo $brandcar['PerKmRate'];?>" readonly></span>
+			      						</li>
 
 			      						<li>KMS <span><i class="fa fa-inr"></i>
 			      							<?php
@@ -243,24 +245,45 @@
 			      							<input type="text" id="FinalAmount"id="FinalAmount" name="FinalAmount" value="<?php echo $FinalAmount;?>" readonly> </span>
 			      						</li>
 										
-			      						<?php
+			      					<?php
 			      						}
+			      					}
+			      					else
+			      					{
 			      						?>
+			      						<li>Per Hour Fare <span><i class="fa fa-inr"></i>
+			      							<input type="text" name="PerHoureFare" id="PerHoureFare" value="<?php echo $brandcar['PerHoureFare'];?>" readonly></span>
+			      						</li>
+			      						<?php
+			      					}
+			      					?>
+
 
 			      					</ul>
+
+
+
+
 			      				</div>
 			      									
 			      			</div>
 			      			<div class="row m0 choose-payment-method">
+
 			      				<input type="radio" name="payment-method" id="payment-method01" class="sr-only" checked="">
 			      				<label for="payment-method01">Pay To Driver</label>
 			      				<article class="stripe">Please send your cheque to Store Name, Store Street, Store Town, Store State / County, Store Postcode.</article>
 
+			      				<?php
+			      				if($this->session->userdata('EndCity')!='')
+			      				{
+			      				?>	
+
 			      				<input type="radio" name="payment-method" data-amount="<?php echo $FinalAmount;?>" data-id="1"  id="payment-method02"  class="sr-only">
 			      				<label for="payment-method02">Paypal <a href="#"><img src="<?php echo base_url();?>assets/images/car-detail/paypal.png" alt=""></a></label>
 
-			      				<!-- <input type="radio" name="payment-method" data-amount="<?php echo $FinalAmount;?>" data-id="1"  id="payment-method02"  class="sr-only">
-			      				<label for="payment-method02">Paypal <a href="#"><img src="<?php echo base_url();?>assets/images/car-detail/paypal.png" alt=""></a></label> -->
+								<?php
+			      				}
+			      				?>	
 
 			      				<label class="checkbox-inline agreement"><input type="checkbox" value="">I accept the <a href="#" data-toggle="modal" data-target="#Conditions">Terms and Conditions</a></label>
 			      				<!-- Modal -->
@@ -285,7 +308,7 @@
 
 			      			<input type="button" id="submit" value="PAY NOW!" class="btn btn-primary btn-block" style="display:none">
 
-			      			<input type="submit" id="booknow" value="Book NOW!" class="btn btn-primary btn-block" >
+			      			<input type="submit" id="booknow" value="Book NOW!" class="btn btn-primary btn-block">
 
 			      		</div>
 			      	</form>

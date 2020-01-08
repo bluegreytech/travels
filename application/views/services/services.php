@@ -46,6 +46,7 @@
 
 								<input type="hidden" name="CarBrandId" value="<?php echo $CarBrandId;?>">
 								<input type="hidden" name="BrandName" value="<?php echo $BrandName; ?>">
+								<input type="hidden" name="PerHoureFare" value="<?php echo $row->PerHoureFare; ?>">
 								<input type="hidden" name="StartCity" value="<?php echo $StartCity;?>">
 								<input type="hidden" name="EndCity" value="<?php echo $EndCity;?>">
 								<input type="hidden" name="PickupDate" value="<?php echo $PickupDate;?>">
@@ -68,7 +69,9 @@
 											<div class="row m0">
 												<h2 class="rent"><?php echo $row->BrandName; ?></h2>		
 											</div>	
-											<h4 class="vehicle-title"><span>Cab Rate Per KMS: Rs <?php echo $row->PerKmRate; ?></span></h4>			
+											<h4 class="vehicle-title"><span>Cab Rate Per KMS: Rs <?php echo $row->PerKmRate; ?></span></h4>	
+
+											<h4 class="vehicle-title"><span>Cab Per Hour Fare: Rs <?php echo $row->PerHoureFare; ?></span></h4>			
 										</div>
 									</div>
 									<div class="summary row m0">

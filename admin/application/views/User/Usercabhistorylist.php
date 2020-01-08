@@ -272,7 +272,6 @@ function myDateFormatter(dobdate)
     var day = d.getDate();
     var month = d.getMonth() + 1;
     var year = d.getFullYear();
-    alert(day);
     if (day < 10) {
         day = "0" + day ;
     }

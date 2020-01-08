@@ -13,7 +13,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <strong> <?php echo $this->session->flashdata('success'); ?></strong> 
         </div>
       <?php } ?>
-        <div class="col-md-4">
+        <!-- <div class="col-md-4">
             <div class="card">
                 <div class="card-body">
                     <a href="javascript:void(0)">
@@ -31,7 +31,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     </a>
                 </div>
             </div>
-        </div>
+        </div> -->
         <div class="col-md-4">
             <div class="card">
                 <div class="card-body">
@@ -104,7 +104,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
        
         <div class="card">
             <div class="card-header">
-                <h4 class="card-title">List of B'day User
+                <h4 class="card-title">List of Recently Five User
                 <a class="heading-elements-toggle"><i class="icon-ellipsis font-medium-3"></i></a>
 
              
@@ -120,10 +120,41 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <th>Email Address</th>
                                 <th>Contact Number</th>
                                 <th>Status</th>
-                                <th>Action</th>
+                            
                             </tr>
                         </thead>
-                        
+                         <?php
+                                $i=1;
+                                if($recentlyuser){                             
+                                foreach($recentlyuser as $row)
+                                {          
+                            ?>
+                            <tr>
+                            
+                                     <tr>
+                            
+                                    <td><?php echo $i; ?></td>
+                                    <td><?php echo $row->FirstName.' '.$row->LastName; ?></td>
+                                    <td><?php echo $row->EmailAddress; ?></td>
+                                    <td><?php echo $row->ContactNumber; ?></td>
+                                 
+                                    <td>
+                                        <?php if($row->IsActive=="Active")
+                                            {
+                                                echo "<span class='label label-success'>Active</span>";
+                                            } 
+                                            else
+                                            {
+                                                echo "<span class='label label-danger'>Inactive</span>";
+                                            } 
+                                        ?>
+                                    </td>
+                                   
+                                </tr>      
+                                <?php
+                                $i++;
+                                    } }
+                                ?> 
 
                     </table>
                 </div>

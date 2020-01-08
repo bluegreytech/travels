@@ -137,5 +137,17 @@ class User extends CI_Controller {
 			$this->load->view('User/Usercabhistorylist',$data);	
 		}
 	}
+
+	function ajaxuserdata()
+	{	
+		if(!check_admin_authentication()){ 
+			redirect(base_url());
+		}
+		
+		$UserId=$this->input->post('UserId');
+		$result=$this->User_model->getajaxdata($UserId);
+		echo json_encode($result);
+		//die;
+	}
     
 }

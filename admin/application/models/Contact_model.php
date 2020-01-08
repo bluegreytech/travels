@@ -36,11 +36,18 @@ class Contact_model extends CI_Model
 		$query=$this->db->get();
 		$res = $query->result();
 		return $res;
-
 	}
 
+	function get_carrierlist(){
+		$this->db->select('*');
+		$this->db->from('tblcarrierinquiry');
+		$this->db->where('IsDelete','0');
+		$this->db->order_by('CarrierInquiryId','desc');
+		$query=$this->db->get();
+		$res = $query->result();
+		return $res;
+	}
 	
-
 	
 
 	

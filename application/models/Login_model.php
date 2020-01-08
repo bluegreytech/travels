@@ -373,4 +373,19 @@ class Login_model extends CI_Model
         $res=$this->db->update('tbltestimonial',$data); 
         return $res;
     }
+
+    function getajaxdata($UserId){
+    // $this->db->select('*');
+    // $this->db->from('tbluser');
+    // $this->db->where("UserId",$UserId);
+    // $query=$this->db->get();
+    // $res = $query->result();
+    // return $res;
+
+    $this->db->select("*");
+    $this->db->from("tbluser");
+    $this->db->where("UserId",$UserId);
+    $query=$this->db->get();  
+    return $query->row_array();
+  }
 }

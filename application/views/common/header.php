@@ -39,7 +39,6 @@
 	 <?php
       if($this->session->userdata('ContactNumber')!='')
       {
-          //$UserId=$this->session->userdata('UserId');
            $FirstName=$this->session->userdata('FirstName');
            $LastName=$this->session->userdata('LastName');
            $ContactNumber=$this->session->userdata('ContactNumber');
@@ -75,20 +74,37 @@
 			      		<li><a href="<?php echo base_url();?>home/userlogin">Login</a></li>
 			      		<?php
 			      	}
+			      	else if($this->session->userdata('FirstName')=='' && $this->session->userdata('LastName')=='')
+			      	{
+			      		?>
+			      		<li><a href="<?php echo base_url();?>home/userlogin">Login</a></li>
+			      		<?php
+			      	}
 			      	else
 			      	{
 			      		?>
-			      		<li class="dropdown">
-			              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo $this->session->userdata('FirstName')?> <?php echo $this->session->userdata('LastName');?> <b class="caret"></b></a>
+
+						<li class="dropdown">
+			              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+			              	<?php
+			              	if($this->session->userdata('FirstName')!='' && $this->session->userdata('LastName')!='')
+			              	{
+			              		echo $this->session->userdata('FirstName'); 
+			              		echo $this->session->userdata('LastName'); 
+			              	}
+			     
+			              	?>
+			              	
+			              	<b class="caret"></b></a>
 			              <ul class="dropdown-menu">
 			                <li><a href="<?php echo base_url();?>home/userprofile"><i class="fa fa-user"></i> User Profile</a></li>
 			                <li><a href="<?php echo base_url();?>home/logout"><i class="fa fa-sign-out"></i> Sign Out</a></li>
 			               </ul>
 			            </li>
-			      		<?php
+			          <?php
 			      	}
-			      	?>
- 					
+			          ?>
+			      	
 					
 	         	</ul>
 			</div>
@@ -154,7 +170,7 @@
 					<li><a href="<?php echo base_url();?>about">About</a></li>
 					<li><a href="<?php echo base_url();?>services">Services</a></li>
 					<li><a href="<?php echo base_url();?>routes">Routes</a></li>
-					<li><a href="<?php echo base_url();?>career">career</a></li>
+					<li><a href="<?php echo base_url();?>carrier">career</a></li>
 					<li><a href="<?php echo base_url();?>contact">contact</a></li>
 
 
@@ -170,6 +186,12 @@
 			      		<li><a href="<?php echo base_url();?>home/userlogin">Login</a></li>
 			      		<?php
 			      	}
+			      	else if($this->session->userdata('FirstName')=='' && $this->session->userdata('LastName')=='')
+			      	{
+			      		?>
+			      		<li><a href="<?php echo base_url();?>home/userlogin">Login</a></li>
+			      		<?php
+			      	}
 			      	else
 			      	{
 			      		?>
@@ -179,12 +201,9 @@
 			              	<?php
 			              	if($this->session->userdata('FirstName')!='' && $this->session->userdata('LastName')!='')
 			              	{
-			              		echo $this->session->userdata('FirstName'); echo $this->session->userdata('LastName'); 
+			              	echo $this->session->userdata('FirstName'); echo $this->session->userdata('LastName'); 
 			              	}
-			              	else
-			              	{
-			              		echo "Login";
-			              	}
+			     
 			              	?>
 			              	
 			              	<b class="caret"></b></a>
@@ -196,6 +215,7 @@
 			          <?php
 			      	}
 			          ?>
+			      	
 		         	</ul>
 				</div>				
 				

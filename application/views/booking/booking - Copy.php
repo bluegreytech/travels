@@ -283,9 +283,9 @@
 								</div>
 			      			</div>
 
-			      			<input type="button" id="submit" value="PAY NOW!" class="btn btn-primary btn-block" style="display:none">
+			      			<input type="button" id="submit" value="PAY NOW!" class="btn btn-primary btn-block">
 
-			      			<input type="submit" id="booknow" value="Book NOW!" class="btn btn-primary btn-block" >
+			      			<input type="submit" id="booknow" value="Book NOW!" class="btn btn-primary btn-block" style="display:none">
 
 			      		</div>
 			      	</form>

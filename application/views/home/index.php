@@ -2,6 +2,7 @@
 	 $this->load->view('common/header');
 ?>
 
+
 	<!--Home 1 Slide Banner-->
 	<section class="slide-banner row">
 		<div id="jssor_1" style="position:relative;margin:0 auto;top:0px;left:0px;width:1349px;height:550px;overflow:hidden;visibility:hidden;">
@@ -78,7 +79,22 @@
 											<div class="input-group">
 												<select name="StartCity" class="form-control" required onChange="getendcity(this.value)" 
 			      					 id="StartCity">
-													<option desabled value="">Please select start point city</option>
+			      					 				<?php 
+			      					 				if($_GET['StartCity']!='')
+			      					 				{
+			      					 					
+			      					 					?>
+			      					 						<option value="<?php echo $_GET['StartCity'];?>"><?php echo $_GET['StartCity'];?></option>
+			      					 					<?php
+			      					 				}
+			      					 				else
+			      					 				{
+			      					 					?>
+			      					 						<option value="">Please select start point city</option>
+			      					 					<?php
+			      					 				}
+			      					 				?>
+													
 													<?php
 													if($cityData)
 													{
@@ -100,8 +116,23 @@
 											<div class="input-group">
 												
 												<select name="EndCity" class="form-control" required id="EndCity">
-													<option value="">Please select end point city</option>
-													<?php
+													<?php 
+			      					 				if($_GET['EndCity']!='')
+			      					 				{
+			      					 					
+			      					 					?>
+			      					 						<option value="<?php echo $_GET['EndCity'];?>"><?php echo $_GET['EndCity'];?></option>
+			      					 					<?php
+			      					 				}
+			      					 				else
+			      					 				{
+			      					 					?>
+			      					 						<option value="">Please select end point city</option>
+			      					 					<?php
+			      					 				}
+			      					 				?>
+													
+													<!-- <?php
 													if($endcityData)
 													{
 														foreach($endcityData as $cData)
@@ -110,7 +141,7 @@
 														<option value="<?php echo $cData->EndCity; ?>" ><?php echo $cData->EndCity; ?></option>
 													<?php
 													}}
-													?>
+													?> -->
 												</select>
 
 												<span class="input-group-addon"><i class="ion-android-locate"></i></span>
@@ -148,7 +179,21 @@
 												<select name="StartCity" class="form-control" required 
 												onChange="getendcityround(this.value)" 
 			      					 id="StartCityRound">
-													<option desabled value="">Please select start point city</option>
+													<?php 
+			      					 				if($_GET['StartCity']!='')
+			      					 				{
+			      					 					
+			      					 					?>
+			      					 						<option value="<?php echo $_GET['StartCity'];?>"><?php echo $_GET['StartCity'];?></option>
+			      					 					<?php
+			      					 				}
+			      					 				else
+			      					 				{
+			      					 					?>
+			      					 						<option value="">Please select start point city</option>
+			      					 					<?php
+			      					 				}
+			      					 				?>
 													<?php
 													if($cityData)
 													{
@@ -170,8 +215,22 @@
 											<div class="input-group">
 												
 												<select name="EndCity" class="form-control" required id="EndCityRound">
-													<option value="">Please select end point city</option>
-													<?php
+													<?php 
+			      					 				if($_GET['EndCity']!='')
+			      					 				{
+			      					 					
+			      					 					?>
+			      					 						<option value="<?php echo $_GET['EndCity'];?>"><?php echo $_GET['EndCity'];?></option>
+			      					 					<?php
+			      					 				}
+			      					 				else
+			      					 				{
+			      					 					?>
+			      					 						<option value="">Please select end point city</option>
+			      					 					<?php
+			      					 				}
+			      					 				?>
+													<!-- <?php
 													if($endcityData)
 													{
 														foreach($endcityData as $cData)
@@ -180,7 +239,7 @@
 														<option value="<?php echo $cData->EndCity; ?>"><?php echo $cData->EndCity;?></option>
 													<?php
 													}}
-													?>
+													?> -->
 												</select>
 												<span class="input-group-addon"><i class="ion-android-locate"></i></span>
 											</div>
@@ -652,7 +711,7 @@ function getendcity(StartCity)
               $.each(response, function(key, val) {
               	console.log(val.EndCity);
                 $("#EndCity").append(
-                        "<option value=" + val.CityId + ">" + val.EndCity+ "</option>");
+                        "<option value=" + val.EndCity + ">" + val.EndCity+ "</option>");
             });
 			
          }
@@ -676,7 +735,7 @@ function getendcityround(StartCityRound)
               $.each(response, function(key, val) {
               	console.log(val.EndCity);
                 $("#EndCityRound").append(
-                        "<option value=" + val.CityId + ">" + val.EndCity+ "</option>");
+                        "<option value=" + val.EndCity + ">" + val.EndCity+ "</option>");
             });
 			
          }

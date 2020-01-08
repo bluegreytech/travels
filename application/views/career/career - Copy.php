@@ -12,9 +12,7 @@
       </ol>
     </div>
   </section>    
-  
-  <section class="missin-benefits">
-     <?php if(($this->session->flashdata('wrong'))){ ?>
+   <?php if(($this->session->flashdata('wrong'))){ ?>
               <div class="alert alert-danger" id="wrongMessage">
               <strong> <?php echo $this->session->flashdata('wrong'); ?></strong> 
               </div>
@@ -29,6 +27,7 @@
               <strong> <?php echo $this->session->flashdata('warning'); ?></strong> 
               </div>
               <?php } ?>
+  <section class="missin-benefits">
     <div class="container">
       <div class="row section-title text-center">
        
@@ -43,7 +42,6 @@
         foreach($carrier as $row)
         {
         ?>
-          <br>
                 <div class="row">
                   <div class="col-sm-12 col-xs-12 benefit-it">
                     <div class="panel-group benefit-accordion" role="tablist" aria-multiselectable="true">
@@ -61,7 +59,7 @@
                              <?php echo $row->CarrerDescription; ?>
                               <br><br>
                               <div>
-                                <a href="#" data-id="<?php echo $row->CarrerTitle;?>" class="btn btn-primary user_dialog" data-toggle="modal" data-target="#career">APPLY NOW</a>
+                                <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#career">APPLY NOW</a>
 
                                 <!-- Modal -->
                                 <div id="career" class="modal fade" role="dialog">
@@ -76,15 +74,15 @@
                                       <div class="modal-body">
                                         <div class="col-md-12">
                                       <div class="contact-form-info">
-                                        <form method="post" class="contct-form contactForm row m0" id="form_valid" action="<?php echo base_url();?>Carrier/carreradd" enctype="multipart/form-data">
+                                        <form method="post" class="contct-form contactForm row m0" id="form_valid" action="<?php echo base_url();?>Carrier/carreradd">
                                           <div class="col-md-6">
                                             <div class="input-group">
-                                              <input type="text" name="FullName" class="form-control" placeholder="Full Name" minlength="3" maxlength="50">
+                                              <input type="text" name="FullName" id="name" class="form-control" placeholder="Full Name" minlength="3" maxlength="50">
                                             </div>
                                           </div>
                                           <div class="col-md-6">
                                             <div class="input-group">
-                                              <input type="email" name="EmailAddress" class="form-control" placeholder="Enter your email">
+                                              <input type="email" name="EmailAddress" id="EmailAddress" class="form-control" placeholder="Enter your email">
                                             </div>
                                           </div>
                                           <div class="col-md-6">
@@ -94,8 +92,8 @@
                                           </div>
                                           <div class="col-md-6">
                                             <div class="input-group">
-                                              <input type="text" name="Subject" class="form-control" id="Subject"
-                                               readonly>
+                                              <input type="text" name="Subject" id="Subject" class="form-control" 
+                                              value="<?php echo $row->CarrerTitle; ?>" readonly>
                                             </div>
                                           </div>
                                           <div class="col-md-12">
@@ -103,21 +101,18 @@
                                               <textarea name="RemarkDescription" id="RemarkDescription" class="form-control" placeholder="Remark Message" minlength="3" maxlength="300"></textarea>
                                             </div>
                                           </div>
-
                                           <div class="col-md-12">
                                             <div class="form-group">
-                                                <div class="row">
-                                                  <div class="col-md-4">
-                                                    <label class="pt-2">Upload your CV</label>
-                                                  </div>
-                                                  <div class="col-md-8">
-                                                   <input id="attach" type="file" name="CarrierCv" placeholder="Upload File">
-                                              
-                                                  </div>
-                                                </div>
-                                            </div>
+                                                            <div class="row">
+                                                              <div class="col-md-4">
+                                                                <label class="pt-2">Upload your CV</label>
+                                                              </div>
+                                                              <div class="col-md-8">
+                                                               <input id="attach" type="file" name="CarrierCv" placeholder="Upload File">
+                                                              </div>
+                                                            </div>
+                                                        </div>
                                           </div>
-
                                           <div class="col-md-12">
                                             <input type="submit" value="SEND" class="btn btn-primary">
                                           </div>
@@ -149,20 +144,14 @@
 
 
     </div>
-
   </section>
-
+  
   
 <?php 
    $this->load->view('common/footer');
 ?>
 
 <script>
-$(document).on("click", ".user_dialog", function () {
-     var UserName = $(this).data('id');
-     $(".modal-body #Subject").val( UserName );
-});
-
 $(function() { 
     setTimeout(function() {
       $('#wrongMessage').fadeOut('fast');
@@ -206,19 +195,9 @@ $(document).ready(function()
           required: true,                
         },  
         CarrierCv:{              
-          required: true,
-          extension: "doc|pdf|docx",                
+          required: true,                
         },    
        },
-
-       // errorPlacement: function (error, element) {
-       //      console.log('dd', element.attr("name"))
-       //      if (element.attr("name") == "CarrierCv") {
-       //          error.appendTo("#logoerrorimg");
-       //      } else{
-       //            error.insertAfter(element)
-       //      }
-       //  }
 
     });
 });

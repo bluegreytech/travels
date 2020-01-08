@@ -441,6 +441,20 @@ class Login_model extends CI_Model
     return $res;
   }
 
+  function get_recentuser()
+  {
+    $this->db->select('*');
+    $this->db->from('tbluser');
+    $this->db->where('IsDelete','0');
+    $this->db->order_by('UserId','desc');
+    $this->db->limit(5);
+    $query=$this->db->get();
+    $res = $query->result();
+    return $res;
+  }
+
+  
+
   
   function get_inquiry()
   {

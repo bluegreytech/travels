@@ -266,3 +266,7 @@ ERROR - 2020-01-06 12:12:11 --> 404 Page Not Found: Assets/vendors
 ERROR - 2020-01-06 12:12:21 --> 404 Page Not Found: Assets/js
 ERROR - 2020-01-06 12:12:21 --> 404 Page Not Found: Assets/vendors
 ERROR - 2020-01-06 12:12:21 --> 404 Page Not Found: Assets/vendors
+ERROR - 2020-01-06 14:35:44 --> 404 Page Not Found: Assets/images
+ERROR - 2020-01-06 14:47:22 --> 404 Page Not Found: Assets/js
+ERROR - 2020-01-06 14:47:22 --> 404 Page Not Found: Assets/vendors
+ERROR - 2020-01-06 14:47:22 --> 404 Page Not Found: Assets/vendors

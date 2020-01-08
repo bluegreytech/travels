@@ -258,6 +258,9 @@ class Home extends CI_Controller
 
 	public function userprofile()
     {
+    	if(!check_user_authentication()){ 
+			redirect(base_url());
+		}
     	$data['ContactNumber']=$this->input->post('ContactNumber');
 		$data['OTPNumber']=$this->input->post('OTPNumber');
 

@@ -147,6 +147,7 @@ class Car extends CI_Controller {
 		$data=array();	
 		$data['CarBrandId']=$this->input->post('CarBrandId');
 		$data['BrandName']=$this->input->post('BrandName');
+		$data['PerHoureFare']=$this->input->post('PerHoureFare');
 
 		// $data['StartPointCityId']=$this->input->post('StartPointCityId');
 		// $data['EndPointCityId']=$this->input->post('EndPointCityId');
@@ -208,7 +209,8 @@ class Car extends CI_Controller {
 			//echo "<pre>";print_r($result);die;		
 			$data['CarBrandId']=$result['CarBrandId'];
 			$data['BrandName']=$result['BrandName'];
-
+			$data['PerHoureFare']=$result['PerHoureFare'];
+			
 			// $data['StartPointCityId']=$result['StartPointCityId'];
 			// $data['EndPointCityId']=$result['EndPointCityId'];
 			$data['PerKmRate']=$result['PerKmRate'];

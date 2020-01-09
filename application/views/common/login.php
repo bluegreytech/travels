@@ -62,7 +62,7 @@
 
 								<input type="hidden" name="CarBrandId" value="<?php echo $CarBrandId;?>">
 								<input type="hidden" name="BrandName" value="<?php echo $BrandName; ?>">
-								<input type="text" name="PerHoureFare" value="<?php echo $PerHoureFare; ?>">
+								<input type="hidden" name="PerHoureFare" value="<?php echo $PerHoureFare; ?>">
 								<input type="hidden" name="StartCity" value="<?php echo $StartCity;?>">
 								<input type="hidden" name="EndCity" value="<?php echo $EndCity;?>">
 								<input type="hidden" name="PickupDate" value="<?php echo $PickupDate;?>">

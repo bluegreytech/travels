@@ -73,6 +73,7 @@
                         <th>Pickup Date</th>
                         <th>Start Point</th>
                         <th>End Point</th>
+                        <th>Payment</th>
                         <th class="text-center">Action</th>
                       </tr>
                     </thead>
@@ -86,14 +87,28 @@
                       <tr>
                         <td><?php echo $i; ?></td>
                         <td><?php echo $row->BrandName; ?></td>
-                        <td><?php echo $row->PickupDate; ?></td>
+                        <td><?php  $pdate=$row->PickupDate;
+                                         $pidate = str_replace('/', '-', $pdate );
+                                        echo $PickupDate = date("d-m-Y", strtotime($pidate));?>           
+                                </td>
                         <td><?php echo $row->StartCity; ?></td>
                         <td><?php if($row->EndCity!=''){echo $row->EndCity;}else{echo "N/A";}  ?></td>
+                        <td>
+                                    <?php if($row->payment_status=="Success")
+                                        {
+                                            echo "<span class='label label-success'>Success</span>";
+                                        } 
+                                        else
+                                        {
+                                            echo "<span class='label label-danger'>Pending</span>";
+                                        } 
+                                    ?>
+                                </td>
                         <td class="text-center">
-                            <a href="#" data-id="<?=$row->UserId; ?>" data-toggle="modal" data-target="#faredetail"><i class="fa fa-eye" title="View Details"></i></a>
+                            <a href="#" data-id="<?=$row->UserId; ?>" data-toggle="modal" data-target="#faredetail_<?php echo $row->UserId; ?>"><i class="fa fa-eye" title="View Details"></i></a>
                         </td>
                         <!-- Modal -->
-                        <div id="faredetail" class="modal fade" role="dialog">
+                        <div id="faredetail_<?php echo $row->UserId; ?>" class="modal fade" role="dialog">
                           <div class="modal-dialog faredetail">
 
                             <!-- Modal content-->
@@ -106,74 +121,100 @@
                                         <div class="row mb-1">
                                             <div class="col-md-6 col-xs-6">
                                                 <div class="col-md-5"><strong>Name:</strong></div>
-                                                <div class="col-md-7"><input type="text" id="FirstName" readonly></div>
+                                                <div class="col-md-7"><input type="text" id="FirstName" value="<?php echo $row->FirstName.' '.$row->LastName;?>" readonly></div>
                                             </div>
                                              <div class="col-md-6 col-xs-6">
-                                                <div class="col-md-5"><strong>Phone No.:</strong></div>
-                                                <div class="col-md-7"><input type="text" id="ContactNumber" readonly></div>
+                                                <div class="col-md-5"><strong>Phone No:</strong></div>
+                                                <div class="col-md-7"><input type="text" id="ContactNumber" value="<?php echo $row->ContactNumber;?>" readonly></div>
                                             </div>
                                         </div>
                                         <div class="row mb-1">
                                             <div class="col-md-6 col-xs-6">
                                                 <div class="col-md-5"><strong>Email:</strong></div>
-                                                <div class="col-md-7"><input type="text" id="EmailAddress" readonly></div>
+                                                <div class="col-md-7"><input type="text" id="EmailAddress" value="<?php echo $row->EmailAddress;?>" readonly></div>
                                             </div>
                                              <div class="col-md-6 col-xs-6">
                                                 <div class="col-md-5"><strong>Cab Type:</strong></div>
-                                                <div class="col-md-7"><input type="text" id="BrandName" readonly></div>
+                                                <div class="col-md-7"><input type="text" id="BrandName" value="<?php echo $row->BrandName;?>" readonly></div>
                                             </div>
                                         </div>
                                         <div class="row mb-1">
                                             <div class="col-md-6 col-xs-6">
                                                 <div class="col-md-5"><strong>Origin:</strong></div>
-                                                <div class="col-md-7"><input type="text" id="StartCity" readonly></div>
+                                                <div class="col-md-7"><input type="text" id="StartCity" value="<?php echo $row->StartCity;?>" readonly></div>
                                             </div>
+                                            <?php 
+                                            if($row->EndCity!='')
+                                            {
+                                            ?>
                                              <div class="col-md-6 col-xs-6">
-                                                <div class="col-md-5"><strong>Desination:</strong></div>
-                                                <div class="col-md-7"><input type="text" id="EndCity" readonly></div>
+                                                <div class="col-md-5"><strong>Destination:</strong></div>
+                                                <div class="col-md-7"><input type="text" id="EndCity" value="<?php echo $row->EndCity;?>" readonly></div>
                                             </div>
+                                             <?php
+                                            }
+                                            ?>
                                         </div>
                                         <div class="row mb-1">
                                             <div class="col-md-6 col-xs-6">
                                                 <div class="col-md-5"><strong>Pickup Date:</strong></div>
-                                                <div class="col-md-7"><input type="text" id="PickupDate" readonly></div>
+                                                <div class="col-md-7"><input type="text" id="PickupDate"  value="<?php  $pdate=$row->PickupDate;
+                                                     $pidate = str_replace('/', '-', $pdate );
+                                                    echo $PickupDate = date("d-m-Y", strtotime($pidate));?>" readonly></div>
                                             </div>
                                              <div class="col-md-6 col-xs-6">
                                                 <div class="col-md-5"><strong>Drop Date:</strong></div>
-                                                <div class="col-md-7"><input type="text" id="DropofDate" readonly></div>
+                                                <div class="col-md-7"><input type="text" id="DropofDate" value="<?php  $ddate=$row->DropofDate;
+                                                     $desdate = str_replace('/', '-', $ddate );
+                                                    echo $DropofDate = date("d-m-Y", strtotime($desdate));?>" readonly></div>
                                             </div>
                                         </div>
                                         <div class="row mb-1">
                                             <div class="col-md-6 col-xs-6">
                                                 <div class="col-md-5"><strong>Pickup Time:</strong></div>
-                                                <div class="col-md-7"><input type="text" id="PickupTime" readonly></div>
+                                                <div class="col-md-7"><input type="text" id="PickupTime" value="<?php echo $row->PickupTime;?>" readonly></div>
                                             </div>
+                                            <?php 
+                                            if($row->DropofTime!='')
+                                            {
+                                            ?>
                                              <div class="col-md-6 col-xs-6">
                                                 <div class="col-md-5"><strong>Drop Time:</strong></div>
-                                                <div class="col-md-7"><input type="text" id="DropofTime" readonly></div>
+                                                <div class="col-md-7"><input type="text" id="DropofTime" value="<?php echo $row->DropofTime;?>" readonly></div>
                                             </div>
+                                             <?php
+                                            }
+                                            ?>
                                         </div>
                                         <div class="row mb-1">
                                             <div class="col-md-6 col-xs-6">
                                                 <div class="col-md-5"><strong>Payment:</strong></div>
-                                                <div class="col-md-7"><input type="text" id="payment_status" readonly></div>
+                                                <div class="col-md-7"><input type="text" id="payment_status" value="<?php echo $row->payment_status;?>" readonly></div>
                                             </div>
-                                            <!-- <div class="col-md-6 col-xs-6">
-                                                <div class="col-md-5"><strong>Drop Time:</strong></div>
-                                                <div class="col-md-7">12:00am</div>
-                                            </div> -->
+                                           <?php 
+                                            if($row->EndCity=='')
+                                            {
+                                                ?>
+                                                <div class="col-md-6 col-xs-6">
+                                                <div class="col-md-5"><strong>Per Houre Fare:</strong></div>
+                                                <div class="col-md-7"><input type="text" id="PerHoureFare" value="<?php echo $row->PerHoureFare;?>" readonly></div>
+                                            </div>
+                                                <?php
+                                            }
+                                               
+                                            ?>
                                         </div>
                                         <div class="row price-detail">
                                             <div class="col-md-6 col-xs-6 left-border">
                                                 <div class="text-center">
                                                     <div><h3>Total Distance</h3></div>
-                                                    <div class="total-data-left"><input type="text" id="KMS" readonly><span>KMS</span></div>
+                                                    <div class="total-data-left"><input type="text" value="<?php echo $row->KMS;?>" id="KMS" readonly><span>KMS</span></div>
                                                 </div>
                                             </div>
                                             <div class="col-md-6 col-xs-6">
                                                  <div class="text-center">
                                                     <div><h3>Total Fare</h3></div>
-                                                    <div class="total-data-right"><span>Rs.</span><input type="text" id="FinalAmount" readonly></div>
+                                                    <div class="total-data-right"><span>Rs.</span><input type="text" id="FinalAmount" value="<?php echo $row->FinalAmount;?>" readonly></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -274,61 +315,45 @@ $(document).ready(function()
 </script>
 
 <script>
-$(document).ready(function()
-{
-    $('#faredetail').on('show.bs.modal', function (e)
-    {
-        var UserId = $(e.relatedTarget).data('id');
-        //alert(UserId);
-        url="<?php echo base_url();?>"
-            $.ajax({
-            url: url+"home/ajaxuserdata/",
-            type: "post",
-            data: {UserId:UserId},
-            success:function(response){
-                var response = JSON.parse(response);
-                //console.log(response.FirstName);
+// $(document).ready(function()
+// {
+//     $('#faredetail').on('show.bs.modal', function (e)
+//     {
+//         var UserId = $(e.relatedTarget).data('id');
+//         //alert(UserId);
+//         url="<?php echo base_url();?>"
+//             $.ajax({
+//             url: url+"home/ajaxuserdata/",
+//             type: "post",
+//             data: {UserId:UserId},
+//             success:function(response){
+//                 var response = JSON.parse(response);
+//                 //console.log(response.FirstName);
 
-                $('#UserId').val(response.UserId);
-                $('#FirstName').val(response.FirstName+' '+response.LastName);
-                $('#EmailAddress').val(response.EmailAddress);
-                $('#ContactNumber').val(response.ContactNumber);
-                $('#BrandName').val(response.BrandName);
-                $('#PickupDate').val(myDateFormatter(response.PickupDate));
-                $('#DropofDate').val(myDateFormatter(response.DropofDate));
-                $('#PickupTime').val(response.PickupTime);
-                $('#DropofTime').val(response.DropofTime);
-                $('#StartCity').val(response.StartCity);
-                $('#EndCity').val(response.EndCity);
-                $('#PerKmRate').val(response.PerKmRate);
-                $('#KMS').val(response.KMS);
-                $('#TotalFareAmount').val(response.TotalFareAmount);
-                $('#StateTax').val(response.StateTax);
-                $('#Tax').val(response.Tax);
-                $('#TotalAmount').val(response.TotalAmount);
-                $('#TaxAdded').val(response.TaxAdded);
-                $('#FinalAmount').val(response.FinalAmount);
-                $('#payment_status').val(response.payment_status);
-            }
+//                 $('#UserId').val(response.UserId);
+//                 $('#FirstName').val(response.FirstName+' '+response.LastName);
+//                 $('#EmailAddress').val(response.EmailAddress);
+//                 $('#ContactNumber').val(response.ContactNumber);
+//                 $('#BrandName').val(response.BrandName);
+//                 $('#PickupDate').val(myDateFormatter(response.PickupDate));
+//                 $('#DropofDate').val(myDateFormatter(response.DropofDate));
+//                 $('#PickupTime').val(response.PickupTime);
+//                 $('#DropofTime').val(response.DropofTime);
+//                 $('#StartCity').val(response.StartCity);
+//                 $('#EndCity').val(response.EndCity);
+//                 $('#PerKmRate').val(response.PerKmRate);
+//                 $('#KMS').val(response.KMS);
+//                 $('#TotalFareAmount').val(response.TotalFareAmount);
+//                 $('#StateTax').val(response.StateTax);
+//                 $('#Tax').val(response.Tax);
+//                 $('#TotalAmount').val(response.TotalAmount);
+//                 $('#TaxAdded').val(response.TaxAdded);
+//                 $('#FinalAmount').val(response.FinalAmount);
+//                 $('#payment_status').val(response.payment_status);
+//             }
            
-        });
-     });
-});
+//         });
+//      });
+// });
 
-
-function myDateFormatter(dobdate) 
-{
-    var d = new Date(dobdate);
-    var day = d.getDate();
-    var month = d.getMonth() + 1;
-    var year = d.getFullYear();
-    if (day < 10) {
-        day = "0" + day ;
-    }
-    if (month < 10) {
-      month = "0" + month;
-    }
-    var date = day + "/" + month + "/" + year;
-    return date;
-}; 
 </script>

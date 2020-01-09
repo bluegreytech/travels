@@ -66,7 +66,7 @@
 								 ?>
 
 								
-								<input type="text" name="ContactNumber" value="<?php echo $this->session->userdata('ContactNumber');?>">
+								<input type="hidden" name="ContactNumber" value="<?php echo $this->session->userdata('ContactNumber');?>">
 								<!-- <input type="text" name="LoginOTP" value="<?php//echo $this->session->userdata('LoginOTP');?>"> -->
 								<input type="text" class="form-control" name="LoginOTP" id="OTPNumber" placeholder="Enter 6 Digit OTP" minlength="5" maxlength="6">
 							</div>

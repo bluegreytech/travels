@@ -33,10 +33,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <thead class="thead-inverse">
                             <tr>
                                 <th>Sr No</th>
-                                <th>Brand Name</th>
-                                <th>Pickup Date</th>
-                                <th>Start Point City</th>
-                                <th>End Point City</th>
+                                <th>Name</th>
+                                <th>Email Address</th>
+                                <th>Contact Number</th>
 								<th>Payment Status</th>
                                 <th class="text-center">Action</th>
                             </tr>
@@ -44,21 +43,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<tbody>
                             <?php
                                 $i=1;
-                                if($cabhistory)
-                                {                             
+                                if($cabhistory){                             
                                 foreach($cabhistory as $row)
                                 {          
                             ?>
                             <tr>
                             
                                 <td><?php echo $i; ?></td>
-                                <td><?php echo $row->BrandName; ?></td>
-                                <td><?php  $pdate=$row->PickupDate;
-                                         $pidate = str_replace('/', '-', $pdate );
-                                        echo $PickupDate = date("d-m-Y", strtotime($pidate));?>           
-                                </td>
-                                <td><?php echo $row->StartCity; ?></td>
-                                <td><?php if($row->EndCity!=''){echo $row->EndCity;}else{echo "N/A";} ?></td>
+                                <td><?php echo $row->FirstName.' '.$row->LastName; ?></td>
+                                <td><?php echo $row->EmailAddress; ?></td>
+                                <td><?php echo $row->ContactNumber; ?></td>
+                             
                                 <td>
                                     <?php if($row->payment_status=="Success")
                                         {
@@ -72,10 +67,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 </td>
                                 <td class="text-center">
                                     <?php echo anchor('user/Edituser/'.$row->UserId,'<i class="ficon icon-pencil2" data-toggle="tooltip" title="Edit User"></i> '); ?>
-                                    <a href="" data-id="<?php echo $row->UserId; ?>" data-toggle="modal" data-target="#myModal2_<?php echo $row->UserId; ?>"><i class="ficon icon-eye" data-toggle="tooltip" title="View Details"></i></a>
+                                    <a href="" data-id="<?=$row->UserId; ?>" data-toggle="modal" data-target="#myModal2"><i class="ficon icon-eye" data-toggle="tooltip" title="View Details"></i></a>
                                 </td>  
                                 <!-- Modal -->
-                                <div id="myModal2_<?php echo $row->UserId;?>" class="modal fade" role="dialog">
+                                <div id="myModal2" class="modal fade" role="dialog">
                                   <div class="modal-dialog">
 
                                     <!-- Modal content-->
@@ -85,118 +80,78 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                         <h4 class="modal-title">Fare Detail</h4>
                                       </div>
                                       <div class="modal-body">
-                                        <div class="row mb-1">                   
+                                        <div class="row mb-1">
                                             <div class="col-md-6 col-xs-6">
                                                 <div class="col-md-5"><strong>Name:</strong></div>
-                                                <div class="col-md-7"><input type="text" id="FirstName" 
-                                                    value="<?php echo $row->FirstName.' '.$row->LastName;?>" readonly>
-                                                </div>
+                                                <div class="col-md-7"><input type="text" id="FirstName" readonly></div>
                                             </div>
                                              <div class="col-md-6 col-xs-6">
-                                                <div class="col-md-5"><strong>Phone No:</strong></div>
-                                                <div class="col-md-7"><input type="text" id="ContactNumber" value="<?php echo $row->ContactNumber;?>" readonly></div>
+                                                <div class="col-md-5"><strong>Phone No.:</strong></div>
+                                                <div class="col-md-7"><input type="text" id="ContactNumber" readonly></div>
                                             </div>
                                         </div>
                                         <div class="row mb-1">
                                             <div class="col-md-6 col-xs-6">
                                                 <div class="col-md-5"><strong>Email:</strong></div>
-                                                <div class="col-md-7"><input type="text" id="EmailAddress" value="<?php echo $row->EmailAddress;?>" readonly></div>
+                                                <div class="col-md-7"><input type="text" id="EmailAddress" readonly></div>
                                             </div>
                                              <div class="col-md-6 col-xs-6">
                                                 <div class="col-md-5"><strong>Cab Type:</strong></div>
-                                                <div class="col-md-7"><input type="text" id="BrandName" value="<?php echo $row->BrandName;?>" readonly></div>
+                                                <div class="col-md-7"><input type="text" id="BrandName" readonly></div>
                                             </div>
                                         </div>
                                         <div class="row mb-1">
                                             <div class="col-md-6 col-xs-6">
                                                 <div class="col-md-5"><strong>Origin:</strong></div>
-                                                <div class="col-md-7"><input type="text" id="StartCity" value="<?php echo $row->StartCity;?>" readonly></div>
+                                                <div class="col-md-7"><input type="text" id="StartCity" readonly></div>
                                             </div>
-                                            <?php 
-                                            if($row->EndCity!='')
-                                            {
-                                            ?>
-                                                <div class="col-md-6 col-xs-6">
-                                                <div class="col-md-5"><strong>Destination:</strong></div>
-                                                <div class="col-md-7"><input type="text" id="EndCity"
-                                                 value="<?php if($row->EndCity!=''){echo $row->EndCity;}else{echo "N/A";};?>" readonly></div>
+                                             <div class="col-md-6 col-xs-6">
+                                                <div class="col-md-5"><strong>Desination:</strong></div>
+                                                <div class="col-md-7"><input type="text" id="EndCity" readonly></div>
                                             </div>
-                                            <?php
-                                            }
-                                            ?>
-                                            
                                         </div>
                                         <div class="row mb-1">
                                             <div class="col-md-6 col-xs-6">
                                                 <div class="col-md-5"><strong>Pickup Date:</strong></div>
-                                                <div class="col-md-7"><input type="text" 
-                                                     value="<?php  $pdate=$row->PickupDate;
-                                                     $pidate = str_replace('/', '-', $pdate );
-                                                    echo $PickupDate = date("d-m-Y", strtotime($pidate));?>"
-                                                    readonly>
+                                                <div class="col-md-7"><input type="text" id="PickupDate" readonly>
                                                 </div>
                                             </div>
                                              <div class="col-md-6 col-xs-6">
                                                 <div class="col-md-5"><strong>Drop Date:</strong></div>
-                                                <div class="col-md-7"><input type="text" value="<?php  $ddate=$row->DropofDate;
-                                                     $desdate = str_replace('/', '-', $ddate );
-                                                    echo $DropofDate = date("d-m-Y", strtotime($desdate));?>"
-                                                    readonly>
-                                                </div>
+                                                <div class="col-md-7"><input type="text" id="DropofDate" readonly></div>
                                             </div>
                                         </div>
                                         <div class="row mb-1">
                                             <div class="col-md-6 col-xs-6">
                                                 <div class="col-md-5"><strong>Pickup Time:</strong></div>
-                                                <div class="col-md-7"><input type="text" id="PickupTime" value="<?php echo $row->PickupTime;?>" readonly></div>
+                                                <div class="col-md-7"><input type="text" id="PickupTime" readonly></div>
                                             </div>
-                                            <?php 
-                                            if($row->DropofTime!='')
-                                            {
-                                            ?>
                                              <div class="col-md-6 col-xs-6">
                                                 <div class="col-md-5"><strong>Drop Time:</strong></div>
-                                                <div class="col-md-7"><input type="text" id="DropofTime" value="<?php 
-                                                if($row->DropofTime!='')
-                                                {echo $row->DropofTime;}
-                                                else{ echo "N/A";}?>" readonly></div>
+                                                <div class="col-md-7"><input type="text" id="DropofTime" readonly></div>
                                             </div>
-                                            <?php
-                                            }
-                                            ?>
                                         </div>
                                         <div class="row mb-1">
                                             <div class="col-md-6 col-xs-6">
                                                 <div class="col-md-5"><strong>Payment:</strong></div>
-                                                <div class="col-md-7"><input type="text" id="payment_status" value="<?php echo $row->payment_status;?>" readonly></div>
+                                                <div class="col-md-7"><input type="text" id="payment_status" readonly></div>
                                             </div>
-
-                                            <?php 
-                                            if($row->EndCity=='')
-                                            {
-                                                ?>
-                                                <div class="col-md-6 col-xs-6">
-                                                <div class="col-md-5"><strong>Per Houre Fare:</strong></div>
-                                                <div class="col-md-7"><input type="text" id="PerHoureFare" value="<?php echo $row->PerHoureFare;?>" readonly></div>
-                                            </div>
-                                                <?php
-                                            }
-                                               
-                                            ?>
-
-                                           
+                                            <!-- <div class="col-md-6 col-xs-6">
+                                                <div class="col-md-5"><strong>Drop Time:</strong></div>
+                                                <div class="col-md-7">12:00am</div>
+                                            </div> -->
                                         </div>
                                         <div class="row price-detail">
                                             <div class="col-md-6 col-xs-6 left-border">
                                                 <div class="text-center">
                                                     <div><h3>Total Distance</h3></div>
-                                                    <div><span>KMS</span><input type="text" id="KMS" value="<?php echo $row->KMS;?>" readonly></div>
+                                                    <div><span>KMS</span><input type="text" id="KMS" readonly></div>
                                                 </div>
                                             </div>
                                             <div class="col-md-6 col-xs-6">
                                                  <div class="text-center">
                                                     <div><h3>Total Fare</h3></div>
-                                                    <div><span>Cab Rate</span><input type="text" id="FinalAmount" value="<?php echo $row->FinalAmount;?>" readonly></div>
+                                                    <div><span>Cab Rate</span><input type="text" id="FinalAmount" readonly></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -209,8 +164,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             </tr>      
                             <?php
                             $i++;
-                                } 
-                            }
+                                } }
                             ?>           
                         </tbody>
 
@@ -233,8 +187,6 @@ $this->load->view('common/footer');
 ?>
 
 <script>
-
-
 $(function() { 
     setTimeout(function() {
   $('#successMessage').fadeOut('fast');
@@ -262,4 +214,71 @@ function deletedata(UserId){
             })
         });
 }
+</script>
+
+<script>
+$(document).ready(function()
+{
+    $('#myModal2').on('show.bs.modal', function (e)
+    {
+        var UserId = $(e.relatedTarget).data('id');
+        //alert(UserId);
+        url="<?php echo base_url();?>"
+            $.ajax({
+            url: url+"user/ajaxuserdata/",
+            type: "post",
+            data: {UserId:UserId},
+            success:function(response){
+                var response = JSON.parse(response);
+                console.log(response.PickupDate);
+
+                $('#UserId').val(response.UserId);
+                $('#FirstName').val(response.FirstName+' '+response.LastName);
+                $('#EmailAddress').val(response.EmailAddress);
+                $('#ContactNumber').val(response.ContactNumber);
+                $('#BrandName').val(response.BrandName);
+                $('#PickupDate').val(myDateFormatter(response.PickupDate));
+
+                // $pdate=$this->input->post('#PickupDate');
+                // $pidate = str_replace('/', '-', $pdate );
+                // $PickupDate = date("Y-m-d", strtotime($pidate));
+
+
+                $('#DropofDate').val(myDateFormatter(response.DropofDate));
+                $('#PickupTime').val(response.PickupTime);
+                $('#DropofTime').val(response.DropofTime);
+                $('#StartCity').val(response.StartCity);
+                $('#EndCity').val(response.EndCity);
+                $('#PerKmRate').val(response.PerKmRate);
+                $('#KMS').val(response.KMS);
+                $('#TotalFareAmount').val(response.TotalFareAmount);
+                $('#StateTax').val(response.StateTax);
+                $('#Tax').val(response.Tax);
+                $('#TotalAmount').val(response.TotalAmount);
+                $('#TaxAdded').val(response.TaxAdded);
+                $('#FinalAmount').val(response.FinalAmount);
+                $('#payment_status').val(response.payment_status);
+            }
+           
+        });
+     });
+});
+
+
+
+function myDateFormatter(dobdate) 
+{
+    var d = new Date(dobdate);
+    var day = d.getDate();
+    var month = d.getMonth() + 1;
+    var year = d.getFullYear();
+    if (day < 10) {
+        day = "0" + day ;
+    }
+    if (month < 10) {
+      month = "0" + month;
+    }
+    var date = day + "/" + month + "/" + year;
+    return date;
+}; 
 </script>

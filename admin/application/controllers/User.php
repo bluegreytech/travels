@@ -133,13 +133,6 @@ class User extends CI_Controller {
 			$data['activeTab']="AddUser";	
 			$data['cabhistory']=$this->User_model->get_cabhistory($ContactNumber);
 			//echo "<pre>";print_r($data['cabhistory']);die;	
-			// $data['UserId']=$result['UserId'];
-			// $data['FirstName']=$result['FirstName'];
-			// $data['LastName']=$result['LastName'];	
-			// $data['EmailAddress']=$result['EmailAddress'];	
-			// $data['ContactNumber']=$result['ContactNumber'];	
-			// $data['IsActive']=$result['IsActive'];	
-
 			$data['redirect_page']="userlist";		
 			$this->load->view('User/Usercabhistorylist',$data);	
 		}

@@ -8,11 +8,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
     <div class="app-content content container-fluid">
     <div class="content-wrapper">
-         <?php if(($this->session->flashdata('success'))){ ?>
+        <?php if(($this->session->flashdata('success'))){ ?>
         <div class="alert alert-success" id="successMessage">
         <strong> <?php echo $this->session->flashdata('success'); ?></strong> 
         </div>
-      <?php } ?>
+        <?php } ?>
         <!-- <div class="col-md-4">
             <div class="card">
                 <div class="card-body">
@@ -98,10 +98,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
     <div class="col-md-12">
      
-       <?php //echo $this->session->flashdata('success');?>
+    
       
-      
-       
+
         <div class="card">
             <div class="card-header">
                 <h4 class="card-title">List of Recently Five User
@@ -129,9 +128,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 foreach($recentlyuser as $row)
                                 {          
                             ?>
-                            <tr>
+                                <tr>
                             
-                                     <tr>
+                                     
                             
                                     <td><?php echo $i; ?></td>
                                     <td><?php echo $row->FirstName.' '.$row->LastName; ?></td>
@@ -194,7 +193,7 @@ $this->load->view('common/footer');
 $(function() { 
     setTimeout(function() {
   $('#successMessage').fadeOut('fast');
-}, 3000);
+}, 10000);
    
 });
 

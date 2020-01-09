@@ -115,7 +115,7 @@ $this->load->view('common/footer');
 $(function() { 
     setTimeout(function() {
   $('#successMessage').fadeOut('fast');
-}, 3000);
+}, 10000);
    
 });
 

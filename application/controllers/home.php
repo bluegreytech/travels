@@ -216,9 +216,18 @@ class Home extends CI_Controller
 		{
 			if($this->input->post('ContactNumber')!='')
 			{
-				$this->Login_model->user_book_car();
-				$this->session->set_flashdata('success', 'Record has been Inserted Succesfully!');
-				redirect('home/booking');
+				$result=$this->Login_model->user_book_car();
+				if($result==1)
+				{
+					$this->session->set_flashdata('success', 'Your cab booking has been Successfully!');
+					redirect('home/booking');	
+				}
+				else if($result==2)
+				{
+					$this->session->set_flashdata('warning', 'Your cab booking has been  Successfully but Email function was not work!');
+					redirect('home/booking');	
+				}
+				
 			}	
 		}
 	}

@@ -36,6 +36,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <th>Name </th>                              
                                 <th>Email Address </th>
 								<th>Contact Number</th>
+                                <th>City</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -51,6 +52,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     <td><?php echo $row->FullName; ?></td>
                                     <td><?php echo $row->EmailAddress; ?></td>
                                     <td><?php echo $row->ContactNumber; ?></td>
+                                    <td><?php echo $row->City; ?></td>
                                     <td>
                                         <a onclick="deletedata('<?php echo $row->ContactId; ?>')" ><i class="ficon icon-bin"></i></a>    
                                     </td>  

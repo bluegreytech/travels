@@ -110,9 +110,18 @@ class Services extends CI_Controller
 	{   	
 		if($_POST)
 		{
-			$this->Services_model->add_luxuryquotes();
-			$this->session->set_flashdata('success', 'Your quotes has been submitted Succesfully!');
-			redirect('home');
+			$result=$this->Services_model->add_luxuryquotes();
+			if($result==1)
+			{
+				$this->session->set_flashdata('success', 'Your inquiry has been submitted Successfully!');
+				redirect('home');	
+			}
+			else if($result==2)
+			{
+				$this->session->set_flashdata('warning', 'Your inquiry has been submitted Successfully but Email function was not work!');
+				redirect('home');	
+			}
+			
 		}		
 	}
 

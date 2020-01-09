@@ -17,14 +17,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<h4 class="card-title" id="basic-layout-form">
 					<?php if($CarrerId==1)
 					{
-						echo	"Edit Carrer";
+						echo	"Edit Carrier";
 					}
 					else{
-					echo	"Add Carrer";
+					echo	"Add Carrier";
 					}
 					?>
 					<a class="heading-elements-toggle"><i class="icon-ellipsis font-medium-3"></i></a>
-					<a href="<?php echo base_url();?>carrer" class="btn btn-black" style="float:right">Back to Carrer List</a>
+					<a href="<?php echo base_url();?>carrer" class="btn btn-black" style="float:right">Back to Carrier List</a>
 				</div>
 				</h4>
 				<div class="card-body collapse in">
@@ -38,12 +38,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 								<div class="form-group">
 								<input type="hidden" value="<?php echo $CarrerId; ?>" name="CarrerId">
-									<label>Carrer Title</label>
-									<input type="text" class="form-control" placeholder="Carrer Title" name="CarrerTitle" value="<?php echo $CarrerTitle;?>" minlength="3" maxlength="100">
+									<label>Carrier Title</label>
+									<input type="text" class="form-control" placeholder="Carrier Title" name="CarrerTitle" value="<?php echo $CarrerTitle;?>" minlength="3" maxlength="100">
 								</div>
 
 								<div class="form-group">
-									<label>Carrer Description</label>
+									<label>Carrier Description</label>
 									<textarea id="editor1" rows="5" class="form-control" name="CarrerDescription">
 										<?php echo $CarrerDescription; ?></textarea>
 									<script>

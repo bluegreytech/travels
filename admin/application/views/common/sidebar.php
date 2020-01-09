@@ -131,16 +131,19 @@
             </ul>
           </li> 
 
-           <li class="nav-item <?php echo($activeTab == "carreradd"||$activeTab =="carrerlist") ? "open" : ""; ?>">
-            <a class="<?php echo ($activeTab == "carreradd" || $activeTab == "carrerlist") ? "active" : ""; ?>">
-              <i class="icon-address-book"></i><span data-i18n="nav.dash.main" class="menu-title">Carrer</span>
+           <li class="nav-item <?php echo($activeTab == "carreradd" || $activeTab =="carrerlist" || $activeTab =="carrierlist") ? "open" : ""; ?>">
+            <a class="<?php echo ($activeTab == "carreradd" || $activeTab == "carrerlist" || $activeTab =="carrierlist") ? "active" : ""; ?>">
+              <i class="icon-address-book"></i><span data-i18n="nav.dash.main" class="menu-title">Carrier</span>
             </a>
             <ul class="menu-content">
               <li>
-                <a href="<?php echo base_url(); ?>carrer/carreradd" data-i18n="nav.dash.main" class="menu-item <?php echo ($activeTab == "carreradd") ? "active" : ""; ?>"><i class="icon-plus"></i> Add Carrer</a>
+                <a href="<?php echo base_url(); ?>carrer/carreradd" data-i18n="nav.dash.main" class="menu-item <?php echo ($activeTab == "carreradd") ? "active" : ""; ?>"><i class="icon-plus"></i> Add Carrier</a>
               </li>
               <li>
-                <a href="<?php echo base_url(); ?>carrer" data-i18n="nav.dash.main" class="menu-item <?php echo ($activeTab == "carrerlist") ? "active" : ""; ?>"><i class="icon-file-text2"></i>List of Carrer </a>
+                <a href="<?php echo base_url(); ?>carrer" data-i18n="nav.dash.main" class="menu-item <?php echo ($activeTab == "carrerlist") ? "active" : ""; ?>"><i class="icon-file-text2"></i>List of Carrier </a>
+              </li>
+               <li>
+                <a href="<?php echo base_url(); ?>contact/carrierlist" data-i18n="nav.dash.main" class="menu-item <?php echo ($activeTab == "carrierlist") ? "active" : ""; ?>"><i class="icon-file-text2"></i>List of Carrier Inquiry</a>
               </li>
             </ul>
           </li> 

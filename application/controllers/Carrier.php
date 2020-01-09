@@ -23,20 +23,17 @@ class Carrier extends CI_Controller
 	{   	
 		if($_POST)
 		{	
-				if($this->input->post("CarrierInquiryId")!="")
-				{
-					$this->Carrier_model->carrer_update();
-					$this->session->set_flashdata('success', 'Record has been Updated Succesfully!');
-					redirect('carrier');
-					
-				}
-				else
-				{ 
-					$this->Carrier_model->carrer_insert();
-					$this->session->set_flashdata('success', 'Your data has been inserted Succesfully!');
-					redirect('carrier');
-				
-				}
+			$result=$this->Carrier_model->carrer_insert();
+			if($result==1)
+			{
+				$this->session->set_flashdata('success', 'Your inquiry has been submitted Successfully!');
+				redirect('carrier');	
+			}
+			else if($result==2)
+			{
+				$this->session->set_flashdata('warning', 'Your inquiry has been submitted Successfully but Email function was not work!');
+				redirect('carrier');	
+			}		
 		}	
 		
 	}

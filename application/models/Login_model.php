@@ -138,18 +138,6 @@ class Login_model extends CI_Model
         return $res;         
   }
 
-  // function getuser()
-  // {
-  //   $ContactNumber=$this->input->post('ContactNumber');
-  //   $where=array("ContactNumber"=>$ContactNumber,"OTPNumber!="=>'');
-  //   $this->db->select("*");
-  //   $this->db->from("tbluser");
-  //   $this->db->where("ContactNumber",$ContactNumber);
-  //   $query=$this->db->get();
-  //   return $query->row_array();
-  // }
-
-
   function getuser()
   {
     
@@ -176,7 +164,7 @@ class Login_model extends CI_Model
       $prdate = str_replace('/', '-', $ddate );
       $DropofDate = date("Y-m-d", strtotime($prdate));
 
-     $data = array(
+      $data = array(
         'FirstName'=>trim($this->input->post('FirstName')),
         'LastName'=>trim($this->input->post('LastName')),
         'EmailAddress'=>trim($this->input->post('EmailAddress')),
@@ -207,9 +195,91 @@ class Login_model extends CI_Model
         //echo "<pre>";print_r($data);die; 
         $this->db->where("ContactNumber",$ContactNumber);
         $this->db->where("Status",'Pending');
-        $res=$this->db->update('tbluser',$data); 
-        return $res;
+        $this->db->update('tbluser',$data); 
+        //return $res;
+        if($this->input->post('BrandName')!='')
+        {  
+          $FullName = $this->input->post('FirstName');
+          $LastName = $this->input->post('LastName');
+          $EmailAddress = $this->input->post('EmailAddress');
+          $ContactNumber = $this->input->post('ContactNumber');
+          $BrandName = $this->input->post('BrandName');
+          $PickupTime = $this->input->post('PickupTime');
+          $DropofTime = $this->input->post('DropofTime');
+          $StartCity = $this->input->post('StartCity');
+          $EndCity = $this->input->post('EndCity');
+          $PerHoureFare = $this->input->post('PerHoureFare');
+          $PerKmRate = $this->input->post('PerKmRate');
+          $KMS = $this->input->post('KMS');
+          $TotalFareAmount = $this->input->post('TotalFareAmount');
+          $ExtraKMS = $this->input->post('ExtraKMS');
+          $StateTax = $this->input->post('StateTax');
+          $TotalAmount = $this->input->post('TotalAmount');
+          $TaxAdded = $this->input->post('TaxAdded');
+          $FinalAmount = $this->input->post('FinalAmount');
+          $BookingDate = date('d-m-Y');
 
+          $email_template=$this->db->query("select * from ".$this->db->dbprefix('tblemail_template')." where task='Cab Booking'");
+          $email_temp=$email_template->row();
+          $email_address_from=$email_temp->from_address;
+          $email_address_reply=$email_temp->reply_address;
+          $email_subject=$email_temp->subject;        
+          $email_message=$email_temp->message;
+          
+          $base_url=base_url();
+          $currentyear=date('Y');
+          $email_message=str_replace('{break}','<br/>',$email_message);
+          $email_message=str_replace('{base_url}',$base_url,$email_message);
+          $email_message=str_replace('{year}',$currentyear,$email_message);
+          $email_message=str_replace('{FirstName}',$FirstName,$email_message);
+          $email_message=str_replace('{LastName}',$LastName,$email_message);
+          $email_message=str_replace('{EmailAddress}',$EmailAddress,$email_message);
+          $email_message=str_replace('{ContactNumber}',$ContactNumber,$email_message);
+          $email_message=str_replace('{BrandName}',$BrandName,$email_message);
+          $email_message=str_replace('{PickupDate}',$pdate,$email_message);
+          $email_message=str_replace('{DropofDate}',$ddate,$email_message);
+          $email_message=str_replace('{PickupTime}',$PickupTime,$email_message);
+          $email_message=str_replace('{DropofTime}',$DropofTime,$email_message);
+          $email_message=str_replace('{StartCity}',$StartCity,$email_message);
+          $email_message=str_replace('{EndCity}',$EndCity,$email_message);  
+          $email_message=str_replace('{PerHoureFare}',$PerHoureFare,$email_message);
+          $email_message=str_replace('{PerKmRate}',$PerKmRate,$email_message);
+          $email_message=str_replace('{KMS}',$KMS,$email_message);
+          $email_message=str_replace('{TotalFareAmount}',$TotalFareAmount,$email_message);
+          $email_message=str_replace('{ExtraKMS}',$ExtraKMS,$email_message);
+          $email_message=str_replace('{StateTax}',$StateTax,$email_message);
+          $email_message=str_replace('{TotalAmount}',$TotalAmount,$email_message);
+          $email_message=str_replace('{TaxAdded}',$TaxAdded,$email_message);
+          $email_message=str_replace('{FinalAmount}',$FinalAmount,$email_message);
+          $email_message=str_replace('{BookingDate}',$BookingDate,$email_message);
+          $str=$email_message; //die;
+
+          $config['protocol']='smtp';
+          $config['smtp_host']='ssl://smtp.googlemail.com';
+          $config['smtp_port']='465';
+          $config['smtp_user']='bluegreyindia@gmail.com';
+          $config['smtp_pass']='Test@123';
+          $config['charset']='utf-8';
+          $config['newline']="\r\n";
+          $config['mailtype'] = 'html';               
+          $this->email->initialize($config);
+          $body =$str;
+          $this->email->from('bluegreyindia@gmail.com');
+          $this->email->to('bluegreyindia@gmail.com');    
+          $this->email->subject('Cab Booking Successfully');
+          $this->email->message($body); 
+          if($this->email->send())
+          {
+            return 1;
+          }else
+          {
+            return 2;
+          }
+      }
+      else
+      {
+        return 2;
+      }
   }
 
 

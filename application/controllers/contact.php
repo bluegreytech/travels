@@ -13,9 +13,18 @@ class contact extends CI_Controller
 	{      
 		if($_POST)
 		{			
-			$this->Contact_model->inquiry_insert();
-			$this->session->set_flashdata('success', 'Your message has been send Succesfully!');
-			redirect('contact');		
+			$result=$this->Contact_model->inquiry_insert();
+			if($result==1)
+			{
+				$this->session->set_flashdata('success', 'Your inquiry has been submitted Successfully!');
+				redirect('contact');	
+			}
+			else if($result==2)
+			{
+				$this->session->set_flashdata('warning', 'Your inquiry has been submitted Successfully but Email function was not work!');
+				redirect('contact');	
+			}
+				
 		}
 		$data['about']=$this->About_model->getabout(); 	
 		$data['result']=$this->Contact_model->getsitedetail();

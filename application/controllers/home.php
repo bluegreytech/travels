@@ -200,7 +200,18 @@ class Home extends CI_Controller
 			if($this->input->post('ContactNumber')!='')
 			{
 				$result=$this->Login_model->user_bookcar_online();
-				echo json_encode($result);
+				//echo json_encode($result);
+				//echo $result;die;
+				if($result==1)
+				{
+					//$this->session->set_flashdata('success', 'Your cab booking has been Successfully!');
+					redirect('home/ThankYou');	
+				}
+				else if($result==2)
+				{
+					//$this->session->set_flashdata('warning', 'Your cab booking has been  Successfully but Email function was not work!');
+					redirect('home/ThankYou');	
+				}
      		}	
 		}
     }

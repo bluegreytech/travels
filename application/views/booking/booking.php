@@ -378,10 +378,9 @@ $('body').on('click', '#submit', function(e)
             type: 'post',
             dataType: 'json',
             data: {
-                razorpay_payment_id:response.razorpay_payment_id,FinalAmount:totalAmount,FirstName:FirstName,LastName:LastName,EmailAddress:EmailAddress,ContactNumber:ContactNumber,CarBrandId:CarBrandId,BrandName:BrandName,PickupDate:PickupDate,DropofDate:DropofDate,PickupTime:PickupTime,DropofTime:DropofTime,StartCity:StartCity,PerKmRate:PerKmRate,KMS:KMS,TotalFareAmount:TotalFareAmount,ExtraKMS:ExtraKMS,StateTax:StateTax,Tax:Tax,TotalAmount:TotalAmount,TaxAdded:TaxAdded
+                razorpay_payment_id:response.razorpay_payment_id,FinalAmount:totalAmount,FirstName:FirstName,LastName:LastName,EmailAddress:EmailAddress,ContactNumber:ContactNumber,CarBrandId:CarBrandId,BrandName:BrandName,PickupDate:PickupDate,DropofDate:DropofDate,PickupTime:PickupTime,DropofTime:DropofTime,StartCity:StartCity,EndCity:EndCity,PerKmRate:PerKmRate,KMS:KMS,TotalFareAmount:TotalFareAmount,ExtraKMS:ExtraKMS,StateTax:StateTax,Tax:Tax,TotalAmount:TotalAmount,TaxAdded:TaxAdded
             }, 
             success: function (msg) { 
-            	//alert('dfgdfg');
                window.location.href = SITEURL + 'home/ThankYou';
             }
         });

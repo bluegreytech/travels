@@ -37,7 +37,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <th>Start Point</th>  
                                 <th>End Point</th>  
                                 <th>Start Point as Local City</th>                                  
-								<th>Status</th>
+								<th>Routes Status</th>
                                 <th>Action</th>
                             </tr>
                         </thead>

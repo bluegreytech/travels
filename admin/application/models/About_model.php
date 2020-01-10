@@ -45,6 +45,7 @@ class About_model extends CI_Model
 	}
 
 	function about_update(){
+
 		  $AboutusId=$this->input->post('AboutusId');
 		  $about_image='';
 		  //$image_settings=image_setting();
@@ -60,7 +61,7 @@ class About_model extends CI_Model
 			$_FILES['userfile']['size']     =   $_FILES['about_image']['size'];   
 			$config['file_name'] = $rand.'About';      
 			$config['upload_path'] = base_path().'upload/aboutimage/';      
-			$config['allowed_types'] = 'jpg|jpeg|gif|png|bmp';
+			$config['allowed_types'] = 'jpg|jpeg|png|bmp';
 			$this->upload->initialize($config);
 	
 			if (!$this->upload->do_upload())

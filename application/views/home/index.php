@@ -589,7 +589,9 @@
 					<div class="inner-fact">
 						<div class="this-icon"><i class="ionicons ion-model-s"></i></div>
 						<div class="this-texts">
-							<h2 class="this-counter"><span class="counter">100</span><sup>+</sup></h2>
+							<h2 class="this-counter"><span class="counter"><?php
+							echo $result[0]->Cabs;
+						?>	</span><sup>+</sup></h2>
 							<h5 class="this-about">Cabs</h5>
 						</div>
 					</div>
@@ -599,7 +601,9 @@
 					<div class="inner-fact">
 						<div class="this-icon"><i class="ionicons ion-ios-cog-outline"></i></div>
 						<div class="this-texts">
-							<h2 class="this-counter"><span class="counter">100</span><sup>+</sup></h2>
+							<h2 class="this-counter"><span class="counter"><?php
+							echo $result[0]->TripsDaily;
+						?>	</span><sup>+</sup></h2>
 							<h5 class="this-about">Trips Daily</h5>
 						</div>
 					</div>
@@ -609,7 +613,9 @@
 					<div class="inner-fact">
 						<div class="this-icon"><i class="ionicons ion-ios-people-outline"></i></div>
 						<div class="this-texts">
-							<h2 class="this-counter"><span class="counter">2200</span></h2>
+							<h2 class="this-counter"><span class="counter"><?php
+							echo $result[0]->HappyClients;
+						?>	</span></h2>
 							<h5 class="this-about">Happy Clients</h5>
 						</div>
 					</div>
@@ -619,7 +625,9 @@
 					<div class="inner-fact">
 						<div class="this-icon"><i class="ion-ios-speedometer-outline"></i></div>
 						<div class="this-texts">
-							<h2 class="this-counter"><span class="counter">1000</span><sup>+</sup></h2>
+							<h2 class="this-counter"><span class="counter"><?php
+							echo $result[0]->KilometersDaily;
+						?>	</span><sup>+</sup></h2>
 							<h5 class="this-about">Kilometers Daily</h5>
 						</div>
 					</div>

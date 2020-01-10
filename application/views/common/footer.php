@@ -21,7 +21,7 @@
 								<li><i class="fa fa-angle-double-right"></i><a href="<?php echo base_url();?>services">Services</a></li>
 								<li><i class="fa fa-angle-double-right"></i><a href="<?php echo base_url();?>routes">Routes</a></li>
 								<li><i class="fa fa-angle-double-right"></i><a href="<?php echo base_url();?>contact">Contact Us</a></li>
-								<li><i class="fa fa-angle-double-right"></i><a href="<?php echo base_url();?>home/login">Login</a></li>
+								<li><i class="fa fa-angle-double-right"></i><a href="<?php echo base_url();?>home/userlogin">Login</a></li>
 							</ul>
 						</div>
 						<div class="col-sm-12 col-md-3 widget footer-widget widget-contact-info">

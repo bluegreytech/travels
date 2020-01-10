@@ -41,8 +41,6 @@
                     {
                     ?>
                     <tr class="routes">
-                       <!-- <input type="hidden" name="StartCity" value="<?php echo $routes->StartCity;?>">
-                        <input type="hidden" name="EndCity" value="<?php echo $routes->EndCity;?>"> -->
                          <td>
                             <a href="<?php echo base_url();?>home?StartCity=<?php echo $routes->StartCity?>&EndCity=<?php echo $routes->EndCity?>" target="_blanck" value="<?php echo $routes->StartCity.' '.$routes->EndCity;?>">
                               <?php echo $routes->StartCity;?> to <?php echo $routes->EndCity;?></a> 

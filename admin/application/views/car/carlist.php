@@ -33,7 +33,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <tr>
                                 <th>Sr No</th>
                                 <th>Brand</th> 
-                                <th>Name</th>                              
+                                <th>Car Name</th>                              
                                 <th>Number of Seats</th>
                                 <th>Air Condition</th>
                                 <th>Car Number</th>

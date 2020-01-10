@@ -96,8 +96,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 									</span></p>									
 									<span id="profileerror"></span>
 								</div>
-									<div class="preview">
-									
+								<h6>Uplopad only jpeg,jpg,png,bmp image file</h6>
+
+								<div class="preview">
 									<?php if($BrandCarImage){ ?>
 										<img id="blah" src="<?php echo base_url()?>upload/carimages/<?php echo $BrandCarImage;?>" class="img-thumbnail border-0" style="display: block;  width: 100px; height: 100px;">
 
@@ -229,6 +230,7 @@ $(document).ready(function()
        
 	   return this.optional(element) || (element.files[0].size <= param)
    } ,'File size must be equal to or less then 2MB'); 
+
        $('#form_valid').validate({
 			rules: {
 				BrandName:{              
@@ -260,7 +262,13 @@ $(document).ready(function()
 				},	
 				TotalBaggage:{              
 					required: true,                
-				},			
+				},
+				BrandCarImage:{              
+					//required: true,
+					extension: "jpg|jpeg|png|bmp",
+					filesize: 2097152,                 
+				},		
+						
 			 },
 
 			  errorPlacement: function (error, element) {

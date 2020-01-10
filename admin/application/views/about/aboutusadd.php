@@ -101,10 +101,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 									<label>About Image</label>
 									<p><span class="btn btn-black btn-file">
 										<input type="hidden" name="pre_about_image" value="<?php echo $AboutImage;?>">
-									Upload about image <input type="file" name="about_image" id="about_image" onchange="readURL(this);">
+									Upload about image <input type="file" name="about_image"  onchange="readURL(this);">
 									</span></p>									
 									<span id="profileerror"></span>
 								</div>
+								<h6>Uplopad only jpeg,jpg,png,bmp image file</h6>
 									<div class="preview">
 									
 									<?php if($AboutImage){ ?>
@@ -113,6 +114,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 									<?php } else{?>
 									<img id="blah" src="" class="img-thumbnail border-0" style="display: none;  width: 100px; height: 100px;">
 									<?php } ?>
+
 								</div>
 								
 								<?php  if($IsActive!=''){ ?>                                
@@ -194,15 +196,16 @@ $(document).ready(function()
 				FourthTitle:{              
 					required: true,                
 				}, 
-				AboutImage:{
-					extension: "JPG|jpeg|png|bmp",
+				about_image:{
+					//required: true,
+					extension: "jpg|jpeg|png|bmp",
 					filesize: 2097152,   
 				}, 
 							
 			 },
 
 			 errorPlacement: function (error, element) {
-            console.log('dd', element.attr("name"))
+            //console.log('dd', element.attr("name"))
             if (element.attr("name") == "about_image") {
                 error.appendTo("#profileerror");
             } else{

@@ -9,9 +9,9 @@
         <div class="card border-grey border-lighten-3 m-0">
             <div class="card-header no-border">
                 <div class="card-title text-xs-center">
-                    <div class="p-1"><img src="<?php echo base_url(); ?>default/images/logo/logo.png" alt="branding logo" width="70%"></div>
+                     <div class="text-center"><img src="<?php echo base_url(); ?>default/images/logo/logo.png" alt="branding logo" width="100%"></div>
                 </div>
-                <h6 class="card-subtitle line-on-side text-muted text-xs-center font-small-3 pt-2"><span>Forgot Password with Nyalkaran</span></h6>
+                <h6 class="card-subtitle line-on-side text-muted text-xs-center font-small-3 pt-2"><span>Forgot Password with Yashdeep Travels</span></h6>
             </div>
            
                 

@@ -114,6 +114,7 @@
                                                    <input id="attach" type="file" name="CarrierCv" placeholder="Upload File">
                                               
                                                   </div>
+                                                  <h6>Uplopad only doc,pdf,docx file</h6>
                                                 </div>
                                             </div>
                                           </div>

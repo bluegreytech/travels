@@ -33,6 +33,10 @@ class Login_model extends CI_Model
           'OfficeAddress' => $this->input->post('OfficeAddress'),			
           'OfficeTime' => $this->input->post('OfficeTime'),
           'Tax' => $this->input->post('Tax'),
+          'HappyClients' => $this->input->post('HappyClients'),
+          'TripsDaily' => $this->input->post('TripsDaily'),
+          'Cabs' => $this->input->post('Cabs'),
+          'KilometersDaily' => $this->input->post('KilometersDaily'),
           ); 
         //print_r($data);die;
         $this->db->where("SettingId",$SettingId);
@@ -293,7 +297,7 @@ class Login_model extends CI_Model
       $email = trim($this->input->post('EmailAddress'));
       $rnd=randomCode();
     
-       $query = $this->db->get_where('tbladmin',array('EmailAddress'=>$email));
+      $query = $this->db->get_where('tbladmin',array('EmailAddress'=>$email));
       //echo $this->db->last_query(); die;
     if($query->num_rows()>0)
     {
@@ -328,54 +332,35 @@ class Login_model extends CI_Model
                    
                     $base_url=front_base_url();
                     $currentyear=date('Y');
-                   
                     $email_message=str_replace('{break}','<br/>',$email_message);
-                 
                     $email_message=str_replace('{base_url}',$base_url,$email_message);
                     $email_message=str_replace('{year}',$currentyear,$email_message);
-
                     $email_message=str_replace('{username}',$username,$email_message);
-                    // $email_message=str_replace('{password}',$password,$email_message);
                     $email_message=str_replace('{email}',$email,$email_message);
                     $email_message=str_replace('{reset_link}',$login_link,$email_message);
-                    $body=$email_message; //die;
+                    $str=$email_message; //die;
                    
-                    $email_config = Array(
-                    'protocol'  => 'smtp',
-                    'smtp_host' => 'relay-hosting.secureserver.net',
-                    'smtp_port' => '465',
-                    'smtp_user' => 'mitesh@bluegreytech.co.in',
-                    'smtp_pass' => 'Mitesh@123',
-                    'mailtype'  => 'html',
-                    'starttls'  => true,
-                    'newline'   => "\r\n",
-                    'charset'=>'utf-8',
-                    'header'=> 'MIME-Version: 1.0',
-                    'header'=> 'Content-type:text/html;charset=UTF-8',
-                    );
-
-                        
-                     $this->load->library('email',$email_config);
-                   
-                     $this->email->from("mitesh@bluegreytech.co.in", "mitesh");
-                     $this->email->to($email_to);
-                     $this->email->subject($email_subject);
-                     $this->email->message($body);
-
-                    
+                    $config['protocol']='smtp';
+                    $config['smtp_host']='ssl://smtp.googlemail.com';
+                    $config['smtp_port']='465';
+                    $config['smtp_user']='bluegreyindia@gmail.com';
+                    $config['smtp_pass']='Test@123';
+                    $config['charset']='utf-8';
+                    $config['newline']="\r\n";
+                    $config['mailtype'] = 'html';               
+                    $this->email->initialize($config);
+                    $body =$str;
+                    //print_r($body);die;
+                    $this->email->from('bluegreyindia@gmail.com');
+                    $this->email->to($email_to);    
+                    $this->email->subject('Forgot Password Admin');
+                    $this->email->message($body); 
                     if($this->email->send()){ 
                    
-                    // echo "send"; die;
                        return '1';
                     }else{
                     echo $this->email->print_debugger();die;
-                    }
-                    // echo $str;die;
-                    /** custom_helper email function **/
-                    
-                   // email_send($email_address_from,$email_address_reply,$email_to,$email_subject,$str);
-                    
-                     
+                    }  
                   }
                   else{
                     return '0';
@@ -385,18 +370,20 @@ class Login_model extends CI_Model
       return 2;
     }
     }
+
     //reset password
     function checkResetCode($code='')
-  {
-    $query=$this->db->get_where('tbladmin',array('PasswordResetCode'=>$code));
-    if($query->num_rows()>0)
     {
-      return $query->row()->AdminId; 
-      
-    }else{
-      return '';
+      $query=$this->db->get_where('tbladmin',array('PasswordResetCode'=>$code));
+      if($query->num_rows()>0)
+      {
+        return $query->row()->AdminId; 
+      }
+      else
+      {
+        return 2;
+      }
     }
-  }
         
  
 

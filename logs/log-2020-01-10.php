@@ -654,3 +654,7 @@ ERROR - 2020-01-10 11:52:37 --> Severity: Notice --> Undefined index: StartCity 
 ERROR - 2020-01-10 11:52:37 --> Severity: Notice --> Undefined index: EndCity C:\xampp\htdocs\travels\application\views\home\index.php 120
 ERROR - 2020-01-10 11:52:37 --> Severity: Notice --> Undefined index: StartCity C:\xampp\htdocs\travels\application\views\home\index.php 183
 ERROR - 2020-01-10 11:52:37 --> Severity: Notice --> Undefined index: EndCity C:\xampp\htdocs\travels\application\views\home\index.php 219
+ERROR - 2020-01-10 12:18:02 --> Severity: Notice --> Undefined index: StartCity C:\xampp\htdocs\travels\application\views\home\index.php 83
+ERROR - 2020-01-10 12:18:02 --> Severity: Notice --> Undefined index: EndCity C:\xampp\htdocs\travels\application\views\home\index.php 120
+ERROR - 2020-01-10 12:18:02 --> Severity: Notice --> Undefined index: StartCity C:\xampp\htdocs\travels\application\views\home\index.php 183
+ERROR - 2020-01-10 12:18:02 --> Severity: Notice --> Undefined index: EndCity C:\xampp\htdocs\travels\application\views\home\index.php 219

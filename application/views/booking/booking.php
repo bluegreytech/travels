@@ -366,7 +366,8 @@ $('body').on('click', '#submit', function(e)
     var totalAmount = $('#FinalAmount').val();
   
     var options = {
-    "key":'rzp_test_C7fnEIVjsS6Bsd',   
+    //"key":'rzp_test_C7fnEIVjsS6Bsd',
+    "key":'rzp_test_ZoADm9oDeOx3hS',   
     "amount":(totalAmount*100), // 2000 paise = INR 20
     "name": "Yashdeep Travel Pay",
     "description": "Report  Payment",

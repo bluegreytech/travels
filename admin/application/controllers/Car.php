@@ -247,5 +247,97 @@ class Car extends CI_Controller {
 			die;
 		}
 
+
+
+
+
+
+
+
+
+	public function addhoursfare()
+	{      
+		if(!check_admin_authentication()){ 
+			redirect(base_url());
+		}   
+			
+		$data=array();	
+		$data['LocalTripId']=$this->input->post('LocalTripId');
+		$data['PerHoureFare']=$this->input->post('PerHoureFare');
+		$data['Hours']=$this->input->post('Hours');
+		$data['IsActive']=$this->input->post('IsActive');
+	
+		if($_POST)
+		{	
+				if($this->input->post("LocalTripId")!="")
+				{
+					$this->Car_model->hoursfare_update();
+					$this->session->set_flashdata('success', 'Record has been Updated Succesfully!');
+					redirect('car/hoursfarelist');
+					
+				}
+				else
+				{ 
+					$this->Car_model->hoursfare_insert();
+					$this->session->set_flashdata('success', 'Record has been Inserted Succesfully!');
+					redirect('car/hoursfarelist');
+				
+				}
+		}	
+			
+			$data['activeTab']="carfareadd";
+			$data['carbrand']=$this->Car_model->getcarbrandlist();
+			//print_r($data['cityData']);die;	
+			$this->load->view('fare/carfareadd',$data);
+				
+	}
+
+
+	function hoursfarelist()
+	{	
+		if(!check_admin_authentication()){ 
+			redirect(base_url());
+		}else{	
+			$data['activeTab']="hoursfarelist";		
+			$data['result']=$this->Car_model->gethoursfarelist();
+			$this->load->view('fare/carfarelist',$data);
+		}
+	}
+
+	function edithoursfare($LocalTripId){
+		if(!check_admin_authentication()){ 
+			redirect(base_url());
+		}
+			$data=array();
+			$result=$this->Car_model->gethoursfaredata($LocalTripId);
+			//echo "<pre>";print_r($result);die;		
+			$data['LocalTripId']=$result['LocalTripId'];
+			$data['CarBrandId']=$result['CarBrandId'];
+			$data['BrandName']=$result['BrandName'];
+			$data['PerHoureFare']=$result['PerHoureFare'];
+			$data['Hours']=$result['Hours'];
+			$data['IsActive']=$result['IsActive'];
+
+
+			//echo "<pre>";print_r($data);die;	
+			$data['activeTab']="carfareadd";
+			$data['carbrand']=$this->Car_model->getcarbrandlist();
+			$this->load->view('fare/carfareadd',$data);	
+		
+	}
+
+	function hoursfare_delete(){
+		if(!check_admin_authentication()){ 
+			redirect(base_url());
+		}
+			$data= array('IsActive' =>'Inactive','IsDelete' =>'1');
+			$LocalTripId=$this->input->post('LocalTripId');
+			$this->db->where("LocalTripId",$LocalTripId);			
+			$res=$this->db->update('tbllocaltripprice',$data);
+			//echo $this->db->last_query();die;
+			echo json_encode($res);
+			die;
+		}
+
 	
 }

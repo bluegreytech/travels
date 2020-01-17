@@ -1,5 +1,7 @@
+<?php $this->load->view('common/css'); ?>
+
 <body class="main-bg">
- <?php $this->load->view('common/css'); ?>
+ 
   <div class="app-content content container-fluid">
       <div class="content-wrapper">
         <div class="content-header row">

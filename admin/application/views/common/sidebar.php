@@ -35,7 +35,7 @@
 
           <li class="nav-item <?php echo ($activeTab == "AddUser"|| $activeTab == "Userlist") ? "open" : ""; ?>">
             <a class="<?php echo ($activeTab == "AddUser" || $activeTab == "Userlist") ? "active" : ""; ?>">
-              <i class="icon-user"></i><span data-i18n="nav.dash.main" class="menu-title">User</span>
+              <i class="icon-users"></i><span data-i18n="nav.dash.main" class="menu-title">User</span>
             </a>
             <ul class="menu-content">
              <!--  <li>
@@ -63,9 +63,9 @@
             </ul>
           </li> 
 
-           <li class="nav-item <?php echo($activeTab == "cityadd"||$activeTab =="citylist") ? "open" : ""; ?>">
+          <li class="nav-item <?php echo($activeTab == "cityadd"||$activeTab =="citylist") ? "open" : ""; ?>">
           <a class="<?php echo ($activeTab == "cityadd" || $activeTab == "citylist") ? "active" : ""; ?>">
-            <i class="icon-car"></i><span data-i18n="nav.dash.main" class="menu-title">Routes</span>
+            <i class="icon-map"></i><span data-i18n="nav.dash.main" class="menu-title">Routes</span>
           </a>
           <ul class="menu-content">
             <li>
@@ -73,6 +73,19 @@
             </li>
             <li>
               <a href="<?php echo base_url(); ?>city" data-i18n="nav.dash.main" class="menu-item <?php echo ($activeTab == "citylist") ? "active" : ""; ?>"><i class="icon-file-text2"></i>List of Routes </a>
+            </li>
+          </ul>
+
+          <li class="nav-item <?php echo($activeTab == "carfareadd" || $activeTab =="hoursfarelist") ? "open" : ""; ?>">
+          <a class="<?php echo ($activeTab == "carfareadd" || $activeTab == "hoursfarelist") ? "active" : ""; ?>">
+            <i class="icon-clock-o"></i><span data-i18n="nav.dash.main" class="menu-title">Hours</span>
+          </a>
+          <ul class="menu-content">
+            <li>
+                <a href="<?php echo base_url(); ?>car/addhoursfare" data-i18n="nav.dash.main" class="menu-item <?php echo ($activeTab == "carfareadd") ? "active" : ""; ?>"><i class="icon-plus"></i>Add Fare Hour</a>
+            </li>
+            <li>
+              <a href="<?php echo base_url(); ?>car/hoursfarelist" data-i18n="nav.dash.main" class="menu-item <?php echo ($activeTab == "hoursfarelist") ? "active" : ""; ?>"><i class="icon-file-text2"></i>List of Fare per Hour</a>
             </li>
           </ul>
 
@@ -105,7 +118,7 @@
 
            <li class="nav-item <?php echo($activeTab == "contactadd"||$activeTab =="luxuryquotelist") ? "open" : ""; ?>">
             <a class="<?php echo ($activeTab == "contactadd" || $activeTab == "luxuryquotelist") ? "active" : ""; ?>">
-              <i class="icon-address-book"></i><span data-i18n="nav.dash.main" class="menu-title">Segment Contact</span>
+              <i class="icon-question-circle"></i><span data-i18n="nav.dash.main" class="menu-title">Segment Contact</span>
             </a>
             <ul class="menu-content">
               <!-- <li>
@@ -133,7 +146,7 @@
 
            <li class="nav-item <?php echo($activeTab == "carreradd" || $activeTab =="carrerlist" || $activeTab =="carrierlist") ? "open" : ""; ?>">
             <a class="<?php echo ($activeTab == "carreradd" || $activeTab == "carrerlist" || $activeTab =="carrierlist") ? "active" : ""; ?>">
-              <i class="icon-address-book"></i><span data-i18n="nav.dash.main" class="menu-title">Carrier</span>
+              <i class="icon-clipboard"></i><span data-i18n="nav.dash.main" class="menu-title">Carrier</span>
             </a>
             <ul class="menu-content">
               <li>

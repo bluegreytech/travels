@@ -453,8 +453,8 @@
 						</div>
 						<div class="row specification">
 							<ul class="nav text-center">
-								<li><span><img src="<?php echo base_url();?>assets\images\icons\fleet2\1.png" alt=""></span>3 Seats</li>
-								<li><span><img src="<?php echo base_url();?>assets\images\icons\fleet2\2.png" alt=""></span>2 Luggage</li>
+								<!-- <li><span><img src="<?php echo base_url();?>assets\images\icons\fleet2\1.png" alt=""></span>3 Seats</li> -->
+							<!-- 	<li><span><img src="<?php echo base_url();?>assets\images\icons\fleet2\2.png" alt=""></span>2 Luggage</li> -->
 							</ul>
 							<a href="#" data-toggle="modal" data-target="#luxurycar" class="details-page">Get A Quote</a>
 							<!-- Modal -->

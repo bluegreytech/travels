@@ -276,7 +276,7 @@
 				        	<form class="form" method="post" enctype="multipart/form-data" 
 				        				action="<?php echo base_url();?>Services/search">
 				        		<div class="row fr-it">
-				        			<div class="col-md-4">
+				        			<div class="col-md-3">
 			        					<div class="location-group">
 											<div class="input-group">
 												<select name="StartCity" class="form-control" required>
@@ -297,7 +297,7 @@
 											</div>
 										</div>
 									</div>
-				        			<div class="col-md-4">
+				        			<div class="col-md-3">
 										<div class="input-group date-group">
 											<input type="text" class="datedroper form-control" name="PickupDate"  placeholder="Pickup date" required>
 											<span class="input-group-addon"><i class="ion-calendar"></i></span>
@@ -309,12 +309,33 @@
 											<span class="input-group-addon"><i class="ion-ios-alarm-outline"></i></span>
 										</div>
 									</div>
-									<div class="col-md-2">
+
+									<div class="col-md-4">
+										<div class="input-group time-group">
+											<select name="LocalTripId" class="form-control" required>
+													<option  value="">Please select pack</option>
+													<?php
+													if($localpackData)
+													{
+														foreach($localpackData as $localData)
+														{
+													?>
+														
+														<option value="<?php echo $localData->LocalTripId; ?>"><?php echo $localData->Hours.' Hrs '.$localData->PerHourKMS.' Fare' ?></option>
+													<?php
+													}}
+													?>
+												</select>
+											<span class="input-group-addon"><i class="ion-ios-carret-outline"></i></span>
+										</div>
+									</div>
+
+									<!-- <div class="col-md-2">
 										<div class="input-group time-group">
 											<input type="text" class="timedroper form-control" name="DropofTime" placeholder="Duration" required>
 											<span class="input-group-addon"><i class="ion-ios-alarm-outline"></i></span>
 										</div>
-									</div>
+									</div> -->
 								</div>  				
 								<div class="row m0">
 									<div class="col-xs-12">
@@ -432,7 +453,7 @@
 								<li><span><img src="<?php echo base_url();?>assets/images/icons/fleet2/1.png" alt=""></span><?php echo $row->TotalSeat;?> Seats</li>
 								<li><span><img src="<?php echo base_url();?>assets/images/icons/fleet2/2.png" alt=""></span><?php echo $row->TotalBaggage;?> Luggage</li>
 							</ul>
-							<a href="#" class="details-page">Book Now</a>
+							<!-- <a href="#" class="details-page">Book Now</a> -->
 						</div>
 					</div>
 				</div>
@@ -765,28 +786,27 @@ if ((evt.which < 48 || evt.which > 57))
 
 
 $(document).ready(function()
-		{
-
-	       $('#form_valid').validate({
-				rules: {
-					FullName:{              
-						required: true,                
-					},
-					ContactNumber:{              
-						required: true,                
-					},
-					StartCity:{              
-						required: true,                
-					},
-					Subject:{              
-						required: true,                
-					},
-					QueryDescription:{              
-						required: true,                
-					},	
-				 },
-		    });
-		});
+{
+   $('#form_valid').validate({
+		rules: {
+			FullName:{              
+				required: true,                
+			},
+			ContactNumber:{              
+				required: true,                
+			},
+			StartCity:{              
+				required: true,                
+			},
+			Subject:{              
+				required: true,                
+			},
+			QueryDescription:{              
+				required: true,                
+			},	
+		 },
+    });
+});
 
 
 // $(document).ready(function()

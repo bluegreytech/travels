@@ -265,6 +265,7 @@ class Car extends CI_Controller {
 		$data['LocalTripId']=$this->input->post('LocalTripId');
 		$data['PerHoureFare']=$this->input->post('PerHoureFare');
 		$data['Hours']=$this->input->post('Hours');
+		$data['PerHourKMS']=$this->input->post('PerHourKMS');
 		$data['IsActive']=$this->input->post('IsActive');
 	
 		if($_POST)
@@ -316,6 +317,7 @@ class Car extends CI_Controller {
 			$data['BrandName']=$result['BrandName'];
 			$data['PerHoureFare']=$result['PerHoureFare'];
 			$data['Hours']=$result['Hours'];
+			$data['PerHourKMS']=$result['PerHourKMS'];
 			$data['IsActive']=$result['IsActive'];
 
 

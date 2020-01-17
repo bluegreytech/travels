@@ -2,7 +2,7 @@
 	 $this->load->view('common/header');
 ?>
 
-	
+
   	<!--Page Cover-->
   	<section class="row page-cover">
   		<div class="container">
@@ -41,8 +41,26 @@
 										$DropofTime=$this->session->userdata('DropofTime');
 										$ContactNumber=$this->session->userdata('ContactNumber');
 										$OTPNumber=$this->session->userdata('OTPNumber');
+
+										$LocalTripId=$this->session->userdata('LocalTripId');
+										
 									 }
 								 ?>
+
+									<?php
+									if($this->session->userdata('LocalTripId')!='')
+									{
+										$localresult=$this->Login_model->getlocal_pack($LocalTripId);
+										foreach($localresult as $res)
+										{
+											$LocalTripId=$res->LocalTripId;
+											$PerHourKMS=$res->PerHourKMS;
+											$Hours=$res->Hours;
+											
+											
+										}
+									}
+									?>
 			      				
 								<input type="hidden" name="StartCity" value="<?php echo $StartCity;?>">
 								<input type="hidden" name="EndCity" value="<?php echo $EndCity;?>">
@@ -55,6 +73,8 @@
 								<input type="hidden" name="CarBrandId" value="<?php echo $CarBrandId;?>">
 								<input type="hidden" name="BrandName" value="<?php echo $BrandName;?>">
 								<input type="hidden" name="PerHoureFare" value="<?php echo $PerHoureFare; ?>">
+
+								
 
 			      					<h5 class="this-label">First Name<span>*</span></h5>
 			      					<input type="text" class="form-control" name="FirstName" id="FirstName" placeholder="Enter First Name" minlength="2" maxlength="25">
@@ -75,24 +95,7 @@
 			      					<h5 class="this-label">Cab Type<span>*</span></h5>
 			      					<input type="text"  class="form-control" placeholder="Select Brand Car" id="BrandName" name="BrandName" value="<?php echo $BrandName;?>" readonly> 
 			      				</div>
-			      				<!-- <div class="form-group col-sm-6">
-			      					<h5 class="this-label">Select Car<span>*</span></h5>
-			      					 <select class="form-control" name="CarId" onChange="getcartype(this.value)" 
-			      					 id="carid">
-			      					 	<option desabled value="">Select Your car</option>
-										<?php
-										// if($subcar)
-										// {
-											// foreach($subcar as $subcarData)
-											// {
-										?>
-								
-											<option value="<?php// echo $subcarData->CarId; ?>"><?php //echo $subcarData->CarName;?></option>
-										<?php
-										// }}
-										?>
-									  </select>
-			      				</div> -->
+			      			
 			      				<div class="form-group col-sm-6">
 			      					<h5 class="this-label">Pickup Date<span>*</span></h5>
 			      					<input type="text" class="form-control" name="PickupDate" id="PickupDate" placeholder="dd/mm/yyyy" value="<?php echo $PickupDate;?>" readonly>
@@ -251,9 +254,31 @@
 			      					else
 			      					{
 			      						?>
+			      						
+			      							
+			      						
+
 			      						<li>Per Hour Fare <span><i class="fa fa-inr"></i>
+			      							<input type="hidden" name="LocalTripId" id="LocalTripId" value="<?php echo $LocalTripId;?>" readonly>
 			      							<input type="text" name="PerHoureFare" id="PerHoureFare" value="<?php echo $brandcar['PerHoureFare'];?>" readonly></span>
 			      						</li>
+
+			      						<li>KMS <span>
+			      							<input type="text" name="PerHourKMS" id="PerHourKMS" value="<?php echo $PerHourKMS;?>" readonly></span>
+			      						</li>
+
+			      						<li>Hours<span>
+			      							<input type="text" name="Hours" id="Hours" value="<?php echo $Hours;?>" readonly></span>
+			      						</li>
+
+			      						<?php
+			      							$FinalAmount=$PerHoureFare*$Hours;
+			      						?>
+			      						<li>Final Fare<span><i class="fa fa-inr"></i>
+			      							<input type="text" id="FinalAmount"id="FinalAmount" name="FinalAmount" value="<?php echo $FinalAmount;?>" readonly> </span>
+			      						</li>
+											
+											
 			      						<?php
 			      					}
 			      					?>
@@ -316,7 +341,8 @@
 			</div>
 		</div>
 	</section>
-  	
+  
+	
    
 <?php 
 	$this->load->view('common/footer');
@@ -364,7 +390,8 @@ $('body').on('click', '#submit', function(e)
     var TotalAmount = $('#TotalAmount').val();
     var TaxAdded = $('#TaxAdded').val();
     var totalAmount = $('#FinalAmount').val();
-  
+  	
+
     var options = {
     //"key":'rzp_test_C7fnEIVjsS6Bsd',
     "key":'rzp_test_ZoADm9oDeOx3hS',   

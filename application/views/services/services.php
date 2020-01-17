@@ -40,7 +40,7 @@
 									$PickupTime=$this->session->userdata('PickupTime');
 									$DropofTime=$this->session->userdata('DropofTime');
 									// $CarBrandId=$this->session->userdata('CarBrandId');
-									// $BrandName=$this->session->userdata('BrandName');
+									$LocalTripId=$this->session->userdata('LocalTripId');
 								}
 								?>
 
@@ -53,6 +53,8 @@
 								<input type="hidden" name="DropofDate" value="<?php echo $DropofDate;?>">
 								<input type="hidden" name="PickupTime" value="<?php echo $PickupTime;?>">
 								<input type="hidden" name="DropofTime" value="<?php echo $DropofTime;?>">
+
+								<input type="hidden" name="LocalTripId" value="<?php echo $LocalTripId;?>">
 
 								<div class="media-left"><img src="<?php echo base_url();?>admin/upload/carimages/<?php echo $row->BrandCarImage; ?>" alt=""></div>
 								<div class="row specification eminities">
@@ -89,12 +91,18 @@
 												<?php
 											}
 										    ?>
-											
-										
 										</div>
-										<div class="row specification">
-											<input type="submit" value="Book a cab" class="btn btn-primary">
-										</div>
+
+										<?php
+										if($StartCity!='')
+										{
+										?>
+											<div class="row specification">
+												<input type="submit" value="Book a cab" class="btn btn-primary">
+											</div>
+										<?php
+										}
+										?>
 									</form>
 								</div>
 							</div>

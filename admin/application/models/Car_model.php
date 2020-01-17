@@ -464,6 +464,7 @@ class Car_model extends CI_Model
 			'CarBrandId'=>trim($this->input->post('CarBrandId')),
 			'PerHoureFare'=>trim($this->input->post('PerHoureFare')),
 			'Hours'=>trim($this->input->post('Hours')),
+			'PerHourKMS'=>trim($this->input->post('PerHourKMS')),
 			'IsActive' =>$this->input->post('IsActive'),			
 			'CreatedOn'=>date('Y-m-d')		
 		);
@@ -504,6 +505,7 @@ class Car_model extends CI_Model
 		'CarBrandId'=>trim($this->input->post('CarBrandId')),
 		'PerHoureFare'=>trim($this->input->post('PerHoureFare')),
 		'Hours'=>trim($this->input->post('Hours')),
+		'PerHourKMS'=>trim($this->input->post('PerHourKMS')),
 		'IsActive' =>$this->input->post('IsActive'),					
 		'UpdatedOn'=>date('Y-m-d')		
 		); 

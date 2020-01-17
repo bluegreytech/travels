@@ -69,6 +69,8 @@
 										$DropofTime=$this->session->userdata('DropofTime');
 										$ContactNumber=$this->session->userdata('ContactNumber');
 										$OTPNumber=$this->session->userdata('OTPNumber');
+
+										$LocalTripId=$this->session->userdata('LocalTripId');
 									 }
 								 ?>
 
@@ -83,6 +85,8 @@
 								<input type="hidden" name="DropofTime" value="<?php echo $this->session->userdata('DropofTime');?>">
 								<input type="hidden" name="ContactNumber" value="<?php echo $this->session->userdata('ContactNumber');?>">
 								<input type="hidden" name="OTPNumber" value="<?php echo $this->session->userdata('OTPNumber');?>">
+
+								<input type="hidden" name="LocalTripId" value="<?php echo $this->session->userdata('LocalTripId');?>">
 								<input type="text" class="form-control" name="OTPNumber" id="OTPNumber" placeholder="Enter 6 Digit OTP" minlength="5" maxlength="6" value="<?php echo $OTPNumber;?>">
 							</div>
 						</div>

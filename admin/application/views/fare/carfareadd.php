@@ -76,6 +76,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 								<div class="form-group">
 									<label>Per Houre Fare</label>
+									<input type="text" class="form-control" placeholder="Car Per Hour KMS" id="PerHourKMS" name="PerHourKMS" value="<?php echo $PerHourKMS;?>" minlength="1" maxlength="5">
+								</div>
+
+								<div class="form-group">
+									<label>Per Houre Fare</label>
 									<input type="text" class="form-control" placeholder=" Car Fare Per Houre" id="PerHoureFare" name="PerHoureFare" value="<?php echo $PerHoureFare;?>" minlength="1" maxlength="5">
 								</div>
 
@@ -160,6 +165,13 @@ $("#Hours").on("input", function(evt) {
 		}});
 
 
+$("#PerHourKMS").on("input", function(evt) {
+		var self = $(this);
+		self.val(self.val().replace(/[^\d].+/, ""));
+		if ((evt.which < 48 || evt.which > 57)) 
+		{
+			evt.preventDefault();
+		}});
 
 $(document).ready(function()
 {

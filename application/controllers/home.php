@@ -11,7 +11,10 @@ class Home extends CI_Controller
 	}
 
 	public function index()
-	{    
+	{   
+		// $data['PickupTime']=$this->input->post('PickupTime');
+		// $data['DropofTime']=$this->input->post('DropofTime'); 
+
 		if(isset($_GET['StartCity']) && isset($_GET['EndCity']))
 		{	$data=array();
 			$data['StartCity']=$_GET['StartCity'];
@@ -24,6 +27,7 @@ class Home extends CI_Controller
 			$data['endcityData']=$this->Login_model->end_city();
 			//$data['endcityData']=$this->Login_model->ajax_end_city();
 			$data['localcityData']=$this->Login_model->local_city();
+			$data['localpackData']=$this->Login_model->local_pack();
 		}
 		else
 		{	
@@ -35,9 +39,10 @@ class Home extends CI_Controller
 			$data['endcityData']=$this->Login_model->end_city();
 			//$data['endcityData']=$this->Login_model->ajax_end_city();
 			$data['localcityData']=$this->Login_model->local_city();
+			$data['localpackData']=$this->Login_model->local_pack();
 		}
 		
-		//print_r($data['endcityData']);die;
+		//print_r($data['localpackData']);die;
 		$this->load->view('home/index',$data);			
 	}
 
@@ -70,8 +75,8 @@ class Home extends CI_Controller
 		$data['CarBrandId']=$this->input->post('CarBrandId');
 		$data['BrandName']=$this->input->post('BrandName');
 		$data['PerHoureFare']=$this->input->post('PerHoureFare');
-		//$data['OTPNumber']=$this->input->post('OTPNumber');
-
+	
+		$data['LocalTripId']=$this->input->post('LocalTripId');
 		if($_POST)
 		{
 			//print_r($_POST);die;
@@ -85,7 +90,7 @@ class Home extends CI_Controller
 				'CarBrandId'=> $data['CarBrandId'],
 				'BrandName'=>$data['BrandName'],
 				'PerHoureFare'=>$data['PerHoureFare'],
-			 
+			 	'LocalTripId'=>$data['LocalTripId'],
 			 );
 			$this->session->set_userdata($session);	
 		}
@@ -108,6 +113,8 @@ class Home extends CI_Controller
 		$data['PerHoureFare']=$this->input->post('PerHoureFare');
 		$data['ContactNumber']=$this->input->post('ContactNumber');
 		$data['OTPNumber']=$this->input->post('OTPNumber');
+
+		$data['LocalTripId']=$this->input->post('LocalTripId');
 		if($_POST)
 		{
 			//print_r($_POST);die;
@@ -123,7 +130,7 @@ class Home extends CI_Controller
 				'PerHoureFare'=>$data['PerHoureFare'],	
 				'ContactNumber'=> $data['ContactNumber'],
 				'OTPNumber'=>$data['OTPNumber'],
-
+				'LocalTripId'=>$data['LocalTripId'],
 			 );
 
 			//print_r($session);die;
@@ -157,6 +164,12 @@ class Home extends CI_Controller
 		$data['TaxAmount']=$this->input->post('TaxAmount');
 		$data['Tax']=$this->input->post('Tax');
 		$data['razorpay_payment_id']=$this->input->post('razorpay_payment_id');
+
+		$data['LocalTripId']=$this->input->post('LocalTripId');
+		$data['PerHourKMS']=$this->input->post('PerHourKMS');
+		$data['Hours']=$this->input->post('Hours');
+
+		
 		
 		$result=$this->Login_model->getuser($this->input->post('ContactNumber'));
 		$AlreadyOTPNumber=$result['OTPNumber'];
@@ -174,7 +187,8 @@ class Home extends CI_Controller
 						'BrandName'=>$data['BrandName'],
 						'PerHoureFare'=>$data['PerHoureFare'],
 						'ContactNumber'=> $data['ContactNumber'],
-						'OTPNumber'=>$data['OTPNumber'],		
+						'OTPNumber'=>$data['OTPNumber'],
+						'LocalTripId'=>$data['LocalTripId'],		
 					);
 					$this->session->set_userdata($session);		 
 		}
@@ -383,6 +397,14 @@ class Home extends CI_Controller
 		//die;
 	}
 
+
+	// function getlocalpack()
+	// {
+	// 	//$LocalTripId=$this->input->post('LocalTripId');
+	// 	$result=$this->Login_model->getlocal_pack();
+	// 	//print_r($result);die;
+	// 	echo json_encode($result);
+	// }
 
 	// function getdistance()
 	// {

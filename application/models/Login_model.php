@@ -92,6 +92,31 @@ class Login_model extends CI_Model
     return $res;
   }
 
+  function local_pack()
+  {
+    $where=array('local.IsActive'=>'Active','local.IsDelete'=>'0');
+    $this->db->select('local.*,brand.BrandName');
+    //$this->db->from('tbllocaltripprice');
+    $this->db->from("tbllocaltripprice as local");
+    $this->db->join('tblcarbrand as brand','local.CarBrandId = brand.CarBrandId', 'LEFT');
+    $this->db->where($where);
+    $query=$this->db->get();
+    $res = $query->result();
+    return $res;
+  }
+
+  function getlocal_pack()
+  {
+      $LocalTripId=3;
+      $where=array('local.IsActive'=>'Active','local.IsDelete'=>'0','LocalTripId'=>$LocalTripId);
+      $this->db->select('local.*');
+      $this->db->from("tbllocaltripprice as local");
+      $this->db->where($where);
+      $query=$this->db->get();
+      $res = $query->result();
+      return $res;
+  }
+
   function getsubcar($CarBrandId)
   {
     $where= array('IsActive' =>'Active','IsDelete' =>'0','CarBrandId'=>$CarBrandId);
@@ -177,6 +202,11 @@ class Login_model extends CI_Model
         'DropofTime'=>trim($this->input->post('DropofTime')), 
         'StartCity'=>trim($this->input->post('StartCity')), 
         'EndCity'=>trim($this->input->post('EndCity')), 
+
+        'LocalTripId'=>trim($this->input->post('LocalTripId')), 
+        'PerHourKMS'=>trim($this->input->post('PerHourKMS')), 
+        'Hours'=>trim($this->input->post('Hours')),
+
         'PerHoureFare'=>trim($this->input->post('PerHoureFare')), 
         'PerKmRate'=>trim($this->input->post('PerKmRate')),
         'KMS'=>trim($this->input->post('KMS')), 

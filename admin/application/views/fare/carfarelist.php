@@ -34,7 +34,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <tr>
                                 <th>Sr No</th>
                                 <th>Brand</th> 
-                                <th>Hours</th>                          
+                                <th>Hours</th>  
+                                <th>Per Hours KMS</th>                        
                                 <th>Fare</th> 
 								<th>Status</th>
                                 <th>Action</th>
@@ -51,6 +52,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     <td><?php echo $i; ?></td>
                                     <td><?php echo $row->BrandName; ?></td>
                                     <td><?php echo $row->Hours; ?></td>
+                                    <td><?php echo $row->PerHourKMS; ?></td>
                                     <td><?php echo $row->PerHoureFare; ?></td>
                                     
                                     <td>

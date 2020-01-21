@@ -183,10 +183,9 @@
 
 			      						<li>KMS <span><i class="fa fa-inr"></i>
 			      							<?php
-			      							if($this->session->userdata('PickupDate')!='' && $this->session->userdata('DropofDate')=='')
+			      							if($this->session->userdata('PickupDate')!='')
 			      							{
 			      								$RoundFare=200;
-			      								//$RoundFare=$result[0]->PerTripMinKMS;
 			      								?>
 			      									<input type="text" name="KMS" id="KMS" value="<?php echo $RoundFare; ?>" readonly></span>
 			      								<?php
@@ -194,20 +193,9 @@
 			      							else
 			      							{
 			      								$RoundFare=200*2;
-			      								if($RoundFare <= $result[0]->PerTripMinKMS)
-			      								{
-			      									?>
-													<input type="text" name="KMS" id="KMS" value="<?php echo $result[0]->PerTripMinKMS; ?>" readonly></span>
-			      									<?php
-			      								}
-			      								else
-			      								{
-			      									?>
+			      								?>
 													<input type="text" name="KMS" id="KMS" value="<?php echo $RoundFare; ?>" readonly></span>
-			      									<?php
-			      								}
-			      				
-			      								
+			      								<?php
 			      							}
 			      							?>
 			      							
@@ -263,10 +251,6 @@
 			      					<?php
 			      						}
 			      					}
-			      					// else if($this->session->userdata('EndCity')!='' && $this->session->userdata('DropofDate')!='')
-			      					// {
-
-			      					// }
 			      					else
 			      					{
 			      						?>
@@ -419,10 +403,7 @@ $('body').on('click', '#submit', function(e)
                 razorpay_payment_id:response.razorpay_payment_id,FinalAmount:totalAmount,FirstName:FirstName,LastName:LastName,EmailAddress:EmailAddress,ContactNumber:ContactNumber,CarBrandId:CarBrandId,BrandName:BrandName,PickupDate:PickupDate,DropofDate:DropofDate,PickupTime:PickupTime,DropofTime:DropofTime,StartCity:StartCity,EndCity:EndCity,PerKmRate:PerKmRate,KMS:KMS,TotalFareAmount:TotalFareAmount,ExtraKMS:ExtraKMS,StateTax:StateTax,Tax:Tax,TotalAmount:TotalAmount,TaxAdded:TaxAdded
             }, 
             success: function (msg) { 
-            	//alert(msg);
-                window.location.href = '<?php echo base_url();?>home/ThankYou';
-               // console.log(msg);
-             
+               window.location.href = SITEURL + 'home/ThankYou';
             }
         });
     },

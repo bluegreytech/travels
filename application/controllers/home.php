@@ -200,9 +200,9 @@ class Home extends CI_Controller
 		
 		
 		$data['brandcar']=$this->Login_model->get_brandcartype($CarBrandId);
-		//print_r($data['brandcar']);die;
 		$data['about']=$this->About_model->getabout(); 	
-		$data['result']=$this->Contact_model->getsitedetail();     	
+		$data['result']=$this->Contact_model->getsitedetail();  
+		//print_r($data['result']);die;   	
 		$this->load->view('booking/booking',$data);	
 	}
 
@@ -214,18 +214,16 @@ class Home extends CI_Controller
 			if($this->input->post('ContactNumber')!='')
 			{
 				$result=$this->Login_model->user_bookcar_online();
-				//echo json_encode($result);
+				echo json_encode($result);
 				//echo $result;die;
-				if($result==1)
-				{
-					//$this->session->set_flashdata('success', 'Your cab booking has been Successfully!');
-					redirect('home/ThankYou');	
-				}
-				else if($result==2)
-				{
-					//$this->session->set_flashdata('warning', 'Your cab booking has been  Successfully but Email function was not work!');
-					redirect('home/ThankYou');	
-				}
+				// if($result==1)
+				// {
+				// 	redirect('home/ThankYou');	
+				// }
+				// else if($result==2)
+				// {
+				// 	redirect('home/ThankYou');	
+				// }
      		}	
 		}
     }
@@ -245,12 +243,14 @@ class Home extends CI_Controller
 				if($result==1)
 				{
 					$this->session->set_flashdata('success', 'Your cab booking has been Successfully!');
-					redirect('home/booking');	
+					//redirect('home/booking');	
+					redirect('contact');
 				}
 				else if($result==2)
 				{
 					$this->session->set_flashdata('warning', 'Your cab booking has been  Successfully but Email function was not work!');
-					redirect('home/booking');	
+					//redirect('home/booking');	
+					redirect('contact');
 				}
 				
 			}	
@@ -398,6 +398,13 @@ class Home extends CI_Controller
 	}
 
 
+	function getdistance()
+	{
+		$data['about']=$this->About_model->getabout(); 	
+		$data['result']=$this->Contact_model->getsitedetail();
+		$this->load->view('home/mmm',$data);
+	}
+
 	// function getlocalpack()
 	// {
 	// 	//$LocalTripId=$this->input->post('LocalTripId');
@@ -443,7 +450,7 @@ class Home extends CI_Controller
 	// 	$addressTo="Anand";
 	// 	$unit ='';
 	//     // Google API key
-	//     $apiKey = 'AIzaSyDAo78y6rMKrFS_7nyi_Fg69YCCDpmF6Ho';
+	//     $apiKey = 'AIzaSyDj1Rs87JgSp5oK3bfK6vI-eIG0MzKEfkI';
 	    
 	//     // Change address format
 	//     $formattedAddrFrom    = str_replace(' ', '+', $addressFrom);
@@ -451,7 +458,6 @@ class Home extends CI_Controller
 	    
 	//     // Geocoding API request with start address
 	//     echo $geocodeFrom = file_get_contents('https://maps.googleapis.com/maps/api/geocode/json?address='.$formattedAddrFrom.'&sensor=false&key='.$apiKey);
-	//     die;
 	//     $outputFrom = json_decode($geocodeFrom);
 	//     if(!empty($outputFrom->error_message)){
 	//         return $outputFrom->error_message;
@@ -483,9 +489,11 @@ class Home extends CI_Controller
 	//         return round($miles * 1.609344, 2).' km';
 	//     }elseif($unit == "M"){
 	//         echo round($miles * 1609.344, 2).' meters';
+	//         echo "1111";
 	//         die;
 	//     }else{
 	//         echo  round($miles, 2).' miles';
+	//           echo "2222";
 	//         die;
 	//     }
 	// }

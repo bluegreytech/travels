@@ -1,15 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 4.6.6deb5
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Jan 21, 2020 at 05:39 AM
--- Server version: 10.4.6-MariaDB
--- PHP Version: 7.3.8
+-- Host: localhost:3306
+-- Generation Time: Jan 23, 2020 at 04:51 PM
+-- Server version: 5.7.28-0ubuntu0.18.04.4
+-- PHP Version: 7.2.24-0ubuntu0.18.04.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -19,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `travelsdb`
+-- Database: `admin_yashdeeptravels`
 --
 
 -- --------------------------------------------------------
@@ -33,18 +31,18 @@ CREATE TABLE `tblaboutus` (
   `AboutTitle` varchar(200) NOT NULL,
   `AboutDescription` text NOT NULL,
   `SecondTitle` varchar(200) DEFAULT NULL,
-  `SecondDescription` text DEFAULT NULL,
+  `SecondDescription` text,
   `ThirdTitle` varchar(200) DEFAULT NULL,
-  `ThirdDescription` text DEFAULT NULL,
+  `ThirdDescription` text,
   `FourthTitle` varchar(200) DEFAULT NULL,
-  `FourthDescription` text DEFAULT NULL,
+  `FourthDescription` text,
   `AboutImage` varchar(200) DEFAULT NULL,
   `IsActive` enum('Active','Inactive') NOT NULL DEFAULT 'Active',
   `IsDelete` enum('0','1') NOT NULL DEFAULT '0',
   `CreatedBy` int(11) NOT NULL,
-  `CreatedOn` timestamp NOT NULL DEFAULT current_timestamp(),
+  `CreatedOn` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `UpdatedBy` int(11) NOT NULL,
-  `UpdatedOn` timestamp NOT NULL DEFAULT current_timestamp()
+  `UpdatedOn` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -100,12 +98,12 @@ CREATE TABLE `tblcarbrand` (
   `StateTax` int(11) NOT NULL,
   `TotalSeat` int(2) DEFAULT NULL,
   `TotalBaggage` int(2) DEFAULT NULL,
-  `BrandCarDescription` text DEFAULT NULL,
+  `BrandCarDescription` text,
   `BrandCarImage` varchar(200) DEFAULT NULL,
   `IsActive` enum('Active','Inactive') NOT NULL DEFAULT 'Active',
   `IsDelete` enum('0','1') NOT NULL DEFAULT '0',
-  `CreatedOn` timestamp NOT NULL DEFAULT current_timestamp(),
-  `UpdatedOn` timestamp NOT NULL DEFAULT current_timestamp()
+  `CreatedOn` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `UpdatedOn` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -128,8 +126,8 @@ CREATE TABLE `tblcarrer` (
   `CarrerDescription` text NOT NULL,
   `IsActive` enum('Active','Inactive') NOT NULL,
   `IsDelete` enum('0','1') NOT NULL DEFAULT '0',
-  `CreatedOn` timestamp NOT NULL DEFAULT current_timestamp(),
-  `UpdatedOn` timestamp NOT NULL DEFAULT current_timestamp()
+  `CreatedOn` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `UpdatedOn` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -156,7 +154,7 @@ CREATE TABLE `tblcarrierinquiry` (
   `CarrierCv` varchar(100) NOT NULL,
   `IsActive` enum('Active','Inactive') NOT NULL,
   `IsDelete` enum('0','1') NOT NULL,
-  `CreatedOn` timestamp NOT NULL DEFAULT current_timestamp()
+  `CreatedOn` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -185,11 +183,11 @@ CREATE TABLE `tblcartype` (
   `AirCondition` enum('AC','Nonac') NOT NULL,
   `CarNumber` varchar(20) NOT NULL,
   `CarImage` varchar(200) NOT NULL,
-  `CarDescription` text DEFAULT NULL,
+  `CarDescription` text,
   `IsActive` enum('Active','Inactive') NOT NULL DEFAULT 'Active',
   `IsDelete` enum('0','1') NOT NULL DEFAULT '0',
-  `CreatedOn` timestamp NOT NULL DEFAULT current_timestamp(),
-  `UpdatedOn` timestamp NOT NULL DEFAULT current_timestamp()
+  `CreatedOn` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `UpdatedOn` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -220,8 +218,8 @@ CREATE TABLE `tblcity` (
   `LocalCity` enum('Active','Inactive') NOT NULL DEFAULT 'Active',
   `IsActive` enum('Active','Inactive') NOT NULL DEFAULT 'Active',
   `IsDelete` enum('0','1') NOT NULL DEFAULT '0',
-  `CreatedOn` timestamp NOT NULL DEFAULT current_timestamp(),
-  `UpdatedOn` timestamp NOT NULL DEFAULT current_timestamp()
+  `CreatedOn` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `UpdatedOn` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -252,7 +250,7 @@ CREATE TABLE `tblcontactus` (
   `City` varchar(50) NOT NULL,
   `MessageDescription` text NOT NULL,
   `IsDelete` enum('0','1') NOT NULL DEFAULT '0',
-  `CreatedOn` timestamp NOT NULL DEFAULT current_timestamp()
+  `CreatedOn` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -275,9 +273,9 @@ CREATE TABLE `tblcountry` (
   `PhonePrefix` varchar(11) DEFAULT NULL,
   `IsActive` enum('1','0') NOT NULL DEFAULT '1',
   `CreatedBy` int(11) NOT NULL,
-  `CreatedOn` timestamp NOT NULL DEFAULT current_timestamp(),
+  `CreatedOn` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `UpdatedBy` int(11) NOT NULL,
-  `UpdatedOn` timestamp NULL DEFAULT current_timestamp()
+  `UpdatedOn` timestamp NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -521,8 +519,8 @@ CREATE TABLE `tblfeedback` (
   `FeedbackDescription` text NOT NULL,
   `IsActive` enum('Active','Inactive') NOT NULL,
   `IsDelete` enum('0','1') NOT NULL DEFAULT '0',
-  `CreatedOn` timestamp NOT NULL DEFAULT current_timestamp(),
-  `UpdatedOn` timestamp NOT NULL DEFAULT current_timestamp()
+  `CreatedOn` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `UpdatedOn` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -539,8 +537,8 @@ CREATE TABLE `tbllocaltripprice` (
   `PerHourKMS` int(11) NOT NULL,
   `IsActive` enum('Active','Inactive') NOT NULL,
   `IsDelete` enum('0','1') NOT NULL,
-  `CreatedOn` timestamp NOT NULL DEFAULT current_timestamp(),
-  `UpdatedOn` timestamp NOT NULL DEFAULT current_timestamp()
+  `CreatedOn` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `UpdatedOn` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -567,7 +565,7 @@ CREATE TABLE `tblluxuryquotes` (
   `QueryDescription` text NOT NULL,
   `IsActive` enum('Active','Inactive') NOT NULL DEFAULT 'Active',
   `IsDelete` enum('0','1') NOT NULL DEFAULT '0',
-  `CreatedOn` timestamp NOT NULL DEFAULT current_timestamp()
+  `CreatedOn` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -597,7 +595,7 @@ CREATE TABLE `tblsitesetting` (
   `TripsDaily` int(11) NOT NULL,
   `Cabs` int(11) NOT NULL,
   `KilometersDaily` int(11) NOT NULL,
-  `PerTripMinKMS` int(11) NOT NULL DEFAULT 0
+  `PerTripMinKMS` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -620,7 +618,7 @@ CREATE TABLE `tblstate` (
   `CountryId` int(11) DEFAULT NULL,
   `IsActive` enum('1','0') NOT NULL DEFAULT '1',
   `CreatedBy` int(11) NOT NULL,
-  `CreatedOn` timestamp NOT NULL DEFAULT current_timestamp(),
+  `CreatedOn` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `UpdatedBy` int(11) NOT NULL,
   `UpdatedOn` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -4332,8 +4330,8 @@ CREATE TABLE `tbltestimonial` (
   `IsActive` enum('Active','Inactive') NOT NULL DEFAULT 'Active',
   `ApproveStatus` enum('Active','Inactive') NOT NULL DEFAULT 'Inactive',
   `IsDelete` enum('0','1') NOT NULL DEFAULT '0',
-  `CreatedOn` timestamp NOT NULL DEFAULT current_timestamp(),
-  `UpdatedOn` timestamp NOT NULL DEFAULT current_timestamp()
+  `CreatedOn` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `UpdatedOn` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -4378,15 +4376,15 @@ CREATE TABLE `tbluser` (
   `Tax` int(11) DEFAULT NULL,
   `TotalAmount` int(11) DEFAULT NULL,
   `TaxAdded` int(11) DEFAULT NULL,
-  `FinalAmount` int(11) NOT NULL DEFAULT 0,
+  `FinalAmount` int(11) NOT NULL DEFAULT '0',
   `transaction_id` varchar(200) DEFAULT NULL,
   `payment_status` enum('Pending','Success') DEFAULT 'Pending',
   `IsActive` enum('Active','Inactive') NOT NULL DEFAULT 'Active',
   `OTPNumber` varchar(10) DEFAULT NULL,
   `Status` enum('Pending','Verify') NOT NULL DEFAULT 'Pending',
   `IsDelete` enum('0','1') NOT NULL DEFAULT '0',
-  `CreatedOn` timestamp NOT NULL DEFAULT current_timestamp(),
-  `UpdatedOn` timestamp NOT NULL DEFAULT current_timestamp()
+  `CreatedOn` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `UpdatedOn` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -4394,14 +4392,15 @@ CREATE TABLE `tbluser` (
 --
 
 INSERT INTO `tbluser` (`UserId`, `FirstName`, `LastName`, `EmailAddress`, `ContactNumber`, `LoginOTP`, `BrandName`, `PickupDate`, `DropofDate`, `PickupTime`, `DropofTime`, `StartCity`, `EndCity`, `LocalTripId`, `PerHourKMS`, `Hours`, `PerHoureFare`, `PerKmRate`, `KMS`, `TotalFareAmount`, `ExtraKMS`, `StateTax`, `Tax`, `TotalAmount`, `TaxAdded`, `FinalAmount`, `transaction_id`, `payment_status`, `IsActive`, `OTPNumber`, `Status`, `IsDelete`, `CreatedOn`, `UpdatedOn`) VALUES
-(1, 'Mitesh', 'Patel', 'mitnp16@gmail.com', '8200308821', '', 'Sedan', '2020-01-11', '2020-01-11', '2:00 am', '', 'Ahemdabad', 'Anand', 0, 0, NULL, 300, 10, 200, 2000, 0, 0, NULL, 2000, 300, 2300, NULL, 'Pending', 'Active', '', 'Verify', '0', '2020-01-10 05:00:00', '2020-01-10 05:00:00'),
-(4, 'Mitesh', 'Patel', 'mitnp16@gmail.com', '8200308821', '', 'SUV', '2020-01-12', '2020-01-13', '3:55 am', '', 'Ahemdabad', 'Surat', 0, 0, NULL, 0, 13, 200, 2600, 0, 2000, NULL, 4600, 690, 5290, 'pay_E2iMviXsckG3v4', 'Success', 'Active', '', 'Verify', '0', '2020-01-10 05:00:00', '2020-01-10 05:00:00'),
-(5, 'Mitesh', 'Patel', 'mitnp16@gmail.com', '8200308821', '', 'Sedan', '2020-01-14', '2020-01-14', '2:00 am', '4:00 am', 'Anand', '', 0, 0, NULL, 300, 0, 0, 0, 0, 0, NULL, 0, 0, 0, NULL, 'Pending', 'Active', '', 'Verify', '0', '2020-01-10 05:00:00', '2020-01-10 05:00:00'),
-(9, 'Mitesh', 'Patel', 'mitnp16@gmail.com', '8200308821', NULL, 'Sedan', '2020-01-10', '2020-01-10', '4:27 am', '', 'Valsad', 'Anand', 0, 0, NULL, 0, 10, 200, 2000, 0, 0, NULL, 2000, 300, 2300, 'pay_E2ivQOz3udeUKw', 'Success', 'Active', '', 'Verify', '0', '2020-01-10 05:00:00', '2020-01-10 05:00:00'),
-(10, 'Mitesh', 'Patel', 'mitnp16@gmail.com', '8200308821', NULL, 'SUV', '2020-01-17', '2020-01-17', '11:29 pm', '', 'Ahemdabad', 'Anand', 0, 0, NULL, 0, 13, 200, 2600, 0, 2000, NULL, 4600, 4646, 9246, 'pay_E5Pj3EvYcd9RJM', 'Success', 'Active', '', 'Verify', '0', '2020-01-17 05:00:00', '2020-01-17 05:00:00'),
+(1, 'Mitesh', 'Patel', 'mitnp16@gmail.com', '8200308821', '', 'Sedan', '2020-01-11', '2020-01-11', '2:00 am', '', 'Ahemdabad', 'Anand', 0, 0, NULL, 300, 10, 200, 2000, 0, 0, NULL, 2000, 300, 2300, NULL, 'Pending', 'Active', '', 'Verify', '0', '2020-01-10 05:00:00', '2020-01-23 00:00:00'),
+(4, 'Mitesh', 'Patel', 'mitnp16@gmail.com', '8200308821', '', 'SUV', '2020-01-12', '2020-01-13', '3:55 am', '', 'Ahemdabad', 'Surat', 0, 0, NULL, 0, 13, 200, 2600, 0, 2000, NULL, 4600, 690, 5290, 'pay_E2iMviXsckG3v4', 'Success', 'Active', '', 'Verify', '0', '2020-01-10 05:00:00', '2020-01-23 00:00:00'),
+(5, 'Mitesh', 'Patel', 'mitnp16@gmail.com', '8200308821', '', 'Sedan', '2020-01-14', '2020-01-14', '2:00 am', '4:00 am', 'Anand', '', 0, 0, NULL, 300, 0, 0, 0, 0, 0, NULL, 0, 0, 0, NULL, 'Pending', 'Active', '', 'Verify', '0', '2020-01-10 05:00:00', '2020-01-23 00:00:00'),
+(9, 'Mitesh', 'Patel', 'mitnp16@gmail.com', '8200308821', '', 'Sedan', '2020-01-10', '2020-01-10', '4:27 am', '', 'Valsad', 'Anand', 0, 0, NULL, 0, 10, 200, 2000, 0, 0, NULL, 2000, 300, 2300, 'pay_E2ivQOz3udeUKw', 'Success', 'Active', '', 'Verify', '0', '2020-01-10 05:00:00', '2020-01-23 00:00:00'),
+(10, 'Mitesh', 'Patel', 'mitnp16@gmail.com', '8200308821', '', 'SUV', '2020-01-17', '2020-01-17', '11:29 pm', '', 'Ahemdabad', 'Anand', 0, 0, NULL, 0, 13, 200, 2600, 0, 2000, NULL, 4600, 4646, 9246, 'pay_E5Pj3EvYcd9RJM', 'Success', 'Active', '', 'Verify', '0', '2020-01-17 05:00:00', '2020-01-23 00:00:00'),
 (18, 'Parth', 'Shah', 'mitnp16@gmail.com', '9974616445', NULL, 'Sedan', '2020-01-17', '2020-01-17', '7:10 am', '', 'Vadodra', 'Anand', 0, 0, 0, 300, 10, 200, 2000, 0, 0, NULL, 2000, 200, 2200, NULL, 'Pending', 'Active', '', 'Verify', '0', '2020-01-17 05:00:00', '2020-01-17 05:00:00'),
 (24, 'Nash', 'Patel', 'mitnp16@gmail.com', '9409521666', NULL, 'Sedan', '2020-01-22', '2020-01-22', '12:06 am', '', 'Anand', 'Vadodra', NULL, NULL, NULL, 0, 10, 200, 2000, 0, 0, NULL, 2000, 200, 2200, 'pay_E6bqikg7j5ZTif', 'Success', 'Active', '', 'Verify', '0', '2020-01-20 05:00:00', '2020-01-20 05:00:00'),
-(26, 'Nash', 'Patel', 'mitnp16@gmail.com', '9409521666', NULL, 'Sedan', '2020-01-20', '2020-01-20', '12:24 am', '', 'Anand', 'Vadodra', NULL, NULL, NULL, 0, 10, 200, 2000, 0, 0, NULL, 2000, 200, 2200, 'pay_E6c730olnEajzG', 'Success', 'Active', '', 'Verify', '0', '2020-01-20 05:00:00', '2020-01-20 05:00:00');
+(26, 'Nash', 'Patel', 'mitnp16@gmail.com', '9409521666', NULL, 'Sedan', '2020-01-20', '2020-01-20', '12:24 am', '', 'Anand', 'Vadodra', NULL, NULL, NULL, 0, 10, 200, 2000, 0, 0, NULL, 2000, 200, 2200, 'pay_E6c730olnEajzG', 'Success', 'Active', '', 'Verify', '0', '2020-01-20 05:00:00', '2020-01-20 05:00:00'),
+(33, 'Mitesh', 'Patel', 'mitnp16@gmail.com', '8200308821', '', 'SUV', '2020-01-23', '2020-01-23', '1:36 am', '', 'Ahemdabad', 'Anand', 0, 0, 0, 400, 13, 200, 2600, 0, 2000, NULL, 4600, 460, 5060, NULL, 'Pending', 'Active', '', 'Verify', '0', '2020-01-23 00:00:00', '2020-01-23 00:00:00');
 
 --
 -- Indexes for dumped tables
@@ -4525,110 +4524,91 @@ ALTER TABLE `tbluser`
 --
 ALTER TABLE `tblaboutus`
   MODIFY `AboutusId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
 --
 -- AUTO_INCREMENT for table `tbladmin`
 --
 ALTER TABLE `tbladmin`
   MODIFY `AdminId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
-
 --
 -- AUTO_INCREMENT for table `tblcarbrand`
 --
 ALTER TABLE `tblcarbrand`
   MODIFY `CarBrandId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
 --
 -- AUTO_INCREMENT for table `tblcarrer`
 --
 ALTER TABLE `tblcarrer`
   MODIFY `CarrerId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
 --
 -- AUTO_INCREMENT for table `tblcarrierinquiry`
 --
 ALTER TABLE `tblcarrierinquiry`
   MODIFY `CarrierInquiryId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
 --
 -- AUTO_INCREMENT for table `tblcartype`
 --
 ALTER TABLE `tblcartype`
   MODIFY `CarId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
 --
 -- AUTO_INCREMENT for table `tblcity`
 --
 ALTER TABLE `tblcity`
   MODIFY `CityId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
-
 --
 -- AUTO_INCREMENT for table `tblcontactus`
 --
 ALTER TABLE `tblcontactus`
   MODIFY `ContactId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
 --
 -- AUTO_INCREMENT for table `tblcountry`
 --
 ALTER TABLE `tblcountry`
   MODIFY `CountryId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=247;
-
 --
 -- AUTO_INCREMENT for table `tblemail_setting`
 --
 ALTER TABLE `tblemail_setting`
   MODIFY `email_setting_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
 --
 -- AUTO_INCREMENT for table `tblemail_template`
 --
 ALTER TABLE `tblemail_template`
   MODIFY `email_template_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
 --
 -- AUTO_INCREMENT for table `tblfeedback`
 --
 ALTER TABLE `tblfeedback`
   MODIFY `FeedbackId` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `tbllocaltripprice`
 --
 ALTER TABLE `tbllocaltripprice`
   MODIFY `LocalTripId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
 --
 -- AUTO_INCREMENT for table `tblluxuryquotes`
 --
 ALTER TABLE `tblluxuryquotes`
   MODIFY `LuxuryQuoteId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
 --
 -- AUTO_INCREMENT for table `tblsitesetting`
 --
 ALTER TABLE `tblsitesetting`
   MODIFY `SettingId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
 --
 -- AUTO_INCREMENT for table `tblstate`
 --
 ALTER TABLE `tblstate`
   MODIFY `StateId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3685;
-
 --
 -- AUTO_INCREMENT for table `tbltestimonial`
 --
 ALTER TABLE `tbltestimonial`
   MODIFY `TestimonialId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
 --
 -- AUTO_INCREMENT for table `tbluser`
 --
 ALTER TABLE `tbluser`
-  MODIFY `UserId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
-COMMIT;
-
+  MODIFY `UserId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

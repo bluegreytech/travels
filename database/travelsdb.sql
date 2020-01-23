@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 08, 2020 at 10:50 AM
+-- Generation Time: Jan 21, 2020 at 05:39 AM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.8
 
@@ -52,7 +52,7 @@ CREATE TABLE `tblaboutus` (
 --
 
 INSERT INTO `tblaboutus` (`AboutusId`, `AboutTitle`, `AboutDescription`, `SecondTitle`, `SecondDescription`, `ThirdTitle`, `ThirdDescription`, `FourthTitle`, `FourthDescription`, `AboutImage`, `IsActive`, `IsDelete`, `CreatedBy`, `CreatedOn`, `UpdatedBy`, `UpdatedOn`) VALUES
-(1, 'Who We Are', '<p>AAAA YD Cabs by Yashdeep Travels is a travelling solutions providing networking company where we provide cab services to the customers and help them reach their destination in time with comfort that you aspire for, along with the affordable pricing forte.</p>\r\n\r\n<p>With the increased amount of rush going around, often people fall prey to weak transport facility which leads to delayed commitments ultimately inviting huge trip costs and unsatisfactory trip experience.</p>\r\n\r\n<p>However,even when the people are getting a cab facility, they are charged with unacceptably high rates and. Yashdeep Travels is a place where you find easily accessible car rides at the most affordable price and the modernized technology of the top ended vehicles offering Airbags, AC/Heater, Stereo Systems, makes the entire process easier for the customers. Our efficient team has toiled around the clock to make it a customer-oriented service, where we as well encourage feedback from our customers. Our customer&rsquo;s safety is one of the core values we maintain.</p>', 'Our Mission', '<p>It is our continuous endeavour to incorporate more and more unique services that will fulfil every trajectory of the customer&rsquo;s necessities. We are not only providing car services but also offer traveling solutions at the most affordable price.</p>', 'Our Vision', '<p>We strive each day to expand our company and make it accessible to a larger population. We target to capture the entire Gujarat market and also aspire to spread it over domestic borders.</p>', 'What Do We Offer?', '<p>With the increased amount of rush going around, often people fall prey to weak transport facility which leads to delayed meetings and hypertension. However,even when the people are getting a cab facility, they are charged with unacceptably high rates.</p>\r\n\r\n<p>Yashdeep Travels is a place where you find easily accessible car rides at the most affordable price equipped with modernized technology making the entire experience seamless for its clients.</p>\r\n\r\n<p>Our efficient team has toiled around the clock to makeit a customer-oriented service, where we encourage feedback from our clients. Our client&rsquo;s safety is one of the core values we maintain.Yashdeep Travel&rsquo;s mission entirely works on the convenience of the clients.</p>', '52317About.jpeg', 'Active', '0', 1, '2020-01-06 05:00:00', 1, '2019-11-20 10:58:26');
+(1, 'Who We Are', '<p>AAAA YD Cabs by Yashdeep Travels is a travelling solutions providing networking company where we provide cab services to the customers and help them reach their destination in time with comfort that you aspire for, along with the affordable pricing forte.</p>\r\n\r\n<p>With the increased amount of rush going around, often people fall prey to weak transport facility which leads to delayed commitments ultimately inviting huge trip costs and unsatisfactory trip experience.</p>\r\n\r\n<p>However,even when the people are getting a cab facility, they are charged with unacceptably high rates and. Yashdeep Travels is a place where you find easily accessible car rides at the most affordable price and the modernized technology of the top ended vehicles offering Airbags, AC/Heater, Stereo Systems, makes the entire process easier for the customers. Our efficient team has toiled around the clock to make it a customer-oriented service, where we as well encourage feedback from our customers. Our customer&rsquo;s safety is one of the core values we maintain.</p>', 'Our Mission', '<p>It is our continuous endeavour to incorporate more and more unique services that will fulfil every trajectory of the customer&rsquo;s necessities. We are not only providing car services but also offer traveling solutions at the most affordable price.</p>', 'Our Vision', '<p>We strive each day to expand our company and make it accessible to a larger population. We target to capture the entire Gujarat market and also aspire to spread it over domestic borders.</p>', 'What Do We Offer?', '<p>With the increased amount of rush going around, often people fall prey to weak transport facility which leads to delayed meetings and hypertension. However,even when the people are getting a cab facility, they are charged with unacceptably high rates.</p>\r\n\r\n<p>Yashdeep Travels is a place where you find easily accessible car rides at the most affordable price equipped with modernized technology making the entire experience seamless for its clients.</p>\r\n\r\n<p>Our efficient team has toiled around the clock to makeit a customer-oriented service, where we encourage feedback from our clients. Our client&rsquo;s safety is one of the core values we maintain.Yashdeep Travel&rsquo;s mission entirely works on the convenience of the clients.</p>', '33459About.jpeg', 'Active', '0', 1, '2020-01-10 05:00:00', 1, '2019-11-20 10:58:26');
 
 -- --------------------------------------------------------
 
@@ -81,7 +81,8 @@ CREATE TABLE `tbladmin` (
 --
 
 INSERT INTO `tbladmin` (`AdminId`, `Admin_Type`, `FullName`, `EmailAddress`, `Password`, `Address`, `ProfileImage`, `AdminContact`, `PasswordResetCode`, `IsActive`, `IsDelete`, `CreatedOn`, `UpdatedOn`) VALUES
-(1, '1', 'Bluegrey admin1', 'bluegreyindia@gmail.com', '25d55ad283aa400af464c76d713c07ad', '', '91355Admin.jpg', '1234567890', 'JTJh8', 'Active', '0', '2019-07-11', '0000-00-00');
+(1, '1', 'Bluegrey admin1', 'bluegreyindia@gmail.com', '25d55ad283aa400af464c76d713c07ad', '', '9616Admin.jpg', '1234567890', 'D6K0i', 'Active', '0', '2019-07-11', '0000-00-00'),
+(10, '2', 'Shilpa Shah', 'bluegreyindia@gmail.commmm', '25d55ad283aa400af464c76d713c07ad', 'Vadodara', '', '9974616445', NULL, 'Active', '0', '2020-01-10', '0000-00-00');
 
 -- --------------------------------------------------------
 
@@ -92,6 +93,7 @@ INSERT INTO `tbladmin` (`AdminId`, `Admin_Type`, `FullName`, `EmailAddress`, `Pa
 CREATE TABLE `tblcarbrand` (
   `CarBrandId` int(11) NOT NULL,
   `BrandName` varchar(100) NOT NULL,
+  `PerHoureFare` int(11) DEFAULT NULL,
   `PerKmRate` int(11) NOT NULL,
   `ExtraKMS` int(11) NOT NULL,
   `DriverAllowancePerDay` varchar(10) NOT NULL,
@@ -110,9 +112,9 @@ CREATE TABLE `tblcarbrand` (
 -- Dumping data for table `tblcarbrand`
 --
 
-INSERT INTO `tblcarbrand` (`CarBrandId`, `BrandName`, `PerKmRate`, `ExtraKMS`, `DriverAllowancePerDay`, `StateTax`, `TotalSeat`, `TotalBaggage`, `BrandCarDescription`, `BrandCarImage`, `IsActive`, `IsDelete`, `CreatedOn`, `UpdatedOn`) VALUES
-(1, 'Sedan', 10, 0, '400', 0, 3, 2, '<p>We offer affordable air conditioner sedan cab to the customers which guarantees comfort, space, and a great experience. If you are planning to travel for a vacation with your family and friends without any fibre of doubt go for the new AC Sedan cab. Because when it comes to traveling with your near and dear ones you want no compromise.</p>', '22416Car.png', 'Active', '0', '2019-12-26 05:00:00', '2020-01-01 05:00:00'),
-(2, 'SUV', 13, 0, '300', 2000, 6, 2, '<p>We offer affordable air conditioner sedan cab to the customers which guarantees comfort, space, and a great experience. If you are planning to travel for a vacation with your family and friends without any fibre of doubt go for the new AC Sedan cab. Because when it comes to traveling with your near and dear ones you want no compromise.</p>', '20307Car.png', 'Active', '0', '2019-12-26 05:00:00', '2020-01-01 05:00:00');
+INSERT INTO `tblcarbrand` (`CarBrandId`, `BrandName`, `PerHoureFare`, `PerKmRate`, `ExtraKMS`, `DriverAllowancePerDay`, `StateTax`, `TotalSeat`, `TotalBaggage`, `BrandCarDescription`, `BrandCarImage`, `IsActive`, `IsDelete`, `CreatedOn`, `UpdatedOn`) VALUES
+(1, 'Sedan', 300, 10, 0, '400', 0, 3, 2, '<p>We offer affordable air conditioner sedan cab to the customers which guarantees comfort, space, and a great experience. If you are planning to travel for a vacation with your family and friends without any fibre of doubt go for the new AC Sedan cab. Because when it comes to traveling with your near and dear ones you want no compromise.</p>', '22416Car.png', 'Active', '0', '2019-12-26 05:00:00', '2020-01-08 05:00:00'),
+(2, 'SUV', 400, 13, 0, '300', 2000, 5, 4, '<p>We offer affordable air conditioner sedan cab to the customers which guarantees comfort, space, and a great experience. If you are planning to travel for a vacation with your family and friends without any fibre of doubt go for the new AC Sedan cab. Because when it comes to traveling with your near and dear ones you want no compromise.</p>', '20307Car.png', 'Active', '0', '2019-12-26 05:00:00', '2020-01-10 05:00:00');
 
 -- --------------------------------------------------------
 
@@ -136,7 +138,7 @@ CREATE TABLE `tblcarrer` (
 
 INSERT INTO `tblcarrer` (`CarrerId`, `CarrerTitle`, `CarrerDescription`, `IsActive`, `IsDelete`, `CreatedOn`, `UpdatedOn`) VALUES
 (1, 'Cab Driver', '<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters</p>', 'Active', '0', '2020-01-06 05:00:00', '2020-01-07 05:00:00'),
-(2, 'Cab Driver for Sedan', '<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters mjmjmjmjmj</p>', 'Active', '0', '2020-01-07 05:00:00', '2020-01-07 05:00:00');
+(2, 'Cab Driver for Sedan', '<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters mjmjmjmjmj</p>', 'Active', '0', '2020-01-07 05:00:00', '2020-01-10 05:00:00');
 
 -- --------------------------------------------------------
 
@@ -162,9 +164,7 @@ CREATE TABLE `tblcarrierinquiry` (
 --
 
 INSERT INTO `tblcarrierinquiry` (`CarrierInquiryId`, `FullName`, `EmailAddress`, `ContactNumber`, `Subject`, `RemarkDescription`, `CarrierCv`, `IsActive`, `IsDelete`, `CreatedOn`) VALUES
-(1, 'Mitesh Patel', 'bluegreyindia@gmail.com', '9974616445', 'Cab Driver', 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters', '20403CV.pdf', 'Active', '0', '2020-01-07 05:00:00'),
-(2, 'Hr Shah', 'bluegreyindia@gmail.com', '9974616445', 'Cab Driver', 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.', '18736CV.docx', 'Active', '0', '2020-01-07 05:00:00'),
-(3, 'Binny Rai', 'mitnp16@gmail.com', '9974616445', 'Cab Driver for Sedan', 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.', '27434CV.pdf', 'Active', '0', '2020-01-07 05:00:00');
+(1, 'Mitesh Patel', 'bluegreyindia@gmail.com', '9974616445', 'Cab Driver for Sedan', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s.', '84226CV.pdf', 'Active', '0', '2020-01-10 05:00:00');
 
 -- --------------------------------------------------------
 
@@ -197,12 +197,12 @@ CREATE TABLE `tblcartype` (
 --
 
 INSERT INTO `tblcartype` (`CarId`, `CarBrandId`, `CarName`, `CarRate`, `DriveAllowance`, `ExtraKMS`, `NumberOfSeat`, `NoOfBaggage`, `StateTax`, `AirCondition`, `CarNumber`, `CarImage`, `CarDescription`, `IsActive`, `IsDelete`, `CreatedOn`, `UpdatedOn`) VALUES
-(1, 1, 'Honda Amaze', '1060', '0.00', '0.00', 3, 2, 'Included', 'AC', 'GJ23DF2411', '', '<p>Available Cabs : Indica Vista , Suzuki Swift , Hyundai Eon , Toyota Liva , Duston Go , Hyundai I10.</p>\r\n', 'Active', '0', '2019-12-18 05:00:00', '2019-12-27 05:00:00'),
+(1, 1, 'Honda Amaze', '1060', '0.00', '0.00', 3, 2, 'Included', 'AC', 'GJ23DF2411', '', '<p>Available Cabs : Indica Vista , Suzuki Swift , Hyundai Eon , Toyota Liva , Duston Go , Hyundai I10.</p>\r\n', 'Active', '0', '2019-12-18 05:00:00', '2020-01-10 05:00:00'),
 (2, 2, 'Mahindra Marazzo', '1070', '0.00', '0.00', 6, 4, 'Included', 'AC', 'GJ23DF2411', '', '<p>Available Cabs : Tata Indigo , Swift Dzire , Toyota Etios , Hyundai Xcent , Honda Amaze , Ford Figo.</p>\r\n', 'Active', '0', '2019-12-18 05:00:00', '2019-12-27 05:00:00'),
-(3, 1, 'Verna', '1999', '0.00', '0.00', 6, 4, 'Included', 'AC', 'GJ23DF2411', '', '<p>Available Cabs : Mahindra Xylo , Renault Lodgy , Nissan Evalia , Maruti Ertiga , Innova , XUV 500 , Tata Aria.</p>\r\n', 'Active', '0', '2019-12-18 05:00:00', '2019-12-27 05:00:00'),
-(4, 1, 'Maruti Suzuki Dzire', '2020', '0.00', '0.00', 3, 3, 'Included', 'AC', 'GJ23DF2411', '', '<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using</p>\r\n', 'Active', '0', '2019-12-26 05:00:00', '2019-12-27 05:00:00'),
+(3, 1, 'Verna', '2500', '0.00', '0.00', 3, 2, 'Included', 'AC', 'GJ23DF2411', '', '<p>Available Cabs : Mahindra Xylo , Renault Lodgy , Nissan Evalia , Maruti Ertiga , Innova , XUV 500 , Tata Aria.</p>\r\n', 'Active', '0', '2019-12-18 05:00:00', '2020-01-10 05:00:00'),
+(4, 1, 'Maruti Suzuki Dzire', '2020', '0.00', '0.00', 3, 3, 'Included', 'AC', 'GJ23DF2411', '', '<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using</p>\r\n', 'Active', '0', '2019-12-26 05:00:00', '2020-01-10 05:00:00'),
 (5, 2, 'Toyota Innova', '2020', '0.00', '0.00', 6, 4, 'Included', 'AC', 'GJ23DF2411', '', '<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using</p>\r\n', 'Active', '0', '2019-12-26 05:00:00', '2019-12-27 05:00:00'),
-(6, 2, 'Innova', '3000', '0.00', '0.00', 3, 2, '10', 'AC', 'GJ23DF2411', '', '<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using</p>\r\n', 'Active', '0', '2019-12-26 05:00:00', '2019-12-31 05:00:00');
+(6, 2, 'Innova', '3000', '0.00', '0.00', 6, 2, '10', 'AC', 'GJ23DF2411', '', '<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using</p>\r\n', 'Active', '0', '2019-12-26 05:00:00', '2020-01-10 05:00:00');
 
 -- --------------------------------------------------------
 
@@ -230,12 +230,13 @@ CREATE TABLE `tblcity` (
 
 INSERT INTO `tblcity` (`CityId`, `CountryId`, `StateId`, `CarBrandId`, `StartCity`, `EndCity`, `LocalCity`, `IsActive`, `IsDelete`, `CreatedOn`, `UpdatedOn`) VALUES
 (1, NULL, NULL, 1, 'Anand', 'Vadodra', 'Active', 'Active', '0', '2019-12-31 05:00:00', '2020-01-01 05:00:00'),
-(2, NULL, NULL, 2, 'Anand', 'Ahemdabad', 'Active', 'Active', '0', '2019-12-31 05:00:00', '2020-01-01 05:00:00'),
-(3, NULL, NULL, 2, 'Anand', 'Valsad', 'Active', 'Active', '0', '2019-12-31 05:00:00', '2020-01-07 05:00:00'),
-(4, NULL, NULL, 1, 'Valsad', 'Anand', 'Active', 'Active', '0', '2019-12-31 05:00:00', '2019-12-31 05:00:00'),
-(5, NULL, NULL, 2, 'Ahemdabad', 'Anand', 'Active', 'Active', '0', '2019-12-31 05:00:00', '2019-12-31 05:00:00'),
-(6, NULL, NULL, 1, 'Vadodra', 'Anand', 'Active', 'Active', '0', '2019-12-31 05:00:00', '2020-01-07 05:00:00'),
-(7, NULL, NULL, 1, 'Ahemdabad', 'Anand', 'Active', 'Active', '0', '2020-01-01 05:00:00', '2020-01-01 05:00:00');
+(2, NULL, NULL, 2, 'Anand', 'Ahemdabad', 'Inactive', 'Active', '0', '2019-12-31 05:00:00', '2020-01-08 05:00:00'),
+(3, NULL, NULL, 2, 'Anand', 'Valsad', 'Inactive', 'Active', '0', '2019-12-31 05:00:00', '2020-01-08 05:00:00'),
+(4, NULL, NULL, 1, 'Valsad', 'Anand', 'Inactive', 'Active', '0', '2019-12-31 05:00:00', '2020-01-08 05:00:00'),
+(5, NULL, NULL, 2, 'Ahemdabad', 'Anand', 'Inactive', 'Active', '0', '2019-12-31 05:00:00', '2020-01-08 05:00:00'),
+(6, NULL, NULL, 1, 'Vadodra', 'Anand', 'Inactive', 'Active', '0', '2019-12-31 05:00:00', '2020-01-08 05:00:00'),
+(7, NULL, NULL, 1, 'Ahemdabad', 'Anand', 'Inactive', 'Active', '0', '2020-01-01 05:00:00', '2020-01-08 05:00:00'),
+(8, NULL, NULL, 2, 'Ahemdabad', 'Surat', 'Active', 'Active', '0', '2020-01-10 05:00:00', '2020-01-10 05:00:00');
 
 -- --------------------------------------------------------
 
@@ -259,9 +260,7 @@ CREATE TABLE `tblcontactus` (
 --
 
 INSERT INTO `tblcontactus` (`ContactId`, `FullName`, `EmailAddress`, `ContactNumber`, `City`, `MessageDescription`, `IsDelete`, `CreatedOn`) VALUES
-(1, 'Mitesh Patel', 'mitnp16@gmail.com', '1234567890', '', 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. ', '0', '2019-11-21 09:40:51'),
-(2, 'mitesh patel', 'bluegreyindia@gmail.com', '9974616445', 'Vadodra', 'xscasavfasv', '0', '2019-12-18 05:00:00'),
-(3, 'Hr Shah', 'bluegreyindia@gmail.com', '9974616445', 'Vadodra', 'sacfasasc', '0', '2019-12-18 05:00:00');
+(1, 'Mitesh Patel', 'bluegreyindia@gmail.com', '9974616445', 'Vadodra', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s.', '0', '2020-01-10 05:00:00');
 
 -- --------------------------------------------------------
 
@@ -502,8 +501,11 @@ CREATE TABLE `tblemail_template` (
 --
 
 INSERT INTO `tblemail_template` (`email_template_id`, `task`, `from_address`, `reply_address`, `subject`, `message`) VALUES
-(1, 'User registration', 'bluegreyindia@gmail.com', 'bluegreyindia@gmail.com', 'User registration', '\r\n   <html>\r\n    <head>\r\n        <title>Welcome to {site_name}</title>\r\n       \r\n    </head>\r\n    <body>\r\n         <table cellspacing=\"0\" style=\"border: 2px; width: 500px; height: 70px;\">\r\n            <tr>\r\n                <td style=\"background: #49ab48;\"><img src=\"{image_url}/images/logo-wide.png\" alt=\"Chem Sam Logo\"></td>\r\n              \r\n            </tr>\r\n           \r\n        </table>\r\n      \r\n        <table cellspacing=\"0\" style=\"border: 2px; width: 500px; height: 400px;\">\r\n            <tr>\r\n                <td>Hello {username},</td>\r\n                \r\n            </tr>\r\n            <tr >\r\n               <td><p>Thanks you for joining with us!</p></td>\r\n            </tr>\r\n            <tr>\r\n               <td><p>Regard</p>\r\n               <p>Chem Sam Team,</p></td>\r\n            </tr>\r\n        </table>\r\n        <table cellspacing=\"0\" style=\"border: 2px; width: 500px; height: 50px;\">\r\n            <tr>\r\n                <td style=\"background: #000;\"><p style=\"color: #fff; text-align: center;\">Copyright © {year} Chemshem Virtual Classes. All Rights Reserved</p></td>\r\n              \r\n            </tr>\r\n           \r\n        </table>\r\n        \r\n    </body>\r\n</html>'),
-(2, 'Forgot Password by admin', 'bluegreyindia@gmail.com', 'bluegreyindia@gmail.com', 'Forgot Password by admin', '\r\n<!DOCTYPE html>\r\n   <html>\r\n    <head>\r\n          <meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" />\r\n        <title>Welcome to {site_name}</title>\r\n       \r\n    </head>\r\n    <body>\r\n         <table cellspacing=\"0\" style=\"border: 2px; width: 500px; height: 70px;\">\r\n            <tr>\r\n                <td style=\"background: #eee; border-bottom: 1px solid #f88120;\"><img src=\"http://nyalkaran.bluegreytech.co.in/admin/default/images/logo/logo.png\" alt=\"Nyalkaran Group Logo\" style=\"width: 121px;\"></td>\r\n              \r\n            </tr>\r\n           \r\n        </table>\r\n\r\n      \r\n        <table cellspacing=\"0\" style=\"border: 2px; width: 500px; height: 400px;background: #eee;\">\r\n            <tr>\r\n                <td>Hello {username},</td>\r\n            </tr>\r\n            <tr >\r\n               <td><p>We were told that you forgot your password on {username}.</p>\r\n                \r\n                <p>To reeset your password,please click this link: <a>{reset_link}</a></p>\r\n                \r\n               </td>\r\n            </tr>\r\n            <tr>\r\n               <td><p>Regard,</p>\r\n               <p>Nyalkaran Group,</p></td>\r\n            </tr>\r\n        </table>\r\n        <table cellspacing=\"0\" style=\"border: 2px; width: 500px; height: 50px;\">\r\n            <tr>\r\n                <td style=\"background: #283f82;\"><p style=\"color: #fff; text-align: center;\">Copyright © {year} Nyalkaran Group. All Rights Reserved</p></td>\r\n              \r\n            </tr>\r\n           \r\n        </table>\r\n        \r\n    </body>\r\n</html>\r\n');
+(1, 'Cab Booking', 'bluegreyindia@gmail.com', 'bluegreyindia@gmail.com', 'Cab Booking', '<html>\r\n    <head>\r\n        <title>Cab booking detail to Yashdeep Travels User</title>\r\n    </head>\r\n    <body>\r\n    \r\n    \r\n        <table cellspacing=\"0\" style=\"background: #49ab488a;padding: 50px;max-width:600px;width: 100%;\" align=\"center\">\r\n            <tr>\r\n                <td>\r\n\r\n                    <table cellspacing=\"0\" style=\"width: 100%; height: 100px;background-color: #fff;border-bottom: solid 2px #9dd29c;border-top-left-radius: 4px;border-top-right-radius: 4px;\">\r\n                        <tr>\r\n                            <td><img src=\"http://chemsam.bluegreytech.co.in/images/logo-wide.png\" alt=\"Yashdeep Travels Logo\"></td>\r\n                            <td>\r\n                                <p style=\"display: inline-flex;\">\r\n                                    <img src=\"https://cdn3.vectorstock.com/i/thumb-large/01/77/mail-icon-green-vector-20670177.jpg\" alt=\"Chem Sam Logo\" height=\"40px\">\r\n                                    <span style=\"margin: 10px 0;text-decoration: none;font-size: 17px;font-weight: 600\">info@yashdeeptravels.com</span>\r\n                                </p>\r\n                            </td>\r\n                        </tr>\r\n                    </table>\r\n             \r\n                    <table cellspacing=\"0\" style=\"width: 100%;background-color: #fff;padding:20px 0;\">\r\n                        <tr>\r\n                            <td style=\"height: 40px;line-height: 0;padding-left: 18px;font-size: 17px;font-weight: 600;\">Hello {FirstName} {LastName},</td>\r\n                        </tr>\r\n                        <tr>\r\n                            <td style=\"height: 28px;line-height: 0;padding-left: 18px;\">Email Address: {EmailAddress},</td>\r\n                        </tr>\r\n                        <tr>\r\n                            <td style=\"height: 28px;line-height: 0;padding-left: 18px;\">Contact Number: {ContactNumber},</td>\r\n                        </tr>\r\n                        <tr>\r\n                            <td style=\"height: 28px;line-height: 0;padding-left: 18px;\">Car Type: {BrandName},</td>\r\n                        </tr>\r\n                        <tr>\r\n                            <td style=\"height: 28px;line-height: 0;padding-left: 18px;\">Pickup Date: {PickupDate},</td>\r\n                        </tr>\r\n                        <tr>\r\n                            <td style=\"height: 28px;line-height: 0;padding-left: 18px;\">Dropof Date: {DropofDate},</td>\r\n                        </tr>\r\n                        <tr>\r\n                            <td style=\"height: 28px;line-height: 0;padding-left: 18px;\">Pickup Time: {PickupTime},</td>\r\n                        </tr>\r\n                        <tr>\r\n                            <td style=\"height: 28px;line-height: 0;padding-left: 18px;\">Dropof Time: {DropofTime},</td>\r\n                        </tr>\r\n                        <tr>\r\n                            <td style=\"height: 28px;line-height: 0;padding-left: 18px;\">Start Point City: {StartCity},</td>\r\n                        </tr>\r\n                        <tr>\r\n                            <td style=\"height: 28px;line-height: 0;padding-left: 18px;\">End Point City: {EndCity},</td>\r\n                        </tr>\r\n                        <tr>\r\n                            <td style=\"height: 28px;line-height: 0;padding-left: 18px;\">Per Hour Fare: {PerHoureFare},</td>\r\n                        </tr>\r\n                        <tr>\r\n                            <td style=\"height: 28px;line-height: 0;padding-left: 18px;\">Per KM Fare: {PerKmRate},</td>\r\n                        </tr>\r\n                        <tr>\r\n                            <td style=\"height: 28px;line-height: 0;padding-left: 18px;\">Total KMS: {KMS},</td>\r\n                        </tr>\r\n                        <tr>\r\n                            <td style=\"height: 28px;line-height: 0;padding-left: 18px;\">Fare Amount: {TotalFareAmount},</td>\r\n                        </tr>\r\n                        <tr>\r\n                            <td style=\"height: 28px;line-height: 0;padding-left: 18px;\">Per Extra KMS: {ExtraKMS},</td>\r\n                        </tr>\r\n                        <tr>\r\n                            <td style=\"height: 28px;line-height: 0;padding-left: 18px;\">State Tax: {StateTax},</td>\r\n                        </tr>\r\n                        <tr>\r\n                            <td style=\"height: 28px;line-height: 0;padding-left: 18px;\">Total Amount: {TotalAmount},</td>\r\n                        </tr>\r\n                        <tr>\r\n                            <td style=\"height: 28px;line-height: 0;padding-left: 18px;\">Tax Added: {TaxAdded},</td>\r\n                        </tr>\r\n                        <tr>\r\n                            <td style=\"height: 28px;line-height: 0;padding-left: 18px;\">Final Amount: {FinalAmount},</td>\r\n                        </tr>\r\n                        <tr>\r\n                            <td style=\"height: 28px;line-height: 0;padding-left: 18px;\">Booking Date: {BookingDate},</td>\r\n                        </tr>\r\n                        <tr>\r\n                           <td style=\"height: 28px;line-height: 0;padding-left: 18px;\"><p>Thank you for using the Yashdeep Travels Service.</p></td>\r\n                        </tr>\r\n                        <tr>\r\n                            <td style=\"height: 100px;line-height: 0;padding-left: 18px;\">\r\n                                <p style=\"line-height: 2\">Kind Regards,</p>\r\n                                <p style=\"font-weight: 600;\">Yashdeep Travels</p>\r\n                            </td>\r\n                        </tr>\r\n                    </table>\r\n                    <table cellspacing=\"0\" style=\"width: 100%; height: 50px;border-top: solid 2px #9dd29c;border-bottom-left-radius: 4px;border-bottom-right-radius: 4px;background: #fff;\">\r\n                        <tr>\r\n                            <td><p style=\"color: #000; text-align: center;\">Copyright © {year} <a href=\"#\" style=\"text-decoration: none;color: #49ab48;\">Yashdeep Travels</a>. All Rights Reserved.</p></td>\r\n                        </tr>\r\n                    </table>\r\n                </td>\r\n            </tr>\r\n        </table>\r\n    \r\n        \r\n    </body>\r\n</html>'),
+(2, 'Forgot Password by admin', 'bluegreyindia@gmail.com', 'bluegreyindia@gmail.com', 'Forgot Password by admin', '<html>\r\n    <head>\r\n        <title>Admin forgot password to Yashdeep Travels</title>\r\n    </head>\r\n    <body>\r\n    \r\n    \r\n        <table cellspacing=\"0\" style=\"background: #49ab488a;padding: 50px;max-width:600px;width: 100%;\" align=\"center\">\r\n            <tr>\r\n                <td>\r\n\r\n                    <table cellspacing=\"0\" style=\"width: 100%; height: 100px;background-color: #fff;border-bottom: solid 2px #9dd29c;border-top-left-radius: 4px;border-top-right-radius: 4px;\">\r\n                        <tr>\r\n                            <td><img src=\"http://chemsam.bluegreytech.co.in/images/logo-wide.png\" alt=\"Chem Sam Logo\"></td>\r\n                            <td>\r\n                                <p style=\"display: inline-flex;\">\r\n                                    <img src=\"https://cdn3.vectorstock.com/i/thumb-large/01/77/mail-icon-green-vector-20670177.jpg\" alt=\"Chem Sam Logo\" height=\"40px\">\r\n                                    <span style=\"margin: 10px 0;text-decoration: none;font-size: 17px;font-weight: 600\">info@yashdeeptravels.com</span>\r\n                                </p>\r\n                            </td>\r\n                        </tr>\r\n                    </table>\r\n             \r\n                    <table cellspacing=\"0\" style=\"width: 100%;background-color: #fff;padding:20px 0;\">\r\n                        <tr>\r\n                            <td style=\"height: 40px;line-height: 0;padding-left: 18px;font-size: 17px;font-weight: 600;\">Hello {username},</td>\r\n                        </tr>\r\n                        <tr>\r\n                            <td style=\"height: 28px;line-height: 0;padding-left: 18px;\"><p>We were told that you forgot your password on {email}</p></td>\r\n                        </tr>\r\n                       \r\n                        <tr>\r\n                           <td style=\"height: 28px;line-height: 0;padding-left: 18px;\"><p>To reset your password,please click on this link: <a>{reset_link}</a></p></td>\r\n                        </tr>\r\n                        <tr>\r\n                           <td style=\"height: 28px;line-height: 0;padding-left: 18px;\"><p>This link will be use for you only one time!</p></td>\r\n                        </tr>\r\n                        <tr>\r\n                            <td style=\"height: 100px;line-height: 0;padding-left: 18px;\">\r\n                                <p style=\"line-height: 2\">Kind Regards,</p>\r\n                                <p style=\"font-weight: 600;\">Yashdeep Travels Team</p>\r\n                            </td>\r\n                        </tr>\r\n                    </table>\r\n                    <table cellspacing=\"0\" style=\"width: 100%; height: 50px;border-top: solid 2px #9dd29c;border-bottom-left-radius: 4px;border-bottom-right-radius: 4px;background: #fff;\">\r\n                        <tr>\r\n                            <td><p style=\"color: #000; text-align: center;\">Copyright © {year} <a href=\"#\" style=\"text-decoration: none;color: #49ab48;\">Yashdeep Travels</a>. All Rights Reserved.</p></td>\r\n                        </tr>\r\n                    </table>\r\n                </td>\r\n            </tr>\r\n        </table>\r\n    \r\n        \r\n    </body>\r\n</html>'),
+(3, 'Contact Inquiry', 'bluegreyindia@gmail.com', 'bluegreyindia@gmail.com', 'Contact Inquiry', '<html>\r\n    <head>\r\n        <title>User inquiry to Yashdeep Travels</title>\r\n    </head>\r\n    <body>\r\n    \r\n    \r\n        <table cellspacing=\"0\" style=\"background: #49ab488a;padding: 50px;max-width:600px;width: 100%;\" align=\"center\">\r\n            <tr>\r\n                <td>\r\n\r\n                    <table cellspacing=\"0\" style=\"width: 100%; height: 100px;background-color: #fff;border-bottom: solid 2px #9dd29c;border-top-left-radius: 4px;border-top-right-radius: 4px;\">\r\n                        <tr>\r\n                            <td><img src=\"http://chemsam.bluegreytech.co.in/images/logo-wide.png\" alt=\"Yashdeep Travels Logo\"></td>\r\n                            <td>\r\n                                <p style=\"display: inline-flex;\">\r\n                                    <img src=\"https://cdn3.vectorstock.com/i/thumb-large/01/77/mail-icon-green-vector-20670177.jpg\" alt=\"Chem Sam Logo\" height=\"40px\">\r\n                                    <span style=\"margin: 10px 0;text-decoration: none;font-size: 17px;font-weight: 600\">info@yashdeeptravels.com</span>\r\n                                </p>\r\n                            </td>\r\n                        </tr>\r\n                    </table>\r\n             \r\n                    <table cellspacing=\"0\" style=\"width: 100%;background-color: #fff;padding:20px 0;\">\r\n                        <tr>\r\n                            <td style=\"height: 40px;line-height: 0;padding-left: 18px;font-size: 17px;font-weight: 600;\">Hello Yashdeep Travels,</td>\r\n                        </tr>\r\n                        <tr>\r\n                            <td style=\"height: 28px;line-height: 0;padding-left: 18px;\">Name: {FullName},</td>\r\n                        </tr>\r\n                        <tr>\r\n                            <td style=\"height: 28px;line-height: 0;padding-left: 18px;\">Email  Address: {EmailAddress},</td>\r\n                        </tr>\r\n                        <tr>\r\n                            <td style=\"height: 28px;line-height: 0;padding-left: 18px;\">Contact Number: {ContactNumber},</td>\r\n                        </tr>\r\n                        <tr>\r\n                            <td style=\"height: 28px;line-height: 0;padding-left: 18px;\">City: {City},</td>\r\n                        </tr>\r\n                         <tr>\r\n                            <td style=\"height: 28px;line-height: 0;padding-left: 18px;\">Message: {MessageDescription},</td>\r\n                        </tr>\r\n                        <tr>\r\n                           <td style=\"height: 28px;line-height: 0;padding-left: 18px;\"><p>Please contact to this inquiry user</p></td>\r\n                        </tr>\r\n                        <tr>\r\n                            <td style=\"height: 100px;line-height: 0;padding-left: 18px;\">\r\n                                <p style=\"line-height: 2\">Kind Regards,</p>\r\n                                <p style=\"font-weight: 600;\">Yashdeep Travels</p>\r\n                            </td>\r\n                        </tr>\r\n                    </table>\r\n                    <table cellspacing=\"0\" style=\"width: 100%; height: 50px;border-top: solid 2px #9dd29c;border-bottom-left-radius: 4px;border-bottom-right-radius: 4px;background: #fff;\">\r\n                        <tr>\r\n                            <td><p style=\"color: #000; text-align: center;\">Copyright © {year} <a href=\"#\" style=\"text-decoration: none;color: #49ab48;\">Yashdeep Travels</a>. All Rights Reserved.</p></td>\r\n                        </tr>\r\n                    </table>\r\n                </td>\r\n            </tr>\r\n        </table>\r\n    \r\n        \r\n    </body>\r\n</html>'),
+(4, 'Luxury Segmentation Inquiry', 'bluegreyindia@gmail.com', 'bluegreyindia@gmail.com', 'Luxury Segmentation Inquiry', '<html>\r\n    <head>\r\n        <title>Luxury Segmentation inquiry to Yashdeep Travels</title>\r\n    </head>\r\n    <body>\r\n    \r\n    \r\n        <table cellspacing=\"0\" style=\"background: #49ab488a;padding: 50px;max-width:600px;width: 100%;\" align=\"center\">\r\n            <tr>\r\n                <td>\r\n\r\n                    <table cellspacing=\"0\" style=\"width: 100%; height: 100px;background-color: #fff;border-bottom: solid 2px #9dd29c;border-top-left-radius: 4px;border-top-right-radius: 4px;\">\r\n                        <tr>\r\n                            <td><img src=\"http://chemsam.bluegreytech.co.in/images/logo-wide.png\" alt=\"Yashdeep Travels Logo\"></td>\r\n                            <td>\r\n                                <p style=\"display: inline-flex;\">\r\n                                    <img src=\"https://cdn3.vectorstock.com/i/thumb-large/01/77/mail-icon-green-vector-20670177.jpg\" alt=\"Chem Sam Logo\" height=\"40px\">\r\n                                    <span style=\"margin: 10px 0;text-decoration: none;font-size: 17px;font-weight: 600\">info@yashdeeptravels.com</span>\r\n                                </p>\r\n                            </td>\r\n                        </tr>\r\n                    </table>\r\n             \r\n                    <table cellspacing=\"0\" style=\"width: 100%;background-color: #fff;padding:20px 0;\">\r\n                        <tr>\r\n                            <td style=\"height: 40px;line-height: 0;padding-left: 18px;font-size: 17px;font-weight: 600;\">Hello Yashdeep Travels,</td>\r\n                        </tr>\r\n                        <tr>\r\n                            <td style=\"height: 28px;line-height: 0;padding-left: 18px;\">Name: {FullName},</td>\r\n                        </tr>\r\n                       \r\n                        <tr>\r\n                            <td style=\"height: 28px;line-height: 0;padding-left: 18px;\">Contact Number: {ContactNumber},</td>\r\n                        </tr>\r\n                        <tr>\r\n                            <td style=\"height: 28px;line-height: 0;padding-left: 18px;\">StartCity: {StartCity},</td>\r\n                        </tr>\r\n                        <tr>\r\n                            <td style=\"height: 28px;line-height: 0;padding-left: 18px;\">Subject: {Subject},</td>\r\n                        </tr>\r\n                         <tr>\r\n                            <td style=\"height: 28px;line-height: 0;padding-left: 18px;\">Message: {QueryDescription},</td>\r\n                        </tr>\r\n                        <tr>\r\n                           <td style=\"height: 28px;line-height: 0;padding-left: 18px;\"><p>Please contact to Luxury Segmentation inquiry user.</p></td>\r\n                        </tr>\r\n                        <tr>\r\n                            <td style=\"height: 100px;line-height: 0;padding-left: 18px;\">\r\n                                <p style=\"line-height: 2\">Kind Regards,</p>\r\n                                <p style=\"font-weight: 600;\">Yashdeep Travels</p>\r\n                            </td>\r\n                        </tr>\r\n                    </table>\r\n                    <table cellspacing=\"0\" style=\"width: 100%; height: 50px;border-top: solid 2px #9dd29c;border-bottom-left-radius: 4px;border-bottom-right-radius: 4px;background: #fff;\">\r\n                        <tr>\r\n                            <td><p style=\"color: #000; text-align: center;\">Copyright © {year} <a href=\"#\" style=\"text-decoration: none;color: #49ab48;\">Yashdeep Travels</a>. All Rights Reserved.</p></td>\r\n                        </tr>\r\n                    </table>\r\n                </td>\r\n            </tr>\r\n        </table>\r\n    \r\n        \r\n    </body>\r\n</html>'),
+(5, 'Carrier Inquiry', 'bluegreyindia@gmail.com', 'bluegreyindia@gmail.com', 'Carrier Inquiry', '<html>\r\n    <head>\r\n        <title>Carrier inquiry to Yashdeep Travels</title>\r\n    </head>\r\n    <body>\r\n    \r\n    \r\n        <table cellspacing=\"0\" style=\"background: #49ab488a;padding: 50px;max-width:600px;width: 100%;\" align=\"center\">\r\n            <tr>\r\n                <td>\r\n\r\n                    <table cellspacing=\"0\" style=\"width: 100%; height: 100px;background-color: #fff;border-bottom: solid 2px #9dd29c;border-top-left-radius: 4px;border-top-right-radius: 4px;\">\r\n                        <tr>\r\n                            <td><img src=\"http://chemsam.bluegreytech.co.in/images/logo-wide.png\" alt=\"Yashdeep Travels Logo\"></td>\r\n                            <td>\r\n                                <p style=\"display: inline-flex;\">\r\n                                    <img src=\"https://cdn3.vectorstock.com/i/thumb-large/01/77/mail-icon-green-vector-20670177.jpg\" alt=\"Chem Sam Logo\" height=\"40px\">\r\n                                    <span style=\"margin: 10px 0;text-decoration: none;font-size: 17px;font-weight: 600\">info@yashdeeptravels.com</span>\r\n                                </p>\r\n                            </td>\r\n                        </tr>\r\n                    </table>\r\n             \r\n                    <table cellspacing=\"0\" style=\"width: 100%;background-color: #fff;padding:20px 0;\">\r\n                        <tr>\r\n                            <td style=\"height: 40px;line-height: 0;padding-left: 18px;font-size: 17px;font-weight: 600;\">Hello Yashdeep Travels,</td>\r\n                        </tr>\r\n                        <tr>\r\n                            <td style=\"height: 28px;line-height: 0;padding-left: 18px;\">Name: {FullName},</td>\r\n                        </tr>\r\n                        <tr>\r\n                            <td style=\"height: 28px;line-height: 0;padding-left: 18px;\">Email Address: {EmailAddress},</td>\r\n                        </tr>\r\n                        <tr>\r\n                            <td style=\"height: 28px;line-height: 0;padding-left: 18px;\">Contact Number: {ContactNumber},</td>\r\n                        </tr>\r\n                        <tr>\r\n                            <td style=\"height: 28px;line-height: 0;padding-left: 18px;\">Subject: {Subject},</td>\r\n                        </tr>\r\n                         <tr>\r\n                            <td style=\"height: 28px;line-height: 0;padding-left: 18px;\">Message: {RemarkDescription},</td>\r\n                        </tr>\r\n                        <tr>\r\n                           <td style=\"height: 28px;line-height: 0;padding-left: 18px;\"><p>Please contact to Carrier inquiry user.</p></td>\r\n                        </tr>\r\n                        <tr>\r\n                            <td style=\"height: 100px;line-height: 0;padding-left: 18px;\">\r\n                                <p style=\"line-height: 2\">Kind Regards,</p>\r\n                                <p style=\"font-weight: 600;\">Yashdeep Travels</p>\r\n                            </td>\r\n                        </tr>\r\n                    </table>\r\n                    <table cellspacing=\"0\" style=\"width: 100%; height: 50px;border-top: solid 2px #9dd29c;border-bottom-left-radius: 4px;border-bottom-right-radius: 4px;background: #fff;\">\r\n                        <tr>\r\n                            <td><p style=\"color: #000; text-align: center;\">Copyright © {year} <a href=\"#\" style=\"text-decoration: none;color: #49ab48;\">Yashdeep Travels</a>. All Rights Reserved.</p></td>\r\n                        </tr>\r\n                    </table>\r\n                </td>\r\n            </tr>\r\n        </table>\r\n    \r\n        \r\n    </body>\r\n</html>');
 
 -- --------------------------------------------------------
 
@@ -523,14 +525,32 @@ CREATE TABLE `tblfeedback` (
   `UpdatedOn` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+-- --------------------------------------------------------
+
 --
--- Dumping data for table `tblfeedback`
+-- Table structure for table `tbllocaltripprice`
 --
 
-INSERT INTO `tblfeedback` (`FeedbackId`, `FirstName`, `LastName`, `ContactNumber`, `FeedbackDescription`, `IsActive`, `IsDelete`, `CreatedOn`, `UpdatedOn`) VALUES
-(1, 'Mit', 'Patel', '8200308821', 'hhtrhftrhrh mmmmmmmmm', 'Active', '0', '2020-01-06 04:14:19', '2020-01-06 05:00:00'),
-(2, 'Mit', 'Patel', '8200308821', 'hhtrhftrhrh', 'Active', '0', '2020-01-06 04:30:46', '2020-01-06 05:00:00'),
-(3, 'Mit', 'Patel', '8200308821', 'hhtrhftrhrh mmmmmmmmmmm', 'Active', '0', '2020-01-06 04:30:53', '2020-01-06 05:00:00');
+CREATE TABLE `tbllocaltripprice` (
+  `LocalTripId` int(11) NOT NULL,
+  `CarBrandId` int(11) NOT NULL,
+  `PerHoureFare` int(11) NOT NULL,
+  `Hours` int(11) NOT NULL,
+  `PerHourKMS` int(11) NOT NULL,
+  `IsActive` enum('Active','Inactive') NOT NULL,
+  `IsDelete` enum('0','1') NOT NULL,
+  `CreatedOn` timestamp NOT NULL DEFAULT current_timestamp(),
+  `UpdatedOn` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tbllocaltripprice`
+--
+
+INSERT INTO `tbllocaltripprice` (`LocalTripId`, `CarBrandId`, `PerHoureFare`, `Hours`, `PerHourKMS`, `IsActive`, `IsDelete`, `CreatedOn`, `UpdatedOn`) VALUES
+(1, 2, 300, 1, 10, 'Active', '0', '2020-01-17 05:00:00', '2020-01-17 10:38:05'),
+(2, 2, 500, 2, 30, 'Active', '0', '2020-01-17 05:00:00', '2020-01-17 10:38:38'),
+(3, 2, 600, 3, 50, 'Active', '0', '2020-01-17 05:00:00', '2020-01-17 10:39:05');
 
 -- --------------------------------------------------------
 
@@ -555,7 +575,7 @@ CREATE TABLE `tblluxuryquotes` (
 --
 
 INSERT INTO `tblluxuryquotes` (`LuxuryQuoteId`, `FullName`, `ContactNumber`, `StartCity`, `Subject`, `QueryDescription`, `IsActive`, `IsDelete`, `CreatedOn`) VALUES
-(1, 'Shilpa', '9974616445', 'Vadodra', 'Luxury Segmentation', 'ascfsacfasfca erygergyey reyeryeyh', 'Active', '0', '2020-01-06 05:00:00');
+(1, 'Mitesh Patel', '9974616445', 'Vadodra', 'Luxury Segmentation', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s,', 'Active', '0', '2020-01-10 05:00:00');
 
 -- --------------------------------------------------------
 
@@ -572,28 +592,20 @@ CREATE TABLE `tblsitesetting` (
   `OtherContactNumber` varchar(13) DEFAULT NULL,
   `OfficeAddress` varchar(400) NOT NULL,
   `OfficeTime` varchar(100) NOT NULL,
-  `Tax` int(3) NOT NULL
+  `Tax` int(3) NOT NULL,
+  `HappyClients` int(10) NOT NULL,
+  `TripsDaily` int(11) NOT NULL,
+  `Cabs` int(11) NOT NULL,
+  `KilometersDaily` int(11) NOT NULL,
+  `PerTripMinKMS` int(11) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tblsitesetting`
 --
 
-INSERT INTO `tblsitesetting` (`SettingId`, `FullName`, `SiteName`, `SiteEmail`, `SiteContactNumber`, `OtherContactNumber`, `OfficeAddress`, `OfficeTime`, `Tax`) VALUES
-(1, 'Yashdeep Travels!', 'http://yashdeeptravels.bluegreytech.co.in', 'yashdeeptravels@gmail.com', '1234567890', '7777777777', '101 Radhey Flats, 13/14 Sumant Park, opp. Shrenik, Par Park, Akota, Vadodara, Gujarat 390020', '9:00 AM to 6:00 PM ', 15);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `tblstartpoint`
---
-
-CREATE TABLE `tblstartpoint` (
-  `StartPointId` int(11) NOT NULL,
-  `StartCity` varchar(50) NOT NULL,
-  `IsActive` enum('Active','Inactive') NOT NULL DEFAULT 'Active',
-  `IsDelete` enum('0','1') NOT NULL DEFAULT '0'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+INSERT INTO `tblsitesetting` (`SettingId`, `FullName`, `SiteName`, `SiteEmail`, `SiteContactNumber`, `OtherContactNumber`, `OfficeAddress`, `OfficeTime`, `Tax`, `HappyClients`, `TripsDaily`, `Cabs`, `KilometersDaily`, `PerTripMinKMS`) VALUES
+(1, 'Yashdeep Travels!', 'http://yashdeeptravels.bluegreytech.co.in', 'yashdeeptravels@gmail.com', '1234567890', '7777777777', '101 Radhey Flats, 13/14 Sumant Park, opp. Shrenik, Par Park, Akota, Vadodara, Gujarat 390020', '9:00 AM to 6:00 PM', 10, 2002, 101, 101, 1001, 300);
 
 -- --------------------------------------------------------
 
@@ -4329,10 +4341,10 @@ CREATE TABLE `tbltestimonial` (
 --
 
 INSERT INTO `tbltestimonial` (`TestimonialId`, `FirstName`, `LastName`, `ContactNumber`, `TestimonialDescription`, `TestimonialImage`, `IsActive`, `ApproveStatus`, `IsDelete`, `CreatedOn`, `UpdatedOn`) VALUES
-(1, 'Mit', 'Patel', '8200308821', '<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,</p>', '', 'Active', 'Active', '0', '2020-01-08 05:00:00', '2020-01-06 05:00:00'),
-(2, 'Mit', 'Patel', '9409521666', '<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,</p>', '', 'Active', 'Active', '0', '2020-01-08 05:00:00', '2020-01-06 09:39:46'),
-(5, 'Himansi', 'Shah', '8888888888', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s,', NULL, 'Active', 'Inactive', '0', '2020-01-07 05:00:00', '2020-01-07 09:44:01'),
-(6, 'Himansi', 'Shah', '8888888888', 'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour,', NULL, 'Active', 'Inactive', '0', '2020-01-07 05:00:00', '2020-01-07 09:45:22');
+(1, 'Mitesh', 'Patel', '8200308821', '<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>', '', 'Active', 'Active', '0', '2020-01-10 05:00:00', '2020-01-10 06:30:12'),
+(2, 'Mitesh', 'Patel', '8200308821', '<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>', '', 'Active', 'Active', '0', '2020-01-10 05:00:00', '2020-01-10 06:31:18'),
+(3, 'Mitesh', 'Patel', '8200308821', '<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing a Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply du</p>', '', 'Active', 'Active', '0', '2020-01-10 05:00:00', '2020-01-10 06:36:51'),
+(4, 'Mitesh', 'Patel', '8200308821', '<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing a Lorem Ipsum is simply dummy text of the printing</p>', '', 'Active', 'Active', '0', '2020-01-10 05:00:00', '2020-01-10 06:37:44');
 
 -- --------------------------------------------------------
 
@@ -4347,7 +4359,6 @@ CREATE TABLE `tbluser` (
   `EmailAddress` varchar(50) DEFAULT NULL,
   `ContactNumber` varchar(13) DEFAULT NULL,
   `LoginOTP` varchar(10) DEFAULT NULL,
-  `CarBrandId` int(11) DEFAULT NULL,
   `BrandName` varchar(50) DEFAULT NULL,
   `PickupDate` date DEFAULT NULL,
   `DropofDate` date DEFAULT NULL,
@@ -4355,6 +4366,10 @@ CREATE TABLE `tbluser` (
   `DropofTime` varchar(20) DEFAULT NULL,
   `StartCity` varchar(50) DEFAULT NULL,
   `EndCity` varchar(50) DEFAULT NULL,
+  `LocalTripId` int(11) DEFAULT NULL,
+  `PerHourKMS` int(11) DEFAULT NULL,
+  `Hours` int(11) DEFAULT NULL,
+  `PerHoureFare` int(11) DEFAULT NULL,
   `PerKmRate` int(11) DEFAULT NULL,
   `KMS` int(11) DEFAULT NULL,
   `TotalFareAmount` int(11) DEFAULT NULL,
@@ -4363,7 +4378,7 @@ CREATE TABLE `tbluser` (
   `Tax` int(11) DEFAULT NULL,
   `TotalAmount` int(11) DEFAULT NULL,
   `TaxAdded` int(11) DEFAULT NULL,
-  `FinalAmount` int(11) DEFAULT NULL,
+  `FinalAmount` int(11) NOT NULL DEFAULT 0,
   `transaction_id` varchar(200) DEFAULT NULL,
   `payment_status` enum('Pending','Success') DEFAULT 'Pending',
   `IsActive` enum('Active','Inactive') NOT NULL DEFAULT 'Active',
@@ -4378,15 +4393,15 @@ CREATE TABLE `tbluser` (
 -- Dumping data for table `tbluser`
 --
 
-INSERT INTO `tbluser` (`UserId`, `FirstName`, `LastName`, `EmailAddress`, `ContactNumber`, `LoginOTP`, `CarBrandId`, `BrandName`, `PickupDate`, `DropofDate`, `PickupTime`, `DropofTime`, `StartCity`, `EndCity`, `PerKmRate`, `KMS`, `TotalFareAmount`, `ExtraKMS`, `StateTax`, `Tax`, `TotalAmount`, `TaxAdded`, `FinalAmount`, `transaction_id`, `payment_status`, `IsActive`, `OTPNumber`, `Status`, `IsDelete`, `CreatedOn`, `UpdatedOn`) VALUES
-(1, 'Mit', 'Patel', 'bluegreyindia@gmail.com', '8200308821', '', 0, 'SUV', '2020-01-02', '2020-01-02', '6:37 am', '', 'Ahemdabad', '', 13, 200, 2600, 0, 2000, NULL, 4600, 690, 5290, 'pay_DzarIS2oeBo46t', 'Success', 'Active', '', 'Verify', '0', '2020-01-02 05:00:00', '2020-01-06 05:00:00'),
-(2, 'Mitesh', 'Patel', 'mitnp16@gmail.com', '9409521666', '', 0, 'SUV', '2020-01-02', '2020-01-02', '6:40 am', '', 'Ahemdabad', '', 13, 200, 2600, 0, 2000, NULL, 4600, 690, 5290, 'pay_Dzauouxah24tSl', 'Success', 'Active', '', 'Verify', '0', '2020-01-02 05:00:00', '2020-01-06 05:00:00'),
-(3, 'Nash', 'Bhagat', 'rsharma@getaguru.net', '9974616445', '', 0, 'Sedan', '2020-01-02', '2020-01-02', '6:42 am', '', 'Ahemdabad', '', 10, 200, 2000, 0, 0, NULL, 2000, 300, 2300, 'pay_DzawD102BtbUZK', 'Success', 'Active', '', 'Verify', '0', '2020-01-02 05:00:00', '2020-01-02 05:00:00'),
-(6, 'Super', 'Admin', 'bluegreyindia@gmail.com', '8200308821', '', 2, 'SUV', '2020-01-03', '2020-01-03', '1:15 am', '', 'Ahemdabad', 'Anand', 13, 200, 2600, 0, 2000, NULL, 4600, 690, 5290, NULL, 'Pending', 'Active', '', 'Verify', '0', '2020-01-03 05:00:00', '2020-01-06 05:00:00'),
-(13, 'Himnasi', 'Shah', 'rsharma@getaguru.net', '8888888888', '', 1, 'Sedan', '2020-01-07', '2020-01-07', '6:00 am', '', 'Valsad', 'Anand', 10, 200, 2000, 0, 0, NULL, 2000, 300, 2300, NULL, 'Pending', 'Active', '41567', 'Verify', '0', '2020-01-07 05:00:00', '2020-01-07 05:00:00'),
-(15, 'Himnasi', 'Shah', 'rsharma@getaguru.net', '8888888888', '', 1, 'Sedan', '2020-01-08', '2020-01-08', '6:00 am', '', 'Valsad', 'Anand', 10, 200, 2000, 0, 0, NULL, 2000, 300, 2300, NULL, 'Pending', 'Active', '41567', 'Verify', '0', '2020-01-07 05:00:00', '2020-01-07 05:00:00'),
-(17, 'Binny', 'Rai', 'rshyyyarma@getaguru.net', '7777777777', NULL, 2, 'SUV', '2020-01-08', '2020-01-08', '1:47 am', '', 'Ahemdabad', 'Anand', 13, 200, 2600, 0, 2000, NULL, 4600, 690, 5290, NULL, 'Pending', 'Active', '', 'Verify', '0', '2020-01-08 05:00:00', '2020-01-08 05:00:00'),
-(19, 'Mitesh', 'Patelssss', 'rsharma@getaguru.net', '8200308821', NULL, 2, 'SUV', '2020-02-12', '2020-01-08', '2:36 am', '', 'Ahemdabad', 'Anand', 13, 200, 2600, 0, 2000, NULL, 4600, 690, 5290, NULL, 'Success', 'Active', '', 'Verify', '0', '2020-01-08 05:00:00', '2020-01-08 05:00:00');
+INSERT INTO `tbluser` (`UserId`, `FirstName`, `LastName`, `EmailAddress`, `ContactNumber`, `LoginOTP`, `BrandName`, `PickupDate`, `DropofDate`, `PickupTime`, `DropofTime`, `StartCity`, `EndCity`, `LocalTripId`, `PerHourKMS`, `Hours`, `PerHoureFare`, `PerKmRate`, `KMS`, `TotalFareAmount`, `ExtraKMS`, `StateTax`, `Tax`, `TotalAmount`, `TaxAdded`, `FinalAmount`, `transaction_id`, `payment_status`, `IsActive`, `OTPNumber`, `Status`, `IsDelete`, `CreatedOn`, `UpdatedOn`) VALUES
+(1, 'Mitesh', 'Patel', 'mitnp16@gmail.com', '8200308821', '', 'Sedan', '2020-01-11', '2020-01-11', '2:00 am', '', 'Ahemdabad', 'Anand', 0, 0, NULL, 300, 10, 200, 2000, 0, 0, NULL, 2000, 300, 2300, NULL, 'Pending', 'Active', '', 'Verify', '0', '2020-01-10 05:00:00', '2020-01-10 05:00:00'),
+(4, 'Mitesh', 'Patel', 'mitnp16@gmail.com', '8200308821', '', 'SUV', '2020-01-12', '2020-01-13', '3:55 am', '', 'Ahemdabad', 'Surat', 0, 0, NULL, 0, 13, 200, 2600, 0, 2000, NULL, 4600, 690, 5290, 'pay_E2iMviXsckG3v4', 'Success', 'Active', '', 'Verify', '0', '2020-01-10 05:00:00', '2020-01-10 05:00:00'),
+(5, 'Mitesh', 'Patel', 'mitnp16@gmail.com', '8200308821', '', 'Sedan', '2020-01-14', '2020-01-14', '2:00 am', '4:00 am', 'Anand', '', 0, 0, NULL, 300, 0, 0, 0, 0, 0, NULL, 0, 0, 0, NULL, 'Pending', 'Active', '', 'Verify', '0', '2020-01-10 05:00:00', '2020-01-10 05:00:00'),
+(9, 'Mitesh', 'Patel', 'mitnp16@gmail.com', '8200308821', NULL, 'Sedan', '2020-01-10', '2020-01-10', '4:27 am', '', 'Valsad', 'Anand', 0, 0, NULL, 0, 10, 200, 2000, 0, 0, NULL, 2000, 300, 2300, 'pay_E2ivQOz3udeUKw', 'Success', 'Active', '', 'Verify', '0', '2020-01-10 05:00:00', '2020-01-10 05:00:00'),
+(10, 'Mitesh', 'Patel', 'mitnp16@gmail.com', '8200308821', NULL, 'SUV', '2020-01-17', '2020-01-17', '11:29 pm', '', 'Ahemdabad', 'Anand', 0, 0, NULL, 0, 13, 200, 2600, 0, 2000, NULL, 4600, 4646, 9246, 'pay_E5Pj3EvYcd9RJM', 'Success', 'Active', '', 'Verify', '0', '2020-01-17 05:00:00', '2020-01-17 05:00:00'),
+(18, 'Parth', 'Shah', 'mitnp16@gmail.com', '9974616445', NULL, 'Sedan', '2020-01-17', '2020-01-17', '7:10 am', '', 'Vadodra', 'Anand', 0, 0, 0, 300, 10, 200, 2000, 0, 0, NULL, 2000, 200, 2200, NULL, 'Pending', 'Active', '', 'Verify', '0', '2020-01-17 05:00:00', '2020-01-17 05:00:00'),
+(24, 'Nash', 'Patel', 'mitnp16@gmail.com', '9409521666', NULL, 'Sedan', '2020-01-22', '2020-01-22', '12:06 am', '', 'Anand', 'Vadodra', NULL, NULL, NULL, 0, 10, 200, 2000, 0, 0, NULL, 2000, 200, 2200, 'pay_E6bqikg7j5ZTif', 'Success', 'Active', '', 'Verify', '0', '2020-01-20 05:00:00', '2020-01-20 05:00:00'),
+(26, 'Nash', 'Patel', 'mitnp16@gmail.com', '9409521666', NULL, 'Sedan', '2020-01-20', '2020-01-20', '12:24 am', '', 'Anand', 'Vadodra', NULL, NULL, NULL, 0, 10, 200, 2000, 0, 0, NULL, 2000, 200, 2200, 'pay_E6c730olnEajzG', 'Success', 'Active', '', 'Verify', '0', '2020-01-20 05:00:00', '2020-01-20 05:00:00');
 
 --
 -- Indexes for dumped tables
@@ -4465,6 +4480,12 @@ ALTER TABLE `tblfeedback`
   ADD PRIMARY KEY (`FeedbackId`);
 
 --
+-- Indexes for table `tbllocaltripprice`
+--
+ALTER TABLE `tbllocaltripprice`
+  ADD PRIMARY KEY (`LocalTripId`);
+
+--
 -- Indexes for table `tblluxuryquotes`
 --
 ALTER TABLE `tblluxuryquotes`
@@ -4475,12 +4496,6 @@ ALTER TABLE `tblluxuryquotes`
 --
 ALTER TABLE `tblsitesetting`
   ADD PRIMARY KEY (`SettingId`);
-
---
--- Indexes for table `tblstartpoint`
---
-ALTER TABLE `tblstartpoint`
-  ADD PRIMARY KEY (`StartPointId`);
 
 --
 -- Indexes for table `tblstate`
@@ -4515,7 +4530,7 @@ ALTER TABLE `tblaboutus`
 -- AUTO_INCREMENT for table `tbladmin`
 --
 ALTER TABLE `tbladmin`
-  MODIFY `AdminId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `AdminId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `tblcarbrand`
@@ -4533,7 +4548,7 @@ ALTER TABLE `tblcarrer`
 -- AUTO_INCREMENT for table `tblcarrierinquiry`
 --
 ALTER TABLE `tblcarrierinquiry`
-  MODIFY `CarrierInquiryId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `CarrierInquiryId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `tblcartype`
@@ -4545,13 +4560,13 @@ ALTER TABLE `tblcartype`
 -- AUTO_INCREMENT for table `tblcity`
 --
 ALTER TABLE `tblcity`
-  MODIFY `CityId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `CityId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `tblcontactus`
 --
 ALTER TABLE `tblcontactus`
-  MODIFY `ContactId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `ContactId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `tblcountry`
@@ -4569,13 +4584,19 @@ ALTER TABLE `tblemail_setting`
 -- AUTO_INCREMENT for table `tblemail_template`
 --
 ALTER TABLE `tblemail_template`
-  MODIFY `email_template_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `email_template_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `tblfeedback`
 --
 ALTER TABLE `tblfeedback`
-  MODIFY `FeedbackId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `FeedbackId` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `tbllocaltripprice`
+--
+ALTER TABLE `tbllocaltripprice`
+  MODIFY `LocalTripId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `tblluxuryquotes`
@@ -4590,12 +4611,6 @@ ALTER TABLE `tblsitesetting`
   MODIFY `SettingId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `tblstartpoint`
---
-ALTER TABLE `tblstartpoint`
-  MODIFY `StartPointId` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `tblstate`
 --
 ALTER TABLE `tblstate`
@@ -4605,13 +4620,13 @@ ALTER TABLE `tblstate`
 -- AUTO_INCREMENT for table `tbltestimonial`
 --
 ALTER TABLE `tbltestimonial`
-  MODIFY `TestimonialId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `TestimonialId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `tbluser`
 --
 ALTER TABLE `tbluser`
-  MODIFY `UserId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `UserId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -77,11 +77,11 @@
 								
 
 			      					<h5 class="this-label">First Name<span>*</span></h5>
-			      					<input type="text" class="form-control" name="FirstName" id="FirstName" placeholder="Enter First Name" minlength="2" maxlength="25">
+			      					<input type="text" class="form-control" name="FirstName" id="FirstName" placeholder="Enter First Name" minlength="2" maxlength="25" >
 			      				</div>
 			      				<div class="form-group col-sm-6">
 			      					<h5 class="this-label">Last Name<span>*</span></h5>
-			      					<input type="text" class="form-control" name="LastName" id="LastName" placeholder="Enter Last Name" minlength="2" maxlength="12">
+			      					<input type="text" class="form-control" name="LastName" id="LastName" placeholder="Enter Last Name" minlength="2" maxlength="12" >
 			      				</div>
 			      				<div class="form-group col-sm-6">
 			      					<h5 class="this-label">Email Address<span>*</span></h5>
@@ -314,7 +314,7 @@
 			      				?>	
 
 			      				<input type="radio" name="payment-method" data-amount="<?php echo $FinalAmount;?>" data-id="1"  id="payment-method02"  class="sr-only">
-			      				<label for="payment-method02">Paypal <a href="#"><img src="<?php echo base_url();?>assets/images/car-detail/paypal.png" alt=""></a></label>
+			      				<label for="payment-method02">Razorpay <a href="#"><img src="<?php echo base_url();?>assets/images/car-detail/paypal.png" alt=""></a></label>
 
 								<?php
 			      				}
@@ -372,12 +372,30 @@ $(document).ready(function(){
 </script>
 <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.css">
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.4/jquery-confirm.min.js" text="javascript"></script>
 
 <script>	
 var SITEURL = "<?php echo base_url() ?>";
 $('body').on('click', '#submit', function(e)
 {
+	if($('#FirstName').val() == "")
+        {
+            $.alert({ title: 'Alert !', content: "Please enter First Name.", type: 'red', typeAnimated: true, }); return false; 
+        }
+      	else 
+      	{
+            if($('#LastName').val() == "") {
+                $.alert({ title: 'Alert !', content: "Please enter Last Name.", type: 'red', typeAnimated: true, }); return false; 
+        }
+        else {
+            if($('#EmailAddress').val() == "") {
+                $.alert({ title: 'Alert !', content: "Please enter Email Address.", type: 'red', typeAnimated: true, }); return false; 
+            }
+        else
+        {
+
+
     //var totalAmount = $('#FinalAmount').val();
     var FirstName = $('#FirstName').val();
     var LastName = $('#LastName').val();
@@ -433,7 +451,11 @@ $('body').on('click', '#submit', function(e)
   var rzp1 = new Razorpay(options);
   rzp1.open();
   e.preventDefault();
+  }
+}
+}
 });
+
 </script>
 
 

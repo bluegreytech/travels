@@ -726,10 +726,8 @@
 	 $this->load->view('common/footer');
 ?>
 <script>
-
 function getendcity(StartCity) 
 {
-	//alert(StartCity);
 	$("option[id=EndCity]").remove();
 	url="<?php echo base_url();?>"
 	$.ajax({
@@ -739,8 +737,7 @@ function getendcity(StartCity)
         success:function(response){
 			var response = JSON.parse(response);
             //console.log(response);
-           // $("option[id=EndCity]").empty();
-           $("#EndCity").empty();
+            $("option[id=EndCity]").empty();
               $.each(response, function(key, val) {
               	console.log(val.EndCity);
                 $("#EndCity").append(
@@ -751,34 +748,6 @@ function getendcity(StartCity)
          }
       });	
 }
-
-
-
-
-// function getendcity(StartCity) 
-// {
-// 	$("option[id=EndCity]").remove();
-// 	url="<?php echo base_url();?>"
-// 	$.ajax({
-//         url: url+'home/getendcity',
-//         type: 'post',
-// 		data:{StartCity:StartCity},
-//         success:function(response){
-// 			var response = JSON.parse(response);
-//             //console.log(response);
-//             $("option[id=EndCity]").empty();
-//               $.each(response, function(key, val) {
-//               	console.log(val.EndCity);
-//                 $("#EndCity").append(
-//                         "<option value=" + val.EndCity + ">" + val.EndCity+ "</option>");
-                		
-//             });
-			
-//          }
-//       });	
-// }
-
-//window.onload=getendcity;
 </script>
 
 <script>
@@ -793,7 +762,7 @@ function getendcityround(StartCityRound)
         success:function(response){
 			var response = JSON.parse(response);
             //console.log(response);
-            $("#EndCityRound").empty();
+            $("option[id=EndCityRound]").empty();
               $.each(response, function(key, val) {
               	console.log(val.EndCity);
                 $("#EndCityRound").append(

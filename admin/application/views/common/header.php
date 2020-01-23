@@ -11,9 +11,7 @@
     <title>Yashdeep Travels</title>
     
     <link rel="shortcut icon" type="image/png" href="<?php echo base_url(); ?>default/images/ico/favicon.png">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-touch-fullscreen" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.css" rel="stylesheet"/>
 

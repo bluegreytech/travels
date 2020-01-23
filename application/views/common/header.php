@@ -89,8 +89,7 @@
 			              	<?php
 			              	if($this->session->userdata('FirstName')!='' && $this->session->userdata('LastName')!='')
 			              	{
-			              		echo $this->session->userdata('FirstName'); 
-			              		echo $this->session->userdata('LastName'); 
+			              		echo $FirstName.' '.$LastName;
 			              	}
 			     
 			              	?>
@@ -201,7 +200,7 @@
 			              	<?php
 			              	if($this->session->userdata('FirstName')!='' && $this->session->userdata('LastName')!='')
 			              	{
-			              	echo $this->session->userdata('FirstName'); echo $this->session->userdata('LastName'); 
+			              		echo $FirstName.' '.$LastName;
 			              	}
 			     
 			              	?>

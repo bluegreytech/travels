@@ -245,7 +245,7 @@
                  
                       <div class="col-md-12">    
                         <div>
-                            <textarea id="message" name="TestimonialDescription" class="form-control" placeholder="Your Valuable Review"></textarea>
+                            <textarea id="message" name="TestimonialDescription" class="form-control" placeholder="Your Valuable Review" minlength="10" maxlength="250"></textarea>
                         </div>
                         <br>
                       </div>

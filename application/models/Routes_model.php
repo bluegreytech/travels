@@ -15,10 +15,10 @@ class Routes_model extends CI_Model
 
 	function getcarroutes($CarBrandId)
 	{
-		$where=array("IsActive"=>'Active',"IsDelete"=>'0');
+		$where=array("IsActive"=>'Active',"IsDelete"=>'0',"CarBrandId"=>$CarBrandId);
 		$this->db->select('*');
 		$this->db->from('tblcity');
-		$this->db->where('CarBrandId',$CarBrandId);
+		$this->db->where($where);
 		$this->db->order_by('StartCity','asc');
 		$query=$this->db->get();
 		$res = $query->result();

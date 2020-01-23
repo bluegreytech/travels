@@ -2,7 +2,7 @@
 	 $this->load->view('common/header');
 ?>
 
-	
+
   	<!--Page Cover-->
   	<section class="row page-cover">
   		<div class="container">
@@ -41,8 +41,26 @@
 										$DropofTime=$this->session->userdata('DropofTime');
 										$ContactNumber=$this->session->userdata('ContactNumber');
 										$OTPNumber=$this->session->userdata('OTPNumber');
+
+										$LocalTripId=$this->session->userdata('LocalTripId');
+										
 									 }
 								 ?>
+
+									<?php
+									if($this->session->userdata('LocalTripId')!='')
+									{
+										$localresult=$this->Login_model->getlocal_pack($LocalTripId);
+										foreach($localresult as $res)
+										{
+											$LocalTripId=$res->LocalTripId;
+											$PerHourKMS=$res->PerHourKMS;
+											$Hours=$res->Hours;
+											
+											
+										}
+									}
+									?>
 			      				
 								<input type="hidden" name="StartCity" value="<?php echo $StartCity;?>">
 								<input type="hidden" name="EndCity" value="<?php echo $EndCity;?>">
@@ -56,12 +74,14 @@
 								<input type="hidden" name="BrandName" value="<?php echo $BrandName;?>">
 								<input type="hidden" name="PerHoureFare" value="<?php echo $PerHoureFare; ?>">
 
+								
+
 			      					<h5 class="this-label">First Name<span>*</span></h5>
-			      					<input type="text" class="form-control" name="FirstName" id="FirstName" placeholder="Enter First Name" minlength="2" maxlength="25">
+			      					<input type="text" class="form-control" name="FirstName" id="FirstName" placeholder="Enter First Name" minlength="2" maxlength="25" >
 			      				</div>
 			      				<div class="form-group col-sm-6">
 			      					<h5 class="this-label">Last Name<span>*</span></h5>
-			      					<input type="text" class="form-control" name="LastName" id="LastName" placeholder="Enter Last Name" minlength="2" maxlength="12">
+			      					<input type="text" class="form-control" name="LastName" id="LastName" placeholder="Enter Last Name" minlength="2" maxlength="12" >
 			      				</div>
 			      				<div class="form-group col-sm-6">
 			      					<h5 class="this-label">Email Address<span>*</span></h5>
@@ -75,24 +95,7 @@
 			      					<h5 class="this-label">Cab Type<span>*</span></h5>
 			      					<input type="text"  class="form-control" placeholder="Select Brand Car" id="BrandName" name="BrandName" value="<?php echo $BrandName;?>" readonly> 
 			      				</div>
-			      				<!-- <div class="form-group col-sm-6">
-			      					<h5 class="this-label">Select Car<span>*</span></h5>
-			      					 <select class="form-control" name="CarId" onChange="getcartype(this.value)" 
-			      					 id="carid">
-			      					 	<option desabled value="">Select Your car</option>
-										<?php
-										// if($subcar)
-										// {
-											// foreach($subcar as $subcarData)
-											// {
-										?>
-								
-											<option value="<?php// echo $subcarData->CarId; ?>"><?php //echo $subcarData->CarName;?></option>
-										<?php
-										// }}
-										?>
-									  </select>
-			      				</div> -->
+			      			
 			      				<div class="form-group col-sm-6">
 			      					<h5 class="this-label">Pickup Date<span>*</span></h5>
 			      					<input type="text" class="form-control" name="PickupDate" id="PickupDate" placeholder="dd/mm/yyyy" value="<?php echo $PickupDate;?>" readonly>
@@ -180,9 +183,10 @@
 
 			      						<li>KMS <span><i class="fa fa-inr"></i>
 			      							<?php
-			      							if($this->session->userdata('PickupDate')!='')
+			      							if($this->session->userdata('PickupDate')!='' && $this->session->userdata('DropofDate')=='')
 			      							{
 			      								$RoundFare=200;
+			      								//$RoundFare=$result[0]->PerTripMinKMS;
 			      								?>
 			      									<input type="text" name="KMS" id="KMS" value="<?php echo $RoundFare; ?>" readonly></span>
 			      								<?php
@@ -190,9 +194,20 @@
 			      							else
 			      							{
 			      								$RoundFare=200*2;
-			      								?>
+			      								if($RoundFare <= $result[0]->PerTripMinKMS)
+			      								{
+			      									?>
+													<input type="text" name="KMS" id="KMS" value="<?php echo $result[0]->PerTripMinKMS; ?>" readonly></span>
+			      									<?php
+			      								}
+			      								else
+			      								{
+			      									?>
 													<input type="text" name="KMS" id="KMS" value="<?php echo $RoundFare; ?>" readonly></span>
-			      								<?php
+			      									<?php
+			      								}
+			      				
+			      								
 			      							}
 			      							?>
 			      							
@@ -248,17 +263,37 @@
 			      					<?php
 			      						}
 			      					}
+			      					// else if($this->session->userdata('EndCity')!='' && $this->session->userdata('DropofDate')!='')
+			      					// {
+
+			      					// }
 			      					else
 			      					{
 			      						?>
 			      						<li>Per Hour Fare <span><i class="fa fa-inr"></i>
+			      							<input type="hidden" name="LocalTripId" id="LocalTripId" value="<?php echo $LocalTripId;?>" readonly>
 			      							<input type="text" name="PerHoureFare" id="PerHoureFare" value="<?php echo $brandcar['PerHoureFare'];?>" readonly></span>
 			      						</li>
+
+			      						<li>KMS <span>
+			      							<input type="text" name="PerHourKMS" id="PerHourKMS" value="<?php echo $PerHourKMS;?>" readonly></span>
+			      						</li>
+
+			      						<li>Hours<span>
+			      							<input type="text" name="Hours" id="Hours" value="<?php echo $Hours;?>" readonly></span>
+			      						</li>
+
+			      						<?php
+			      							$FinalAmount=$PerHoureFare*$Hours;
+			      						?>
+			      						<li>Final Fare<span><i class="fa fa-inr"></i>
+			      							<input type="text" id="FinalAmount"id="FinalAmount" name="FinalAmount" value="<?php echo $FinalAmount;?>" readonly> </span>
+			      						</li>
+											
+											
 			      						<?php
 			      					}
 			      					?>
-
-
 			      					</ul>
 
 
@@ -279,7 +314,7 @@
 			      				?>	
 
 			      				<input type="radio" name="payment-method" data-amount="<?php echo $FinalAmount;?>" data-id="1"  id="payment-method02"  class="sr-only">
-			      				<label for="payment-method02">Paypal <a href="#"><img src="<?php echo base_url();?>assets/images/car-detail/paypal.png" alt=""></a></label>
+			      				<label for="payment-method02">Razorpay <a href="#"><img src="<?php echo base_url();?>assets/images/car-detail/paypal.png" alt=""></a></label>
 
 								<?php
 			      				}
@@ -316,7 +351,8 @@
 			</div>
 		</div>
 	</section>
-  	
+  
+	
    
 <?php 
 	$this->load->view('common/footer');
@@ -336,12 +372,30 @@ $(document).ready(function(){
 </script>
 <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.css">
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.4/jquery-confirm.min.js" text="javascript"></script>
 
 <script>	
 var SITEURL = "<?php echo base_url() ?>";
 $('body').on('click', '#submit', function(e)
 {
+	if($('#FirstName').val() == "")
+        {
+            $.alert({ title: 'Alert !', content: "Please enter First Name.", type: 'red', typeAnimated: true, }); return false; 
+        }
+      	else 
+      	{
+            if($('#LastName').val() == "") {
+                $.alert({ title: 'Alert !', content: "Please enter Last Name.", type: 'red', typeAnimated: true, }); return false; 
+        }
+        else {
+            if($('#EmailAddress').val() == "") {
+                $.alert({ title: 'Alert !', content: "Please enter Email Address.", type: 'red', typeAnimated: true, }); return false; 
+            }
+        else
+        {
+
+
     //var totalAmount = $('#FinalAmount').val();
     var FirstName = $('#FirstName').val();
     var LastName = $('#LastName').val();
@@ -364,9 +418,11 @@ $('body').on('click', '#submit', function(e)
     var TotalAmount = $('#TotalAmount').val();
     var TaxAdded = $('#TaxAdded').val();
     var totalAmount = $('#FinalAmount').val();
-  
+  	
+
     var options = {
-    "key":'rzp_test_C7fnEIVjsS6Bsd',   
+    //"key":'rzp_test_C7fnEIVjsS6Bsd',
+    "key":'rzp_test_ZoADm9oDeOx3hS',   
     "amount":(totalAmount*100), // 2000 paise = INR 20
     "name": "Yashdeep Travel Pay",
     "description": "Report  Payment",
@@ -378,11 +434,13 @@ $('body').on('click', '#submit', function(e)
             type: 'post',
             dataType: 'json',
             data: {
-                razorpay_payment_id:response.razorpay_payment_id,FinalAmount:totalAmount,FirstName:FirstName,LastName:LastName,EmailAddress:EmailAddress,ContactNumber:ContactNumber,CarBrandId:CarBrandId,BrandName:BrandName,PickupDate:PickupDate,DropofDate:DropofDate,PickupTime:PickupTime,DropofTime:DropofTime,StartCity:StartCity,PerKmRate:PerKmRate,KMS:KMS,TotalFareAmount:TotalFareAmount,ExtraKMS:ExtraKMS,StateTax:StateTax,Tax:Tax,TotalAmount:TotalAmount,TaxAdded:TaxAdded
+                razorpay_payment_id:response.razorpay_payment_id,FinalAmount:totalAmount,FirstName:FirstName,LastName:LastName,EmailAddress:EmailAddress,ContactNumber:ContactNumber,CarBrandId:CarBrandId,BrandName:BrandName,PickupDate:PickupDate,DropofDate:DropofDate,PickupTime:PickupTime,DropofTime:DropofTime,StartCity:StartCity,EndCity:EndCity,PerKmRate:PerKmRate,KMS:KMS,TotalFareAmount:TotalFareAmount,ExtraKMS:ExtraKMS,StateTax:StateTax,Tax:Tax,TotalAmount:TotalAmount,TaxAdded:TaxAdded
             }, 
             success: function (msg) { 
-            	//alert('dfgdfg');
-               window.location.href = SITEURL + 'home/ThankYou';
+            	//alert(msg);
+                window.location.href = '<?php echo base_url();?>home/ThankYou';
+               // console.log(msg);
+             
             }
         });
     },
@@ -393,7 +451,11 @@ $('body').on('click', '#submit', function(e)
   var rzp1 = new Razorpay(options);
   rzp1.open();
   e.preventDefault();
+  }
+}
+}
 });
+
 </script>
 
 

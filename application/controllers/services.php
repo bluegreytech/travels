@@ -23,6 +23,9 @@ class Services extends CI_Controller
 		$data['PickupTime']=$this->input->post('PickupTime');
 		$data['DropofTime']=$this->input->post('DropofTime');
 		$data['PerHoureFare']=$this->input->post('PerHoureFare');
+
+		$data['LocalTripId']=$this->input->post('LocalTripId');
+	
 	
 		if($_POST)
 		{	
@@ -35,8 +38,7 @@ class Services extends CI_Controller
 				'DropofDate'=> $data['DropofDate'],
 				'PickupTime'=> $data['PickupTime'],
 				'DropofTime'=> $data['DropofTime'],
-				//'CarBrandId'=> $data['CarBrandId'],
-				//'BrandName'=> $data['BrandName'],
+				'LocalTripId'=> $data['LocalTripId'],
 			 );
 			$this->session->set_userdata($session);
 			$data['services']=$this->Services_model->search();
@@ -71,8 +73,7 @@ class Services extends CI_Controller
 		$data['DropofTime']=$this->input->post('DropofTime');
 		$data['PerHoureFare']=$this->input->post('PerHoureFare');
 		
-		//$data['CarBrandId']=$this->input->post('CarBrandId');
-		//$data['BrandName']=$this->input->post('BrandName');
+		$data['LocalTripId']=$this->input->post('LocalTripId');
 		if($_POST)
 		{	
 
@@ -83,11 +84,10 @@ class Services extends CI_Controller
 				'DropofDate'=> $data['DropofDate'],
 				'PickupTime'=> $data['PickupTime'],
 				'DropofTime'=> $data['DropofTime'],
-				//'CarBrandId'=> $data['CarBrandId'],
-				//'BrandName'=> $data['BrandName'],
+				'LocalTripId'=> $data['LocalTripId'],
 			 );
 			$this->session->set_userdata($session);
-			if($this->input->post('DropofTime')!='')
+			if($this->input->post('LocalTripId')!='')
 			{
 				$data['services']=$this->Services_model->search_local();
 				//echo "<pre>";print_r($data['services']);die;

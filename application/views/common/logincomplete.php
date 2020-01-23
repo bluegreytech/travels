@@ -59,7 +59,7 @@
 								    if($this->session->userdata('ContactNumber')!='')
 								    {
 										$ContactNumber=$this->session->userdata('ContactNumber');
-										//$LoginOTP=$this->session->userdata('LoginOTP');
+										$LoginOTP=$this->session->userdata('LoginOTP');
 									 }
 
 									//$ContactNumbers=$this->input->post('ContactNumber');
@@ -67,13 +67,13 @@
 
 								
 								<input type="hidden" name="ContactNumber" value="<?php echo $this->session->userdata('ContactNumber');?>">
-								<!-- <input type="text" name="LoginOTP" value="<?php//echo $this->session->userdata('LoginOTP');?>"> -->
+								<input type="text" name="LoginOTP" value="<?php echo $this->session->userdata('LoginOTP');?>">
 								<input type="text" class="form-control" name="LoginOTP" id="OTPNumber" placeholder="Enter 6 Digit OTP" minlength="5" maxlength="6">
 							</div>
 						</div>
 						<div class="col-md-12 text-center">
-							<p class="otptext">Please enter 4 digit OTP number which you get by SMS.</p>
-							<p class="otptext">4 Digit OTP will be sent via SMS.</p>
+							<p class="otptext">Please enter 6 digit OTP number which you get by SMS.</p>
+							<p class="otptext">6 Digit OTP will be sent via SMS.</p>
 							<input type="submit" class="btn btn-primary" value="SUBMIT">
 						</div>
 						

@@ -15,9 +15,10 @@ class Services_model extends CI_Model
 
   function getsubcar($CarBrandId)
   {
+    $where=array("IsActive"=>'Active',"IsDelete"=>'0',"CarBrandId"=>$CarBrandId);
     $this->db->select('*');
     $this->db->from("tblcartype");
-    $this->db->where('CarBrandId',$CarBrandId);
+    $this->db->where($where);
     $this->db->order_by('CarId','desc');
     $query=$this->db->get();
     $res = $query->result();

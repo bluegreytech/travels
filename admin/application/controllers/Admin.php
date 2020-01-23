@@ -6,21 +6,18 @@ class Admin extends CI_Controller {
 	public function __construct()
 	{
       	parent::__construct();
-		$this->load->model('admin_model');
+		$this->load->model('Admin_model');
       
     }
 
 	function Adminlist()
 	{	
-		//echo "dsd ";
 		if(!check_admin_authentication()){ 
-			//echo "hghgfh";die;
 			redirect(base_url());
 		}else{	
-		//echo "else dfdf";die;	
 			$data['activeTab']="Adminlist";	
-			$data['adminData']=$this->admin_model->getadmin();
-			$this->load->view('Admin/AdminList',$data);
+			$data['adminData']=$this->Admin_model->getadmin();
+			$this->load->view('admin/AdminList',$data);
 		}
 	}
 
@@ -69,14 +66,14 @@ class Admin extends CI_Controller {
 			{
 				if($this->input->post("AdminId")!="")
 			{	
-				$this->admin_model->admin_update();
+				$this->Admin_model->admin_update();
 				$this->session->set_flashdata('success', 'Record has been Updated Succesfully!');
 				redirect('admin/AdminList');
 				
 			}
 			else
-			{ // echo "dsfdf";die;
-				$this->admin_model->admin_insert();
+			{
+				$this->Admin_model->admin_insert();
 				$this->session->set_flashdata('success', 'Record has been Inserted Succesfully!');
 				redirect('admin/AdminList');
 			
@@ -84,7 +81,7 @@ class Admin extends CI_Controller {
 				
 			}
 			$data['activeTab']="AddAdmin";
-			$this->load->view('Admin/AdminAdd',$data);
+			$this->load->view('admin/AdminAdd',$data);
 				
 	}
 	
@@ -93,7 +90,7 @@ class Admin extends CI_Controller {
 			redirect(base_url());
 		}else{
 			$data=array();
-			$result=$this->admin_model->getdata($AdminId);	
+			$result=$this->Admin_model->getdata($AdminId);	
 			$data['redirect_page']='AdminList';
 			$data['AdminId']=$result['AdminId'];
 			$data['FullName']=$result['FullName'];	
@@ -103,7 +100,7 @@ class Admin extends CI_Controller {
 			$data['AdminContact']=$result['AdminContact'];
 			$data['IsActive']=$result['IsActive'];
 			$data['activeTab']="Editadmin";			
-			$this->load->view('Admin/AdminAdd',$data);	
+			$this->load->view('admin/AdminAdd',$data);	
 		}
 	}
 

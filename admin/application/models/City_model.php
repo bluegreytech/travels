@@ -13,7 +13,7 @@ class City_model extends CI_Model
 			'IsActive' =>$this->input->post('IsActive'),			
 			'CreatedOn'=>date('Y-m-d')		
 		);
-	    echo "<pre>";print_r($data);die;	         
+	    //echo "<pre>";print_r($data);die;	         
         $res=$this->db->insert('tblcity',$data);	
 		return $res;
 	}

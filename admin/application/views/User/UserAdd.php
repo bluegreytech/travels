@@ -24,7 +24,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					}
 					?>
 					<a class="heading-elements-toggle"><i class="icon-ellipsis font-medium-3"></i></a>
-					<a href="<?php echo base_url();?>User/Userlist/" class="btn btn-black" style="float:right">Back to User List</a>
+					<a href="<?php echo base_url();?>user/userlist/" class="btn btn-black" style="float:right">Back to User List</a>
 				</div>
 				</h4>
 				<div class="card-body collapse in">

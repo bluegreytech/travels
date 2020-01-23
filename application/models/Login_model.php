@@ -16,9 +16,10 @@ class Login_model extends CI_Model
 
   function getcarbrandlist()
   {
+    $where=array('IsDelete'=>'0','IsActive'=>'Active');
     $this->db->select('*');
     $this->db->from('tblcarbrand');
-    $this->db->where('IsDelete','0');
+    $this->db->where($where);
     $this->db->order_by('CarBrandId','desc');
     $query=$this->db->get();
     $res = $query->result();
@@ -89,6 +90,31 @@ class Login_model extends CI_Model
     $query=$this->db->get();
     $res = $query->result();
     return $res;
+  }
+
+  function local_pack()
+  {
+    $where=array('local.IsActive'=>'Active','local.IsDelete'=>'0');
+    $this->db->select('local.*,brand.BrandName');
+    //$this->db->from('tbllocaltripprice');
+    $this->db->from("tbllocaltripprice as local");
+    $this->db->join('tblcarbrand as brand','local.CarBrandId = brand.CarBrandId', 'LEFT');
+    $this->db->where($where);
+    $query=$this->db->get();
+    $res = $query->result();
+    return $res;
+  }
+
+  function getlocal_pack()
+  {
+      $LocalTripId=3;
+      $where=array('local.IsActive'=>'Active','local.IsDelete'=>'0','LocalTripId'=>$LocalTripId);
+      $this->db->select('local.*');
+      $this->db->from("tbllocaltripprice as local");
+      $this->db->where($where);
+      $query=$this->db->get();
+      $res = $query->result();
+      return $res;
   }
 
   function getsubcar($CarBrandId)
@@ -169,7 +195,6 @@ class Login_model extends CI_Model
         'LastName'=>trim($this->input->post('LastName')),
         'EmailAddress'=>trim($this->input->post('EmailAddress')),
         'ContactNumber'=>trim($this->input->post('ContactNumber')),
-        'CarBrandId'=>trim($this->input->post('CarBrandId')),
         'BrandName'=>trim($this->input->post('BrandName')), 
         'PickupDate'=>trim($PickupDate),
         'DropofDate'=>trim($DropofDate),
@@ -177,6 +202,11 @@ class Login_model extends CI_Model
         'DropofTime'=>trim($this->input->post('DropofTime')), 
         'StartCity'=>trim($this->input->post('StartCity')), 
         'EndCity'=>trim($this->input->post('EndCity')), 
+
+        'LocalTripId'=>trim($this->input->post('LocalTripId')), 
+        'PerHourKMS'=>trim($this->input->post('PerHourKMS')), 
+        'Hours'=>trim($this->input->post('Hours')),
+
         'PerHoureFare'=>trim($this->input->post('PerHoureFare')), 
         'PerKmRate'=>trim($this->input->post('PerKmRate')),
         'KMS'=>trim($this->input->post('KMS')), 
@@ -299,7 +329,6 @@ class Login_model extends CI_Model
         'LastName'=>trim($this->input->post('LastName')),
         'EmailAddress'=>trim($this->input->post('EmailAddress')),
         'ContactNumber'=>trim($this->input->post('ContactNumber')),
-        'CarBrandId'=>trim($this->input->post('CarBrandId')),
         'BrandName'=>trim($this->input->post('BrandName')), 
         'PickupDate'=>trim($PickupDate),
         'DropofDate'=>trim($DropofDate),
@@ -307,6 +336,7 @@ class Login_model extends CI_Model
         'DropofTime'=>trim($this->input->post('DropofTime')), 
         'StartCity'=>trim($this->input->post('StartCity')), 
         'EndCity'=>trim($this->input->post('EndCity')), 
+        'PerHoureFare'=>trim($this->input->post('PerHoureFare')), 
         'PerKmRate'=>trim($this->input->post('PerKmRate')),
         'KMS'=>trim($this->input->post('KMS')), 
         'TotalFareAmount'=>trim($this->input->post('TotalFareAmount')),  
@@ -323,8 +353,94 @@ class Login_model extends CI_Model
       );
         //echo "<pre>";print_r($data);die; 
         $this->db->where("ContactNumber",$ContactNumber);
-        $res=$this->db->update('tbluser',$data); 
-        return $res;
+        $this->db->where("Status",'Pending');
+        // $res=$this->db->update('tbluser',$data); 
+        // return $res;
+        $this->db->update('tbluser',$data); 
+        //return $res;
+        if($this->input->post('BrandName')!='')
+        {  
+          $FirstName = $this->input->post('FirstName');
+          $LastName = $this->input->post('LastName');
+          $EmailAddress = $this->input->post('EmailAddress');
+          $ContactNumber = $this->input->post('ContactNumber');
+          $BrandName = $this->input->post('BrandName');
+          $PickupTime = $this->input->post('PickupTime');
+          $DropofTime = $this->input->post('DropofTime');
+          $StartCity = $this->input->post('StartCity');
+          $EndCity = $this->input->post('EndCity');
+          $PerHoureFare = $this->input->post('PerHoureFare');
+          $PerKmRate = $this->input->post('PerKmRate');
+          $KMS = $this->input->post('KMS');
+          $TotalFareAmount = $this->input->post('TotalFareAmount');
+          $ExtraKMS = $this->input->post('ExtraKMS');
+          $StateTax = $this->input->post('StateTax');
+          $TotalAmount = $this->input->post('TotalAmount');
+          $TaxAdded = $this->input->post('TaxAdded');
+          $FinalAmount = $this->input->post('FinalAmount');
+          $BookingDate = date('d-m-Y');
+
+          $email_template=$this->db->query("select * from ".$this->db->dbprefix('tblemail_template')." where task='Cab Booking'");
+          $email_temp=$email_template->row();
+          $email_address_from=$email_temp->from_address;
+          $email_address_reply=$email_temp->reply_address;
+          $email_subject=$email_temp->subject;        
+          $email_message=$email_temp->message;
+          
+          $base_url=base_url();
+          $currentyear=date('Y');
+          $email_message=str_replace('{break}','<br/>',$email_message);
+          $email_message=str_replace('{base_url}',$base_url,$email_message);
+          $email_message=str_replace('{year}',$currentyear,$email_message);
+          $email_message=str_replace('{FirstName}',$FirstName,$email_message);
+          $email_message=str_replace('{LastName}',$LastName,$email_message);
+          $email_message=str_replace('{EmailAddress}',$EmailAddress,$email_message);
+          $email_message=str_replace('{ContactNumber}',$ContactNumber,$email_message);
+          $email_message=str_replace('{BrandName}',$BrandName,$email_message);
+          $email_message=str_replace('{PickupDate}',$pdate,$email_message);
+          $email_message=str_replace('{DropofDate}',$ddate,$email_message);
+          $email_message=str_replace('{PickupTime}',$PickupTime,$email_message);
+          $email_message=str_replace('{DropofTime}',$DropofTime,$email_message);
+          $email_message=str_replace('{StartCity}',$StartCity,$email_message);
+          $email_message=str_replace('{EndCity}',$EndCity,$email_message);  
+          $email_message=str_replace('{PerHoureFare}',$PerHoureFare,$email_message);
+          $email_message=str_replace('{PerKmRate}',$PerKmRate,$email_message);
+          $email_message=str_replace('{KMS}',$KMS,$email_message);
+          $email_message=str_replace('{TotalFareAmount}',$TotalFareAmount,$email_message);
+          $email_message=str_replace('{ExtraKMS}',$ExtraKMS,$email_message);
+          $email_message=str_replace('{StateTax}',$StateTax,$email_message);
+          $email_message=str_replace('{TotalAmount}',$TotalAmount,$email_message);
+          $email_message=str_replace('{TaxAdded}',$TaxAdded,$email_message);
+          $email_message=str_replace('{FinalAmount}',$FinalAmount,$email_message);
+          $email_message=str_replace('{BookingDate}',$BookingDate,$email_message);
+          $str=$email_message; //die;
+
+          $config['protocol']='smtp';
+          $config['smtp_host']='ssl://smtp.googlemail.com';
+          $config['smtp_port']='465';
+          $config['smtp_user']='bluegreyindia@gmail.com';
+          $config['smtp_pass']='Test@123';
+          $config['charset']='utf-8';
+          $config['newline']="\r\n";
+          $config['mailtype'] = 'html';               
+          $this->email->initialize($config);
+          $body =$str;
+          $this->email->from('bluegreyindia@gmail.com');
+          $this->email->to('bluegreyindia@gmail.com');    
+          $this->email->subject('Cab Booking Successfully');
+          $this->email->message($body); 
+          if($this->email->send())
+          {
+            return 1;
+          }else
+          {
+            return 2;
+          }
+      }
+      else
+      {
+        return 2;
+      }
 
   }
 
@@ -344,7 +460,7 @@ class Login_model extends CI_Model
             $ContactNumber=$user['ContactNumber'];
             if($ContactNumber!='')
             {
-                $LoginOTP=rand(12,123456);
+                //$LoginOTP=rand(2000, 999999);
                 $data = array(
                 'LoginOTP' =>$LoginOTP, 
                 'Status' =>'Verify',    

@@ -452,5 +452,67 @@ class Car_model extends CI_Model
 		$res=$this->db->update('tblcarbrand',$data);		
 		return $res;
 	}
+
+
+
+
+	function hoursfare_insert()
+	{	
+		
+
+        $data = array(
+			'CarBrandId'=>trim($this->input->post('CarBrandId')),
+			'PerHoureFare'=>trim($this->input->post('PerHoureFare')),
+			'Hours'=>trim($this->input->post('Hours')),
+			'PerHourKMS'=>trim($this->input->post('PerHourKMS')),
+			'IsActive' =>$this->input->post('IsActive'),			
+			'CreatedOn'=>date('Y-m-d')		
+		);
+	    //echo "<pre>";print_r($data);die;	         
+        $res=$this->db->insert('tbllocaltripprice',$data);	
+		return $res;
+	}
+
+	function gethoursfarelist()
+	{
+		$this->db->select("local.*,brand.BrandName");
+		$this->db->from("tbllocaltripprice as local");
+		$this->db->join('tblcarbrand as brand','local.CarBrandId = brand.CarBrandId', 'LEFT');
+		$this->db->where('local.IsDelete','0');
+		$this->db->order_by('local.LocalTripId','desc');
+		$query=$this->db->get();
+		$res = $query->result();
+		return $res;
+	}
+
+	function gethoursfaredata($LocalTripId)
+	{
+		$where=array('local.IsDelete'=>'0','local.LocalTripId'=>$LocalTripId);
+		$this->db->select("local.*,brand.BrandName");
+		$this->db->from("tbllocaltripprice as local");
+		$this->db->join('tblcarbrand as brand','local.CarBrandId = brand.CarBrandId', 'LEFT');
+		$this->db->where($where);
+	    $this->db->order_by('local.LocalTripId','desc');
+		$query=$this->db->get();
+		return $query->row_array();
+	}
+
+
+	function hoursfare_update()
+	{
+	   	$LocalTripId=$this->input->post('LocalTripId');
+        $data = array(
+		'CarBrandId'=>trim($this->input->post('CarBrandId')),
+		'PerHoureFare'=>trim($this->input->post('PerHoureFare')),
+		'Hours'=>trim($this->input->post('Hours')),
+		'PerHourKMS'=>trim($this->input->post('PerHourKMS')),
+		'IsActive' =>$this->input->post('IsActive'),					
+		'UpdatedOn'=>date('Y-m-d')		
+		); 
+		//print_r($data);die;
+		$this->db->where("LocalTripId",$LocalTripId);
+		$res=$this->db->update('tbllocaltripprice',$data);		
+		return $res;
+	}
 	
 }

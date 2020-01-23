@@ -83,6 +83,26 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 									<label>Tax</label>
 									<input type="text" class="form-control" placeholder="Enter Tax" name="Tax" value="<?php echo $Tax;?>" minlength="1" maxlength="3">
 								</div>
+
+								<div class="form-group">
+									<label>Happy Clients</label>
+									<input type="text" class="form-control" placeholder="Enter Happy Clients" name="HappyClients" value="<?php echo $HappyClients;?>" id="HappyClients" minlength="1" maxlength="10">
+								</div>
+
+								<div class="form-group">
+									<label>Trips Daily</label>
+									<input type="text" class="form-control" placeholder="Enter Trips Daily" name="TripsDaily" value="<?php echo $TripsDaily;?>" id="TripsDaily" minlength="1" maxlength="10">
+								</div>
+
+								<div class="form-group">
+									<label>Cabs</label>
+									<input type="text" class="form-control" placeholder="Enter Cabs" name="Cabs" value="<?php echo $Cabs;?>" id="Cabs" minlength="1" maxlength="3">
+								</div>
+
+								<div class="form-group">
+									<label>Kilometers Daily</label>
+									<input type="text" class="form-control" placeholder="Enter Kilometers Daily" name="KilometersDaily" value="<?php echo $KilometersDaily;?>" id="KilometersDaily" minlength="1" maxlength="5">
+								</div>
 							
 							    <div class="form-actions">
 									 <button class="btn btn-black " type="submit"><i class="icon-ok"></i> <?php echo ($SettingId!='')?'Update':'Submit' ?></button>
@@ -109,6 +129,35 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
 
 <script>
+$("#HappyClients").on("input", function(evt) {
+	var self = $(this);
+	self.val(self.val().replace(/[^\d].+/, ""));
+	if ((evt.which < 48 || evt.which > 57)) 
+	{
+		evt.preventDefault();
+	}});
+$("#TripsDaily").on("input", function(evt) {
+	var self = $(this);
+	self.val(self.val().replace(/[^\d].+/, ""));
+	if ((evt.which < 48 || evt.which > 57)) 
+	{
+		evt.preventDefault();
+	}});
+$("#Cabs").on("input", function(evt) {
+	var self = $(this);
+	self.val(self.val().replace(/[^\d].+/, ""));
+	if ((evt.which < 48 || evt.which > 57)) 
+	{
+		evt.preventDefault();
+	}});
+$("#KilometersDaily").on("input", function(evt) {
+	var self = $(this);
+	self.val(self.val().replace(/[^\d].+/, ""));
+	if ((evt.which < 48 || evt.which > 57)) 
+	{
+		evt.preventDefault();
+	}});
+
 $("#SiteContactNumber").on("input", function(evt) {
 	var self = $(this);
 	self.val(self.val().replace(/[^\d].+/, ""));
@@ -152,6 +201,21 @@ $(document).ready(function()
 					required: true,                
 				},
 				OfficeTime:{              
+					required: true,                
+				},
+				Tax:{              
+					required: true,                
+				},
+				HappyClients:{              
+					required: true,                
+				},
+				TripsDaily:{              
+					required: true,                
+				},
+				Cabs:{              
+					required: true,                
+				},
+				KilometersDaily:{              
 					required: true,                
 				},			
 			 }, 

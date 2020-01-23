@@ -28,6 +28,10 @@ class Home extends CI_Controller {
 		$data['OfficeAddress']=$this->input->post('OfficeAddress');
 		$data['OfficeTime']=$this->input->post('OfficeTime');
 		$data['Tax']=$this->input->post('Tax');
+		$data['HappyClients']=$this->input->post('HappyClients');
+		$data['TripsDaily']=$this->input->post('TripsDaily');
+		$data['Cabs']=$this->input->post('Cabs');
+		$data['KilometersDaily']=$this->input->post('KilometersDaily');
 		if($_POST)
 		{	
 				if($this->input->post("SettingId")!="")
@@ -65,6 +69,10 @@ class Home extends CI_Controller {
 		$data['OfficeAddress']=$result['OfficeAddress'];
 		$data['OfficeTime']=$result['OfficeTime'];
 		$data['Tax']=$result['Tax'];
+		$data['HappyClients']=$result['HappyClients'];
+		$data['TripsDaily']=$result['TripsDaily'];
+		$data['Cabs']=$result['Cabs'];
+		$data['KilometersDaily']=$result['KilometersDaily'];
 		$data['activeTab']="Editabout";	
 		//echo "<pre>";print_r($data);die;	
 		$data['activeTab']="sitesettinglist";	
@@ -216,11 +224,10 @@ class Home extends CI_Controller {
 
 	function reset_password($code='')
 	{
-
 		if(check_admin_authentication())
-			{
-				redirect('home/dashbord');
-			}
+		{
+			redirect('home/dashbord');
+		}
 			
 			$admin_id=$this->Login_model->checkResetCode($code);
 			//print_r($admin_id);die;
@@ -230,56 +237,58 @@ class Home extends CI_Controller {
 			$data['AdminId']=$admin_id;
 			$data['code']=$code;
 	        
-            if($admin_id){
-            	if($_POST){
+            if($admin_id==1)
+            {
+            	if($_POST)
+            	{
+					if($this->input->post('AdminId') != '')
+					{
+						$this->form_validation->set_rules('Password', 'Password', 'required');
+						$this->form_validation->set_rules('Confrim_password', 'Re-type Password', 'required|matches[Password]');
 				
-				if($this->input->post('AdminId') != ''){
-					$this->form_validation->set_rules('Password', 'Password', 'required');
-					$this->form_validation->set_rules('Confrim_password', 'Re-type Password', 'required|matches[Password]');
-				
-					if($this->form_validation->run() == FALSE){			
-						if(validation_errors()){
-							echo json_encode(array("status"=>"error","msg"=>validation_errors()));
+						if($this->form_validation->run() == FALSE)
+						{			
+							if(validation_errors())
+							{
+								echo json_encode(array("status"=>"error","msg"=>validation_errors()));
+							}
 						}
-					}else{
+						else
+						{
 						
 							$up=$this->Login_model->updatePassword();
-						if($up>0){
-							$this->session->set_flashdata('success',RESET_SUCCESS); 
-							redirect('login');
-						}elseif($up=='') {
+							if($up>0){
+								$this->session->set_flashdata('success',RESET_SUCCESS); 
+								redirect('login');
+							}elseif($up=='') {
+								
+								$error = EXPIRED_RESET_LINK;
+						      $this->session->set_flashdata('error',EXPIRED_RESET_LINK); die; 
+							}
+							else{
 							
-							$error = EXPIRED_RESET_LINK;
-					      $this->session->set_flashdata('error',EXPIRED_RESET_LINK); die; 
+								$error = PASS_RESET_FAIL;
+			                    $this->session->set_flashdata('error',PASS_RESET_FAIL); die; 
+							}
 						}
-						else{
-							//echo "gfgfdg";die;
-							$error = PASS_RESET_FAIL;
-		                    $this->session->set_flashdata('error',PASS_RESET_FAIL); die; 
-						}
-
-					
-						
 					}
-				}else{
-					//echo "hii";die;
-					$error = EXPIRED_RESET_LINK;
-					// $redirect=site_url('home/index');
-					//$redirect=site_url();
-	              $this->session->set_flashdata('error',EXPIRED_RESET_LINK); die; 
-				}
-				 $this->load->view('common/ResestPassword',$data);
-		    }else{
-		    	//echo 'dfdfds';die;
-		    	$this->load->view('common/ResestPassword',$data);
-		    }
+					else
+					{
+						$error = EXPIRED_RESET_LINK;
+	              		$this->session->set_flashdata('error',EXPIRED_RESET_LINK); die; 
+					}
+				 		$this->load->view('common/ResestPassword',$data);
+		    	}
+		    	else
+		    	{
+		    		$this->load->view('common/ResestPassword',$data);
+		    	}
+            }
+            else if($code=='')
+            {
 
-            }else{
-
-            	 // echo "hii";die;
-					$error = EXPIRED_RESET_LINK;
-					 $this->session->set_flashdata('error',EXPIRED_RESET_LINK); die; 
-					 redirect('home');
+				$this->session->set_flashdata('error','Your link has been expired!'); 
+				redirect('home');
 		    }
 	}
 

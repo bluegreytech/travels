@@ -1,5 +1,6 @@
+<?php $this->load->view('common/css'); ?>
 <body class="main-bg">
- <?php $this->load->view('common/css'); ?>
+
   <div class="app-content content container-fluid">
       <div class="content-wrapper">
         <div class="content-header row">
@@ -63,13 +64,13 @@
 $(function() { 
     setTimeout(function() {
   $('#errorMessage').fadeOut('fast');
-}, 3000);
+}, 10000);
    
 });
 $(function() { 
     setTimeout(function() {
   $('#successMessage').fadeOut('fast');
-}, 3000);
+}, 10000);
    
 });
 //alert();

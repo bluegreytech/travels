@@ -35,7 +35,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <th>Sr No</th>
                                 <th>Name</th>                              
                                 <!-- <th>Description</th> -->
-                                <th>Image</th>
+                                <!-- <th>Image</th> -->
 								<th>Status</th>
                                 <th>Approve Status</th>
                                 <th>Action</th>
@@ -51,7 +51,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <tr>
                                     <td><?php echo $i; ?></td>
                                     <td><?php echo $row->FirstName.' '.$row->LastName; ?></td>
-                                    <td>
+                                   <!--  <td>
                                         <?php
                                         if($row->TestimonialImage=='' && $row->TestimonialImage==null)
                                         {
@@ -64,7 +64,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             <?php
                                         }
                                         ?>  
-                                    </td>
+                                    </td> -->
                                     <!-- <td><?php //echo $row->TetimonialDescription; ?></td> -->
                                     <td>
                                         <?php if($row->IsActive=="Active")

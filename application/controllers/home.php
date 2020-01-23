@@ -7,13 +7,12 @@ class Home extends CI_Controller
       	parent::__construct();
 		$this->load->model('Login_model');
 		$this->load->model('Contact_model');
-		$this->load->model('About_model');	
+		$this->load->model('About_model');
+		$this->load->library('Msg91');	
 	}
 
 	public function index()
 	{   
-		// $data['PickupTime']=$this->input->post('PickupTime');
-		// $data['DropofTime']=$this->input->post('DropofTime'); 
 
 		if(isset($_GET['StartCity']) && isset($_GET['EndCity']))
 		{	$data=array();
@@ -92,7 +91,10 @@ class Home extends CI_Controller
 				'PerHoureFare'=>$data['PerHoureFare'],
 			 	'LocalTripId'=>$data['LocalTripId'],
 			 );
-			$this->session->set_userdata($session);	
+			$this->session->set_userdata($session);
+
+
+
 		}
 		
 		$data['about']=$this->About_model->getabout(); 	  
@@ -115,29 +117,39 @@ class Home extends CI_Controller
 		$data['OTPNumber']=$this->input->post('OTPNumber');
 
 		$data['LocalTripId']=$this->input->post('LocalTripId');
+
+
 		if($_POST)
 		{
 			//print_r($_POST);die;
-			$session= array(
-				'StartCity'=> $data['StartCity'],
-				'EndCity'=> $data['EndCity'],
-				'PickupDate'=> $data['PickupDate'],
-				'DropofDate'=> $data['DropofDate'],
-				'PickupTime'=> $data['PickupTime'],
-				'DropofTime'=> $data['DropofTime'],
-				'CarBrandId'=> $data['CarBrandId'],
-				'BrandName'=>$data['BrandName'],
-				'PerHoureFare'=>$data['PerHoureFare'],	
-				'ContactNumber'=> $data['ContactNumber'],
-				'OTPNumber'=>$data['OTPNumber'],
-				'LocalTripId'=>$data['LocalTripId'],
-			 );
+				$session= array(
+					'StartCity'=> $data['StartCity'],
+					'EndCity'=> $data['EndCity'],
+					'PickupDate'=> $data['PickupDate'],
+					'DropofDate'=> $data['DropofDate'],
+					'PickupTime'=> $data['PickupTime'],
+					'DropofTime'=> $data['DropofTime'],
+					'CarBrandId'=> $data['CarBrandId'],
+					'BrandName'=>$data['BrandName'],
+					'PerHoureFare'=>$data['PerHoureFare'],	
+					'ContactNumber'=> $data['ContactNumber'],
+					'OTPNumber'=>$data['OTPNumber'],
+					'LocalTripId'=>$data['LocalTripId'],
+				 );
+				$this->session->set_userdata($session);
 
-			//print_r($session);die;
-			$this->Login_model->login();
-			$this->session->set_userdata($session);
-			$this->session->set_flashdata('success', 'You have to send OTP on your contact number,Please submit!');
-			redirect('home/process');	
+			if($this->input->post('ContactNumber')!='' && $this->input->post('OTPNumber')!='')
+			{	
+				// $rndno=rand(1000, 999999);
+				$to=$this->input->post('ContactNumber');
+				$message=$this->input->post('OTPNumber');
+				if($this->msg91->send($to, $message) == TRUE)  
+				{
+					$this->Login_model->login();
+					$this->session->set_flashdata('success', 'You have to send OTP on your contact number,Please submit!');
+					redirect('home/process');
+				}
+			}	
 		}  
 		$data['about']=$this->About_model->getabout(); 	  
 		$data['result']=$this->Contact_model->getsitedetail();  	
@@ -169,8 +181,6 @@ class Home extends CI_Controller
 		$data['PerHourKMS']=$this->input->post('PerHourKMS');
 		$data['Hours']=$this->input->post('Hours');
 
-		
-		
 		$result=$this->Login_model->getuser($this->input->post('ContactNumber'));
 		$AlreadyOTPNumber=$result['OTPNumber'];
 		if($this->input->post('OTPNumber')==$AlreadyOTPNumber)
@@ -257,8 +267,7 @@ class Home extends CI_Controller
 		}
 	}
 
-   
-
+  
     public function userlogin()
 	{
 		$data['about']=$this->About_model->getabout(); 	
@@ -269,28 +278,37 @@ class Home extends CI_Controller
 	public function loginprocess()
 	{
 		$data['ContactNumber']=$this->input->post('ContactNumber');
+
+		$data['LoginOTP']=$this->input->post('LoginOTP');
+
 		$ContactNumber=$data['ContactNumber']=$this->input->post('ContactNumber');
-		$data['OTPNumber']=$this->input->post('OTPNumber');
+		$data['LoginOTP']=$this->input->post('LoginOTP');
 		if($_POST)
 		{
-			if($this->input->post('ContactNumber')!='')
+
+			if($this->input->post('ContactNumber')!='' && $this->input->post('LoginOTP')!='')
 			{
-				$session= array(
-						'ContactNumber'=> $data['ContactNumber'],	
-					);
-				//print_r($session);die;
-				$this->session->set_userdata($session);	
-				$login =$this->Login_model->check_number();
-				if($login == '1')
+				$to=$this->input->post('ContactNumber');
+				$message=$this->input->post('LoginOTP');
+				if($this->msg91->send($to, $message) == TRUE)  
 				{
-		         	$this->session->set_flashdata('success', 'You have to send OTP on your contact number,Please submit!');
-				}
-				elseif($login == '2')
-				{        
-		          	$this->session->set_flashdata('wrong','Your mobile number not registered');
-					redirect('home/userlogin');
-				}
-			}	
+					$session= array(
+							'ContactNumber'=> $data['ContactNumber'],
+							'LoginOTP'=> $data['LoginOTP'],	
+						);
+					$this->session->set_userdata($session);	
+					$login =$this->Login_model->check_number();
+					if($login == '1')
+					{
+			         	$this->session->set_flashdata('success', 'You have to send OTP on your contact number,Please submit!');
+					}
+					elseif($login == '2')
+					{        
+			          	$this->session->set_flashdata('wrong','Your mobile number not registered');
+						redirect('home/userlogin');
+					}
+				}	
+			}
 		}  
 
 		$data['about']=$this->About_model->getabout(); 	
@@ -304,46 +322,43 @@ class Home extends CI_Controller
 			redirect(base_url());
 		}
     	$data['ContactNumber']=$this->input->post('ContactNumber');
-		$data['OTPNumber']=$this->input->post('OTPNumber');
+		$data['LoginOTP']=$this->input->post('LoginOTP');
 
 		$data['TestimonialId']=$this->input->post('TestimonialId');
 		$data['TestimonialDescription']=$this->input->post('TestimonialDescription');
     	if($_POST)
 		{
-			if($this->input->post('ContactNumber')!='')
-			{
-				$login =$this->Login_model->check_login();
-				if($login == '1')
-				{
-					$ContactNumber = $this->input->post('ContactNumber');
-					$where = array(
-					"ContactNumber"=>$ContactNumber,
-					);
-					$log = $this->Login_model->login_where('tbluser',$where);
-					if($log)
+			if($this->input->post('ContactNumber')!='' && $this->input->post('LoginOTP')!='')
+			{	
+					$login =$this->Login_model->check_login();
+					if($login == '1')
 					{
-						
+						$ContactNumber = $this->input->post('ContactNumber');
+						$where = array(
+						"ContactNumber"=>$ContactNumber,
+						);
+
+						$log = $this->Login_model->login_where('tbluser',$where);
+						if($log)
+						{
+							
 							$session= array(
 								'FirstName'=> $log->FirstName,
 								'LastName'=> $log->LastName,
 								'EmailAddress'=> $log->EmailAddress,
 								'ContactNumber'=>$log->ContactNumber,		
 							);
-							//print_r($session);die;
 							$this->session->set_userdata($session);
 							$this->session->set_flashdata('success','You are Login successfully!');
-						
-						
+							
+						}
 					}
-
-				
-				}
-				else if($login == '2')
-				{        
-		  			$this->session->set_flashdata('wrong','Your entered wrong OTP');
-					redirect('home/loginprocess');
-				}
-				
+					else if($login == '2')
+					{        
+			  			$this->session->set_flashdata('wrong','Your entered wrong OTP');
+						redirect('home/loginprocess');
+					}
+					
 			}
 
 		}
@@ -398,20 +413,18 @@ class Home extends CI_Controller
 	}
 
 
-	function getdistance()
+	function getlocalpack()
 	{
-		$data['about']=$this->About_model->getabout(); 	
-		$data['result']=$this->Contact_model->getsitedetail();
-		$this->load->view('home/mmm',$data);
+		$result=$this->Login_model->getlocal_pack();
+		echo json_encode($result);
 	}
 
-	// function getlocalpack()
-	// {
-	// 	//$LocalTripId=$this->input->post('LocalTripId');
-	// 	$result=$this->Login_model->getlocal_pack();
-	// 	//print_r($result);die;
-	// 	echo json_encode($result);
-	// }
+	function dis()
+	{
+		//$data['about']=$this->About_model->getabout(); 	
+		//$data['result']=$this->Contact_model->getsitedetail();
+		$this->load->view('home/mmm');
+	}
 
 	// function getdistance()
 	// {
@@ -443,18 +456,15 @@ class Home extends CI_Controller
 	// }
 
 
-	// function getDistance()
+	// function getDistance($addressFrom, $addressTo, $unit = '')
 	// {
-	// 	// $addressFrom, $addressTo, $unit = ''
-	// 	$addressFrom="Ahmadabad";
-	// 	$addressTo="Anand";
-	// 	$unit ='';
+		
 	//     // Google API key
-	//     $apiKey = 'AIzaSyDj1Rs87JgSp5oK3bfK6vI-eIG0MzKEfkI';
+	//     $apiKey='AIzaSyAjBiTO0tUBWEYXRC_TtSq0BQDIQ4tk7gc';
 	    
 	//     // Change address format
-	//     $formattedAddrFrom    = str_replace(' ', '+', $addressFrom);
-	//     $formattedAddrTo     = str_replace(' ', '+', $addressTo);
+	//     $formattedAddrFrom=str_replace(' ', '+', $addressFrom);
+	//     $formattedAddrTo=str_replace(' ', '+', $addressTo);
 	    
 	//     // Geocoding API request with start address
 	//     echo $geocodeFrom = file_get_contents('https://maps.googleapis.com/maps/api/geocode/json?address='.$formattedAddrFrom.'&sensor=false&key='.$apiKey);
@@ -489,13 +499,16 @@ class Home extends CI_Controller
 	//         return round($miles * 1.609344, 2).' km';
 	//     }elseif($unit == "M"){
 	//         echo round($miles * 1609.344, 2).' meters';
-	//         echo "1111";
-	//         die;
+	//         //die;
 	//     }else{
-	//         echo  round($miles, 2).' miles';
-	//           echo "2222";
-	//         die;
+	//         echo  round($miles, 2).' miles'; 
+	//        // die;
 	//     }
+	//     $address_1 = 'Anand,Gujrat';
+	// 	$address_2  = 'Ahmedabad,Gujrat';
+
+	// // Get distance in km
+	// echo $distance = getDistance($address_1, $address_2, "K");
 	// }
 	
 	

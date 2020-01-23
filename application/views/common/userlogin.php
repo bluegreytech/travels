@@ -61,14 +61,14 @@
 						<div class="col-md-10 col-xs-8">
 							<div class="input-group">
 
-							<input type="hidden" name="LoginOTP" value="<?php echo $LoginOTP=rand(12,123456);?>">
+							<input type="hidden" name="LoginOTP" value="<?php echo $LoginOTP=rand(2000, 999999);?>">
 								<input type="text" class="form-control" name="ContactNumber" id="ContactNumber" placeholder="Enter 10 Digit Mobile Number" minlength="10" maxlength="10">
 							</div>
 
 						</div>
 						<div class="col-md-12 text-center">
 							<p class="otptext">Indian Mobile Numbers Supported Only.</p>
-							<p class="otptext">4 Digit OTP will be sent via SMS.</p>
+							<p class="otptext">6 Digit OTP will be sent via SMS.</p>
 							<input type="submit" class="btn btn-primary" value="Next">
 						</div>
 						

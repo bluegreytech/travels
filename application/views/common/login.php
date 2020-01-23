@@ -71,7 +71,7 @@
 								<input type="hidden" name="DropofDate" value="<?php echo $DropofDate;?>">
 								<input type="hidden" name="PickupTime" value="<?php echo $PickupTime;?>">
 								<input type="hidden" name="DropofTime" value="<?php echo $DropofTime;?>">
-								<input type="hidden" name="OTPNumber" value="<?php echo $OTPNumber=rand(12,123456);?>">
+								<input type="hidden" name="OTPNumber" value="<?php echo $OTPNumber=rand(1000, 999999);?>">
 								<input type="hidden" name="LocalTripId" value="<?php echo $LocalTripId?>">
 
 								<input type="text" class="form-control" name="ContactNumber" id="ContactNumber" placeholder="Enter 10 Digit Mobile Number" minlength="10" maxlength="10">

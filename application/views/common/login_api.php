@@ -33,7 +33,7 @@
 			<div class="row finder-form">
 				<div class="col-md-6 col-md-offset-3 car-finder-form">
 					<form class="row inner" method="post" enctype="multipart/form-data" 
-				        				action="<?php echo base_url();?>home/process" id="form_valid">
+				        				action="<?php echo base_url();?>home/send_otp" id="form_valid">
 						<div class="col-md-12">
 							<h3 class="form-title">Login</h3>
 						</div>
@@ -44,36 +44,6 @@
 						</div>
 						<div class="col-md-10 col-xs-8">
 							<div class="input-group">
-								<?php
-					          	if($this->session->userdata('StartCity')!='')
-					          	{
-
-								 	$StartCity=$this->session->userdata('StartCity');
-									$EndCity=$this->session->userdata('EndCity');
-									$PickupDate=$this->session->userdata('PickupDate');
-									$DropofDate=$this->session->userdata('DropofDate');
-									$PickupTime=$this->session->userdata('PickupTime');
-									$DropofTime=$this->session->userdata('DropofTime');
-									$CarBrandId=$this->session->userdata('CarBrandId');
-									$BrandName=$this->session->userdata('BrandName');
-									$PerHoureFare=$this->session->userdata('PerHoureFare');
-
-									$LocalTripId=$this->session->userdata('LocalTripId');
-								}
-								?>
-
-								<input type="hidden" name="CarBrandId" value="<?php echo $CarBrandId;?>">
-								<input type="hidden" name="BrandName" value="<?php echo $BrandName; ?>">
-								<input type="hidden" name="PerHoureFare" value="<?php echo $PerHoureFare; ?>">
-								<input type="hidden" name="StartCity" value="<?php echo $StartCity;?>">
-								<input type="hidden" name="EndCity" value="<?php echo $EndCity;?>">
-								<input type="hidden" name="PickupDate" value="<?php echo $PickupDate;?>">
-								<input type="hidden" name="DropofDate" value="<?php echo $DropofDate;?>">
-								<input type="hidden" name="PickupTime" value="<?php echo $PickupTime;?>">
-								<input type="hidden" name="DropofTime" value="<?php echo $DropofTime;?>">
-								<input type="hidden" name="OTPNumber" value="<?php echo $OTPNumber=rand(12,123456);?>">
-								<input type="hidden" name="LocalTripId" value="<?php echo $LocalTripId?>">
-
 								<input type="text" class="form-control" name="ContactNumber" id="ContactNumber" placeholder="Enter 10 Digit Mobile Number" minlength="10" maxlength="10">
 							</div>
 						</div>

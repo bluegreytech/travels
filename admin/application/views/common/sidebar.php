@@ -22,11 +22,11 @@
             </a>
             <ul class="menu-content">
               <li>
-                <a href="<?php echo base_url(); ?>Admin/AddAdmin" data-i18n="nav.dash.main" class="menu-item  <?php echo ($activeTab == "AddAdmin") ? "active" : ""; ?>" ><i class="icon-plus"></i> Add Admin</a>
+                <a href="<?php echo base_url(); ?>admin/AddAdmin" data-i18n="nav.dash.main" class="menu-item  <?php echo ($activeTab == "AddAdmin") ? "active" : ""; ?>" ><i class="icon-plus"></i> Add Admin</a>
               </li>
               <li>
               <li>
-                <a href="<?php echo base_url(); ?>Admin/Adminlist" data-i18n="nav.dash.main" class="menu-item <?php echo ($activeTab == "Adminlist") ? "active" : ""; ?>"><i class="icon-file-text2"></i>List of Admin</a>
+                <a href="<?php echo base_url(); ?>admin/Adminlist" data-i18n="nav.dash.main" class="menu-item <?php echo ($activeTab == "Adminlist") ? "active" : ""; ?>"><i class="icon-file-text2"></i>List of Admin</a>
               </li>
             </ul>
           </li> 
@@ -43,7 +43,7 @@
               </li> -->
               <li>
               <li>
-                <a href="<?php echo base_url(); ?>user/Userlist" data-i18n="nav.dash.main" class="menu-item <?php echo ($activeTab == "Userlist") ? "active" : ""; ?>"><i class="icon-file-text2"></i>List of User</a>
+                <a href="<?php echo base_url(); ?>user/userlist" data-i18n="nav.dash.main" class="menu-item <?php echo ($activeTab == "Userlist") ? "active" : ""; ?>"><i class="icon-file-text2"></i>List of User</a>
               </li>
             </ul>
           </li> 

@@ -10,7 +10,7 @@ class User extends CI_Controller {
       
     }
 
-	function Userlist()
+	function userlist()
 	{	
 		if(!check_admin_authentication()){ 
 			redirect(base_url());
@@ -19,7 +19,7 @@ class User extends CI_Controller {
 			$data['result']=$this->User_model->userlist();	
 			//echo "<pre>";print_r($data["result"]);die;		
 			$data['redirect_page']="userlist";
-			$this->load->view('User/UserList',$data);
+			$this->load->view('user/UserList',$data);
 		}
 	}
 
@@ -61,14 +61,14 @@ class User extends CI_Controller {
 					{	
 						$this->User_model->user_update();
 						$this->session->set_flashdata('success', 'Record has been Updated Succesfully!');
-						redirect('User/Userlist');
+						redirect('user/Userlist');
 						
 					}
 					else
 					{ 
 						$this->User_model->user_insert();
 						$this->session->set_flashdata('success', 'Record has been Inserted Succesfully!');
-						redirect('User/Userlist');
+						redirect('user/Userlist');
 					
 					}
 				
@@ -92,7 +92,7 @@ class User extends CI_Controller {
 			$data['IsActive']=$result['IsActive'];
 			$data['payment_status']=$result['payment_status'];	
 			$data['redirect_page']="userlist";		
-			$this->load->view('User/UserAdd',$data);	
+			$this->load->view('user/UserAdd',$data);	
 		}
 	}
 
@@ -134,7 +134,7 @@ class User extends CI_Controller {
 			$data['cabhistory']=$this->User_model->get_cabhistory($ContactNumber);
 			//echo "<pre>";print_r($data['cabhistory']);die;	
 			$data['redirect_page']="userlist";		
-			$this->load->view('User/Usercabhistorylist',$data);	
+			$this->load->view('user/Usercabhistorylist',$data);	
 		}
 	}
 

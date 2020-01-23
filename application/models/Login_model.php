@@ -460,7 +460,7 @@ class Login_model extends CI_Model
             $ContactNumber=$user['ContactNumber'];
             if($ContactNumber!='')
             {
-                $LoginOTP=rand(12,123456);
+                //$LoginOTP=rand(2000, 999999);
                 $data = array(
                 'LoginOTP' =>$LoginOTP, 
                 'Status' =>'Verify',    

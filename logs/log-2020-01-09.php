@@ -192,3 +192,19 @@ ERROR - 2020-01-09 11:49:19 --> Severity: Notice --> Undefined index: StartCity 
 ERROR - 2020-01-09 11:49:19 --> Severity: Notice --> Undefined index: EndCity C:\xampp\htdocs\travels\application\views\home\index.php 219
 ERROR - 2020-01-09 11:49:19 --> 404 Page Not Found: Assets/images
 ERROR - 2020-01-09 11:52:39 --> Severity: Notice --> Undefined variable: FirstName C:\xampp\htdocs\travels\application\models\Login_model.php 234
+ERROR - 2020-01-09 12:15:37 --> Severity: Notice --> Undefined index: StartCity C:\xampp\htdocs\travels\application\views\home\index.php 83
+ERROR - 2020-01-09 12:15:37 --> Severity: Notice --> Undefined index: StartCity C:\xampp\htdocs\travels\application\views\home\index.php 83
+ERROR - 2020-01-09 12:15:37 --> Severity: Notice --> Undefined index: EndCity C:\xampp\htdocs\travels\application\views\home\index.php 120
+ERROR - 2020-01-09 12:15:37 --> Severity: Notice --> Undefined index: EndCity C:\xampp\htdocs\travels\application\views\home\index.php 120
+ERROR - 2020-01-09 12:15:37 --> Severity: Notice --> Undefined index: StartCity C:\xampp\htdocs\travels\application\views\home\index.php 183
+ERROR - 2020-01-09 12:15:37 --> Severity: Notice --> Undefined index: StartCity C:\xampp\htdocs\travels\application\views\home\index.php 183
+ERROR - 2020-01-09 12:15:37 --> Severity: Notice --> Undefined index: EndCity C:\xampp\htdocs\travels\application\views\home\index.php 219
+ERROR - 2020-01-09 12:15:37 --> Severity: Notice --> Undefined index: EndCity C:\xampp\htdocs\travels\application\views\home\index.php 219
+ERROR - 2020-01-09 12:15:40 --> 404 Page Not Found: Assets/images
+ERROR - 2020-01-09 12:17:43 --> Severity: Notice --> Undefined index: StartCity C:\xampp\htdocs\travels\application\views\home\index.php 83
+ERROR - 2020-01-09 12:17:43 --> Severity: Notice --> Undefined index: EndCity C:\xampp\htdocs\travels\application\views\home\index.php 120
+ERROR - 2020-01-09 12:17:43 --> Severity: Notice --> Undefined index: StartCity C:\xampp\htdocs\travels\application\views\home\index.php 183
+ERROR - 2020-01-09 12:17:43 --> Severity: Notice --> Undefined index: EndCity C:\xampp\htdocs\travels\application\views\home\index.php 219
+ERROR - 2020-01-09 12:17:52 --> 404 Page Not Found: Assets/vendors
+ERROR - 2020-01-09 12:17:52 --> 404 Page Not Found: Assets/js
+ERROR - 2020-01-09 12:17:52 --> 404 Page Not Found: Assets/vendors

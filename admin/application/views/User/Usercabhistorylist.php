@@ -76,7 +76,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 </td>  
                                 <!-- Modal -->
                                 <div id="myModal2_<?php echo $row->UserId;?>" class="modal fade" role="dialog">
-                                  <div class="modal-dialog">
+                                  <div class="modal-dialog faredetail">
 
                                     <!-- Modal content-->
                                     <div class="modal-content">
@@ -190,13 +190,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             <div class="col-md-6 col-xs-6 left-border">
                                                 <div class="text-center">
                                                     <div><h3>Total Distance</h3></div>
-                                                    <div><span>KMS</span><input type="text" id="KMS" value="<?php echo $row->KMS;?>" readonly></div>
+                                                    <div class="total-data-left">
+                                                       <input type="text" id="KMS" value="<?php echo $row->KMS;?>" readonly>
+                                                       <span>KMS</span>
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="col-md-6 col-xs-6">
                                                  <div class="text-center">
                                                     <div><h3>Total Fare</h3></div>
-                                                    <div><span>Cab Rate</span><input type="text" id="FinalAmount" value="<?php echo $row->FinalAmount;?>" readonly></div>
+                                                    <div class="total-data-right">
+                                                        <input type="text" id="FinalAmount" value="<?php echo $row->FinalAmount;?>" readonly>
+                                                        <span>Cab Rate</span>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>

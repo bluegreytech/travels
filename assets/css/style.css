@@ -2462,8 +2462,10 @@ h2.hd-sec {
       max-width: 630px;
       margin: 0 auto; } }
   .testimonial .inner {
-    padding: 32px 38px 38px;
-    transition: all 300ms linear 0s; }
+    padding: 16px 38px 38px;
+    transition: all 300ms linear 0s;
+    height: 220px;
+     }
     .testimonial .inner:hover, .testimonial .inner:focus {
       box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.1); }
   .testimonial p {
@@ -4898,4 +4900,7 @@ button.close{
       width: 750px;
       margin: 30px auto;
   }
+}
+.error{
+  color:red!important;
 }

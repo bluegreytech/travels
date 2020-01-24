@@ -2171,10 +2171,6 @@ a.paginate_button{
 .price-detail input{
   text-align: center;
 }
-.price-detail  span{
-      font-size: 18px;
-    font-weight: 600;
-}
 .price-detail .left-border{
   border-right: solid 3px #c71f48;
 }

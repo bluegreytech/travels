@@ -737,7 +737,7 @@ function getendcity(StartCity)
         success:function(response){
 			var response = JSON.parse(response);
             //console.log(response);
-            $("option[id=EndCity]").empty();
+            $("#EndCity").empty();
               $.each(response, function(key, val) {
               	console.log(val.EndCity);
                 $("#EndCity").append(
@@ -761,7 +761,7 @@ function getendcityround(StartCityRound)
         success:function(response){
 			var response = JSON.parse(response);
             //console.log(response);
-            $("option[id=EndCityRound]").empty();
+            $("#EndCityRound").empty();
               $.each(response, function(key, val) {
               	console.log(val.EndCity);
                 $("#EndCityRound").append(

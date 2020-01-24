@@ -940,3 +940,31 @@ a:hover {
     border: none;
     width: 100%;
 }
+.faredetail input {
+    border: none;
+    outline: none;
+    width: 100%;
+    white-space: normal;
+}
+.total-data-left, .total-data-right {
+    display: inline-flex;
+    width: 100%;
+}
+.total-data-right span {
+    width: 50%;
+    text-align: left;
+    margin-top: 1px;
+    margin-left: 2px;
+}
+.total-data-right input {
+    width: 50%;
+    text-align: right;
+}
+.total-data-left input {
+    text-align: right;
+    width: 50%;
+}
+.total-data-left span {
+    margin-top: 1px;
+    margin-left: 2px;
+}

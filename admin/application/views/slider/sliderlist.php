@@ -13,6 +13,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <!-- Table head options start -->
 <div class="row">
     <div class="col-xs-12">
+   <?php //echo $this->session->flashdata('success');?>
     <?php if(($this->session->flashdata('success'))){ ?>
         <div class="alert alert-success" id="successMessage">
         <strong> <?php echo $this->session->flashdata('success'); ?></strong> 
@@ -21,9 +22,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
        
         <div class="card">
             <div class="card-header">
-                <h4 class="card-title">List of Car
+                <h4 class="card-title">List of Slider
                 <a class="heading-elements-toggle"><i class="icon-ellipsis font-medium-3"></i></a>
-                <a href="<?php echo base_url();?>car/caradd" class="btn btn-black" style="float:right">Add Car</a>
+                <a href="<?php echo base_url();?>slider/slideradd" class="btn btn-black" style="float:right">Add Slider</a>
                 </h4>
             </div>
             <div class="card-body collapse in">
@@ -32,12 +33,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <thead class="thead-inverse">
                             <tr>
                                 <th>Sr No</th>
-                                <th>Brand</th> 
-                                <th>Car Name</th>                              
-                                <th>Number of Seats</th>
-                                <th>Air Condition</th>
-                                <th>Car Number</th>
-								<th>IsActive</th>
+                                <th>Title</th>                              
+                                <th>Image</th>
+								<th>Status</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -50,11 +48,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             ?>
                             <tr>
                                     <td><?php echo $i; ?></td>
-                                    <td><?php echo $row->BrandName; ?></td>
-                                    <td><?php echo $row->CarName; ?></td>
-                                    <td><?php echo $row->NumberOfSeat; ?></td>
-                                    <td><?php echo $row->AirCondition; ?></td>
-                                    <td><?php echo $row->CarNumber; ?></td>
+                                    <td><?php echo $row->SliderTitle; ?></td>
+                                    <td>
+                                        <?php
+                                        if($row->SliderImage=='' && $row->SliderImage==null)
+                                        {
+                                            echo "N/A";
+                                        }
+                                        else
+                                        {
+                                            ?>
+                                            <img src="<?php echo base_url();?>upload/sliderimages/<?php echo $row->SliderImage;?>" height='70px' width='100px'>
+                                            <?php
+                                        }
+                                        ?>  
+                                    </td>
                                     <td>
                                         <?php if($row->IsActive=="Active")
                                             {
@@ -68,8 +76,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                         ?>
                                     </td>
                                     <td>
-                                        <?php echo anchor('Car/Editcar/'.$row->CarId,'<i class="ficon icon-pencil2"></i>'); ?>
-                                        <a onclick="deletedata('<?php echo $row->CarId; ?>')" ><i class="ficon icon-bin"></i></a>    
+                                        <?php echo anchor('slider/editslider/'.$row->SliderId,'<i class="ficon icon-pencil2"></i>'); ?>
+                                        <a onclick="deletedata('<?php echo $row->SliderId; ?>')" ><i class="ficon icon-bin"></i></a>    
                                     </td>  
                                 </tr>      
                                 <?php
@@ -115,19 +123,19 @@ $this->load->view('common/footer');
 $(function() { 
     setTimeout(function() {
   $('#successMessage').fadeOut('fast');
-}, 10000);
+}, 3000);
    
 });
 
-function deletedata(CarId){  
+function deletedata(SliderId){  
     $('#myModal').modal('show');
   // alert(id);
         $('#yes_btn').click(function(){
-                url="<?php echo base_url();?>Car/car_delete/";
+                url="<?php echo base_url();?>slider/slider_delete/";
                 $.ajax({
                 url: url,
                 type: "post",
-                data: {CarId:CarId} ,
+                data: {SliderId:SliderId} ,
                 success: function (response) {   
                     console.log(response);  
                     return false;        

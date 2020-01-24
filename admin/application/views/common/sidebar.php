@@ -130,6 +130,20 @@
             </ul>
           </li> 
 
+          <li class="nav-item <?php echo($activeTab == "slideradd"||$activeTab =="sliderlist") ? "open" : ""; ?>">
+            <a class="<?php echo ($activeTab == "slideradd" || $activeTab == "sliderlist") ? "active" : ""; ?>">
+              <i class="icon-file-image-o"></i><span data-i18n="nav.dash.main" class="menu-title">Slider Image</span>
+            </a>
+            <ul class="menu-content">
+              <li>
+                  <a href="<?php echo base_url(); ?>slider/slideradd" data-i18n="nav.dash.main" class="menu-item <?php echo ($activeTab == "slideradd") ? "active" : ""; ?>"><i class="icon-plus"></i> Add Image</a>
+              </li>
+              <li>
+                <a href="<?php echo base_url(); ?>slider/sliderlist" data-i18n="nav.dash.main" class="menu-item <?php echo ($activeTab == "sliderlist") ? "active" : ""; ?>"><i class="icon-file-text2"></i>List of Images</a>
+              </li>
+            </ul>
+          </li> 
+
           <li class="nav-item <?php echo($activeTab == "contactadd"||$activeTab =="contactlist") ? "open" : ""; ?>">
             <a class="<?php echo ($activeTab == "contactadd" || $activeTab == "contactlist") ? "active" : ""; ?>">
               <i class="icon-address-book"></i><span data-i18n="nav.dash.main" class="menu-title">Contact Us</span>
@@ -167,10 +181,10 @@
             </a>
             <ul class="menu-content">
               <li>
-                  <a href="<?php echo base_url(); ?>Testimonial/Testimonialadd" data-i18n="nav.dash.main" class="menu-item <?php echo ($activeTab == "testimonialadd") ? "active" : ""; ?>"><i class="icon-plus"></i> Add Testimonial</a>
+                  <a href="<?php echo base_url(); ?>testimonial/testimonialadd" data-i18n="nav.dash.main" class="menu-item <?php echo ($activeTab == "testimonialadd") ? "active" : ""; ?>"><i class="icon-plus"></i> Add Testimonial</a>
               </li>
               <li>
-                <a href="<?php echo base_url(); ?>Testimonial/Testimoniallist" data-i18n="nav.dash.main" class="menu-item <?php echo ($activeTab == "testimoniallist") ? "active" : ""; ?>"><i class="icon-file-text2"></i>List of Testimonial </a>
+                <a href="<?php echo base_url(); ?>testimonial/testimoniallist" data-i18n="nav.dash.main" class="menu-item <?php echo ($activeTab == "testimoniallist") ? "active" : ""; ?>"><i class="icon-file-text2"></i>List of Testimonial </a>
               </li>
             </ul>
           </li> 

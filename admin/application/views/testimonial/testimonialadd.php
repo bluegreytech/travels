@@ -54,7 +54,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								
 								<div class="form-group">
 									<label>Testimonial Short Description</label>
-									<textarea id="editor1" rows="5" class="form-control" name="TestimonialDescription" id="Notificationdescription"><?php echo $TestimonialDescription; ?></textarea>
+									<textarea id="editor1" rows="5" class="form-control" name="TestimonialDescription" id="Notificationdescription" minlength="10" 
+									maxlength="300"><?php echo $TestimonialDescription; ?></textarea>
 									<script>
 										CKEDITOR.replace('editor1');
 									</script>

@@ -9,24 +9,23 @@
 		<div id="jssor_1" style="position:relative;margin:0 auto;top:0px;left:0px;width:1349px;height:550px;overflow:hidden;visibility:hidden;">
         
         <div data-u="slides" style="cursor:default;position:relative;top:0px;left:0px;width:1349px;height:550px;overflow:hidden;">
-            <div>
-                <img data-u="image" src="<?php echo base_url();?>assets/images/slidedemo2.jpg" />
-                <div data-t="0" style="position:relative;top:250px;text-align:center;">
-                    <h2 class="this-h1">May it be Airport pickup and drop</h2>
-                </div>
-            </div>
-            <div>
-                <img data-u="image" src="<?php echo base_url();?>assets/images/wedding-car.jpg" />
-                <div data-t="0" style="position:relative;top:250px;text-align:center;">
-                    <h2 class="this-h1">May it be Wedding pickup and drop</h2>
-                </div>
-            </div>
-            <div>
-                <img data-u="image" src="<?php echo base_url();?>assets/images/beach-car.jpg" />
-                <div data-t="0" style="position:relative;top:250px;text-align:center;">
-                    <h2 class="this-h1">May it be Beach pickup and drop</h2>
-                </div>
-            </div>
+        	<?php
+			if($sliderData)
+			{
+				foreach($sliderData as $sData)
+				{
+			?>
+	            <div>
+	                <img data-u="image" src="<?php echo base_url();?>admin/upload/sliderimages/<?php echo $sData->SliderImage; ?>" />
+	                <div data-t="0" style="position:relative;top:250px;text-align:center;">
+	                    <h2 class="this-h1"><?php echo $sData->SliderTitle; ?></h2>
+	                </div>
+	            </div>
+            <?php
+        		}
+        	}
+            ?>
+            
         </div>
         <!-- Bullet Navigator -->
         <div data-u="navigator" class="jssorb032" style="position:absolute;bottom:12px;right:12px;" data-autocenter="1" data-scale="0.5" data-scale-bottom="0.75">
@@ -133,16 +132,7 @@
 			      					 				}
 			      					 				?>
 													
-													<!-- <?php
-													if($endcityData)
-													{
-														foreach($endcityData as $cData)
-														{
-													?>
-														<option value="<?php echo $cData->EndCity; ?>" ><?php echo $cData->EndCity; ?></option>
-													<?php
-													}}
-													?> -->
+						
 												</select>
 
 												<span class="input-group-addon"><i class="ion-android-locate"></i></span>
@@ -231,16 +221,7 @@
 			      					 					<?php
 			      					 				}
 			      					 				?>
-													<!-- <?php
-													if($endcityData)
-													{
-														foreach($endcityData as $cData)
-														{
-													?>
-														<option value="<?php echo $cData->EndCity; ?>"><?php echo $cData->EndCity;?></option>
-													<?php
-													}}
-													?> -->
+													
 												</select>
 												<span class="input-group-addon"><i class="ion-android-locate"></i></span>
 											</div>
@@ -322,7 +303,7 @@
 														{
 													?>
 														
-														<option value="<?php echo $localData->LocalTripId; ?>"><?php echo $localData->Hours.' Hrs '.$localData->PerHourKMS.' Fare' ?></option>
+														<option value="<?php echo $localData->LocalTripId; ?>"><?php echo $localData->Hours.' Hrs '.$localData->PerHourKMS.' KM' ?></option>
 													<?php
 													}}
 													?>

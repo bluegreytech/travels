@@ -14,6 +14,19 @@ class Login_model extends CI_Model
       return $res;
     }
 
+    
+    function slider_list()
+    {
+      $where=array('IsDelete'=>'0','IsActive'=>'Active');
+      $this->db->select('*');
+      $this->db->from('tblslider');
+      $this->db->where($where);
+      $this->db->order_by('SliderId','desc');
+      $query=$this->db->get();
+      $res = $query->result();
+      return $res;
+    }
+
   function getcarbrandlist()
   {
     $where=array('IsDelete'=>'0','IsActive'=>'Active');

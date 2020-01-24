@@ -41,7 +41,8 @@ class Home extends CI_Controller
 			$data['localpackData']=$this->Login_model->local_pack();
 		}
 		
-		//print_r($data['localpackData']);die;
+		$data['sliderData']=$this->Login_model->slider_list();
+		//print_r($data['sliderData']);die;
 		$this->load->view('home/index',$data);			
 	}
 

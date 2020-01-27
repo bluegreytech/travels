@@ -10,7 +10,7 @@ class Testimonial extends CI_Controller {
       
     }
 
-	function Testimoniallist()
+	function testimoniallist()
 	{	
 		if(!check_admin_authentication()){ 
 			redirect(base_url());
@@ -21,7 +21,7 @@ class Testimonial extends CI_Controller {
 		}
 	}
 	
-	public function Testimonialadd()
+	public function testimonialadd()
 	{      
 		if(!check_admin_authentication()){ 
 			redirect(base_url());

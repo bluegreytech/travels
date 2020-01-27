@@ -14,6 +14,19 @@ class Login_model extends CI_Model
       return $res;
     }
 
+    
+    function slider_list()
+    {
+      $where=array('IsDelete'=>'0','IsActive'=>'Active');
+      $this->db->select('*');
+      $this->db->from('tblslider');
+      $this->db->where($where);
+      $this->db->order_by('SliderId','desc');
+      $query=$this->db->get();
+      $res = $query->result();
+      return $res;
+    }
+
   function getcarbrandlist()
   {
     $where=array('IsDelete'=>'0','IsActive'=>'Active');
@@ -154,24 +167,40 @@ class Login_model extends CI_Model
   
   function login()
   {
-       $data = array(
-        'ContactNumber'=>trim($this->input->post('ContactNumber')),   
-        'OTPNumber' =>$this->input->post('OTPNumber'),       
-        'CreatedOn'=>date('Y-m-d')    
-      );
-        //echo "<pre>";print_r($data);die;  
-        $res=$this->db->insert('tbluser',$data); 
-        return $res;         
+      $ContactNumber=$this->input->post('ContactNumber');
+      //$query=$this->db->get_where('tbluser',array('ContactNumber'=>$ContactNumber,'FirstName='=>'IS NULL'));
+      $select = "SELECT * FROM tbluser WHERE ContactNumber=$ContactNumber and FirstName IS NULL";
+      $query = $this->db->query($select);
+      $count = $query->num_rows();
+      if($count != 0)
+      {
+          $data = array(  
+            'OTPNumber' =>$this->input->post('OTPNumber')        
+          );
+          $this->db->where("ContactNumber",$ContactNumber);
+          $this->db->where("FirstName IS NULL");
+          $res=$this->db->update('tbluser',$data); 
+          return $res;    
+        }
+        else
+        {
+          $data = array(
+            'ContactNumber'=>trim($this->input->post('ContactNumber')),   
+            'OTPNumber' =>$this->input->post('OTPNumber'),       
+            'CreatedOn'=>date('Y-m-d')    
+          );
+          //echo "<pre>";print_r($data);die;  
+          $res=$this->db->insert('tbluser',$data); 
+          return $res;   
+        }      
   }
 
   function getuser()
   {
-    
     $ContactNumber=$this->input->post('ContactNumber');
     $where=array("ContactNumber"=>$ContactNumber,"OTPNumber!="=>'',"Status"=>'Pending');
     $this->db->select("*");
     $this->db->from("tbluser");
-    //$this->db->where("ContactNumber",$ContactNumber);
     $this->db->where($where);
     $query=$this->db->get();
     // echo $this->db->last_query();

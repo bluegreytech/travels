@@ -41,7 +41,8 @@ class Home extends CI_Controller
 			$data['localpackData']=$this->Login_model->local_pack();
 		}
 		
-		//print_r($data['localpackData']);die;
+		$data['sliderData']=$this->Login_model->slider_list();
+		//print_r($data['sliderData']);die;
 		$this->load->view('home/index',$data);			
 	}
 
@@ -140,7 +141,6 @@ class Home extends CI_Controller
 
 			if($this->input->post('ContactNumber')!='' && $this->input->post('OTPNumber')!='')
 			{	
-				// $rndno=rand(1000, 999999);
 				$to=$this->input->post('ContactNumber');
 				$message=$this->input->post('OTPNumber');
 				if($this->msg91->send($to, $message) == TRUE)  
@@ -398,11 +398,8 @@ class Home extends CI_Controller
 				$this->session->set_flashdata('success', 'Your feedback has been submitted Succesfully!');
 				redirect('home/userprofile');
 			}
-
-		}
-      	
+		} 	
     }
-
 
     function ajaxuserdata()
 	{	
@@ -412,104 +409,13 @@ class Home extends CI_Controller
 		//die;
 	}
 
-
 	function getlocalpack()
 	{
 		$result=$this->Login_model->getlocal_pack();
 		echo json_encode($result);
 	}
 
-	function dis()
-	{
-		//$data['about']=$this->About_model->getabout(); 	
-		//$data['result']=$this->Contact_model->getsitedetail();
-		$this->load->view('home/mmm');
-	}
-
-	// function getdistance()
-	// {
-
-	//     $address = urlencode('Ahmadabad');
-	//     $url = "http://maps.google.com/maps/api/geocode/json?address=$address&sensor=false&region=Anand";
-	//     $ch = curl_init();
-	//     curl_setopt($ch, CURLOPT_URL, $url);
-	//     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-	//     curl_setopt($ch, CURLOPT_PROXYPORT, 3128);
-	//     curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
-	//     curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
-	//     $response = curl_exec($ch);
-	//     curl_close($ch);
-	//     $response_a = json_decode($response);
-	//     $status = $response_a->status;
-
-	//     if ( $status == 'ZERO_RESULTS' )
-	//     {
-	//         return FALSE;
-	//     }
-	//     else
-	//     {
-	//         $return = array('lat' => $response_a->results[0]->geometry->location->lat, 'long' => $long = $response_a->results[0]->geometry->location->lng);
-	//         print_r($return);die;
-	//         return $return;
-	//     }
-
-	// }
-
-
-	// function getDistance($addressFrom, $addressTo, $unit = '')
-	// {
-		
-	//     // Google API key
-	//     $apiKey='AIzaSyAjBiTO0tUBWEYXRC_TtSq0BQDIQ4tk7gc';
-	    
-	//     // Change address format
-	//     $formattedAddrFrom=str_replace(' ', '+', $addressFrom);
-	//     $formattedAddrTo=str_replace(' ', '+', $addressTo);
-	    
-	//     // Geocoding API request with start address
-	//     echo $geocodeFrom = file_get_contents('https://maps.googleapis.com/maps/api/geocode/json?address='.$formattedAddrFrom.'&sensor=false&key='.$apiKey);
-	//     $outputFrom = json_decode($geocodeFrom);
-	//     if(!empty($outputFrom->error_message)){
-	//         return $outputFrom->error_message;
-	//     }
-	    
-	//     // Geocoding API request with end address
-	//     $geocodeTo = file_get_contents('https://maps.googleapis.com/maps/api/geocode/json?address='.$formattedAddrTo.'&sensor=false&key='.$apiKey);
-	//     $outputTo = json_decode($geocodeTo);
-	//     if(!empty($outputTo->error_message)){
-	//         return $outputTo->error_message;
-	//     }
-	    
-	//     // Get latitude and longitude from the geodata
-	//     $latitudeFrom    = $outputFrom->results[0]->geometry->location->lat;
-	//     $longitudeFrom    = $outputFrom->results[0]->geometry->location->lng;
-	//     $latitudeTo        = $outputTo->results[0]->geometry->location->lat;
-	//     $longitudeTo    = $outputTo->results[0]->geometry->location->lng;
-	    
-	//     // Calculate distance between latitude and longitude
-	//     $theta    = $longitudeFrom - $longitudeTo;
-	//     $dist    = sin(deg2rad($latitudeFrom)) * sin(deg2rad($latitudeTo)) +  cos(deg2rad($latitudeFrom)) * cos(deg2rad($latitudeTo)) * cos(deg2rad($theta));
-	//     $dist    = acos($dist);
-	//     $dist    = rad2deg($dist);
-	//     $miles    = $dist * 60 * 1.1515;
-	    
-	//     // Convert unit and return distance
-	//     $unit = strtoupper($unit);
-	//     if($unit == "K"){
-	//         return round($miles * 1.609344, 2).' km';
-	//     }elseif($unit == "M"){
-	//         echo round($miles * 1609.344, 2).' meters';
-	//         //die;
-	//     }else{
-	//         echo  round($miles, 2).' miles'; 
-	//        // die;
-	//     }
-	//     $address_1 = 'Anand,Gujrat';
-	// 	$address_2  = 'Ahmedabad,Gujrat';
-
-	// // Get distance in km
-	// echo $distance = getDistance($address_1, $address_2, "K");
-	// }
 	
-	
+
+
 }
